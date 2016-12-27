@@ -1,0 +1,121 @@
+body, html {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'sofia-pro';
+}
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.full-bg {
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  position: relative;
+}
+
+.landing {
+  background: url("../img/juggling-bg1-1.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.landing-content {
+  text-align: center;
+  color: white;
+}
+
+.navbar {
+  height: 100px;
+  text-align: right;
+  padding: 0 5%;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  height: 100px;
+  font-size: 1.1em;
+}
+
+.brand {
+  height: 100px;
+}
+
+.navbar-default {
+  background: transparent;
+  border: none;
+}
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:active {
+  background: none;
+  box-shadow: none;
+}
+
+.navbar-nav > li {
+  padding: 2.5em 0.5em;
+  height: 100px;
+}
+.navbar-nav > li a {
+  height: 20px;
+}
+
+.container-arrow {
+  position: relative;
+}
+
+.arrow-wrapper {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: -7em;
+}
+
+.big-logo {
+  width: 30vw;
+  margin: 0 auto;
+}
+
+.chevron-down1 {
+  color: white;
+  opacity: 1.8;
+  top: -5px;
+}
+
+.chevron-down2 {
+  color: white;
+  opacity: 0.9;
+  top: -10px;
+}
+
+.chevron-down3 {
+  color: white;
+  opacity: 0.6;
+  top: -15px;
+}
+
+.chevron-down1 {
+  color: white;
+  opacity: 1;
+  animation: chevron-down1 2.8s 0.4s;
+  animation-delay: 3s;
+  -webkit-animation: chevron-down1 2.8s 0.4s;
+  -webkit-animation-delay: 3s;
+}
+
+.btn-pilki {
+  color: white;
+  background-color: transparent;
+  border-color: lightblue;
+}

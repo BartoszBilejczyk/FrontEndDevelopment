@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#71CAC9;}
+	.st1{filter:url(#Adobe_OpacityMaskFilter);}
+	.st2{mask:url(#SVGID_1_);}
+	.st3{opacity:0.2;}
+	.st4{fill:#231F20;}
+	.st5{fill:#FFFFFF;}
+	.st6{fill:#12141B;}
+</style>
+<circle class="st0" cx="149.9" cy="151.2" r="139.2"/>
+<g id="Layer_1_1_">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="10.7" y="11.8" width="278.5" height="278.5">
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="10.7" y="11.8" width="278.5" height="278.5" id="SVGID_1_">
+	</mask>
+	<g class="st2">
+		<circle class="st0" cx="149.9" cy="151.1" r="139.2"/>
+	</g>
+	<g class="st3">
+		<circle class="st4" cx="149.9" cy="159.8" r="87"/>
+	</g>
+	<g>
+		<circle class="st5" cx="149.9" cy="151.1" r="87"/>
+	</g>
+	<g>
+		<circle class="st0" cx="149.9" cy="151.1" r="52.2"/>
+	</g>
+	<g>
+		<circle class="st6" cx="149.9" cy="151.1" r="17.4"/>
+	</g>
+	<g>
+		<circle class="st5" cx="158.6" cy="142.4" r="8.7"/>
+	</g>
+	<g>
+		<circle class="st5" cx="184.7" cy="116.2" r="17.4"/>
+	</g>
+</g>
+</svg>
