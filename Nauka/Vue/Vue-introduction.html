@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS app</title>
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <p>{{ sthWritten() }} - please give an input </p>
+
+        <input type="text" v-on:input="changeTitle"><br><br>
+
+        <a v-bind:href="link">This is your search</a>
+
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: "Hello!",
+                link: "http://google.com/" + this.title
+            },
+            methods: {
+                sthWritten: function () {
+                    return this.title;
+                }
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>
