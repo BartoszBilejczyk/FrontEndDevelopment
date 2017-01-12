@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS app</title>
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+    <style>
+        button {
+            display: block;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <p v-if="show">This paragraph is visible. <span>But is it, really?</span></p>
+        <!-- This p is visible because show is true. If it's not, it is detached, removed from DOM. If something is nested, it's also detached -->
+        <p v-else>Oops, where did I come from?</p>
+        <!-- v-else looks at the latest v-if and when this latest v-if is false, it renders. -->
+
+        <p v-show="show">This paragraph is not detached from DOM, it's display is set to none when not visible.</p>
+        <!-- v-show doesn't detach it, just hides with display: none -->
+        <button @click="show = !show">Hide the default paragraph</button>
+        <hr>
+        <template v-if="visible">
+            <!-- Why template? It is just something like a div (not visible in DOM), so that we don't see it in DOM, but it's good to use v-if for it. -->
+            <h1>This is a heading</h1>
+            <p>This is a paragraph</p>
+        </template>
+
+        <button @click="visible =! visible">Hide or show the second part</button>
+        <hr>
+
+        <h1>TIME FOR LISTS</h1>
+        <h2>Our winners are (places in contest)</h2>
+        <ul>
+            <li v-for="(name, place) in names">{{ name }} ({{ place + 1 }})</li>
+        </ul>
+
+        <hr>
+
+        <h1>Another way to make almost the same list</h1>
+
+        <template v-for="(name, place) in names">
+            <!-- this is for non-nested elements -->
+            <h4>Our contestant: {{ name }}</h4>
+            <h5>Place in the contest: {{ place }}</h5>
+        </template>
+        <hr>
+        <h1>Looping through objects</h1>
+
+        <ul>
+            <li v-for="person in people">{{ person.name }} is {{ person.age }} years old and comes from {{ person.city }}</li>
+        </ul>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: true,
+                visible: true,
+                names: ["Joe", "Joanna", "James", "Janine"],
+                people: [
+                    {name: "Joanna", age: 22, city: "Warsaw"},
+                    {name: "Joe", age: 32, city: "Los Angeles"},
+                ]
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>
