@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+
+</head>
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+<style>
+    div {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    #effect {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        transition: all 1s
+    }
+
+    #give-class {
+        display: flex;
+        align-items: center;
+    }
+
+    button {
+        padding: 1em;
+        background: white;
+        border-radius: 2em;
+        border: 1px solid black;
+    }
+
+    .highlight {
+        background-color: limegreen !important;
+        width: 200px !important;
+    }
+
+    .shrink {
+        background-color: lawngreen !important;
+        width: 50px !important;
+    }
+
+    .small-shadow {
+        -webkit-box-shadow: 2px 2px 15px black;
+        box-shadow: 2px 2px 15px black;
+    }
+
+    .right-float {
+        float: right;
+    }
+
+    .box {
+        height: 100px;
+        width: 100px;
+        transition: all 1s;
+        display: block;
+        border: 1px solid lightgrey
+    }
+
+    .bg-red {
+        background-color: red !important;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<body>
+
+
+    <div id="exercise">
+        <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+        <div>
+            <button @click="startEffect">Start Effect</button>
+            <div id="effect" :class="alternatingClasses"></div>
+        </div>
+        <hr>
+        <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+        <div id="give-class" :class="['bg-red', 'small-shadow']">Already has classes</div>
+        <hr>
+        <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+        <div>
+            <p>Available classes: bg-red, right-float small-shadow, shrink, highlight</p>
+            <input type="text" v-model="userClass" placeholder="Choose a class">
+            <div v-bind:class="[{box: true}, userClass]"></div>
+        </div>
+        <hr>
+        <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+        <div>
+            <p>Available classes: bg-red, right-float small-shadow, shrink, highlight</p>
+            <input type="text" v-model="userClass">
+            <br>
+            <p>Do you want the square to be red?</p>
+            <button @click="setTrue()">Yes</button>
+            <button @click="setFalse()">No</button>
+            <div :class="[{box: true}, {'bg-red': isRed}, userClass]"></div>
+        </div>
+        <hr>
+        <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+        <div>
+            <input type="text" v-model="myStyles.backgroundColor" placeholder="Choose your color">
+            <div :style="myStyles"></div>
+        </div>
+        <hr>
+        <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+        <div>
+            <button @click="startProgressBar">Start Progress</button>
+
+            <div :style="progressBar"></div>
+        </div>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#exercise",
+            data: {
+                alternatingClasses: {
+                    highlight: false,
+                    shrink: true
+                },
+                userClass: '',
+                isRed: false,
+                myStyles: {
+                    width: 300 + 'px',
+                    height: 300 + 'px',
+                    backgroundColor: '',
+                    border: '1px solid black'
+                },
+                progressBar: {
+                    width: '30px',
+                    height: '30px',
+                    background: 'yellow'
+                }
+            },
+            methods: {
+                startEffect: function () {
+                    var th = this;
+                    setInterval(function () {
+                        th.alternatingClasses.highlight = !th.alternatingClasses.highlight,
+                            th.alternatingClasses.shrink = !th.alternatingClasses.shrink
+                    }, 700, true)
+                },
+                setTrue() {
+                    this.isRed = true;
+                },
+                setFalse() {
+                    this.isRed = false;
+                },
+                startProgressBar() {
+                    var th = this;
+                    var barWidth = 30;
+
+
+                    var barInterval = setInterval(function () {
+                        barWidth += 1;
+                        th.progressBar.width = barWidth + 'px';
+                    }, 5);
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS app</title>
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            background-color: lightgrey;
+            transition: all 1s;
+        }
+
+        .big {
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+
+        .bordering {
+            border: 1px solid black
+        }
+
+        .small-shadow {
+            -webkit-box-shadow: 3px 3px 3px black;
+            box-shadow: 3px 3px 3px black;
+        }
+
+        .big-shadow {
+            -webkit-box-shadow: 5px 5px 10px black;
+            box-shadow: 5px 5px 10px black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <!--  -->
+        <div class="box" @click="attachBig = !attachBig, attachBorder = !attachBorder" :class="boxClass"></div>
+        <div class="box" @click="attachBorder" :class="boxClass"></div>
+        <div class="box" :class="[shadow, boxClass]"></div> <!-- add color class (which is green in the template until I change it through the input) -->
+        <hr>
+        <input type="text" v-model="shadow"> <!-- it will output small-shadow and then I can change it two-ways whatever I want -->
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                attachBig: false,  // Set this to false, so that the click sets it to true
+                attachBorder: false,
+                shadow: 'small-shadow'
+            },
+            computed: {
+
+                boxClass: function () {
+                    return {
+                        big: this.attachBig,  // after click it is big: true so big is added to the classes thanks to binding through :class="boxClass"  big is the key, and true or false is the value whether to apply it or not
+                        bordering: this.attachBorder
+                    }
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

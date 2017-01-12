@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS app</title>
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            background-color: lightgrey;
+            transition: all 1s;
+        }
+        input, label {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- apply a style to the first box - only inline style, not changed by template-->
+        <div class="box" :style="{border: bordering}"></div>
+        <!-- apply a style to the first box - through computed -->
+        <div class="box" :style="myStyles"></div>
+        <!-- apply a style to the first box - array, computed and style -->
+        <div class="box" :style="[myStyles, {height: width + 'px'}]"></div>
+        <hr>
+        <label for="background">Choose your background</label>
+            <input name="background" type="text" v-model="bgcolor">
+        <label for="width">Choose your width</label>
+            <input name="width" type="text" v-model="width">
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                bordering: '1px solid black',
+                bgcolor: 'blue',
+                width: 200
+            },
+            computed: {
+                myStyles: function() {
+                    return {
+                        backgroundColor: this.bgcolor,
+                        width: this.width + "px"
+                    };
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>
