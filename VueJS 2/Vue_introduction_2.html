@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS app</title>
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <button v-on:click="increaseCounter(6)">Click me</button> <!-- listen to the button, if it's clicked, use the function increase() v-bind is like we want to pass data to the template. v-on is like opposite, we listen to something to receive data from template -->
+        <button v-on:click="increaseCounter(1)">Click me</button>
+        <p>{{counter}}, {{counter > 20 ? " which is more than 20" : " which is smaller or equal to 20"}}</p>  <!-- v- something are directives -->
+        <p v-on:mousemove="changeCoords">Check for coordinates: {{ x }} / {{ y }}
+            <span v-on:mousemove.stop="">STOP THE COORDINATES</span>
+<!--.stop stands for stopPropagation(). There is also .prevent for .preventDefault().-->
+        </p>
+        <p>Check what happens if you type something and hit Enter or Space</p>
+        <input type="text" v-on:keyup.enter.space="alertUser">
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                counter: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                increaseCounter: function(move) {
+                    this.counter += move;
+
+
+                },
+                changeCoords: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                alertUser: function() {
+                    alert("You hit Enter or Space");
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+    <div>
+        <input type="text" v-model="age"> <!-- what does v-model do? It binds two-way. Takes age, but when I change it in browser, it modifies it in the template and of course everywhere where I used it  -->
+        <p>{{ age }}</p>
+    </div>
+    <div>
+        <button v-on:click="firstCounter++">Increase</button>
+        <button v-on:click="firstCounter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase Second</button>
+        <p>{{ firstCounter }} | {{ secondCounter }}</p>
+        <p>{{ output }} | {{ result() }}</p>
+    </div>
+    <div>
+        <button @click="changeLink">Change Link</button> <!-- @ is the same as v-on -->
+        <a :href="link">Go to the link</a> <!-- : is the same as v-bind:, TAKE A LOOK AT DATA PROPERTY FROM TEMPLATE -->
+    </div>
+</div>
+
+
+
+<script>
+
+    new Vue ({
+        el: "#app",
+        data: {
+            age: 20,
+            firstCounter: 0,
+            secondCounter: 0,
+            link: 'http://google.com'
+        },
+        computed: {  // Why use computed? IT IS DEPENDENT PROPERTIES - Computed listens to the DOM, and gets fired only when it's needed. Everything stored in computed can be used like thinds in data object (without () - output without ()) If it was used
+            // in methods then it would be used every time, as methods don't know what's going on in the DOM. If there was another counter, computed would know that we're not interested in SecondCounter
+            // computed caches the result.
+            output() {
+                console.log("Output activated");
+                return this.firstCounter > 5 ? "Greater than 5" : "Smaller or equal to 5";
+            }
+        },
+        methods: {
+            result() {
+                console.log("Result activated");
+                return this.secondCounter > 5 ? "Greater than 10" : "Smaller or equal to 10";
+            },
+            changeLink() {
+                console.log("Link changed");
+                this.link = "http://sportowefakty.pl";
+            }
+        },
+        watch: { // What it does it takes a look at some data and executes our code when it changes.
+            firstCounter: function() {  // has to match a data element
+                var th = this; // have to use this earlier, because if we use it in setTimeout  below it won't know what THIS is.
+                setTimeout(function () {
+                    th.firstCounter = 0;
+                }, 5000)
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

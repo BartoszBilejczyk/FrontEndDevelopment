@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="exercise">
+        <!-- 1) Show a "result" of 'not there yet' as long as "value" is not equal to 37 - you can change "value" with the buttons. Print 'done' once you did it -->
+        <div>
+            <h3>You have 5 seconds to guess the right number.</h3>
+            <p>Current Value: {{ value }}</p>
+            <button @click="value += 5">Add 5</button>
+            <button @click="value += 1">Add 1</button>
+            <p>{{ result }}</p>
+        </div>
+        <!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->
+        <div>
+            <input type="text">
+            <p>{{ value }}</p>
+        </div>
+    </div>
+
+    <script>
+        new Vue ({
+            el: "#exercise",
+            data: {
+                value: 0
+            },
+            computed: {
+                result() {
+                    console.log("result computation activated (just checking)");
+                    return this.value === 37 ? "done" : "not there yet";
+                }
+            },
+            watch: {
+                result: function(value) {
+                    var th= this;
+                    setTimeout(function() {
+                        th.value = 0;
+                    }, 5000) // every 5 seconds set the value to 0
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
