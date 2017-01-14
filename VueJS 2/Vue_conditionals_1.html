@@ -38,8 +38,9 @@
         <h1>TIME FOR LISTS</h1>
         <h2>Our winners are (places in contest)</h2>
         <ul>
-            <li v-for="(name, place) in names">{{ name }} ({{ place + 1 }})</li>
+            <li v-for="(name, place) in names" :key="name">{{ name }} ({{ place + 1 }})</li> <!-- what is :key="name"? Here it takes track of new items. If we were to reorder sth it will take elements and reorder and not overwrite. important if there are some bugs -->
         </ul>
+        <button @click="names.push('another person')">Add another person</button>
 
         <hr>
 
@@ -56,6 +57,18 @@
         <ul>
             <li v-for="person in people">{{ person.name }} is {{ person.age }} years old and comes from {{ person.city }}</li>
         </ul>
+        <ul>
+            <li v-for="person in people">
+                <div v-for="(value, key, index) in person ">({{ index + 1 }}) {{ key }}: {{ value }}</div>
+            </li>
+        </ul>
+
+        <hr>
+
+        <template v-for="i in 10">
+            <span>{{ i }}</span>
+            <br>
+        </template>
     </div>
 
 

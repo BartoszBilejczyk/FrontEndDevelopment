@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="exercise">
+        <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+        <div>
+            <button @click="toggleParagraphs">Toggle</button>
+            <p v-if="existing">You either see me ...</p>
+            <p v-else>...or me</p>
+            <p v-show="show">You either see me ...</p>
+            <p v-else>...or me</p>
+        </div>
+        <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+        <ul>
+            <li v-for="(receipt, index) in receipts">{{receipt}} ({{index}})</li>
+        </ul>
+        <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+        <ul>
+            <li v-for="book in books">
+                <div v-for="(value, key, index) in book">{{key}}: {{value}} ({{index + 1}})</div>
+            </li>
+        </ul>
+        <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+        <ul>
+            <li v-for="value in testingObjects">
+                <template v-if="Array.isArray(value)"><!--The Array.isArray() determines whether the passed value is an Array.-->
+                    <div v-for="thing in value">{{thing}}</div> <!-- it won't print the name, but will print the data -->
+                </template>
+
+                <template v-else>
+                    {{ value }}
+                </template>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <script>
+        new Vue ({
+            el: "#exercise",
+            data: {
+                existing: true,
+                show: true,
+                receipts: ['carrots', 'apples', 'bananas'],
+                books: [{title: 'Lord of the Rings', author: "J.R.R Tolkiens", books: '3'}],
+                testingObjects: [{name: "TESTOBJECT", data: [1.67, 1.33, 0.8, 2.21]}]
+            },
+            methods: {
+                toggleParagraphs() {
+                    this.existing = !this.existing;
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
