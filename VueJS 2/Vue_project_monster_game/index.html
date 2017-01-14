@@ -39,7 +39,7 @@
 
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-4">
-                        <img alt="" class="img-player img-responsive" :style="playerHealth > 50 ? playerStrong : (playerHealth > 25 ? playerWounded : playerWeak)">
+                        <img :src="playerHealth > 50 ? playerStrong : (playerHealth > 25 ? playerWounded : playerWeak)" alt="" class="img-player img-responsive" >
                         <h3>{{playerName}}</h3>
                         <div class="hp-bar-wrapper z-depth-3">
                             <div
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-4">
-                        <img alt="" class="img-monster img-responsive" :style="monsterHealth > 50 ? monsterStrong : (monsterHealth > 25 ? monsterWounded : monsterWeak)">
+                        <img :src="monsterHealth > 50 ? monsterStrong : (monsterHealth > 25 ? monsterWounded : monsterWeak)" alt="" class="img-monster img-responsive">
                         <h3>MONSTER</h3>
                         <div class="hp-bar-wrapper z-depth-3">
                             <div

@@ -17,24 +17,12 @@ new Vue({
         wounded: 'wounded',
         weak: 'weak',
         rounds: [],
-        playerStrong: {
-            content: "url('http://combiboilersleeds.com/images/strong-man/strong-man-8.jpg')"
-        },
-        playerWounded: {
-            content: "url('https://s-media-cache-ak0.pinimg.com/originals/ff/b7/1b/ffb71b573db815c33a9a947c81fef676.jpg')"
-        },
-        playerWeak: {
-            content: "url('http://assets1.ignimgs.com/2014/05/18/girl-zombie-the-walking-dead-amc-tv-show-imagejpg-95852b_1280w.jpg')"
-        },
-        monsterStrong: {
-            content: "url('http://previews.123rf.com/images/zooco/zooco1410/zooco141000027/32500852-Green-monster-in-minimalist-style-with-a-stitched-wound-on-his-head-bolts-through-his-neck-funny-hai-Stock-Vector.jpg')"
-        },
-        monsterWounded: {
-            content: 'url("http://previews.123rf.com/images/zooco/zooco1410/zooco141000024/32500847-Green-monster-in-minimalist-style-with-a-stitched-wound-on-his-head-bolts-through-his-neck-funny-hai-Stock-Vector.jpg")'
-        },
-        monsterWeak: {
-            content: 'url("http://www.clipartkid.com/images/518/cute-monster-in-minimalist-style-with-green-skin-a-stitched-wound-on-yFvuov-clipart.jpg")'
-        },
+        playerStrong: 'http://www.mmarocks.pl/wp-content/uploads/2016/12/pudz.jpg',
+        playerWounded: 'https://s-media-cache-ak0.pinimg.com/originals/ff/b7/1b/ffb71b573db815c33a9a947c81fef676.jpg',
+        playerWeak: 'http://assets1.ignimgs.com/2014/05/18/girl-zombie-the-walking-dead-amc-tv-show-imagejpg-95852b_1280w.jpg',
+        monsterStrong: 'http://previews.123rf.com/images/zooco/zooco1410/zooco141000027/32500852-Green-monster-in-minimalist-style-with-a-stitched-wound-on-his-head-bolts-through-his-neck-funny-hai-Stock-Vector.jpg',
+        monsterWounded: 'http://previews.123rf.com/images/zooco/zooco1410/zooco141000024/32500847-Green-monster-in-minimalist-style-with-a-stitched-wound-on-his-head-bolts-through-his-neck-funny-hai-Stock-Vector.jpg',
+        monsterWeak: 'http://www.clipartkid.com/images/518/cute-monster-in-minimalist-style-with-green-skin-a-stitched-wound-on-yFvuov-clipart.jpg'
     },
 
     computed: {
