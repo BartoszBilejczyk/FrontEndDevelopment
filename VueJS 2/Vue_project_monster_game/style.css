@@ -12,21 +12,16 @@ section {
     margin: 30px 0;
 }
 
-.img-player {
-    max-height: 200px;
-    margin: 0 auto;
-}
-
-.img-monster {
+img {
     max-height: 200px;
     margin: 0 auto;
 }
 
 .btn {
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin: 5px;
     line-height: 0;
-    padding: 30px;
+    padding: 10px;
 }
 
 .hp-bar-wrapper {
@@ -72,4 +67,17 @@ input[type=text] {
 .log > li {
     margin: 1em;
     padding: 0.5em;
+}
+
+@media (min-width: 768px) {
+    .players {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    img {
+        max-height: 100px;
+    }
 }

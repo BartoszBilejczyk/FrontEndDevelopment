@@ -85,7 +85,7 @@ new Vue({
                 this.monsterHealth -= playerHealingAttack;
 
                 this.rounds.unshift({
-
+                    text: ["Your attack hits monster for " + playerHealingAttack + " and you heal with " + playerHeal, "Monster hits you for" + monsterAttack]
                 })
 
                 if (this.winner()) {

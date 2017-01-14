@@ -20,17 +20,25 @@
             <div class="container">
                 <div class="row text-center players">
                     <div class="col-xs-12 col-sm-12 col-md-4">
-                        <h2>Hey, welcome to the game. Good luck.</h2> <br>
+                        <h2>Hey, welcome to the game. Good luck.</h2>
                         <input type="text" v-model="playerName" placeholder="Choose your nickname">
                         <input type="text" v-model="playerColor" placeholder="Choose your favorite color">
+                        <!-- if game is not running -->
                         <div v-if="!gameRunning">
                             <button @click="gameRunning = !gameRunning, restore()" class="btn btn-large btn-success">START GAME</button>
+                        </div>
+                        <!-- if game is running -->
+                        <div v-if="gameRunning">
+                            <button @click="{attack(), fadeOuting()}" class="btn btn-warning" id="attack">ATTACK</button>
+                            <button @click="specialAttack()" class="btn btn-danger" id="special-attack">SPECIAL ATTACK</button>
+                            <button @click="heal()" class="btn btn-info" id="heal">HEAL</button>
+                            <button @click="giveUp()" class="btn btn-default" id="give-up">GIVE UP</button>
                         </div>
 <br><br>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-4">
                         <img alt="" class="img-player img-responsive" :style="playerHealth > 50 ? playerStrong : (playerHealth > 25 ? playerWounded : playerWeak)">
-                        <h1>{{playerName}}</h1>
+                        <h3>{{playerName}}</h3>
                         <div class="hp-bar-wrapper z-depth-3">
                             <div
                                 class="hp-bar"
@@ -43,7 +51,7 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-4">
                         <img alt="" class="img-monster img-responsive" :style="monsterHealth > 50 ? monsterStrong : (monsterHealth > 25 ? monsterWounded : monsterWeak)">
-                        <h1>MONSTER</h1>
+                        <h3>MONSTER</h3>
                         <div class="hp-bar-wrapper z-depth-3">
                             <div
                                 class="hp-bar"
@@ -59,16 +67,6 @@
         </section>
 
 
-        <section v-if="gameRunning" class="controls">
-            <div class="container">
-                <div class="row text-center">
-                    <button @click="{attack(), fadeOuting()}" class="btn btn-warning" id="attack">ATTACK</button>
-                    <button @click="specialAttack()" class="btn btn-danger" id="special-attack">SPECIAL ATTACK</button>
-                    <button @click="heal()" class="btn btn-info" id="heal">HEAL</button>
-                    <button @click="giveUp()" class="btn btn-default" id="give-up">GIVE UP</button>
-                </div>
-            </div>
-        </section>
 
         <section class="logs">
             <div class="container">
