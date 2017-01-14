@@ -107,6 +107,10 @@ body {
     color: white;
 }
 
+h1 {
+    font-size: 3em;
+}
+
 .greeny {
     color: $supergreen;
 }
@@ -142,6 +146,15 @@ body {
     font-size: 4em;
 }
 
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.7em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+}
 
 
 /* ==========================================================================
@@ -219,6 +232,23 @@ $time-font-size: 50px;
     .dots {
         display: none;
     }
+
+    .time {
+        font-size: $time-font-size / 1.6;
+        &-circle {
+            width: $time-circle / 1.6;
+            height: $time-circle / 1.6;
+        }
+        &-label {
+            bottom: 10px;
+        }
+    }
+    .progress {
+        width: $time-circle / 1.6 + 6;
+        height: $time-circle / 1.6 + 6;
+    }
+
+
 }
 
 

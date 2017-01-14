@@ -97,6 +97,10 @@ body {
   color: white;
 }
 
+h1 {
+  font-size: 3em;
+}
+
 .greeny {
   color: #24dd2d;
 }
@@ -129,6 +133,15 @@ body {
   font-size: 4em;
 }
 
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.7em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+}
 /* ==========================================================================
    Countdown classes
    ========================================================================== */
@@ -198,6 +211,22 @@ body {
 @media screen and (max-width: 768px) {
   .dots {
     display: none;
+  }
+
+  .time {
+    font-size: 31.25px;
+  }
+  .time-circle {
+    width: 75px;
+    height: 75px;
+  }
+  .time-label {
+    bottom: 10px;
+  }
+
+  .progress {
+    width: 81px;
+    height: 81px;
   }
 }
 /* ==========================================================================
