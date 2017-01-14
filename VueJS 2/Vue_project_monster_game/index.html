@@ -28,13 +28,15 @@
                             <button @click="gameRunning = !gameRunning, restore()" class="btn btn-large btn-success">START GAME</button>
                         </div>
                         <!-- if game is running -->
+                        <section>
                         <div v-if="gameRunning">
                             <button @click="{attack(), fadeOuting()}" class="btn btn-warning" id="attack">ATTACK</button>
                             <button @click="specialAttack()" class="btn btn-danger" id="special-attack">SPECIAL ATTACK</button>
                             <button @click="heal()" class="btn btn-info" id="heal">HEAL</button>
                             <button @click="giveUp()" class="btn btn-default" id="give-up">GIVE UP</button>
                         </div>
-<br><br>
+                        </section>
+
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-4">
                         <img alt="" class="img-player img-responsive" :style="playerHealth > 50 ? playerStrong : (playerHealth > 25 ? playerWounded : playerWeak)">
