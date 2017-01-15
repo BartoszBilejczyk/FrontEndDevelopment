@@ -7,7 +7,7 @@
 new Vue({
     el: '#app',
     data: {
-        playerName: '',
+        playerName: 's',
         playerColor: '',
         playerHealth: 100,
         monsterHealth: 100,
