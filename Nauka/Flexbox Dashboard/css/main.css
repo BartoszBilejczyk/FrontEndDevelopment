@@ -15,9 +15,6 @@ html {
   line-height: 1.4;
   max-width: 100%; }
 
-html, body, section {
-  height: 100%; }
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -81,115 +78,124 @@ textarea {
   padding: 0.2em 0; }
 
 /* ==========================================================================
-   Input div styles
+   User  styles
    ========================================================================== */
-.inputs-wrapper {
-  background-color: #333333;
-  width: 33.333333%;
-  color: white;
-  height: 100%; }
-
-.heading-wrapper {
-  background: #000000;
-  height: 150px;
+body {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 2px 10px #111; }
+  margin: 0; }
 
-.fab-wrapper {
-  position: relative; }
+nav {
+  height: 100vh;
+  width: 20%;
+  background-color: #222;
+  color: lawngreen;
+  box-shadow: 0 3px 20px #bbb; }
 
-.fab {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background-color: #2bbbad;
-  bottom: -26px;
-  left: 30px;
-  box-shadow: 2px 1px 15px #222222;
-  transition: all 0.7s; }
-
-.fab:after {
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(3);
-  transform-origin: center;
-  content: '+'; }
-
-.fabRotate {
-  transform: rotate(90deg); }
-
-.inputs {
-  padding: 30px;
-  box-shadow: 3px 3px 20px #aaa;
-  height: calc(100% - 150px); }
-
-input[type=text] {
-  margin-bottom: 50px; }
-
-label {
-  margin-bottom: 5px; }
-  label:first-child {
-    margin-top: 40px; }
-
-/* ==========================================================================
-   Receipts div styles
-   ========================================================================== */
-.receipts-wrapper {
-  width: 66.66666%;
-  padding: 1rem;
+nav ul, main {
   display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
+  flex-direction: column;
   justify-content: space-around;
-  padding: 40px;
-  box-shadow: 3px 3px 20px #cccccc; }
+  align-items: center; }
 
-.receipt {
-  background-color: white;
-  padding: 10px 25px;
-  box-shadow: 3px 3px 20px #cccccc;
-  margin: 20px; }
+nav ul {
+  height: 50%;
+  width: 100%;
+  margin: 0;
+  list-style-type: none;
+  padding: 0; }
 
-.time-wrapper {
-  padding: 0 8px;
-  margin: 20px 0; }
+nav img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  cursor: pointer; }
 
-th, td {
-  padding: 4px 8px; }
+#hamburger {
+  display: none; }
 
-.td-right {
-  text-align: right; }
+main {
+  width: 80%;
+  height: 100vh;
+  background: #fff; }
 
-/* ==========================================================================
-    transition styles
-   ========================================================================== */
-/* ==========================================================================
-    User main styles
-   ========================================================================== */
-.wrapper {
-  display: flex; }
+section {
+  height: 30%;
+  width: 90%; }
 
-.buttons {
+.single-chart-section {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: center;
+  align-items: center; }
+  .single-chart-section div {
+    height: 80%;
+    width: 95%;
+    box-shadow: 0 3px 20px #bbb; }
 
-button {
-  padding: 1em;
-  margin-left: 20px; }
+.bar-chart-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .bar-chart-section div {
+    height: 80%;
+    width: 20%;
+    box-shadow: 0 3px 20px #bbb; }
 
 /* ==========================================================================
    Media classes
    ========================================================================== */
-@media screen and (max-width: 767px) {
-  .wrapper {
-    flex-direction: column; }
+@media screen and (max-width: 768px) {
+  nav {
+    display: none; }
 
-  .part {
-    width: 100%; } }
+  #hamburger {
+    display: flex;
+    align-self: flex-end;
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-503/Hamburger%204.png); }
+    #hamburger ul {
+      display: none; }
+      #hamburger ul li {
+        margin-top: 65px;
+        padding: 10px; }
+
+  .hamburger-items.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-color: #333;
+    opacity: .8;
+    color: #fff;
+    font-size: 24px;
+    list-style-type: none;
+    text-decoration: underline;
+    z-index: 9999;
+    /*FLEX STUFF*/
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+  main {
+    height: 2000px;
+    width: 100%; }
+
+  section:first-of-type, section:nth-of-type(3) {
+    height: 20%; }
+
+  section:nth-of-type(2) {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+
+  .bar-chart-section {
+    height: 20%;
+    width: 90%; } }
 /* ==========================================================================
    Helper classes
    ========================================================================== */
