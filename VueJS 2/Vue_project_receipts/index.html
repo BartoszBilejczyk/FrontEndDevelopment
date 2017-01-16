@@ -32,27 +32,28 @@
                     </div>
                 </div>
 
-                <div class="fab" @click="showInputs()"><span class="glyphicon glyphicon-plus fab-plus"></span></div>
+                <div class="fab" @click="{showInputs(), attachRotation = true}" :class="fabRotation"></div>
 
             </div>
             <transition name="fade"></transition>
-            <div class="inputs" v-if="inputsVisible">
-                <label for="product">Product</label>
-                <input type="text" name="product" v-model='productInput' v-on:keyup="storeProductInput($event)">
-                <br>
+            <div class="inputs">
+                <div v-if="inputsVisible">
+                    <label for="product">Product</label>
+                    <input type="text" name="product" v-model='productInput' v-on:keyup="storeProductInput($event)">
+                    <br>
 
-                <label for="quantity">Quantity</label>
-                <input type="text" name="quantity" v-model='quantityInput'>
-                <br>
+                    <label for="quantity">Quantity</label>
+                    <input type="text" name="quantity" v-model='quantityInput'>
+                    <br>
 
-                <label for="price">Price</label>
-                <input type="text" name="price" v-model='priceInput'>
-                <br>
-                <div class="buttons">
-                    <button class="btn-large" @click="inputsVisible =!inputsVisible">Anuluj</button>
-                    <button class="btn-large" @click="addNewItem()">Dodaj</button>
+                    <label for="price">Price</label>
+                    <input type="text" name="price" v-model='priceInput'>
+                    <br>
+                    <div class="buttons">
+                        <button class="btn-large" @click="{inputsVisible =!inputsVisible, attachRotation =! attachRotation}">Anuluj</button>
+                        <button class="btn-large" @click="addNewItem()">Dodaj</button>
+                    </div>
                 </div>
-
             </div>
         </div>
 
@@ -60,7 +61,7 @@
             <div class="receipt">
                 <h2 class="text-center">{{title}}</h2>
                 <p class="text-center">Al. Jerozolimskie 152, 00-112 Warszawa</p>
-                <div class="time-wrapper"><span class="text-left">Rachunek nr 1252</span><span class="pull-right">20/01/2016, 12:36</span></div>
+                <div class="time-wrapper"><span class="text-left">Rachunek nr {{receiptId}}</span><span class="pull-right">{{date}}</span></div>
                 <table class="receipt-body">
                     <thead>
                         <tr>
@@ -82,43 +83,22 @@
                     <tfoot>
                         <tr>
                             <td colspan="2"></td>
-                            <td colspan="3"><hr></td>
-                        </tr>
-                        <tr>
-                            <td colspan="5">
-                                <span class="pull-right">SUMA: 7.96zł</span></p>
+                            <td colspan="3">
+                                <hr>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="5">
-                                <span>W tym VAT: 0.64zł</span>
+                                <span class="pull-right">SUMA: {{total}}</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <span>W tym VAT: {{vatValue}}</span>
                             </td>
                         </tr>
                     </tfoot>
                 </table>
-            </div>
-            <div class="receipt">
-                <h2>COŚ</h2>
-                <p>COŚ</p>
-                <span>COŚ</span>
-                <span>COŚ</span>
-                <table>
-                    <tr>
-                        <th>coś</th>
-                        <th>coś</th>
-                        <th>coś</th>
-                        <th>coś</th>
-                        <th>coś</th>
-                    </tr>
-                    <tr>
-                        <td>coś tam</td>
-                        <td>coś tam</td>
-                        <td>coś tam</td>
-                        <td>coś tam</td>
-                        <td>coś tam</td>
-                    </tr>
-                </table>
-                <p></p>
             </div>
         </div>
         </div>
@@ -130,15 +110,14 @@
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
 
-   <script>
-
-
-new Vue ({
-    el: '#app',
-    data: {
-        title: 'titlte';
-    }
-})</script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'titlte';
+            }
+        })
+    </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function (b, o, i, l, e, r) {

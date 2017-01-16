@@ -20,7 +20,7 @@ html {
 }
 
 html, body, section {
-    height: 100%;
+    height: 100% !important;
 }
 
 /*
@@ -103,11 +103,12 @@ textarea {
    Input div styles
    ========================================================================== */
 
-$shadow-length: 6px;
+$shadow-length: 2px;
 .inputs-wrapper {
     background-color: #333333;
     width: 33.333333%;
     color: white;
+    height: 100%
 }
 
 .heading-wrapper {
@@ -116,7 +117,7 @@ $shadow-length: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px $shadow-length 10px #222222;
+    box-shadow: 0px $shadow-length 10px #111;
 }
 
 .fab-wrapper {
@@ -131,20 +132,32 @@ $shadow-length: 6px;
     background-color: #2bbbad;
     bottom: -25px - $shadow-length / 2;
     left: 30px;
-    box-shadow: 0px $shadow-length / 2 10px black;
+    box-shadow: 2px $shadow-length / 2 15px #222222;
+    transition: all 0.7s;
+}
+
+@mixin centerer {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(3);
+  transform-origin: center;
 
 }
 
-.fab-plus {
-    font-size: 44px;
-    left: 13px;
-    transition: all 0.3s;
+.fab:after {
+    @include centerer;
+    content: '+';
+}
+
+.fabRotate {
+    transform: rotate(90deg)
 }
 
 .inputs {
     padding: 30px;
-    box-shadow: 0px $shadow-length 10px #222222;
-    height: 100%;
+    box-shadow: 3px 3px 20px #aaa;
+    height: calc(100% - 150px);
 }
 
 input[type=text] {
@@ -169,15 +182,19 @@ label {
     width: 66.66666%;
     padding: 1rem;
     display: flex;
+    flex-flow: row wrap;
     align-items: flex-start;
     justify-content: space-around;
     padding: 40px;
+    box-shadow: 3px 3px 20px #cccccc
+
 }
 
 .receipt {
     background-color: white;
     padding: 10px 25px;
-    box-shadow: 3px 3px 20px #cccccc
+    box-shadow: 3px 3px 20px #cccccc;
+    margin: 20px;
 }
 
 .time-wrapper {
@@ -192,6 +209,11 @@ th, td {
 .td-right {
     text-align: right
 }
+
+/* ==========================================================================
+    transition styles
+   ========================================================================== */
+
 /* ==========================================================================
     User main styles
    ========================================================================== */
@@ -394,6 +416,3 @@ button {
         page-break-after: avoid;
     }
 }
-
-
-
