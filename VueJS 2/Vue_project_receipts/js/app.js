@@ -35,6 +35,7 @@ new Vue({
         seconds: '',
         receiptId: '',
         attachRotation: false,
+        receipts: [],
         items: [
         //    {product: 'czekolada', quantity: '5', price: 2.99, vat: 8 + "%", sum: 10},
         //    {product: 'sok', quantity: '2', price: '1.99', vat: '8%', sum: 10}
@@ -55,10 +56,14 @@ new Vue({
             this.date = this.day + "-" + this.month + "-" + this.year + " " + this.hours + ":" + this.minutes + ":" + this.seconds;
 
         },
-        showInputs: function (){
-            this.inputsVisible = true;
-            this.receiptId = Math.floor(Math.random() * (1000 - 1) + 1);
-            this.getTime();
+        showReceiptTime: function (){
+            if (this.inputsVisible) {
+                this.receiptId = Math.floor(Math.random() * (1000 - 1) + 1);
+                this.getTime();
+            } else {
+                this.receiptId = '',
+                this.date = ''
+            }
         },
 
         storeProductInput: function(event) {

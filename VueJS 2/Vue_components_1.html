@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS app</title>
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <my-comp></my-comp>
+        <hr>
+        <my-comp></my-comp>
+    </div>
+
+
+    <script>
+        Vue.component('my-comp', {
+            data: function() {
+                return {
+                    lightStatus: 'on'
+                }
+            },
+            template: '<h2>Light switched {{lightStatus}}.</h2><button @click="changeStatus">Switch off</button>',
+            methods: {
+                changeStatus: function() {
+                    this.lightStatus = "off";
+                }
+            }
+        })
+
+        new Vue({
+            el: "#app"
+        })
+
+    </script>
+
+
+</body>
+
+</html>
