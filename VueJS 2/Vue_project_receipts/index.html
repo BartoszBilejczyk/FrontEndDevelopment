@@ -31,12 +31,9 @@
                         <h1>RECEIPT MANAGER</h1>
                     </div>
                 </div>
-
-                <div class="fab" @click="{inputsVisible = !inputsVisible, attachRotation = !attachRotation, showReceiptTime()}" :class="fabRotation"></div>
-
                 <div class="fab-buttons-wrapper">
-                        <a href="" class="fab-buttons" tooltip="aaaa"><span class="rotate"></span></a>
-                        <a href="" class="fab-buttons" tooltip="aaaa"></a>
+                        <a class="fab-buttons" tooltip="aaaa"><span class="rotate"></span></a>
+                        <a @click="inputsVisible =!inputsVisible" class="fab-buttons" tooltip="aaaa"></a>
                         <a href="" class="fab-buttons" tooltip="aaaa"></a>
                         <a href="" class="fab-buttons" tooltip="aaaa"></a>
                 </div>
