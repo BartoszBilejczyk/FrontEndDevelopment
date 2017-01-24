@@ -40,7 +40,7 @@
             // children cannot communicate with each other. If we want to do that, a child must make a parent listen, and then another child can receive the prop.
             created() { // now setup a listener to the event which will be running from the moment uderdetail comp is created
                 eventBus.$on('wasAgeChanged', (age) => { // listen to wasAgeChanged , the second arg is the code that should be executed whenever such an event occurs (is fired). Age is argument (ES6)
-                    this.userAge = age;
+                    this.myAge = age;
                 });
             }
         }
