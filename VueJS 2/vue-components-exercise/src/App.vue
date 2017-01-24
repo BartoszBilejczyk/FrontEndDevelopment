@@ -22,16 +22,16 @@
 </template>
 
 <script>
-    import ServerDetails from './ServerDetails.vue'
-    import Header from './Header.vue'
-    import Footer from './Footer.vue'
-    import Servers from './Servers.vue'
+    import Header from './components/Shared/Header.vue'
+    import Servers from './components/Server/Servers.vue'
+    import ServerDetails from './components/Server/ServerDetails.vue'
+    import Footer from './components/Shared/Footer.vue'
 
     export default {
         components: {
-            'server-header': Header,
+            'server-header': Header, // can alo be serverHeader because Vue can change it to hyphenated version (server-header) which is awesoooome
             'server': Servers,
-            'server-details': ServerDetails,
+            'serverDetails': ServerDetails, // here I used the other version
             'server-footer': Footer,
 
         }
