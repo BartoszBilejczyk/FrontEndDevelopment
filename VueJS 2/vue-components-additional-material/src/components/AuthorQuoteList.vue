@@ -39,7 +39,7 @@
             console.log('activated')
         },
         deactivated() {
-            console.log('deactivated')
+            console.log('de activated')
         }
     }
 
