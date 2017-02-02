@@ -6,6 +6,10 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   max-width: 100%;
   overflow-x: hidden;
@@ -39,8 +43,8 @@ html {
 /* brak polskich */
 @font-face {
   font-family: 'sofia-pro';
-  src: url("../fonts/SofiaPro/sofiaprolight-webfont.eot");
-  src: url("../fonts/SofiaPro/sofiaprolight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SofiaPro/sofiaprolight-webfont.woff2") format("woff2"), url("../fonts/SofiaPro/sofiaprolight-webfont.woff") format("woff"), url("../fonts/SofiaPro/sofiaprolight-webfont.ttf") format("truetype");
+  src: url("../fonts/SofiaProLightWebfont/Webfonts/sofiapro_light_polish/sofiapro-light-webfont.eot");
+  src: url("../fonts/SofiaProLightWebfont/Webfonts/sofiapro_light_polish/sofiapro-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SofiaProLightWebfont/Webfonts/sofiapro_light_polish/sofiapro-light-webfont.woff2") format("woff2"), url("../fonts/SofiaProLightWebfont/Webfonts/sofiapro_light_polish/sofiapro-light-webfont.woff") format("woff"), url("../fonts/SofiaProLightWebfont/Webfonts/sofiapro_light_polish/sofiapro-light-webfont.ttf") format("truetype"), url("../fonts/SofiaProLightWebfont/Webfonts/sofiapro_light_polish/sofiapro-light-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal;
   font-weight: normal;
@@ -209,9 +213,93 @@ textarea {
   padding: 0.2em 0;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+/* MENU CLASSES */
+nav {
+  background-color: transparent;
+  box-shadow: none;
+  height: 100px;
+  padding: 0 3%;
+}
+
+nav.non-landing {
+  background-color: #111;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: fixed;
+  z-index: 999;
+}
+
+ul.menu, ul.menu li {
+  height: 100px;
+  text-transform: uppercase;
+}
+ul.menu.active, ul.menu li.active {
+  background: none;
+}
+ul.menu a, ul.menu li a {
+  height: 100px;
+  padding-top: 20px;
+  text-decoration: none;
+}
+ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu li a:hover, ul.menu li a:focus, ul.menu li a:active, ul.menu li a:visited {
+  color: white;
+  text-decoration: none;
+  background: transparent;
+}
+
+.menu * {
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.menu a {
+  position: relative;
+}
+.menu a:before, .menu a:after {
+  height: 14px;
+  width: 14px;
+  content: '';
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.menu a:before {
+  left: 0.35rem;
+  top: 2rem;
+  border-left: 3px solid #c0392b;
+  border-top: 3px solid #c0392b;
+  -webkit-transform: translate(100%, 50%);
+  transform: translate(100%, 50%);
+}
+
+.menu a:after {
+  right: 0.35rem;
+  bottom: 1.8rem;
+  border-right: 3px solid #c0392b;
+  border-bottom: 3px solid #c0392b;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.menu a:hover,
+.menu .active a {
+  color: #ffffff;
+}
+
+.menu a:hover:before,
+.menu .active a:before,
+.menu a:hover:after,
+.menu .active a:after {
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+  opacity: 1;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:visited {
+  color: white;
+}
+
 .full-bg {
   /* Preserve aspet ratio */
   min-width: 100%;
@@ -224,124 +312,342 @@ textarea {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 .landing-content {
   text-align: center;
   color: white;
 }
 
-.navbar {
+.brand-logo {
   height: 100px;
-  text-align: right;
-  padding: 0 5%;
-}
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  height: 100px;
-  font-size: 1.1em;
 }
 
 .brand {
-  height: 8vw;
+  height: 100px;
+  padding: 20px 0px;
+}
+
+.side-nav {
+  color: #111;
+}
+.side-nav li.active {
+  background: #eee;
+}
+.side-nav a {
+  text-decoration: none;
+}
+
+/*
+.navbar {
+  height: $navbar-height;
+  text-align: right;
+  padding: 0 5%;
+  .navbar-nav {
+    display: inline-block;
+    float: none;
+    height: $navbar-height;
+    font-size: 1.1em;
+  }
+}
+
+.brand {
+  height: 7vw;
 }
 
 .navbar-default {
   background: transparent;
   border: none;
-}
-.navbar-default .navbar-nav > li > a {
-  color: white;
-}
-.navbar-default .navbar-nav > li > a:hover {
-  text-decoration: underline;
+  .navbar-nav > li > a {
+    color: #eee;
+    height: 50px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .active > a:active {
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:active,
+{
   background: none;
   box-shadow: none;
 }
 
 .navbar-nav > li {
-  padding: 2.5em 0.5em;
-  height: 100px;
-}
-.navbar-nav > li a {
-  height: 20px;
-}
-
-.container-arrow {
-  position: relative;
+  padding: 2.5rem 0.3rem;
+  height: $navbar-height;
+  a {
+    height: $navbar-height/5;
+  }
 }
 
-.arrow-wrapper {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: -7em;
-}
-
+*/
+/* END OF MENU CLASSES */
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
 .big-logo {
-  width: 30vw;
-  margin: 0 auto;
+  width: 30%;
+  margin: 7% auto 0 auto;
 }
 
-.chevron-down1 {
-  color: white;
-  opacity: 1;
-  top: -5px;
+.statement {
+  font-size: 2.5rem;
 }
 
-.chevron-down2 {
-  color: white;
-  opacity: 0.5;
-  top: -10px;
-}
-
-.chevron-down3 {
-  color: white;
-  opacity: 0.3333333333;
-  top: -15px;
-}
-
-.chevron-down1 {
-  color: white;
-  opacity: 1;
-  animation: chevron-down1 2.8s 0.4s;
-  animation-delay: 3s;
-  -webkit-animation: chevron-down1 2.8s 0.4s;
-  -webkit-animation-delay: 3s;
+.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
 .btn-pilki {
   color: white;
-  background-color: transparent;
-  padding: 1em 2em;
-  border: 2px lightblue solid;
-  margin-bottom: 2em;
+  background-color: dodgerblue;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  line-height: 0;
+  transition: all 0.3s;
+}
+.btn-pilki:hover, .btn-pilki:focus, .btn-pilki:active, .btn-pilki:visited {
+  background-color: #0583ff;
 }
 
 .btn-diabolo {
   color: white;
-  background-color: transparent;
-  padding: 1em 2em;
-  border: 2px orange solid;
-  margin-bottom: 8em;
+  background-color: #c0392b;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  line-height: 0;
+  transition: all 0.3s;
+}
+.btn-diabolo:hover, .btn-diabolo:focus, .btn-diabolo:active, .btn-diabolo:visited {
+  background-color: #ab3326;
 }
 
-.statement {
-  font-size: 3em;
+.btn-sprzet {
+  color: white;
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  line-height: 0;
+  transition: all 0.3s;
+}
+.btn-sprzet:hover, .btn-sprzet:focus, .btn-sprzet:active, .btn-sprzet:visited {
+  background-color: #1a1a1a;
 }
 
 .center {
   text-align: center;
 }
 
+.container-arrow {
+  position: relative;
+}
+
+@keyframes chevrons {
+  0% {
+    top: -6rem;
+  }
+  20% {
+    top: -5.5rem;
+  }
+  30% {
+    top: -5.7rem;
+  }
+  40% {
+    top: -5.5rem;
+  }
+  100% {
+    top: -6rem;
+  }
+}
+.arrow-wrapper {
+  position: absolute;
+  z-index: 1;
+  left: calc(50% - 8.19px);
+  top: -6rem;
+  animation: chevrons 1.5s 2s;
+  animation-delay: 2s;
+  -webkit-animation: chevrons 1.5s 2s;
+  -webkit-animation-delay: 2s;
+  animation-iteration-count: 3;
+}
+
+.chevron-down1 {
+  color: white;
+  opacity: 0.85;
+  top: -0.6rem;
+}
+
+.chevron-down2 {
+  color: white;
+  opacity: 0.425;
+  top: -1.2rem;
+}
+
+.chevron-down3 {
+  color: white;
+  opacity: 0.2833333333;
+  top: -1.8rem;
+}
+
 /* END OF LANDING CLASSES */
+/* USP CLASSES */
+.usp {
+  margin: 5rem 0;
+}
+.usp-el {
+  position: relative;
+  top: 50px;
+  opacity: 0.2;
+}
+.usp-hr {
+  width: 10%;
+  background-color: #999;
+  margin: 15px auto;
+  border: none;
+  height: 1px;
+}
+
+/* END OF USP CLASSES */
 /* MAIN CLASSES */
+/* MAIN CLASSES */
+/* MAIN CLASSES */
+/* MAIN CLASSES */
+/* TRICKS LIST CLASSES */
+.flexy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+}
+
+.tricks-list {
+  background-image: -webkit-linear-gradient(to top right, #0d1017, #2e3136);
+  background-image: -o-linear-gradient(to top right, #0d1017, #2e3136);
+  background-image: linear-gradient(to top right, #0d1017, #2e3136);
+  color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.from-zero-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center .from-zero-wrapper img;
+  justify-content-position: absolute;
+  justify-content-top: -40px;
+}
+
+.img-from-zero-1 {
+  opacity: 0;
+}
+
+.img-from-zero-2 {
+  opacity: 0;
+}
+
+.img-from-zero-3 {
+  opacity: 0;
+}
+
+.img-from-zero-4 {
+  opacity: 0;
+}
+
+.img-from-zero-5 {
+  opacity: 0;
+}
+
+.collapsible-body {
+  padding: 2rem;
+}
+.collapsible-body img {
+  height: 200px;
+  width: 200px;
+  float: left;
+  clear: both;
+}
+
+/* END OF LIST OF TRICKS CLASSES */
+/* LITTLE PEOPLE CLASSES */
+.little-people {
+  color: #333;
+  font-size: 1.15rem;
+  display: flex;
+  justify-content: center;
+  max-height: 100vh;
+}
+.little-people-text {
+  margin: 4rem 0;
+}
+.little-people hr {
+  border: none;
+  height: 1px;
+  background-color: #999;
+  width: 5%;
+  margin: 20px auto;
+}
+.little-people p {
+  margin: 25px 0;
+}
+
+img.little-people {
+  width: 20vw;
+  margin: 0 auto;
+}
+
+/* END OF LITTLE PEOPLE CLASSES */
+/* FOOTER CLASSES */
+footer {
+  background-image: -webkit-linear-gradient(to top right, #0d1017, #2e3136);
+  background-image: -o-linear-gradient(to top right, #0d1017, #2e3136);
+  background-image: linear-gradient(to top right, #0d1017, #2e3136);
+  color: #f1f1f1;
+  padding: 4rem 0;
+  z-index: 999;
+}
+
+/* END OF FOOTER CLASSES */
+/* LIST OF TRICKS CLASSES */
+.tabs {
+  margin-top: 10rem;
+  height: 70px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.tabs .tab {
+  line-height: 70px;
+}
+.tabs .tab a {
+  color: #c0392b;
+  text-decoration: none;
+  height: 70px;
+}
+.tabs .tab a.active {
+  color: #c0392b;
+}
+.tabs .indicator {
+  background-color: #c0392b;
+}
+
+/* END OF LIST OF TRICKS CLASSES */
+/* OTHER CLASSES */
+/* END OF OTHER CLASSES */
+/* OTHER CLASSES */
+/* END OF OTHER CLASSES */
+/* OTHER CLASSES */
+/* END OF OTHER CLASSES */
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -435,10 +741,28 @@ textarea {
     font-size: 0.9em;
   }
 }
+@media all and (max-width: 992px) {
+  nav {
+    height: 64px;
+  }
+}
 @media all and (max-width: 768px) {
   /* Style adjustments for viewports that meet the condition */
   body, html {
     font-size: 0.9em;
+  }
+
+  .little-people {
+    max-height: 100%;
+  }
+
+  img.little-people {
+    width: 30vw;
+  }
+}
+@media all and (max-width: 600px) {
+  nav {
+    height: 56px;
   }
 }
 @media all and (max-width: 480px) {
@@ -476,7 +800,7 @@ textarea {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster:
-       http://www.sanbeiji.com/archives/953 */
+                                   http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -495,9 +819,9 @@ textarea {
   }
 
   /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
     content: "";
@@ -510,9 +834,9 @@ textarea {
   }
 
   /*
-   * Printing Tables:
-   * http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
   thead {
     display: table-header-group;
   }
