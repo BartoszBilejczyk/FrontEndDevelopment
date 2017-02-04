@@ -17,6 +17,17 @@
 </script>
 
 
-<style scoped lang="scss">
+<style lang="scss">
+  @mixin flexy($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+  }
+
+  header {
+    @include flexy(center, center);
+    height: 15vh;
+    background-color: #111
+  }
 
 </style>

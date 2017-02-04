@@ -5,6 +5,10 @@ import App from './App'
 
 /* eslint-disable no-new */
 
+export const CategoryBus = new Vue({
+
+})
+
 new Vue({
   el: '#app',
   template: '<App/>',

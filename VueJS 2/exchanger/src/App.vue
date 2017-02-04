@@ -4,10 +4,11 @@
     <section class="choose">
       <app-header></app-header>
       <app-categories></app-categories>
+
     </section>
 
     <section class="user-action">
-      <app-category></app-category>
+     <app-insert></app-insert>
       <app-output></app-output>
     </section>
 
@@ -68,32 +69,47 @@
 <script>
 
 import Header from './components/Header.vue'
+import Categories from './components/Categories.vue'
+import Category from './components/Category.vue'
+  import Insert from './components/Insert.vue'
+
+import Output from './components/Output.vue'
 
 export default {
   name: 'app',
-  data() {
-    return {
 
-    }
-  },
-  methods: {
-
-  },
   components: {
-    appHeader: Header
+    appHeader: Header,
+    appCategories: Categories,
+    appCategory: Category,
+    appOutput: Output,
+    appInsert: Insert
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+
+
+  @mixin flexy($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+  }
+
+  #app {
+    display: flex;
+  }
 
   section.choose {
     width: 25%;
-    height: 100vh;
-    background-color: lightgrey;
+    color: #eee;
   }
 
-
+  section.user-action {
+    width: 75%;
+  }
 
 
 
@@ -102,11 +118,7 @@ export default {
     width: 100%;
   }
 
-  @mixin flexycenter {
-    display: flex;
-    align-items: center;
-    justify-content: center
-  }
+
   section.input {
     height: 25vh;
     @include flexycenter;

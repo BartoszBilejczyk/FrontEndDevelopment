@@ -156,6 +156,10 @@ html {
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -244,6 +248,10 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
   color: white;
   text-decoration: none;
   background: transparent;
+}
+
+nav ul li {
+  width: 100%;
 }
 
 .menu * {
@@ -399,10 +407,21 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
 }
 
 .button-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 2rem 0;
 }
 
@@ -413,6 +432,7 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
   border-radius: 0.2rem;
   margin: 1rem;
   line-height: 0;
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 .btn-pilki:hover, .btn-pilki:focus, .btn-pilki:active, .btn-pilki:visited {
@@ -426,6 +446,7 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
   border-radius: 0.2rem;
   margin: 1rem;
   line-height: 0;
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 .btn-diabolo:hover, .btn-diabolo:focus, .btn-diabolo:active, .btn-diabolo:visited {
@@ -439,6 +460,7 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
   border-radius: 0.2rem;
   margin: 1rem;
   line-height: 0;
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 .btn-sprzet:hover, .btn-sprzet:focus, .btn-sprzet:active, .btn-sprzet:visited {
@@ -451,6 +473,24 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
 
 .container-arrow {
   position: relative;
+}
+
+@-webkit-keyframes chevrons {
+  0% {
+    top: -6rem;
+  }
+  20% {
+    top: -5.5rem;
+  }
+  30% {
+    top: -5.7rem;
+  }
+  40% {
+    top: -5.5rem;
+  }
+  100% {
+    top: -6rem;
+  }
 }
 
 @keyframes chevrons {
@@ -479,7 +519,8 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
   animation-delay: 2s;
   -webkit-animation: chevrons 1.5s 2s;
   -webkit-animation-delay: 2s;
-  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
 }
 
 .chevron-down1 {
@@ -525,27 +566,54 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
 /* MAIN CLASSES */
 /* TRICKS LIST CLASSES */
 .flexy {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: inherit;
 }
 
 .tricks-list {
   background-image: -webkit-linear-gradient(to top right, #0d1017, #2e3136);
-  background-image: -o-linear-gradient(to top right, #0d1017, #2e3136);
+  background-image: -webkit-linear-gradient(bottom left, #0d1017, #2e3136);
   background-image: linear-gradient(to top right, #0d1017, #2e3136);
   color: #f1f1f1;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .from-zero-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: baseline;
-  justify-content: center .from-zero-wrapper img;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center .from-zero-wrapper img;
+  -webkit-justify-content: center .from-zero-wrapper img;
+      -ms-flex-pack: center .from-zero-wrapper img;
+          justify-content: center .from-zero-wrapper img;
   justify-content-position: absolute;
   justify-content-top: -40px;
 }
@@ -585,8 +653,14 @@ ul.menu a:hover, ul.menu a:focus, ul.menu a:active, ul.menu a:visited, ul.menu l
 .little-people {
   color: #333;
   font-size: 1.15rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   max-height: 100vh;
 }
 .little-people-text {
@@ -612,7 +686,7 @@ img.little-people {
 /* FOOTER CLASSES */
 footer {
   background-image: -webkit-linear-gradient(to top right, #0d1017, #2e3136);
-  background-image: -o-linear-gradient(to top right, #0d1017, #2e3136);
+  background-image: -webkit-linear-gradient(bottom left, #0d1017, #2e3136);
   background-image: linear-gradient(to top right, #0d1017, #2e3136);
   color: #f1f1f1;
   padding: 4rem 0;
@@ -783,7 +857,7 @@ footer {
     height: 100%;
   }
 }
-@media print, (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 /* ==========================================================================
