@@ -134,7 +134,9 @@ textarea {
 /* USP CLASSES */
 
 #usp {
-  background-color: #eee;
+  background-color: #131313;
+  color: #eee;
+  padding: 0 16%;
 }
 
 .usp-wrapper {
@@ -143,7 +145,13 @@ textarea {
 }
 
 .usp-item {
-  @include flexy(center, flex-start);
+  @include flexy(center, center);
+  margin: 0.5rem 0;
+}
+
+.material-icons {
+  font-size: 1.4rem;
+  width: 35px;
 }
 
 
@@ -156,7 +164,7 @@ nav {
   background-color: white;
   box-shadow: none;
   height: 100px;
-  padding: 0 10%;
+  padding: 0 15%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.15);
   border: none;
   & i {
@@ -174,6 +182,9 @@ ul.menu li {
   text-transform: uppercase;
   &.active {
     background: none;
+    & a {
+      color: dodgerblue;
+    }
   }
   & a {
     height: 100px;
@@ -181,14 +192,14 @@ ul.menu li {
     text-decoration: none;
     &:hover,
     &:focus,
-    &:active,
-    &:visited {
-      color: #111;
+    &:active {
+      color: dodgerblue;
       text-decoration: none;
       background: transparent;
     }
   }
 }
+
 
 .menu * {
   -webkit-transition: all 0.35s ease;
@@ -296,6 +307,12 @@ $navbar-height: 100px;
   will-change: width, height;
   text-align: center;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08), 0 0px 8px rgba(0, 0, 0, 0.15);
+  & li:hover {
+    background: white;
+  }
+  & li a {
+    color: #111
+  }
 }
 
 .caret {
@@ -311,7 +328,6 @@ $navbar-height: 100px;
 
 header {
   margin: 4rem 0;
-  @include flexy(center, center);
   & h1,
   p {
     text-align: center;
@@ -321,6 +337,13 @@ header {
     display: block !important;
     margin: 40px auto 0 auto;
   }
+  & .row {
+    @include flexy(center, center);
+  }
+}
+
+.header-div-wrapper {
+  padding: 1rem 2.5rem;
 }
 
 .btn-large {
@@ -391,6 +414,9 @@ section#why-us {
   center);
   flex-direction: column;
   flex-wrap: wrap;
+  & .hr-wrapper {
+    margin: 4rem 0;
+  }
 }
 
 div.why-us-item {
@@ -423,12 +449,16 @@ section#clients {
   p.firm {
     text-align: center;
   }
+  & .hr-wrapper {
+    margin: 4rem 0;
+  }
 }
 
 .quote-box {
   padding: 3rem;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 0.3rem;
+  margin: 1rem 0;
 }
 
 .clients-header {
@@ -457,12 +487,59 @@ button.referral {
 /*  FOOTER CLASSES */
 
 footer {
-  @include dark-bgs;
+  color: white;
+  background-color: #121212;
+  & .flexy {
+      @include flexy(center,center)
+  }
+  & ul li a {
+    color: white;
+    &:hover, &:focus, &:active {
+      color: white;
+    }
+  }
 }
 
+.footer-content {
+  padding: 2rem 0;
+}
+.footer-copyright {
+  background: black;
+  padding: 1rem 0;
+}
 
 /* END OF FOOTER CLASSES */
 
+/* CONTACT CLASSES */
+
+#contact {
+  margin: 3rem 0;
+  & .flexy {
+    @include flexy(center, center);
+    flex-wrap: wrap;
+  }
+  & hr {
+    width: 60px;
+    margin: 1rem 0;
+  }
+}
+
+/* END OF CONTACT CLASSES */
+
+#gallery {
+  margin: 3rem 0;
+  & img {
+    padding: 3rem;
+  }
+  & .flexy {
+    @include flexy(center, center);
+    flex-wrap: wrap;
+  }
+}
+
+.material-placeholder {
+  display: inline;
+}
 
 /* ==========================================================================
    Helper classes
@@ -470,17 +547,58 @@ footer {
 
 .hr-wrapper {
   position: relative;
+  margin: 2rem 0;
 }
 
 .icon-wrapper {
   position: absolute;
-  top: -0.6rem;
-  left: calc(50% - 0.6rem);
+  top: -1.1rem;
+  left: calc(50% - 1.1rem);
+  height: 2.2rem;
+  width: 2.2rem;
+  background-color: black;
+  border-radius: 50%;
   & .fa {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    position: absolute;
+    top: calc(50% - 0.5rem);
+    left: calc(50% - 0.48rem);
+    color: white;
+  }
+  &.on-white {
+    background-size: black;
   }
 }
 
+/* FIRM CLASSES */
+
+#description {
+  margin: 2rem 0;
+  line-height: 1.5rem;
+  & p {
+    margin: 1.5rem 0;
+  }
+}
+
+#jobs-header {
+  background: url('../img/blue-bg2.png') no-repeat fixed;
+  background-size: cover;
+  padding: 2rem 0;
+  text-align: center;
+  color: #eee
+}
+
+#jobs {
+  margin: 3rem 0;
+  & p.lead {
+    text-align: center;
+  }
+  & img {
+    padding: 2rem;
+  }
+}
+
+/*  END OF FIRM CLASSES */
 
 
 /*
@@ -586,11 +704,19 @@ footer {
   body {
     font-size: 0.9em;
   }
+  section#why-us,
+  section#clients {
+    height: 100%;
+    padding: 3rem 0;
+  }
 }
 
 @media all and (max-width: 992px) {
   nav {
     height: 64px;
+  }
+  #usp {
+    display: none;
   }
 }
 
@@ -599,11 +725,8 @@ footer {
   body {
     font-size: 0.9em;
   }
-  .little-people {
-    max-height: 100%;
-  }
-  img.little-people {
-    width: 30vw;
+  header .row {
+    flex-wrap: wrap;
   }
 }
 
