@@ -18,30 +18,17 @@
           <input type="text" id="year" v-model="newBook.year">
           <label for="year">Year</label>
         </div>
+         <div class="input-field">
+          <input type="text" id="url" v-model="newBook.url" @keyup.enter="addNewBook()">
+          <label for="url">Url</label>
+        </div>
       </form>
       <button @click="addNewBook()" class="btn-large">Add the book</button>
       </div>
     </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <td>Author</td>
-                <td>Title</td>
-                <td>Year</td>
-              </tr>
-              <tr v-for="book in books">
-                <td>{{book.author}}</td>
-                <td>{{book.title}}</td>
-                <td>{{book.year}}</td>
-                <td><span class="glyphicon glyphicon-trash" aria-hidden="true" @click="deleteBook(book)"></span></td>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
+        <app-books :books="books"></app-books>
+
     </div>
   </div>
 </template>
@@ -50,6 +37,7 @@
 
   import Firebase from 'firebase'
   import toastr from 'toastr'
+  import Books from './Books.vue'
 
   // To Initialize Firebase
   let config = {
@@ -75,9 +63,13 @@ export default {
         newBook: {
           author: '',
           title: '',
-          year: null
+          year: null,
+          url: ''
         }
       }
+    },
+    components: {
+      appBooks: Books
     },
     methods: {
       addNewBook () {
@@ -86,6 +78,7 @@ export default {
         this.newBook.author = ''
         this.newBook.title = ''
         this.newBook.year = null
+        this.newBook.url = ''
       },
       deleteBook (book) {
         booksRef.child(book['.key']).remove()  // it has to be a child of booksRef node, child expects to get the key of the element to remove. This key is obtained through book[.'key']. If we have that, the whole child can be removed through remove()
