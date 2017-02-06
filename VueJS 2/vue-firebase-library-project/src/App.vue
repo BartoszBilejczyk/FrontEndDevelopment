@@ -2,9 +2,10 @@
   <div id="app">
 
     <div class="container">
+            <h2>Add a new book to your library</h2>
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h2>Add a new book</h2>
       <form id="bookForm" @sumbit.prevent="addNewBook"> <!-- prevent default behavior, perform addNewBook method -->
         <div class="input-field">
           <input type="text" id="author" v-model="newBook.author">
@@ -23,12 +24,32 @@
           <label for="url">Url</label>
         </div>
       </form>
-      <button @click="addNewBook()" class="btn-large">Add the book</button>
+      <button @click="addNewBook()" class="btn-large">Add</button>
       </div>
     </div>
 
-        <app-books :books="books"></app-books>
+    <div class="row">
+        <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td>Author</td>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Url</td>
+              </tr>
+              <tr v-for="book in books">
+                <td>{{book.author}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.year}}</td>
+                <td><a :href="book.url">Url: {{book.title}}</a></td>
+                <td><span class="glyphicon glyphicon-trash" aria-hidden="true" @click="deleteBook(book)"></span></td>
+              </tr>
+            </thead>
+          </table>
+        </div>
 
+      </div>
     </div>
   </div>
 </template>
@@ -37,7 +58,6 @@
 
   import Firebase from 'firebase'
   import toastr from 'toastr'
-  import Books from './Books.vue'
 
   // To Initialize Firebase
   let config = {
