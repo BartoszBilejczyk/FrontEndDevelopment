@@ -10,6 +10,8 @@
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
+  <script src="https://use.typekit.net/pfx0twg.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -45,8 +47,7 @@
           <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
         <!-- Collect the nav links, forms, and other content for toggling -->
           <ul class="right menu hide-on-med-and-down">
-            <li><a href="list-of-tricks.html">Lista trików z piłkami</a></li>
-            <li><a href="#">Lista trików z diabolo</a></li>
+            <li><a href="list-of-tricks.html">Lista trików</a></li>
             <li><a href="#">Dlaczego warto żonglować?</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Kontakt</a></li>
@@ -54,7 +55,6 @@
 
           <ul class="side-nav" id="mobile-menu">
             <li><a href="list-of-tricks.html">Lista trików z piłkami</a></li>
-            <li><a href="#">Lista trików z diabolo</a></li>
             <li><a href="#">Dlaczego warto żonglować?</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Kontakt</a></li>
@@ -191,6 +191,13 @@
         </div>
       </div>
 
+      <div id="app">
+        <div v-for="number in numbers">
+              {{number}}
+        </div>
+
+      </div>
+
 
       <img class="little-people" src="img/little-people.png">
     </div>
@@ -234,6 +241,15 @@
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        numbers: [1,2,3,4,5]
+      }
+    })
+  </script>
 
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

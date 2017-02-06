@@ -67,6 +67,7 @@
 
           <input type="date" class="datepicker" v-model="newDeadline">
 
+
         {{newDeadline}}
 
       </div>

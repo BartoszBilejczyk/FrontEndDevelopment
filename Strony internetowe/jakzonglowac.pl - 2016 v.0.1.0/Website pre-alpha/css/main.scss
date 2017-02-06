@@ -16,7 +16,7 @@
 body {
   max-width: 100%;
   overflow-x: hidden;
-  font-family: 'sofia-pro';
+  font-family: "jaf-bernina-sans", 'sofia-pro', sans-serif;
   font-size: 14px;
 }
 
@@ -317,10 +317,6 @@ ul.menu, ul.menu li {
     }
   }
 
-nav ul li {
-    width: 100%;
-
-}
 
 .menu * {
   -webkit-transition: all 0.35s ease;
@@ -685,11 +681,39 @@ $justify-content) {
 .collapsible-body {
   padding: 2rem;
   & img {
-    height: 200px;
-    width: 200px;
-    float: left;
-    clear: both
+    margin: 0 auto;
+    min-width: 100px;
+    min-height: 150px;
   }
+  & .row {
+    @include flex(center, center);
+    flex-wrap: wrap;
+  }
+}
+
+.collapsible-li:nth-child(odd) .collapsible-header {
+  background-color: #c0392b;
+  color: white !important;
+}
+
+
+.btn-trick {
+  @include button(
+  white,
+  #333,
+  1rem,
+  0.2rem,
+  0 auto);
+  line-height: 0;
+  display: block;
+  transition: all 0.3s;
+  &:hover, &:focus, &:active,  &:visited {
+    background-color: darken(#333, 10%);
+  }
+}
+
+.trick-description {
+  padding: 1rem;
 }
 /* END OF LIST OF TRICKS CLASSES */
 
