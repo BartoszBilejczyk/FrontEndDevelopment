@@ -1,11 +1,11 @@
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
+ /*
+* What follows is the result of much research on cross-browser styling.
+* Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+* Kroc Camen, and the H5BP dev community and team.
+*/
 /* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+ Base styles: opinionated defaults
+ ========================================================================== */
 * {
   box-sizing: border-box;
 }
@@ -29,15 +29,22 @@ h1 {
   font-weight: 300;
 }
 
+a {
+  color: #337ab7;
+}
+a:hover {
+  color: #1d4567;
+}
+
 /* FONT CLASSES */
 /* END OF FONT CLASSES */
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
+ /*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* These selection rule sets have to be separate.
+* Customize the background color to match your design.
+*/
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -47,9 +54,9 @@ h1 {
   text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
+ /*
+* A better looking default horizontal rule
+*/
 hr {
   display: block;
   height: 1px;
@@ -59,11 +66,11 @@ hr {
   padding: 0;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
+ /*
+* Remove the gap between audio, canvas, iframes,
+* images, videos and the bottom of their containers:
+* https://github.com/h5bp/html5-boilerplate/issues/440
+*/
 audio,
 canvas,
 iframe,
@@ -73,25 +80,25 @@ video {
   vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
+ /*
+* Remove default fieldset styles.
+*/
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
+ /*
+* Allow only vertical resizing of textareas.
+*/
 textarea {
   resize: vertical;
 }
 
 /* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
+ Browser Upgrade Prompt
+ ========================================================================== */
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -191,12 +198,16 @@ ul.menu li a:active {
   background: transparent;
 }
 
+.brand-logo {
+  font-size: 0;
+}
+
 .menu * {
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
-/*
+  /*
 .menu a {
   position: relative;
   &:before, &:after {
@@ -336,11 +347,11 @@ header .row {
 }
 
 .btn-large {
-  background-color: #243bfb;
+  background-color: #337ab7;
   border-radius: 0.3rem;
 }
 .btn-large:hover, .btn-large:focus, .btn-large:active, .btn-large:visited {
-  background-color: #0b24fb;
+  background-color: #2d6da3;
 }
 
 .header-flexy {
@@ -593,9 +604,122 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   display: inline;
 }
 
+/* PRODUCTS CLASSES */
+/* END OF PRODUCTS CLASSES */
+section#welcome {
+  margin-top: 3rem;
+}
+
+.nav-pills {
+  border-spacing: 1rem 0.5rem;
+}
+.nav-pills li {
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+.nav-pills li a {
+  color: #111;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #337ab7;
+}
+.nav-pills li a:hover {
+  background: none;
+}
+
+.nav-pills > li + li {
+  margin-left: 0;
+}
+
+.nav-pills li:hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #337ab7;
+}
+.nav-pills li:hover a {
+  color: #eee;
+}
+
+.nav-pills > li.active > a {
+  border-radius: 4px;
+}
+.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:visited, .nav-pills > li.active > a:active {
+  color: #fff;
+  background-color: #337ab7;
+  border-radius: 4px;
+}
+
+.product-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.product-flex img {
+  margin: 0 auto 1.5rem auto;
+}
+
+.product-div h4 {
+  margin: 2rem 0;
+}
+
+.other-stuff {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+ul:not(.browser-default) li {
+  list-style-type: square;
+}
+
+.product-images {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.catalog {
+  margin: 4rem 0 8rem;
+}
+
 /* ==========================================================================
-   Helper classes
-   ========================================================================== */
+ Helper classes
+ ========================================================================== */
 .hr-wrapper {
   position: relative;
   margin: 2rem 0;
@@ -649,17 +773,17 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
 }
 
 /*  END OF FIRM CLASSES */
-/*
- * Hide visually and from screen readers
- */
+ /*
+* Hide visually and from screen readers
+*/
 .hidden {
   display: none !important;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
+ /*
+* Hide only visually, but have it available for screen readers:
+* http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*/
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -671,11 +795,11 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   width: 1px;
 }
 
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
+ /*
+* Extends the .visuallyhidden class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -686,24 +810,24 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   width: auto;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
+ /*
+* Hide visually and from screen readers, but maintain layout
+*/
 .invisible {
   visibility: hidden;
 }
 
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
+ /*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -717,10 +841,10 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+ EXAMPLE Media Queries for Responsive Design.
+ These examples override the primary ('mobile first') styles.
+ Modify as content requires.
+ ========================================================================== */
 @media all and (min-width: 1600px) {
   /* Style adjustments for viewports that meet the condition */
   body,
@@ -749,6 +873,12 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
 @media all and (max-width: 992px) {
   nav {
     height: 64px;
+    padding: 0;
+  }
+
+  .brand {
+    height: 40px;
+    padding: 0;
   }
 
   #usp {
@@ -771,6 +901,11 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   nav {
     height: 56px;
   }
+
+  .brand {
+    height: 30px;
+    padding: 0;
+  }
 }
 @media all and (max-width: 480px) {
   /* Style adjustments for viewports that meet the condition */
@@ -788,10 +923,10 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   /* Style adjustments for high resolution devices */
 }
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+ Print styles.
+ Inlined to avoid the additional HTTP request:
+ http://www.phpied.com/delay-loading-your-print-css/
+ ========================================================================== */
 @media print {
   *,
   *:before,
@@ -801,7 +936,7 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+                                 http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -820,9 +955,9 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   }
 
   /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
     content: "";
@@ -835,9 +970,9 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   }
 
   /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
   thead {
     display: table-header-group;
   }
@@ -862,4 +997,12 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active {
   h3 {
     page-break-after: avoid;
   }
+}
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #337ab7;
+  box-shadow: 0 1px 0 0 #337ab7;
+}
+
+input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #337ab7;
 }

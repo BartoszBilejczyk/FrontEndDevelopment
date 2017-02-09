@@ -1,0 +1,529 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+  <section id="usp">
+    <div class="hide-on-small-and-down usp-wrapper">
+      <div class="usp-item">
+        <i class="material-icons">assignment turned in</i>
+        <span class="usp">15 lat na rynku</span>
+      </div>
+
+      <div class="usp-item">
+        <i class="material-icons">person</i>
+        <span class="usp">ponad 100 zadowolonych klientow</span>
+      </div>
+
+      <div class="usp-item">
+        <i class="material-icons">alarm on</i>
+        <span class="usp">gwarantowana terminowość dostawy</span>
+      </div>
+    </div>
+  </section>
+
+
+  <nav>
+    <div class="container-fluid nav-wrapper">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <a class="brand-logo" href="/"><img class="brand" alt="Brand" src="img/logotyp-techmet-big.png"></a>
+      <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="right menu hide-on-med-and-down">
+        <li class="active"><a href="produkty.html">Produkty</a></li>
+        <li><a href="o-firmie.html">O firmie</a></li>
+        <li><a href="galeria.html">Galeria zdjęć</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+
+      </ul>
+
+      <ul class="side-nav" id="mobile-menu">
+        <li><a href="produkty.html">Produkt</a></li>
+        <li class="active"><a href="o-firmie.html">O firmie</a></li>
+        <li><a href="galeria.html">Galeria zdjęć</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+
+  <section id="welcome">
+    <div class="container">
+      <div class="row">
+        <p class="lead">Na tej stronie umożliwiamy Państwu zapoznanie się z najbardziej typowymi produktami naszej firmy. Zachęcamy do pobrania katalogu produktów, a także do kontaktu bezpośredniego w sytuacji, gdyby w katalogu nie było interesującego Państwa produktu.</p>
+        <p class="lead">Zapraszając do współpracy, zachęcamy również do korzystania z fachowej porady oraz konsultowania się w sprawach nietypowych w tej branży. Jesteśmy do Państwa dyspozycji.</p>
+      </div>
+    </div>
+
+  </section>
+  <section id="products">
+    <div class="container">
+      <div class="row">
+        <ul class="nav nav-pills nav-justified">
+          <li class="active"><a data-toggle="pill" href="#filtroodmulniki">Filtroodmulniki</a></li>
+          <li><a href="#stabilizatory" data-toggle="pill">Stabilizatory</a></li>
+          <li><a href="#zasobniki" data-toggle="pill">Zasobniki</a></li>
+          <li><a href="#zbiorniki" data-toggle="pill">Zbiorniki</a></li>
+          <li><a href="#pozostale" data-toggle="pill">Pozostałe</a></li>
+          <li><a data-toggle="pill" href="#katalog">Katalog</a></li>
+
+        </ul>
+      </div>
+
+      <div id="app-product">
+        <div class="tab-content">
+
+
+          <div id="filtroodmulniki" class="tab-pane fade in active">
+            <div class="product-div" v-for="product in filtroodmulniki">
+              <div class="row product-flex">
+                <div class="col-xs-12 text-center">
+                  <h4>{{product.name}}</h4>
+                </div>
+                <div class="col-xs-12 col-sm-5 product-images">
+                  <div class="col-xs-12 col-sm-6" v-for="(image, index) in product.imgUrl">
+                    <img class="img-responsive" :src="product.imgUrl[index]" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                  {{product.description}}
+                </div>
+              </div>
+              <div class="row">
+                <a :href="product.link">
+                  <p class="text-center"><a href="pdf/">Karta urządzenia (.pdf) >></a></p>
+                </a>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+          <div id="stabilizatory" class="tab-pane fade in">
+            <div class="product-div" v-for="product in stabilizatory">
+              <div class="row product-flex">
+                <div class="col-xs-12 text-center">
+                  <h4>{{product.name}}</h4>
+                </div>
+                <div class="col-xs-12 col-sm-5 product-images">
+                  <div class="col-xs-12 col-sm-6" v-for="(image, index) in product.imgUrl">
+                    <img class="img-responsive" :src="product.imgUrl[index]" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                  {{product.description}}
+                </div>
+              </div>
+              <div class="row">
+                <a :href="product.link">
+                  <p class="text-center"><a href="pdf/">Karta urządzenia (.pdf) >></a></p>
+                </a>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+          <div id="zasobniki" class="tab-pane fade in">
+            <div class="product-div" v-for="product in zasobniki">
+              <div class="row product-flex">
+                <div class="col-xs-12 text-center">
+                  <h4>{{product.name}}</h4>
+                </div>
+                <div class="col-xs-12 col-sm-5 product-images">
+                  <div class="col-xs-12 col-sm-6" v-for="(image, index) in product.imgUrl">
+                    <img class="img-responsive" :src="product.imgUrl[index]" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                  {{product.description}}
+                </div>
+              </div>
+              <div class="row">
+                <a :href="product.link">
+                  <p class="text-center"><a href="pdf/">Karta urządzenia (.pdf) >></a></p>
+                </a>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+          <div id="zbiorniki" class="tab-pane fade in">
+            <div class="product-div" v-for="product in zbiorniki">
+              <div class="row product-flex">
+                <div class="col-xs-12 text-center">
+                  <h4>{{product.name}}</h4>
+                </div>
+                <div class="col-xs-12 col-sm-5 product-images">
+                  <div class="col-xs-12 col-sm-6" v-for="(image, index) in product.imgUrl">
+                    <img class="img-responsive" :src="product.imgUrl[index]" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                  {{product.description}}
+                </div>
+              </div>
+              <div class="row">
+                <a :href="product.link">
+                  <p class="text-center"><a href="pdf/">Karta urządzenia (.pdf) >></a></p>
+                </a>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+          <div id="pozostale" class="tab-pane fade in">
+            <div class="other-stuff">
+              <h5>Oprócz poniższych produktów w naszej ofercie znajduje się także:</h5>
+              <ul>
+                <li> Wykonawstwo ogrodzeń i bram metalowych
+                </li>
+                <li>Izolacje zbiorników ciśnieniowych łupkami z pianki poliuretanowej lub wełną mineralną pokryte blachą ocynk
+                </li>
+                <li>Spawanie konstrukcji metalowych dla budownictwa
+                </li>
+                <li>Zwijanie blach
+                </li>
+                <li>Cięcie mechaniczne blach, rur i kształtowników
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-div" v-for="product in other">
+              <div class="row product-flex">
+                <div class="col-xs-12 text-center">
+                  <h4>{{product.name}}</h4>
+                </div>
+                <div class="col-xs-12 col-sm-5 product-images">
+                  <div class="col-xs-12 col-sm-6" v-for="(image, index) in product.imgUrl">
+                    <img class="img-responsive" :src="product.imgUrl[index]" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                  {{product.description}}
+                </div>
+              </div>
+              <div class="row">
+                <a :href="product.link">
+                  <p class="text-center"><a href="pdf/">Karta urządzenia (.pdf) >></a></p>
+                </a>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+          <div id="katalog" class="tab-pane fade in">
+            <div class="container">
+
+
+              <div class="row text-center catalog"><a href="pdf/"><h5>Pobierz katalog >></h5></a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="map">
+
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="container">
+        <div class="row flexy">
+          <div class="col-xs-12 col-md-4">
+            <p>PPUH TECHMET
+              <br>ul. Diamentowa 3 Lisi Ogon k/Bydgoszczy
+              <br>86-065 Łochowo
+              <br> (0 52) 379-73-60
+              <br>NIP: 668-112-60-75
+              <br> REGON: 092941610</p>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <p>Daniel Łukaszczyk
+              <br>+48 600 828 522
+              <br>techmet1@poczta.onet.pl
+            </p>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <ul>
+              <li><a href="produkty.html">Produkty</a></li>
+              <li><a href="o-firmie.html">O firmie</a></li>
+              <li><a href="galeria.html">Galeria zdjęć</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        © 2017 Copyright Bartosz Bilejczyk
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app-product',
+      data: {
+        "filtroodmulniki": [
+          {
+            "name": "Filtroodmulnik magnetyczny",
+            "imgUrl": ["img/produkty/techmet-filtroodmulnik-magnetyczny.png"],
+            "description": "Filtroodmulnik magnetyczny działa na zasadzie wykorzystania sił bezwładności i pola magnetycznego oraz zjawiska filtracji. Urządzenie instalowane jest w sieciach i węzłach cieplnych centralnego ogrzewania oraz w instalacjach wodociągowych w celu oczyszczenia wody z zanieczyszczeń stałych.",
+            "link": "pdf/techmet-filtroodmulnik-magnetyczny.pdf"
+    },
+          {
+            "name": "Filtroodmulnik",
+            "imgUrl": ["img/produkty/techmet-filtroodmulnik.png"],
+            "description": "Filtroodmulnik działa na zasadzie wykorzystania sił bezwładności i zjawiska filtracji. Urządzenie instalowane jest w sieciach i węzłach cieplnych centralnego ogrzewania oraz w instalacjach wodociągowych w celu oczyszczenia wody z zanieczyszczeń stałych.",
+            "link": "pdf/techmet-filtroodmulnik.pdf"
+    }
+  ],
+        "stabilizatory": [
+          {
+            "name": "Stabilizator zasobnik ciepłej wody",
+            "imgUrl": ["img/produkty/techmet-stabilizator-zasobnik-cieplej-wody-1.png", "img/produkty/techmet-stabilizator-zasobnik-cieplej-wody-2.png"],
+            "description": "W urządzeniu magazynowana jest ciepła woda. Podlega ona ciągłej cyrkulacji dzięki wykorzystaniu zjawiska przepływu mas o różnej gęstości. Powoduje to utrzymanie temperatury wody w ustalonych granicach i w całej objętości zbiornika. Urządzenie instalowane jest w węzłach cieplnych. Służy do gromadzenia ciepłej wody.",
+            "link": "pdf/techmet-stabilizator-zasobnik-cieplej-wody.pdf"
+    },
+          {
+            "name": "Stabilizator ciepłej wody emaliowany",
+            "imgUrl": ["img/produkty/techmet-stabilizator-cieplej-wody-emaliowany-1.png", "img/produkty/techmet-stabilizator-cieplej-wody-emaliowany-2.png"],
+            "description": "Działanie i zastosowanie jak w urządzeniu powyżej.",
+            "link": "pdf/techmet-stabilizator-cieplej-wody-emaliowany.pdf"
+    }
+  ],
+        "zasobniki": [
+          {
+            "name": "Zasobnik ciepłej wody",
+            "imgUrl": ["img/produkty/techmet-zasobnik-cieplej-wody-1.png", "img/produkty/techmet-zasobnik-cieplej-wody-2.png"],
+            "description": "W urządzeniu magazynowana jest ciepła woda. Podlega ona ciągłej cyrkulacji dzięki wykorzystaniu zjawiska przepływu mas o różnej gęstości. Powoduje to utrzymanie temperatury wody w ustalonych granicach i w całej objętości zbiornika.\r\n\r\nUrządzenie instalowane jest w węzłach cieplnych. Służy do gromadzenia ciepłej wody.",
+            "link": "pdf/techmet-zasobnik-cieplej-wody.pdf"
+    },
+          {
+            "name": "Zasobnik ciepłej wody poziomy",
+            "imgUrl": ["img/produkty/techmet-zasobnik-cieplej-wody-poziomy-1.png", "img/produkty/techmet-zasobnik-cieplej-wody-poziomy-2.png"],
+            "description": "Działanie i zastosowanie jak w urządzeniu powyżej.",
+            "link": "pdf/techmet-zasobnik-cieplej-wody-poziomy.pdf"
+    }
+  ],
+        "zbiorniki": [
+          {
+            "name": "Zbiornik sprężonego powietrza",
+            "imgUrl": ["img/produkty/techmet-zbiornik-sprezonego-powietrza-1.png", "img/produkty/techmet-zbiornik-sprezonego-powietrza-2.png"],
+            "description": "W urządzeniu magazynowane jest powietrze pod ciśnieniem większym niż ciśnienie na wyjściu ze zbiornika i w ilości zapewniającej stabilną pracę odbiorników oraz optymalną pracę kompresora. Powietrze dostające się do zbiornika ulega nagłemu rozprężeniu co powoduje, że wytrącają się z niego cząstki wody i oleju. Dzięki sile bezwładności i grawitacji opadają one na dno zbiornika skąd są okresowo wydalane poprzez króciec spustowy.\r\n\r\nUrządzenie instalowane jest w sieciach sprężonego powietrza w celu magazynowania i uzdatniania powietrza oraz stabilizowania ciśnienia. Ma ono również wpływ na optymalizację pracy źródła zasilania.",
+            "link": "pdf/techmet-zbiornik-sprezonego-powietrza.pdf"
+    },
+          {
+            "name": "Zbiornik odpowietrzający",
+            "imgUrl": ["img/produkty/techmet-zbiornik-odpowietrzajacy-1.png", "img/produkty/techmet-zbiornik-odpowietrzajacy-2.png"],
+            "description": "Urządzenie instalowane jest w sieciach i węzłach cieplnych centralnego ogrzewania w celu usunięcia powietrza z instalacji.",
+            "link": "pdftechmet-zbiornik-odpowietrzajacy.pdf"
+    },
+          {
+            "name": "Zbiornik hydroforowy",
+            "imgUrl": ["img/produkty/techmet-zbiornik-hydroforowy-1.png", "img/produkty/techmet-zbiornik-hydroforowy-2.png"],
+            "description": "W urządzeniu magazynowana jest woda nad którą utrzymuje się (w zadanych wartościach ciśnienia) poduszkę powietrzną. Dzięki dużej prężności powietrza możliwe jest utrzymanie odpowiedniego ciśnienia wody w sieci.\r\n\r\nUrządzenie instalowane jest w stacjach hydroforowych i stacjach uzdatniania wody. Służy do magazynowania wody i utrzymywania jej przy zadanym ciśnieniu (stabilizowania) w sieci wodociągowej.",
+            "link": "pdf/techmet-zbiornik-hydroforowy.pdf"
+    },
+          {
+            "name": "Zbiornik wody lodowej",
+            "imgUrl": ["img/produkty/techmet-zbiornik-wody-lodowej.png"],
+            "description": "W urządzeniu magazynowana jest woda lodowa. Podlega ona ciągłej cyrkulacji dzięki wykorzystaniu zjawiska przepływu mas o różnej gęstości. Działanie zbiornika uzależnione jest od przyjętych rozwiązań technologicznych w układach chłodzenia, określa je projektant instalacji. Urządzenie instalowane jest w układach chłodniczych do produkcji wody lodowej. Pełni funkcję magazynową.\r\n\r\n",
+            "link": "pdf/techmet-zbiornik-wody-lodowej.pdf"
+    },
+          {
+            "name": "Sprzęgło hydrauliczne / zbiornik buforowy",
+            "imgUrl": ["img/produkty/techmet-sprzeglo-hydrauliczne-zbiornik-buforowy.png"],
+            "description": "Urządzenia przeznaczone są do rozdzielenia obiegu kotłowego i grzewczego. Stosowane są w układach średniej i dużej mocy składających się z jednego lub wielu obiegów grzewczych. Zapewniają niezależność działania tych obiegów bez konieczności równoważenia przepływów. Mogą pełnić również rolę zbiorników buforowych.\r\n\r\n",
+            "link": "pdf/techmet-sprzeglo-hydrauliczne-zbiornik-buforowy.pdf"
+    },
+          {
+            "name": "Zbiornik buforowy z wężownicami",
+            "imgUrl": ["img/produkty/techmet-zbiornik-buforowy-z-wezownicami.png"],
+            "description": "Zbiorniki buforowe z wężownicami są zestawieniem podgrzewaczy buforowych wody grzewczej i pojemnościowych podgrzewaczy wody. Przeznaczone są do instalacji grzewczych z kilkoma wytwornicami ciepła. Wykorzystywane do magazynowania nagrzanej wody, która służy do podgrzania wody użytkowej. Mogą być wykonane z jedną, dwiema lub trzema wężownicami w zależności ile odrębnych instalacji ciepłej wody użytkowej potrzebujemy lub do skomasowania wszystkich w celu uzyskania większej wydajności ciepłej wody użytkowej. Zbiorniki te mogą być podłączone z instalacją solarną, kotłem na paliwo stałe, olejowe, gazowe i pompą ciepła. Poprzez dużą powierzchnię wymiany ciepła zapewniają szybkie nagrzanie wody użytkowej.\r\n\r\n",
+            "link": "pdf/techmet-zbiornik-buforowy-z-wezownicami.pdf"
+    }
+  ],
+        "other": [
+          {
+            "name": "Rozprężacz odmulin i odsolin",
+            "imgUrl": ["img/produkty/techmet-rozprezacz-odmulin-i-odsolin-1.png", "img/produkty/techmet-rozprezacz-odmulin-i-odsolin-2.png"],
+            "description": "Urządzenie instalowane jest w układach kotłowych. Służy do zmniejszania strat wody kotłowej i zmniejszania strat ciepła występujących przy odparowaniu odmulin o zbyt wysokiej temperaturze w zbiornikach kondensatu, przy równoczesnym zmniejszeniu temperatury odprowadzanych odmulin.",
+            "link": "pdf/techmet-rozprezacz-odmulin-i-odsolin.pdf"
+    },
+          {
+            "name": "Separator powietrza",
+            "imgUrl": ["img/produkty/techmet-separator-powietrza.png"],
+            "description": "Separator powietrza, dzięki wbudowanemu wewnątrz układowi konstrukcyjnemu, powoduje zaburzenie przepływu wody. Wywołana turbulencja wpływa na oddzielanie się pęcherzyków powietrza z cieczy. Wytrącone powietrze gromadzi się w górnej części siodła separatora skąd odprowadzane jest na zewnątrz przez zawór odpowietrzający.\r\n\r\nUrządzenie instalowane jest w sieciach i węzłach cieplnych centralnego ogrzewania, na poziomych przewodach zasilających, w celu oddzielenia i usunięcia powietrza z instalacji.",
+            "link": "pdf/techmet-rozprezacz-odmulin-i-odsolin.pdf"
+    },
+          {
+            "name": "Filtr ciśnieniowy pionowy",
+            "imgUrl": ["img/produkty/techmet-filtr-cisnieniowy-pionowy-1.png", "img/produkty/techmet-filtr-cisnieniowy-pionowy-2.png"],
+            "description": "W urządzeniu woda – uprzednio przygotowana – przepływa przez złoże filtracyjne tj. odpowiednio dobrane i ułożone pokłady żwirków. Dzięki zachodzącym zjawiskom fizyko-chemicznym zostaje uzdatniona.\r\n\r\nUrządzenie instalowane jest w układach technologicznych uzdatniania wody, głównie w stacjach hydroforowych.\r\n\r\n",
+            "link": "pdf/techmet-filtr-cisnieniowy-pionowy.pdf"
+    },
+          {
+            "name": "Naczynie wzbiorcze",
+            "imgUrl": ["img/produkty/techmet-naczynie-wzbiorcze-1.png", "img/produkty/techmet-naczynie-wzbiorcze-2.png"],
+            "description": "Zbiornik – jako naczynie bezciśnieniowe – przejmuje zmiany objętości wody wywołane zmianami jej temperatury w instalacji ogrzewania wodnego oraz zapewnia swobodne połączenie z atmosferą przestrzeni wodnej instalacji.\r\n\r\nUrządzenie montowane jest w instalacjach ogrzewań wodnych, grawitacyjnych i pompowych systemu otwartego, w których temperatura wody na zasileniu nie przekracza 100°C, ciśnienie robocze nie jest większe niż ciśnienie dopuszczalne dla stosowanych urządzeń i elementów instalacji.",
+            "link": "pdf/techmet-naczynie-wzbiorcze.pdf"
+    },
+          {
+            "name": "Wymiennik pojemnościowy WP6",
+            "imgUrl": ["img/produkty/techmet-wymiennik-pojemnosciowy-wp6.png"],
+            "description": "Urządzenie montowane jest w instalacjach ogrzewań wodnych i przeznaczone jest do podgrzewania wody dla celów socjalnych i przemysłowych do temperatury 95°C. Czynnikiem grzejnym może być woda lub para o maksymalnej temperaturze 165°C i ciśnieniu 1,0 MPa.",
+            "link": "pdf/techmet-wymiennik-pojemnosciowy-wp6.pdf"
+    },
+          {
+            "name": "Odgazowywacz termiczny kaskadowy",
+            "imgUrl": ["img/produkty/techmet-odgazowywacz-termiczny-kaskadowy-1.png", "img/produkty/techmet-odgazowywacz-termiczny-kaskadowy-2.png"],
+            "description": "Odgazowywacze termiczne kaskadowe przeznaczone są do odgazowywania wody uzupełniającej i powracających skroplin w układzie technologicznym kotłów. Odgazowywacze stanowią jeden z podstawowych elementów zespołu uzdatniania wody w układach kotłowych wodnych oraz parowych. Odgazowywacze termiczne kaskadowe bezpośrednio współpracują ze zbiornikami zasilającymi poziomymi. Odgazowywacze termiczne kaskadowe przeznaczone są do pracy w instalacjach przy maksymalnym ciśnieniu roboczym pr=0,04 MPa oraz maksymalnej temperaturze roboczej tr=120°C.\r\n\r\n",
+            "link": "pdf/techmet-odgazowywacz-termiczny-kaskadowy.pdf"
+    },
+          {
+            "name": "Zbiornik zasilający poziomy",
+            "imgUrl": ["img/produkty/techmet-zbiornik-zasilajacy-poziomy-1.png", "img/produkty/techmet-zbiornik-zasilajacy-poziomy-2.png"],
+            "description": "Poziome zbiorniki zasilające stanowią element układów stabilizujących central cieplnych wodnych i parowych. Służą do gromadzenia uzdatnionej wody odgazowanej wykorzystywanej przy uzupełnianiu ubytków wody w centrali cieplnej. Poziome zbiorniki zasilające bezpośrednio współpracują z odgazowywaczami termicznymi. Poziome zbiorniki zasilające przeznaczone są do pracy w instalacjach wodnych lub parowych przy maksymalnym ciśnieniu roboczym pr=0,04MPa oraz maksymalnej temperaturze roboczej tr=120°C.",
+            "link": "pdf/techmet-zbiornik-zasilający-poziomy.pdf"
+    },
+          {
+            "name": "Aerator stojący",
+            "imgUrl": ["img/produkty/techmet-aerator-stojacy-1.png", "img/produkty/techmet-aerator-stojacy-2.png"],
+            "description": "Urządzenie instalowane jest w instalacjach uzdatniania wody. Służy do napowietrzania wody w celu ułatwienia wytrącania związków żelaza.",
+            "link": "pdf/techmet-aerator-stojacy.pdf"
+    },
+          {
+            "name": "Podgrzewacze ciepłej wody użytkowej",
+            "imgUrl": ["img/produkty/techmet-podgrzewacz-cieplej-wody-uzytkowej.png"],
+            "link": "pdf/techmet-podgrzewacze-cieplej-wody-uzytkowej.pdf"
+    }
+  ],
+        "all": [
+          {
+            "name": "Filtroodmulnik magnetyczny"
+    },
+          {
+            "name": "Filtroodmulnik"
+    },
+          {
+            "name": "Stabilizator zasobnik ciepłej wody"
+    },
+          {
+            "name": "Stabilizator ciepłej wody emaliowany"
+    },
+          {
+            "name": "Zasobnik ciepłej wody"
+    },
+          {
+            "name": "Zasobnik ciepłej wody poziomy"
+    },
+          {
+            "name": "Zbiornik sprężonego powietrza"
+    },
+          {
+            "name": "Zbiornik odpowietrzający"
+    },
+          {
+            "name": "Zbiornik hydroforowy"
+    },
+          {
+            "name": "Zbiornik wody lodowej"
+    },
+          {
+            "name": "Sprzęgło hydrauliczne / zbiornik buforowy"
+    },
+          {
+            "name": "Zbiornik buforowy z wężownicami"
+    },
+          {
+            "name": "Rozprężacz odmulin i odsolin"
+    },
+          {
+            "name": "Separator powietrza"
+    },
+          {
+            "name": "Filtr ciśnieniowy pionowy"
+    },
+          {
+            "name": "Naczynie wzbiorcze"
+    },
+          {
+            "name": "Wymiennik pojemnościowy WP6"
+    },
+          {
+            "name": "Odgazowywacz termiczny kaskadowy"
+    },
+          {
+            "name": "Zbiornik zasilający poziomy"
+    },
+          {
+            "name": "Aerator stojący"
+    },
+          {
+            "name": "Podgrzewacze ciepłej wody użytkowej"
+    }
+  ]
+      }
+    })
+  </script>
+
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function (b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l;
+      b[l] || (b[l] =
+        function () {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+      b[l].l = +new Date;
+      e = o.createElement(i);
+      r = o.getElementsByTagName(i)[0];
+      e.src = 'https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>

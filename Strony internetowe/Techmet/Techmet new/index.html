@@ -9,18 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <!-- Place favicon.ico in the root directory -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/main.css">
+ Place favicon.ico in the root directory -- lazyload>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet" lazyload>
+  <link rel="stylesheet" href="css/normalize.css" lazyload>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" lazyload>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" lazyload>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" lazyload>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" lazyload>
+  <link rel="stylesheet" href="css/main.css" lazyload>
 
-  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
 
 </head>
 
@@ -45,21 +43,7 @@
     </div>
   </section>
 
-  <ul class="dropdown-content" id="dropdown1">
-    <li class="dropdown-item"><a href="#!">Filtroodmulniki</a></li>
-    <li class="dropdown-item"><a href="#!">Stabilizatory</a></li>
-    <li class="dropdown-item"><a href="#!">Zasobniki</a></li>
-    <li class="dropdown-item"><a href="#!">Zbiorniki</a></li>
-    <li class="dropdown-item"><a href="#!">Inne</a></li>
-  </ul>
 
-  <ul class="dropdown-content" id="dropdown2">
-    <li class="dropdown-item"><a href="#!">Filtroodmulniki</a></li>
-    <li class="dropdown-item"><a href="#!">Stabilizatory</a></li>
-    <li class="dropdown-item"><a href="#!">Zasobniki</a></li>
-    <li class="dropdown-item"><a href="#!">Zbiorniki</a></li>
-    <li class="dropdown-item"><a href="#!">Inne</a></li>
-  </ul>
   <nav>
     <div class="container-fluid nav-wrapper">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,7 +52,7 @@
       <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="right menu hide-on-med-and-down">
-        <li><a href="produkty.html" class="dropdown-button" data-activates="dropdown1">Produkty<span class="caret"></span></a></li>
+        <li><a href="produkty.html">Produkty</a></li>
         <li><a href="o-firmie.html">O firmie</a></li>
         <li><a href="galeria.html">Galeria zdjęć</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -76,7 +60,7 @@
       </ul>
 
       <ul class="side-nav" id="mobile-menu">
-        <li><a href="produkty.html" class="dropdown-button" data-activates="dropdown2">Produkt <span class="caret"></span></a></li>
+        <li><a href="produkty.html">Produkt</a></li>
         <li><a href="o-firmie.html">O firmie</a></li>
         <li><a href="galeria.html">Galeria zdjęć</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -117,18 +101,18 @@
       <div class="carousel-inner">
         <div class="item active">
           <div class="row">
-            <a href="#"><img src="/img/Techmet-product-1.jpg" class="img-responsive"></a>
-            <a href="#"><img src="/img/Techmet-product-2.jpg" class="img-responsive"></a>
-            <a href="#"><img src="/img/Techmet-product-3.jpg" class="img-responsive"></a>
-            <a href="#"><img src="/img/Techmet-product-4.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-1.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-2.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-3.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-4.jpg" class="img-responsive"></a>
           </div>
         </div>
         <div class="item">
           <div class="row">
-            <a href="#"><img src="/img/Techmet-product-5.jpg" class="img-responsive"></a>
-            <a href="#"><img src="/img/Techmet-product-6.jpg" class="img-responsive"></a>
-            <a href="#"><img src="/img/Techmet-product-7.jpg" class="img-responsive"></a>
-            <a href="#"><img src="/img/Techmet-product-8.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-5.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-6.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-7.jpg" class="img-responsive"></a>
+            <a href="#"><img src="img/Techmet-product-8.jpg" class="img-responsive"></a>
           </div>
         </div>
       </div>
@@ -145,7 +129,7 @@
   <section id="why-us">
     <div class="container why-us-flexy">
       <div class="why-us-header">
-        <h1>DLACZEGO TECHMET TO DOBRY WYBÓR</h1>
+        <h1>TECHMET TO DOBRY WYBÓR</h1>
         <div class="hr-wrapper">
           <hr>
           <div class="icon-wrapper"><span class="fa fa-thumbs-up"></span></div>
@@ -243,10 +227,11 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
   <script src="js/main.js"></script>
 
 

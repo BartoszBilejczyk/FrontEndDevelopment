@@ -1,0 +1,787 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+
+  <!-- Section od landing where background is set as a wallpaper full background -->
+
+  <nav class="non-landing">
+    <div class="container-fluid nav-wrapper">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <a class="brand-logo" href="index.html"><img class="brand hide-on-med-and-down" alt="Brand" src="img/logo-black-bg-niepelne-small.svg"></a>
+      <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="right menu hide-on-med-and-down">
+        <li class="active"><a href="list-of-tricks.html">Lista trików</a></li>
+        <li><a href="#">Dlaczego warto żonglować?</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+
+      <ul class="side-nav" id="mobile-menu">
+        <li class="active"><a href="list-of-tricks.html">Lista trików</a></li>
+        <li><a href="#">Dlaczego warto żonglować?</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab"><a href="#juggling-three-simple">Proste triki z 3 piłkami</a></li>
+          <li class="tab"><a href="#juggling-three-intermediate">Średniozaawansowane triki z 3 piłkami</a></li>
+          <li class="tab"><a href="#juggling-four">Triki z 4 piłkami</a></li>
+          <li class="tab diabolo"><a href="#diabolo">Triki z diabolo</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div id="appp">
+    <div id="juggling-three-simple">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li class="collapsible-li" v-for="trick in tricks3">
+                <div class="collapsible-header">
+                  {{trick.name}}
+                </div>
+                <div class="collapsible-body">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3" v-if="trick.gifUrl !== ''">
+                      <img :src="trick.gifUrl" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-xs-12 col-sm-9">
+                      <p class="trick-description">{{trick.shortDesc}}</p>
+                      <a :href="trick.link"><button class="btn-large btn-trick">Zobacz tutorial</button></a>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="juggling-three-intermediate">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li class="collapsible-li" v-for="trick in tricks3hard">
+                <div class="collapsible-header">
+                  {{trick.name}}
+                </div>
+                <div class="collapsible-body">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3" v-if="trick.gifUrl !== ''">
+                      <img :src="trick.gifUrl" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-xs-12 col-sm-9">
+                      <p class="trick-description">{{trick.shortDesc}}</p>
+                      <a :href="trick.link"><button class="btn-large btn-trick">Zobacz tutorial</button></a>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="juggling-four">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li class="collapsible-li" v-for="trick in tricks4">
+                <div class="collapsible-header">
+                  {{trick.name}}
+                </div>
+                <div class="collapsible-body">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                      <img :src="trick.gifUrl" alt="" class="img-responsive" v-if="trick.gifUrl !== ''">
+                    </div>
+                    <div class="col-xs-12 col-sm-9">
+                      <p class="trick-description">{{trick.shortDesc}}</p>
+                      <a :href="trick.link"><button class="btn-large btn-trick">Zobacz tutorial</button></a>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="diabolo">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li class="collapsible-li" v-for="trick in diabolo">
+                <div class="collapsible-header">
+                  {{trick.name}}
+                </div>
+                <div class="collapsible-body">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p class="trick-description">{{trick.shortDesc}}</p>
+                      <a :href="trick.link"><button class="btn-large btn-trick">Zobacz tutorial</button></a>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="little-people main-content text-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="little-people-text">
+            <h4> ŻONGLERKI MOŻE NAUCZYĆ SIĘ KAŻDY </h4>
+            <hr>
+            <p>Podstawowej żonglerki 3 piłkami może nauczyć się <b>każdy</b>. Dla niektórych jest to kwestia dnia, inni uczą się koło tygodnia.</p>
+            <p>Niezależnie od tych różnic, jedyne czego potrzebujesz to 3 piłki, filmik instruktażowy i trochę cierpliwości. Przy okazji poćwiczysz przysiady sięgając po spadające piłki :)</p>
+            <button class="btn-sprzet btn-large">Kup sprzęt</button>
+          </div>
+        </div>
+      </div>
+
+
+      <img class="little-people" src="img/little-people.png">
+    </div>
+  </section>
+
+  <footer>
+
+
+    <div class="container">
+      <div class="row center">
+        <div class="col-xs-12">
+          <h4>ZOBACZ WIĘCEJ NA YOUTUBE</h4>
+          <a href="http://youtube.com"><img src="img/youtube.svg" style="width: 5rem; height: 5rem;"></a>
+        </div>
+      </div>
+    </div>
+
+
+    <p class="text-center">Copyright 2016, Bartosz Bilejczyk</p>
+
+
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="js/npm.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    new Vue({
+      el: '#appp',
+      data: {
+        "tricks3": [
+          {
+            "name": "Ćwiczenia z 2 piłkami",
+            "gifUrl": '',
+            "shortDesc": "Ćwiczenia z dwoma piłkami pomogą Ci rozwinąć najbardziej podstawowe umiejętności żonglerskie zanim przejdziesz do 3 piłek. Jest kilka ćwiczeń na dwie piłki i zachęcam Cię do poćwiczenia każdego z nich minimum kilka minut. Nauka żonglowania 3 piłkami i przechodzenie do nowych staną wtedy dużo prostsze.",
+            "link": "/triki/3-pilki/cwiczenia-z-2-pilkami.html"
+          },
+          {
+            "name": "Kaskada",
+            "gifUrl": "img/gif/3/cascade.gif",
+            "shortDesc": "Kaskada - podstawowy i najprostszy trik na 3 piłki. Umiejętność żonglowania Kaskadą pomoże Ci w nauczeniu wielu innych trików, które się od niej wywodzą, m.in. Półprysznica, Odwróconej Kaskady czy Tenisa. Kiedy zaczynałem naukę żonglowania, opanowanie Kaskady zajęło mi około 4 dni, ale muszę wspomnieć, że korzystałem wtedy z piłek do tenisa. Pamiętaj także o ćwiczeniach z dwoma piłkami, które ułatwią Ci naukę tego podstawowego triku.",
+            "link": "kaskada.html"
+          },
+          {
+            "name": "Półprysznic",
+            "gifUrl": "img/gif/3/half-shower.gif",
+            "shortDesc": "Półprysznic to kolejny prosty trik dla rozpoczynających naukę żonglowania. Jak możesz zobaczyć wyżej, z jednej strony piłka wyrzucana jest od zewnątrz, a druga od wewnątrz tak jak przy Kaskadzie. Sugeruję uczyć się najpierw tego triku zanim przejdziesz dalej do Odwróconej Kaskady. Półprysznic jest tak naprawdę jednym z kroków przy nauce Odwróconej Kaskady.",
+            "link": "/triki/3-pilki/polprysznic.html"
+          },
+          {
+            "name": "Odwrócona Kaskada",
+            "gifUrl": "img/gif/3/reverse-cascade.gif",
+            "shortDesc": "Jeśli znasz Kaskadę - to jest jeden z kolejnych trików, których powinieneś się uczyć. Wyrzucanie każdej piłki od zewnątrz do wewnątrz jest trudniejsze niż tak jak przy kaskadzie, ale bardzo pomocny będzie przy tym półprysznic.",
+            "link": "/triki/3-pilki/odwrocona-kaskada.html"
+          },
+          {
+            "name": "Tenis",
+            "gifUrl": "img/gif/3/tennis.gif",
+            "shortDesc": "Tenis to bardzo fajny trik żonglerski, w którym jedna z piłek jest zawsze wyrzucana od zewnątrz do zewnątrz (od lewej do prawej i z powrotem). Ruch tej piłki przypomina piłkę tenisową odbijaną przez dwóch tenisistów. Co z dwoma pozostałymi piłkami? Ich ruch jest taki sam jak przy jednym z ćwiczeń z dwiema piłkami, które możesz znaleźć wyżej.",
+            "link": "/triki/3-pilki/tenis.html"
+          },
+          {
+            "name": "Tenis Żonglerów",
+            "gifUrl": "img/gif/3/jugglers-tennis.gif",
+            "shortDesc": "Tenis Żonglerów to bardziej interesująca wersja zwykłego Tenisa. Różnica jest następująca: dwie piłki, które krzyżowały się w Tenisie, tutaj są wyrzucane pionowo tuż przed tym jak musisz złapać piłkę \"tenisową\".",
+            "link": "/triki/3-pilki/tenis-zonglerow.html"
+          },
+          {
+            "name": "Kolumny",
+            "gifUrl": "img/gif/3/columns.gif",
+            "shortDesc": "Kolumny to najbardziej podstawowy \"kolumnowy\" trik żonglerski. Najpierw należy wyrzucić jedną piłkę pionowo na środku. Następnie, gdy pierwsza piłka osiągnie swój najwyższy punkt lotu, należy wyrzucić dwie pozostałe piłki (po jednej z każdej ręki) znowu wertykalnie. I tak dalej :) Na tej stronie znajdziesz dużo innych kolumnowych trików żonglerskich.",
+            "link": "/triki/3-pilki/kolumny.html"
+          },
+          {
+            "name": "Kolumny Crossowe",
+            "gifUrl": "img/gif/3/cross-columns.gif",
+            "shortDesc": "Kolumny Crossowe to wariacja zwykłych Kolumn. W tym triku, wyrzuć najpierw jedną piłkę pionowo, a potem dwie, tak aby skrzyżowały się i zmieniły strony w locie. Zauważ, że warto zawsze jedną piłkę crossową wyrzucać troszkę niżej, a drugą wyżej, tak aby się nie zderzyły.",
+            "link": "/triki/3-pilki/kolumny-crossowe.html"
+          },
+          {
+            "name": "Kolumny M",
+            "gifUrl": "img/gif/3/m-columns.gif",
+            "shortDesc": "Kolejna wariacja triku Kolumny. W tej wersji dwie piłki są wyrzucane pionowo, a jedna odwzorowuje swoim lotem literę M. A więc ta piłka leci najpierw z prawej strony do środka, od środka do lewej i z powrotem.",
+            "link": "/triki/3-pilki/kolumny-m.html"
+          },
+          {
+            "name": "Tenisowe Kolumny",
+            "gifUrl": "img/gif/3/tennis-columns.gif",
+            "shortDesc": "Tenisowe kolumny to następna ciekawa kolumnowa wariacja. Przed tym trikiem warto umieć Kolumny oraz Tenis. Gdy je połączysz, otrzymasz Tenisowe Kolumny, w których dwie piłki lecą pionowo, a jedna od lewej do prawej i z powrotem zawsze nad nimi.",
+            "link": "/triki/3-pilki/tenisowe-kolumny.html"
+          },
+          {
+            "name": "Nieskończone Kolumny",
+            "gifUrl": "img/gif/3/infinite-columns.gif",
+            "shortDesc": "To kolejna wersja Kolumn - piłka która nie leci pionowo, leci tak, aby odwzorować znak nieskończoności. Polecam naukę także innych wersji kolumnowych trików :)",
+            "link": "/triki/3-pilki/nieskonczone-kolumny.html"
+          },
+          {
+            "name": "Udawane Kolumny",
+            "gifUrl": "img/gif/3/fake-columns.gif",
+            "shortDesc": "Udawane Kolumny to mój ulubiony trik kolumnowy. Dzięki niemu możesz potem nauczyć się takich trików jak Fabryka czy Nalot. W tym triku wyrzuć jedną piłkę pionowo na środku. Następnie zamiast wyrzucić dwie piłki, wyrzuć tylko jedną, a drugą trzymaj w dłoni i odwzorowuj ruch piłki, która leci obok. Zauważ że żonglujesz tylko dwoma piłkami, jedna obok drugiej :)",
+            "link": "/triki/3-pilki/udawane-kolumny.html"
+          },
+          {
+            "name": "Litera W",
+            "gifUrl": "img/gif/3/w-letter.gif",
+            "shortDesc": "Ruch w Literze W jest bardzo prosty. Każda piłka tworzy jedną nogę litery W. W tym triku za każdym razem wyrzucasz jedną piłkę. Obejrzyj wideotutorial, w którym zobaczysz lepiej o co chodzi w tym triku. Zauważ, że środkowa piłka powinna lecieć trochę niżej niż dwie pozostałe.",
+            "link": "/triki/3-pilki/litera-w.html"
+          },
+          {
+            "name": "423",
+            "gifUrl": "img/gif/3/423.gif",
+            "shortDesc": "423 juggling trick is another quite simple trick which has a lot of different variations. For this trick you need to know how to juggle 2 balls in one hand in-out. While juggling these two balls, at a certain time one ball goes to the other hand and this other hand juggles 2 balls then. And after that the movement is repeated, two balls always stay in the two-ball pattern and the third one goes from left to right.",
+            "link": "/triki/3-pilki/423.html"
+          },
+          {
+            "name": "Kaskada Claw",
+            "gifUrl": "img/gif/3/claw-cascade.gif",
+            "shortDesc": "Kaskada Claw to dość trudna do długiego żonglowania wersja Kaskady, ale warto się jej nauczyć, ponieważ łapanie piłki \"od góry\", a nie \"od dołu\" przydaje się przy innych trikach takich jak Georgian Shuffle. Piłki są łapane i wyrzucane w pozycji Claw.",
+            "link": "/triki/3-pilki/kaskada-claw.html"
+          },
+          {
+            "name": "Wiatrak",
+            "gifUrl": "img/gif/3/windmill.gif",
+            "shortDesc": "Wiatrak to naprawdę ciekawy trik. Jeśli jest dobrze wykonywany (tak jak powyżej), piłki powinny lecieć prawie w kółku jedna za drugą, tak jakby się goniły. Zauważ, że przez połowę czasu podczas tego triku masz skrzyżowane ręce, a przez drugą połowę nie. Jedne wyrzuty robione są pod ręką, drugie klasycznie. Konkretne kroki znajdziesz w opisie klikając poniżej.",
+            "link": "/triki/3-pilki/wiatrak.html"
+          },
+          {
+            "name": "Yo-Yo",
+            "gifUrl": '',
+            "shortDesc": "Yo-Yo to wariacja Udawanych Kolumn, ponieważ dwoma piłkami żonglujesz obok siebie, a trzecią trzymasz zawsze tuż nad jedną z innych piłek (a nie obok). Jest dużo różnych wersji Yo-Yo, kilka z nich znajdziesz na tej stronie oraz na moim kanale na YouTubie!",
+            "link": "/triki/3-pilki/yo-yo.html"
+          },
+          {
+            "name": "Oy-Oy",
+            "gifUrl": '',
+            "shortDesc": "Oy-Oy to odwrotna wersja Yo-Yo. W tym triku piłka, którą trzymasz w ręce powinna być zawsze trochę poniżej jednej z piłek, a nie ponad nią. Ten trik żonglerski jest troszkę trudniejszy niż normalne Yo-Yo, ale mimo wszystko zaliczyłbym do trików podstawowych.",
+            "link": "/triki/3-pilki/oy-oy.html"
+          },
+          {
+            "name": "Orbity",
+            "gifUrl": "img/gif/3/orbits.gif",
+            "shortDesc": "Orbity to bardzo interesujący trik żonglerski, w którym jedną ręką żonglujesz dwoma piłkami np. od wewnątrz do zewnątrzm a druga ręka zawsze trzyma jedną piłkę. Ta ręka z piłką wykonują ruch dookoła każdej piłki, która jest wyrzucana. W tym triku najważniejszą częścią jest kolisty ruch, dzięki któremu cały trik może fajnie wyglądać.",
+            "link": "/triki/3-pilki/orbity.html"
+          },
+          {
+            "name": "Yo-Yo Orbity",
+            "gifUrl": '',
+            "shortDesc": "Do tego triku dobrze najpierw zaznajomić się z Yo-Yo i Orbitami, żeby łatwiej nauczyć się jak powiązać te dwa triki żonglerskie. Normalnie w Orbitach wykonujesz kolisty ruch dookoła każdej piłki. Tutaj ten ruch jest bardziej jajowaty i jest wykonywany co drugą piłkę w zmiennym tempie (kiedy trzymana przez Ciebie piłka jest u góry, zwalniasz). Dzięki temu uzyskujesz efekt Yo-Yo, czyli trzymania piłki nad tą, która leci.",
+            "link": "/triki/3-pilki/yo-yo-orbity.html"
+          },
+          {
+            "name": "Widelec",
+            "gifUrl": "img/gif/3/fork.gif",
+            "shortDesc": "Widelec to najprostszy trik żonglerski z rodziny widelcowatych, w których używa się dwóch lub trzech palców do złapania piłki (na górną część dłoni, czyli inaczej niż zwykle). Kiedy żonglujesz Kaskadą, w pewnym momencie będziesz mieć po jednej piłce w dłoni, a jedna będzie lecieć. Właśnie tę ostatnią spróbuj złapać na widelec. Następnie piłka na widelcu wyrzucana jest na zewnątrz a trzymana w wewnętrznej części dłoni do wewnątrz. Zobacz więcej w tutorialu, możesz popróbować z wymyślaniem własnych wersji tego triku.",
+            "link": "/triki/3-pilki/widelec.html"
+          },
+          {
+            "name": "Grace",
+            "gifUrl": "img/gif/3/grace.gif",
+            "shortDesc": "Grace jest dosyć dziwnym trikiem, ale warto się go nauczyć chociażby ze względu na to, że bardzo pomaga w opanowaniu innych np. Georgian Shuffle, który uczę w innym tutorialu. W Grace, najpierw trzeba wyrzucić jedną piłkę metodą Claw do drugiej strony, a z drugiej ręki wyrzucasz naraz dwie piłki ruchem jak przy Kaskadzie (do wewnątrz od spodu) tak, aby rozszczepiły się pionowo i mogły zostać złapane od góry do dołu ręką, która wyrzucała pierwszą piłkę. Sprawdź jak wyrzucić piłki tak, aby rozszczepiły się w locie w moim filmiku.",
+            "link": "/triki/3-pilki/grace.html"
+          },
+          {
+            "name": 'Przeplatanka',
+            "gifUrl": '',
+            "shortDesc": "Przeplatanka to bardzo fajny trik, w którym przez pewien czas trzymasz piłkę i malujesz nią literę S lub odwrotną literę S zmieniając rękę. Trudno jest powiedzieć coś o tym triku, także najlepiej zobacz go w moim tutorialu.",
+            "link": "/triki/3-pilki/przeplatanka.html"
+          },
+          {
+            "name": "Pod Nogą",
+            "gifUrl": '',
+            "shortDesc": "Żonglowanie pod nogami jest na pewno trudniejsze niż normalnie przed klatką piersiową, ale też dużo łatwiejsze niż żonglowanie za plecami. Pattern (wzór lotu piłek) jest taki sam jak przy normalnej Kaskadzie, tylko wyrzucasz pod nogą. Sprawdź w moim filmiku od czego zacząć ucząc się tego triku. Pamiętaj o wysokim podnoszeniu kolan i o wyprostowanej sylwetce, która pomoże Ci z problemem uciekających do przodu piłek.",
+            "link": "/triki/3-pilki/pod-noga.html"
+          },
+          {
+            "name": "Pod Ręką / Podajnik",
+            "gifUrl": '',
+            "shortDesc": "W tym triku są dwa rodzaje wyrzutów. Jeden zawsze jest robiony pod ręką (dokładniej pod przedramieniem), a drugi polega na ściągnięciu piłki z wysokości do środka a następnie wyrzuceniu jej delikatnie z powrotem do pierwszej ręki. Właśnie dlatego można to też nazwać podajnikiem. Polecam zobaczyć tutorial dla tego triku, żeby lepiej zrozumieć o co w nim chodzi :)",
+            "link": "/triki/3-pilki/pod-reka.html"
+          },
+          {
+            "name": "Wolne Tasowanie",
+            "gifUrl": "img/gif/3/slow-shuffle.gif",
+            "shortDesc": "Wiesz jak sie tasuje karty prawda? Na pewno widziałeś różne metody, mi chodzi o tę najprostszą. W każdym razie, możesz imitować ten ruch także piłkami i nauczę Cię robić to w spowolnionej, prostszej wersji w tym triku. Normalne Tasowanie także jest dostępne na mojej stronie niżej, więc zachęcam Cię do dalszej nauki po Wolnym Tasowaniu. W tutorialu znajdziesz konkretne kroki, dzięki którym opanujesz wszystkie elementy Wolnego Tasowania i złożysz je w całość.",
+            "link": "/triki/3-pilki/wolne-tasowanie.html"
+          },
+          {
+            "name": "Prysznic",
+            "gifUrl": "img/gif/3/shower.gif",
+            "shortDesc": "Prysznic (Shower) to trik, który wszyscy umieją na dwie piłki, popełniając przy tym jeden z podstawowych błędów, czyli przekładają piłkę z ręki do ręki. Wiesz co mam na myśli prawda? Prysznic nie jest trikiem dla kompletnie początkujących, więc błędem jest także zaczynać naukę żonglerki od tego triku. W Prysznicu są dwa rodzaje wyrzutów - pierwsze to szybki poziomy wyrzut (wamp), a drugi to wysoki, z jednej na drugą stronę. Zobacz tutorial, w którym znajdziesz ćwiczenia, które pomogą Ci opanować ten bardzo fajny trik. Shower można rozwijać np na 4 czy 5 piłek. Istnieje też Shower Hi-Lo oraz podobne do Showera triki typu Dylemat Dawida, który możesz nauczyć się także na tej stronie.",
+            "link": "/triki/3-pilki/prysznic.html"
+          }
+        ],
+        tricks3hard: [
+          {
+            "name": "(4,2)(2x,4)",
+            "gifUrl": '',
+            "shortDesc": "(4,2)(2x,4) to trik podobny do Pudełka (poniżej), ale jest moim zdaniem trochę prostszy ze względu na to, że jest więcej czasu na wykonanie poszczególnych ruchów. Tu także występują tylko wyrzuty pionowo i poziome, ale pionowych jest dwa razy więcej. Sprawdź tutorial dla tego triku, żeby szybciej się go nauczyć.",
+            "link": "/triki/3-trudne/4-2-2x-4.html"
+          },
+          {
+            "name": "Pudełko",
+            "gifUrl": "img/gif/3-trudne/box.gif",
+            "shortDesc": "Box to jeden z moich ulubionych trików. Nauka Pudełka zajęła mi trochę czasu ze względu na konieczność wyrzucania piłki raz poziomo, raz pionowo w bardzo krótkich odstępach czasu, ale zdecydowanie było warto. Każda ręka robi w tym triku bardzo dużo i bardzo szybko. Po pionowym wyrzucie trzeba od razu być gotowym aby złapać piłkę lecącą poziomo, żeby zaraz ją odrzucić z powrotem i złapać piłkę lecącą pionowo. Zachęcam do nauki Prysznica oraz innych podstawowych trików przed Boxem. Dla tych średniozaawansowanych pod spodem tutorial :)",
+            "link": "/triki/3-trudne/pudelko.html"
+          },
+          {
+            "name": "Siekanie",
+            "gifUrl": "img/gif/3-trudne/chops.gif",
+            "shortDesc": "Siekanie (Chopsy) to trik, w którym chodzi o wykonywanie energicznych ruchów z góry na dół do wewnątrz wzoru, tak jakbyś chciał/a odciąć coś od czegoś tasakiem. Po każdym takim siekaniu, piłkę należy wyrzucić trochę do góry i do zewnątrz wzoru aby można było zrobić kolejne siekanie. Sprawdź tutorial, w którym nauczę Cię krok po kroku jak to zrobić.",
+            "link": "/triki/3-trudne/siekanie.html"
+          },
+          {
+            "name": "Koliste Kolumny",
+            "gifUrl": "img/gif/3-trudne/circle-columns.gif",
+            "shortDesc": "W tej wersji kolumn dwie piłki lecą koło siebie pionowo, podczas gdy jedna krąży wokół nich. Ten trik jest dość trudny, na początku dużo trudniejszy niż wygląda. Kiedy już wyrzucisz dwie piłki do góry, musisz złapać piłkę w jedną rękę, przerzucić ją wampem do drugiej ręki i wyrzucić dookoła drugą ręką (wszystko zanim spadną dwie pionowe piłki). Wtedy wykonujesz wszystko od nowa. Zachęcam do obejrzenia tutoriala, żeby nauczyć się, w którym momencie najlepiej wyrzucać piłki.",
+            "link": "/triki/3-trudne/koliste-kolumny.html"
+          },
+          {
+            "name": "Mills Mess",
+            "gifUrl": "img/gif/3-trudne/mills-mess.gif",
+            "shortDesc": "Mills Mess to po prostu klasyk, każdy żongler powinien umieć ten trik. Jest bardzo efektowny, a jednocześnie fajnie nadaje się do przejść między innymi trikami i można go rozbudowywać. W Mills Messie przez większość czasu Twoje ręce będą skrzyżowane, jednocześnie co chwile zamieniając się pozycjami. Zauważ, że wszystkie wyrzuty są robione do środka wzoru, to bardzo ważne. W moim tutorialu nauczę Cię konkretnych kroków, dzięki którym opanujesz całego Mills Messa, a nauka będze szybsza i prostsza.",
+            "link": "/triki/3-trudne/mills-mess.html"
+          },
+          {
+            "name": "Bostońskie Tasowanie",
+            "gifUrl": "img/gif/3-trudne/boston-shuffle.gif",
+            "shortDesc": "Bostońskie Tasowanie to symetryczny trik żonglerski. Jest świetnym pomostem między Wolnym Tasowaniem (które musisz umieć tutaj) i zwykłym Shufflem. Jak widzisz powyżej, ruchy po lewej i prawej stronie są dokładne takie same. Częścią Bostońskiego Tasowanie jest Wolne Tasowanie. Tutaj robisz to po prostu na dwie strony, a w filmiku nauczę Cię jak przechodzić z jednej strony na drugą.",
+            "link": "/triki/3-trudne/bostonskie-tasowanie.html"
+          },
+          {
+            "name": "Wycieraczki",
+            "gifUrl": "img/gif/3-trudne/wipes.gif",
+            "shortDesc": "Wycieraczki to świetny, bardzo pozytywny trik. Udawane Kolumny na obie ręce to podstawa Wycieraczek. Jedyne co trzeba zrobić to nie podnosić piłki pionowo do góry, ale wykonać półkolisty ruch tak jak wycieraczka po szybie w samochodzie. Zobacz jak nauczyć się tego triku dzięki mojemu filmikowi poniżej.",
+            "link": "/triki/3-trudne/wycieraczki.html"
+          },
+          {
+            "name": "Fabryka / Maszynka",
+            "gifUrl": "img/gif/3-trudne/factory.gif",
+            "shortDesc": "Fabryka / Maszynka to dwie nazwy świetnego triku, który uwielbia wielu żonglerów. Świetnie nadaje się do przejść oraz do zadziwiania widzów, ponieważ ruchy są tu bardzo szybkie. Żeby nauczyć się tego triku, trzeba zacząć od Udawanych Kolumn. Tam trzymana piłka chodzi tylko pionowo, a w Fabryce trzeba dodać jeszcze ruch lewo/prawo i upuszczenie piłki. Jak to zrobić? Nauczę Cię tego w moim tutorialu. Po tym triku zapraszam do nauki Nalotu :)",
+            "link": "/triki/3-trudne/fabryka-maszynka.html"
+          },
+          {
+            "name": "Na Wynos",
+            "gifUrl": "img/gif/3-trudne/takeaway.gif",
+            "shortDesc": "Na Wynos - jak sama nazwa wskazuje, w tym triku wyciąga się coś z patternu (wzoru). Jak widzisz powyżej, co chwilę ze środka wyciągana jest raz jedna raz druga piłka, a trzecia zawsze pełni rolę wspomagacza i jest po prostu podrzucana w odpowiednim momencie mniej więcej pionowo w górę. Zobacz ćwiczenia, które przygotowałem dla Ciebie w filmiku i naucz się szybko Takeoutsów.",
+            "link": "/triki/3-trudne/na-wynos.html"
+          },
+          {
+            "name": "Burke's Barrage",
+            "gifUrl": '',
+            "shortDesc": "Burke's Barrage to trik, którego nazwy nie tłumaczę. Jest bardzo podobny do triku Na Wynos, ale tutaj \"wyjmowanie\" piłki wygląda trochę inaczej jak pewnie widzisz na gifie powyżej. Wyciągana piłka nie idzie na zewnątrz patternu (nad wszystkimi innymi piłkami), ale poniżej najwyższej piłki, wykonując taki trochę kolisty ruch. W moim tutorialu te koliste ruchy są trochę pominięte, ale warto pamiętać o tym, żeby wzorować się na końcu na gifie.",
+            "link": "/triki/3-trudne/burkes-barrage.html"
+          },
+          {
+            "name": "Obustronne Yo-Yo",
+            "gifUrl": '',
+            "shortDesc": "Ta wersja Yo-Yo jest dość prosta, trzeba tylko zmieniać strony wykonywania Yo-Yo. Jeśli wykonujesz Yo-Yo po prawej stronie to trzymasz piłkę prawą ręką a lewą wyrzucasz tę poniżej. Wtedy należy złapać z powrotem tę piłkę lewą ręką i przenieść ruchem litery U Yo-Yo na drugą stronę. Zauważ, że piłki zmieniają miejsca - każda z nich raz jest wyżej, a raz niżej. Najlepiej zobacz mój tutorial, ponieważ jeszcze nie mam gifa dla tego triku.",
+            "link": "/triki/3-trudne/obustronne-yo-yo.html"
+          },
+          {
+            "name": "Podwójne Yo-Yo",
+            "gifUrl": '',
+            "shortDesc": "W tej wersji Yo-Yo, trzeba wykonać zwykłą wersję Yo-Yo po jednej stronie a potem wyrzucić obie piłki. Następnie łapiesz obie piłki ale zmieniasz ręce. Dzięki temu jedna z piłek zawsze jest wyżej, a druga niżej. Zobacz mój tutorial, żeby dowiedzieć się co robić z trzecią piłką :)",
+            "link": "/triki/3-trudne/podwojne-yo-yo.html"
+          },
+          {
+            "name": "Pingwin",
+            "gifUrl": '',
+            "shortDesc": "Pingwin to bardzo śmieszny trik żonglerski. Jeśli wiesz jak chodzą pingwiny i jak wyglądają ich \"skrzydła\", pewnie zorientujesz się, że chodzi po prostu o inne łapanie piłki. Tutaj nauczę Cię Kaskady z łapaniem na Pingwina. Piłkę łapie się w dłoń przekręconą prawie o 360 stopni, a następnie wyrzuca normalnie. Zobacz mój filmik, żeby lepiej zrozumieć o co chodzi. Ruchy Pingwina możesz dodawać oczywiście też do innych trików.",
+            "link": "/triki/3-trudne/pingwin.html"
+          },
+          {
+            "name": "Udawany Mistrz Kukiełek",
+            "gifUrl": '',
+            "shortDesc": "Udawany Mistrz Kukiełek to świetne rozbudowanie Yo-Yo. Żeby nauczyć się tego triku warto też umieć Yo-Yo obustronne i podwójne Yo-Yo. Wykonując Yo-Yo, należy po podniesieniu górnej piłki wyrzucić ją i złapać tą samą ręką niższą piłkę w pozycji claw a rolę niższej piłki przejmuje trzecia piłka. Sprawdź w filmiku jak to wygląda i jakich kroków należy się nauczyć, żeby opanować cały trik oraz jak przechodzić z jednej strony na drugą :)",
+            "link": "/triki/3-trudne/udawany-mistrz-kukielek.html"
+          },
+          {
+            "name": "Mistrz Kukiełek",
+            "gifUrl": '',
+            "shortDesc": "Prawdziwy Mistrz Kukiełek jest zdecydowanie trudniejszy niż ten udawany. Jest także dużo bardziej efektowny. Tutaj ruch Yo-Yo przedłużasz dwa razy, więc musisz także wyrzucić górną piłkę dwa razy. W udawanej wersji robiłeś prawie to samo, tylko za drugim razem już trzymałeś górną piłkę, a tutaj trzeba ją wyrzucić i potem przejść do drugiej strony. Sprawdź w filmiku jak najlepiej nauczyć się tego triku.",
+            "link": "/triki/3-trudne/mistrz-kukielek.html"
+          },
+          {
+            "name": "Skrzyżowana Odwrócona Kaskada",
+            "gifUrl": "img/gif/3-trudne/cross-reverse-cascade.gif",
+            "shortDesc": "Naukę żonglowania ze skrzyżowanymi rękami polecam zacząć od Odwróconej Kaskady zamiast od zwykłej. Tutaj każdy wyrzut jest robiony od zewnątrz do wewnątrz, tylko zawsze masz skrzyżowane ręce.",
+            "link": "/triki/3-trudne/skrzyzowana-odwrocona-kaskada.html"
+          },
+          {
+            "name": "Skrzyżowana Kaskada",
+            "gifUrl": "img/gif/3-trudne/cross-cascade.gif",
+            "shortDesc": "Ten trik wcale nie jest taki prosty jak wygląda. Ogólnie jest to normalna kaskada, tylko ze skrzyżowanymi rękami. Każda piłka jest oczywiście wyrzucana od wewnątrz na zewnątrz.",
+            "link": "/triki/3-trudne/skrzyzowana-kaskada.html"
+          },
+          {
+            "name": "Zjazd Ala",
+            "gifUrl": "img/gif/3-trudne/als-slide.gif",
+            "shortDesc": "W tym triku dwie piłki zawsze wyrzucane są obiema rękoma trochę na bok jedna obok drugiej. Następnie np. jeśli rzucasz do prawej strony, musisz sięgnąć lewą rękę do dalszej piłki i przenieść ją z powrotem do lewej strony tak jakby zjeżdżała na zjeżdżalni nad drugą piłką. Co z trzecią? Sprawdź w filmiku :)",
+            "link": "/triki/3-trudne/zjazd-ala.html"
+          },
+          {
+            "name": "Tasowanie",
+            "gifUrl": "img/gif/3-trudne/shuffle.gif",
+            "shortDesc": "Shuffle czyli Tasowanie to dość trudny trik, wymagający dużej szybkości. Jest za to bardzo efektowny, na pewno dużo, dużo lepszy niż Wolne Tasowanie, które jest jednym z kroków do nauki zwykłego Tasowania. Tasowanie piłkami jest prawie identyczne do tasowania kartami. W tej wersji każda piłka jest tasowana z jednej strony na drugą.",
+            "link": "/triki/3-trudne/tasowanie.html"
+          },
+          {
+            "name": "Georgian Shuffle",
+            "gifUrl": "img/gif/3-trudne/georgianshuffle2.gif",
+            "shortDesc": "Georgian Shuffle to jeden z najtrudniejszych i najbardziej efektownych trików jakie znam. Jest to tzw. trik multipleksowy, w którym naraz wyrzuca się więcej niż jedną piłkę z jednej ręki. Bardzo trudno byłoby wyjaśnić tutaj o co chodzi w tym triku, dlatego zachęcam Cię do obejrzenia mojego tutoriala z 9 prostymi ćwiczeniami, dzięki którym dojdziesz do pełnego triku. Na początku polecam także nauczyć się Grace.",
+            "link": "/triki/3-trudne/georgian-shuffle.html"
+          },
+          {
+            "name": "Magiel Manghama",
+            "gifUrl": "img/gif/3-trudne/manghams-mangle.gif",
+            "shortDesc": "Magiel Manghama to bardzo fajny a jednocześnie zaawansowany trik, w którym trzeba wykonać bardzo ciekawe, koliste ruchy. Najlepiej będzie jak zaczniesz od razu naukę dzięki mojemu tutorialowi.",
+            "link": "/triki/3-trudne/magiel-manghama.html"
+          },
+          {
+            "name": "Nalot",
+            "gifUrl": '',
+            "shortDesc": "Umiesz Fabrykę? Na obie strony? To czas na Nalot. Nalot to przyspieszona wersja naprzemiennej Fabryki. Tutaj także możesz zacząć od Udawanych Kolumn, przejść do Fabryki i zacząć robić ją naprzemiennie. Jak wygląda różnica? Jest tylko jedna piłka, która jest zrzucana zawsze z góry, po jednej i po drugiej stronie. Sprawdź w moim filmiku jak wygląda ten trik i zobacz kolejne ćwiczenia, żeby się go nauczyć.",
+            "link": "/triki/3-trudne/nalot.html"
+          },
+          {
+            "name": "Pudełko Na Wynos",
+            "gifUrl": '',
+            "shortDesc": "Ten trik jak sama nazwa wskazuje jest połączeniem Pudełka i triku Na Wynos. Jeden z moich ulubionych trików! Ogólnie chodzi o to, że po wyjęciu piłki z patternu, rzucasz ją do drugiej ręki poziomo jak w Boxie, a potem dalej przechodzisz z powrotem do Takeouts po drugiej stronie. Sprawdź jak to wygląda w filmiku i naucz się także podwójnej lub potrójnej wersji, którą poznasz pod koniec tutoriala.",
+            "link": "/triki/3-trudne/pudelko-na-wynos.html"
+          },
+          {
+            "name": "Pudełko Burke's Barrage",
+            "gifUrl": '',
+            "shortDesc": "W tym triku należy połączyć Pudełko i Burke's Barrage. Najlepiej jak nauczysz się Pudełka Na Wynos i potem wrócisz tutaj. Zapraszam do obejrzenia tutoriala.",
+            "link": "/triki/3-trudne/pudelko-burkes-barrage.html"
+          },
+          {
+            "name": "Widelcowa Winda",
+            "gifUrl": "img/gif/3-trudne/fork-lift.gif",
+            "shortDesc": "Widelcowa Winda to najtrudniejszy trik na 3 piłki jaki znam na ten moment. Jest bardzo szybki i efektowny, dlatego zachęcam Cię do wytrwałej nauki. Opiera się na Widelcu oraz w dużej mierze na Georgian Shuffle. Bez Georgian Shuffle nie ma nawet co zaczynać, więc zapraszam Cię najpierw do tego triku. Po multipleksowym wyrzucie w Georgian Shuffle, tutaj następuje jeszcze widelec, który podnosi tę piłkę i wydłuża trik. Nauka tego triku kiedy już umiałem Georgian Shuffle zajęła mi 2 dni, ale było warto! Więcej w filmiku :)",
+            "link": "/triki/3-trudne/widelcowa-winda.html"
+          },
+          {
+            "name": "Dylemat Dawida",
+            "gifUrl": "img/gif/3-trudne/davids-dilemma.gif",
+            "shortDesc": "Dylemat Dawida to bardzo fajnie wyglądający, szybki trik, podobny trochę do Prysznica. Timing jest tutaj najważniejszy. Ruch piłek które lecą dookoła jest taki sam jak w Prysznicu (wamp i wyrzut szerokim łukiem). Dlaczego trik nazywa się DYLEMAT? Sprawdź w filmiku - chodzi o trzecią piłkę, która wyrzucana jest niżej, tak jakby żongler nie był pewny co z nią zrobić.",
+            "link": "/triki/3-trudne/dylemat-dawida.html"
+          }
+        ],
+        tricks4: [
+          {
+            "name": "Fontanna Synchroniczna",
+            "gifUrl": "img/gif/4/synchronous-fountain.gif",
+            "shortDesc": "Fontanny to najprostszy rodzaj trików z parzystą liczbą piłek. Tutaj widzisz synchroniczną wersję. Jedna ręka żongluje zawsze tymi samymi dwiema piłkami, do drugiej należą pozostałe dwie. Zwykle żongluje się od wewnątrz do zewnątrz, ale można też odwrotnie.",
+            "link": "/triki/4/fontanna-synchroniczna.html"
+          },
+          {
+            "name": "Fontanna Asynchroniczna",
+            "gifUrl": "img/gif/4/asynchronous-fountain.gif",
+            "shortDesc": "Wersja asynchroniczna 4-piłkowej Fontanny jest bardzo fajna i prosta do nauki porównując z innymi trikami na 4 piłki. W tym triku zawsze wyrzucasz jedną piłkę, a nie dwie naraz jak w triku powyżej. W tutorialu znajdziesz kilka kroków, które ułatwią Ci naukę żonglowania.",
+            "link": "/triki/4/fontanna-asynchroniczna.html"
+          },
+          {
+            "name": "Tęcza",
+            "gifUrl": "img/gif/4/rainbow.gif",
+            "shortDesc": "Tęcza to trik crossowy na 4 piłki. Występują tutaj dwa rodzaje wyrzutów, w których zawsze lecą dwie piłki jednocześnie - pionowe oraz crossowe.",
+            "link": "/triki/4/tecza.html"
+          },
+          {
+            "name": "Kolumny",
+            "gifUrl": "img/gif/4/columns.gif",
+            "shortDesc": "4-piłkowe Kolumny to trik żonglerski, w którym wszystkie piłki wyrzucane są pionowo tak jak widzisz na animacji. Jednocześnie wyrzucane są dwie piłki i tak cały czas. Twoje dłonie po prostu chodzą od lewej do prawej łapiąc i wyrzucając piłki.",
+            "link": "/triki/4/kolumny.html"
+          },
+          {
+            "name": "Tłoki",
+            "gifUrl": "img/gif/4/pistons.gif",
+            "shortDesc": "Tłoki to asynchroniczna wersja powyższych Kolumn, więc we wzorze będą tu 4 wyrzuty, a nie dwa. Żonglując, każdą piłkę wyrzucasz indywidualnie. Poniżej filmik z konkretnymi krokami.",
+            "link": "/triki/4/tloki.html"
+          },
+          {
+            "name": "Półprysznic",
+            "gifUrl": "img/gif/4/half-shower.gif",
+            "shortDesc": "Jeśli wiesz jak żonglować Półprysznicem, zrobiłeś już jeden krok w nauce 4-piłkowego Half Showera. Z jednej strony każda piłka wyrzucana jest od wewnątrz do zewnątrz, a z drugiej zawsze dookoła. Piłki, które lecą dookoła, powinny być wyrzucane wyżej. Filmik do tego tutoriala jeszcze nie jest dostępny.",
+            "link": "/triki/4/polprysznic.html"
+          },
+          {
+            "name": "Wiatrak",
+            "gifUrl": "img/gif/4/windmill.gif",
+            "shortDesc": "Do nauki 4-piłkowego wiatraka także będzie potrzebna znajomość wersji na 3 piłki, ponieważ wzór jest dokładnie taki sam. Filmik do tego tutoriala jeszcze nie jest dostępny.",
+            "link": "/triki/4/wiatrak.html"
+          }
+        ],
+        diabolo: [
+          {
+            "name": "Startowanie, Rozpędzanie i Korygowanie",
+            "shortDesc": "Jeśli chcesz się dowiedzieć wszystkich podstawowych informacji dla diabolo - obejrzyj mój filmik poniżej. Prezentuję tam startowanie, rozpędzanie oraz korygowanie diabolo. Jeśli nie wiesz czym w ogóle jest diabolo, ten filmik także jest dla Ciebie.",
+            "link": "diabolo/startowanie-rozpedzanie-korygowanie.html"
+          },
+          {
+            "name": "Wyrzuty",
+            "shortDesc": "Wyrzucanie diabolo i łapanie go z powrotem na sznurek to podstawowy element wielu trików, więc warto nauczyć się go solidnie. Nauczę Cię tutaj jak wyrzucać diabolo oraz jak trzymać kijki, żeby najłatwiej nauczyć się jak je łapać.",
+            "link": "diabolo/wyrzuty.html"
+          },
+          {
+            "name": "Trapez",
+            "shortDesc": "Trapez to kolejny podstawowy trik dla diabolo. Żeby wykonać ten trik, należy wykonać lekkie wahanie w lewo, a potem mocno w prawo, tak żeby sznurek obkręcił się dookoła prawego kijka, a diabolo wylądowało na podwójnym sznurku. Trapez jest bardzo przydatny w Kołyskach, w Młynku do Kawy czy Chińskim Samobójstwie, które także poznasz na mojej stronie.",
+            "link": "diabolo/trapez.html"
+          },
+          {
+            "name": "Kocia Kołyska",
+            "shortDesc": "Kocia Kołyska to trik o dość śmiesznej nazwie. Na zapętlonym sznurku trzeba wyrzucać szybko diabolo i łapać je tak jakbyśmy chcieli je kołysać. Aby wykonać ten trik, zrób Trapez, wsadź kijek między sznurki i wyrzuć diabolo przed sznurkami. Następnie kijki skieruj w górę i złap diabolo na sznurki. Sprawdź filmik po więcej szczegółów.",
+            "link": "diabolo/kocia-kolyska.html"
+          },
+          {
+            "name": "Tygrysia Kołyska",
+            "shortDesc": "Tygrysia Kołyska to rozszerzona wersja Kociej Kołyski. W tym triku diabolo musi się kręcić szybciej, ponieważ trik wykonuje się trochę dłużej ze względu na dodatkowe zaplątanie sznurka.",
+            "link": "diabolo/tygrysia-kolyska.html"
+          },
+          {
+            "name": "Winda",
+            "shortDesc": "Winda to moim zdaniem najciekawszy trik, którego mogą nauczyć się początkujący. Potrzeba do niego, aby diabolo się szybko kręciło. Wtedy lewa ręka idzie do góry, a prawa trochę niżej (jedna dłoń pod drugą, pionowo), następnie raz zawijasz sznurek dookoła osi diabolo i zaciskasz przez delikatne pociągnięcie prawą ręką w dół. Diabolo powinno podnosić się na sznurku.",
+            "link": "diabolo/winda.html"
+          },
+          {
+            "name": "Backside",
+            "shortDesc": "Backside to bardzo szybki trik, który przydaje się przy wielu innych. Trzeba tutaj wyrzucić diabolo, przenieść prawy kijek nad diabolo i złapać je tak jakby od góry, a następnie szybko przenieść prawy kijek w dół i w lewo. Trzymając kijki odwrotnie (lewa ręka po prawej stronie a prawa po lewej) po wykonaniu triku, sznurek powinien mieć naturalną postać. Zobacz jak to wygląda w spowolnieniu w moim filmiku i na pewno szybko się zorientujesz o co chodzi.",
+            "link": "diabolo/backside.html"
+          },
+          {
+            "name": "Dookoła Stopy",
+            "shortDesc": "Czas na tzw. Body Moves, triki w których używasz części swojego ciała do wykonania triku. Najpierw czas na Dookoła Stopy, trik prosty, od którego warto zacząć naukę. Diabolo jest wyrzucane dookoła stopy, a stopa naciska w większości czasu na sznurek, żeby był napięty.",
+            "link": "diabolo/dookoła-stopy.html"
+          },
+          {
+            "name": "Dookoła Nogi",
+            "shortDesc": "Dookoła Nogi opiera się na tym samym co trik wyżej. Napięcie sznurka uzyskujesz dzięki oparciu sznurka o tylnią część uda. Zobacz więcej w filmiku.",
+            "link": "diabolo/dookoła-nogi.html"
+          },
+          {
+            "name": "Dookoła Ramienia",
+            "shortDesc": "Dookoła Ramienia to trik dla średniozaawansowanych z serii Body Moves. Diabolo jest wyrzucane tutaj dookoła ramienia, a główną trudnością jest dobre ustawienie prawego łokcia i prawego kijka. Więcej dowiesz się w filmiku.",
+            "link": "diabolo/dookoła-ramienia.html"
+          },
+          {
+            "name": "Grindowanie",
+            "shortDesc": "Grindowanie diabolo jest dosyć proste. Chodzi po prostu o to, że wrzucasz diabolo na kijek. Potrzebujesz do tego dobrych kijków - aluminiowych, z włókna szklanego lub węglowego. Najprostsze - drewniane nie poradzą sobie z tymi trikami. Całą sztuką jest balansowanie diabolo na kijku. W moim filmiku nauczę Cię jak wrzucać diabolo na kijek i wracać do normalnej pozycji, a poza tym czterech wersji grindowania, od tej najbardziej podstawowej po trochę fajniejsze.",
+            "link": "diabolo/grindowanie.html"
+          },
+          {
+            "name": "Grindowanie ze Strzałem",
+            "shortDesc": "Grindowanie ze strzałem to kolejna wersja grindowania z małym dodatkiem. Podczas normalnego grinda (jesteś odwrócony przodem do osi diabolo), trzeba zwinąć sznurek dookoła kijka w odpowiedni sposób, tak jakbyś ładował broń. Następnie wykonujesz strzał przez wyrzucenie diabolo w przód. Diabolo powinno zostać na sznurku.",
+            "link": "diabolo/grindowanie-ze-strzalem.html"
+          },
+          {
+            "name": "Zatrzymanie na Kijku",
+            "shortDesc": "Zatrzymanie Na Kijku to bardzo fajny trik, w którym używasz kijków. Chodzi tutaj o robienie mocnych wahań diabolo w lewo i w prawo i zatrzymywać je poprzez położenie kijka na osi na chwilę gdy diabolo odchyla się o około 90 stopni. Zobacz więcej w filmiku, w którym pokażę Ci jaka jest różnica między prawą i lewą stroną Zatrzymania Na Kijku.",
+            "link": "diabolo/zatrzymanie-na-kijku.html"
+          },
+          {
+            "name": "Magiczne Wiązanie Półspaghetti",
+            "shortDesc": "Magiczne Wiązania to kolejna rodzina trików na diabolo, w których wykorzystuje się plątanie sznurka wokół kijków i diabolo. Ostatecznie okazuje się, że diabolo ucieka z tych wiązań praktycznie jednym ruchem. Półspaghetti to najprostsze wersja magicznych wiązań, której szybko nauczę Cię w moim filmiku.",
+            "link": "diabolo/magiczne-wiazanie-polspaghetti.html"
+          },
+          {
+            "name": "Magiczne Wiązanie Spaghetti",
+            "shortDesc": "Magiczne Wiązanie Spaghetti to trochę bardziej skomplikowana, pełna wersja Półspaghetti. Potrzebujesz tu sporo prędkości, ponieważ na początku wykonywanie triku może być trochę wolne. Więcej jak zawijać sznurki w filmiku.",
+            "link": "diabolo/magiczne-wiazanie-spaghetti.html"
+          },
+          {
+            "name": "Magiczne Wiązanie z Udawanym Końcem",
+            "shortDesc": "Ten trik to ciekawa wersja magicznego wiązania. Wiązania są podobne do Spaghetti, ale na końcu należy wykonać ruch, tak jakby chciało się kogoś zaatakować. Diabolo powinno tu pozostać na sznurku, a wiązanie powinno się usunąć po tym ruchu. Więcej szczegółów w filmiku.",
+            "link": "diabolo/magiczne-wiazanie-z-udawanym-koncem.html"
+          },
+          {
+            "name": "Ręczna trampolina",
+            "shortDesc": "Ręczna Trampolina to trudniejsza wersja zwykłej Trampoliny, w której oba kijki są trzymane w jednej dłoni, a druga trzyma sznurek. Zobacz w moim tutorialu jak wykonać ten trik i jak go zakończyć.",
+            "link": "diabolo/reczna-trampolina.html"
+          },
+          {
+            "name": "Jednokijkowa Pułapka",
+            "shortDesc": "Jednokijkowa Pułapka jest bardzo fajnym trikiem, który ciekawi wiele osób. Trzymając tylko jeden kijek, drugi sam utrzymuje swoją pozycję dzięki \"magicznym wiązaniom\". Sprawdź mój filmik, w którym pokażę Ci jak nawinąć odpowiednio sznurek na kijki i wsadzić diabolo w tytułową pułapkę.",
+            "link": "diabolo/jednokijkowa-pulapka.html"
+          },
+          {
+            "name": "Wyrzut Fritza",
+            "shortDesc": "Wyrzut Fritza to trik, który łączy Backside i Trampezy. Najpierw należy wykonać Backside na prawą stronę, potem zrobić podwójny prawy Trapez, a na końcu rozszerzyć ręce, żeby diabolo uwolniło się z wiązań i złapać na sznurek.",
+            "link": "diabolo/wyrzut-fritza.html"
+          },
+          {
+            "name": "Chińskie Samobójstwo",
+            "shortDesc": "Samobójstwa to triki z diabolo, w których w pewnym momencie puszcza się jeden lub oba kijki. Są bardzo efektowne, ale jednocześnie dość trudne do nauki. Chińskie Samobójstwo to najprostsza wersja. Należy zrobić tutaj prawy trapez, a następnie puścić lewy kijek nadając mu trochę prędkości. Następnie czekasz aż zrobi pełny obrót i łapiesz lewą ręką ten kijek z powrotem. Zapraszam do obejrzenia mojego tutoriala oraz nauki innych rodzajów samobójstw z diabolo. Na mojej stronie znajdziesz między innymi Nieskończone Samobójstwo, bardzo widowiskowy trik.",
+            "link": "diabolo/chinskie-samobojstwo.html"
+          },
+          {
+            "name": "Ręczna Winda",
+            "shortDesc": "Ręczna winda na pewno zadziwi Twoich znajomych lub widownię, a na początku może też zadziwić i Ciebei. Tutaj jedna ręka trzyma oba kijki, druga podwójny sznurek. Trzeba wyrzucić diabolo w górę i złapać na podwójny sznurek, następnie przełożyć kijki, które formują literę V nad diabolo i jednocześnie podnosić lewą rękę i ciągnąć w dół prawą. Znajomość zwykłej Windy na pewno pomoże z nauką tego trudniejszego triku. Zobacz w filmiku jak to zrobić, na pewno będzie to wtedy dużo prostsze.",
+            "link": "diabolo/reczna-winda.html"
+          },
+          {
+            "name": "Dookoła Ramion",
+            "shortDesc": "Dookoła Ramion to dość zaawansowany trik z serii Body Moves. Trzeba naprawdę dobrze umieć zwykłe Dookoła Ramienia. Tutaj oczywiście diabolo porusza się dookoła obu ramion, a ustawienie lewego łokcia i kijka przybiera tę samą postać co prawego w jednoręcznej wersji. Najtrudniejszym momentem wykonywania triku jest dołożenie drugiej ręki. W moim filmiku pokażę Ci m.in. jak to zrobić.",
+            "link": "diabolo/dookoła-ramion.html"
+          },
+          {
+            "name": "Trampolina na Szyi",
+            "shortDesc": "Wiesz jak robić normalną lub ręczną Trampolinę z diabolo? Świetnie! Tutaj będziesz mógł nauczyć się także Trampoliny Na Szyi, dość zaawansowanego i troszkę niebezpiecznego dla twarzy triku. Rozpędź diabolo, następnie przełóż prawy kijek dookoła szyi (od lewej strony) i odwróć się w lewo o 90 stopni. Diabolo powinno znajdować się na lewej części kijka i wtedy możesz przerzucać diabolo z jednej strony na drugą.",
+            "link": "diabolo/trampolina-na-szyi.html"
+          },
+          {
+            "name": "Nożna Sprężyna",
+            "shortDesc": "Nożna Sprężyna to lepsza, rozbudowana wersja Dookoła Nogi. Oba triki mogą być nawet przeplatane i wtedy naprawdę fajnie to wygląda. Gdy wykonujesz Dookoła Nogi, diabolo krąży dookoła, tutaj natomiast diabolo jest zawsze przerzucane nad nogą i wymaga to ustawiania odpowiedniego napięcia sznurka. W moim filmiku pokażę Ci jak to zrobić.",
+            "link": "diabolo/nozna-sprezyna.html"
+          },
+          {
+            "name": "Cudowny Wyrzut",
+            "shortDesc": "Cudowny Wyrzut to trik, który wywodzi się z Dookoła Ramienia i oczywiście Dookoła Ramienia jest potrzebne do nauki tego trudniejszego triku. Nie jest prosto wytlumaczyć ten trik słowami, więc zapraszam do obejrzenia mojego tutoriala, w którym krok po kroku pokażę Ci o co chodzi z Cudownym Wyrzutem.",
+            "link": "diabolo/cudowny-wyrzut.html"
+          },
+          {
+            "name": "Bat / Lasso",
+            "shortDesc": "Bat/Lasso to naprawdę efektowny trik z diabolo, który zawsze zdumiewa widzów. Podczas trzymania dwóch kijków (pozycja kijków - V) w jednej ręce i podwójnego sznurka w drugiej, należy okręcić się o 90 stopni w lewo, wyrzucić diabolo trochę przed siebie, wykonać ruch jak przy biczowaniu i złapać diabolo z powrotem na sznurek. Zobacz jak to zrobić dzięki mojemu tutorialowi. Na początku nie jest łatwo, ale z czasem powinno Ci wychodzić coraz częściej.",
+            "link": "diabolo/bat-lasso.html"
+          },
+          {
+            "name": "Młynek Do Kawy",
+            "shortDesc": "Młynek Do Kawy wygląda bardzo fajnie. Diabolo rusza się koliście w dżungli sznurków. Wygląda to jak maszyna która mieli kawę, więc nazwa nie jest przypadkowa. Zapraszam do obejrzenia mojego filmiku.",
+            "link": "diabolo/mlynek-do-kawy.html"
+          },
+          {
+            "name": "Wściekłe Samobójstwo",
+            "shortDesc": "Wściekłe Samobójstwo to bardzo ciekawie wyglądający trik dla diabolo, który składa się z kilku łatwiejszych kroków. Mimo to że całość jest dosyć trudna, łatwość podzielenia triku pozwala na dość szybką naukę. Sprawdź mój filmik, w którym nauczę Cię po kolei części Wściekłego Samobójstwa.",
+            "link": "diabolo/wsciekle-samobojstwo.html"
+          },
+          {
+            "name": "Nieskończone Samobójstwo",
+            "shortDesc": "Nieskończone Samobójstwo to trik, w którym przez cały czas w ręce trzymasz tylko jeden kijek, a drugi jest puszczony i lata dookoła diabolo robiąc ciągłe samobójstwa. Diabolo nie ucieka ze sznurka ponieważ z każdym samobójstwem wykonuje się zawinięcie sznurka dookoła osi diabolo. Ten trik wygląda naprawdę zjawiskowo, a dzięki mojemu tutorialowi krok po kroku nauczysz się jak go wykonać. Najważniejsza jest tutaj precyzja i timing wykonania triku.",
+            "link": "diabolo/nieskonczone-samobojstwo.html"
+          },
+          {
+            "name": "Ludobójstwo",
+            "shortDesc": "Ludobójstwo to najtrudniejszy trik na 1 diabolo, który znam. Trudno jest opisać go krótko słowami. Podczas wykonywania Ludobójstwa w pewnym momencie puszczasz jeden kijek a diabolo leci swobodnie w powietrzu. Następnie kręcąc całą długością sznurka, należy złapać diabolo a potem kijek i wrócić do normalnej pozycji. Sprawdź mój tutorial ze spowolnieniem. Jeśli nauczysz się tego triku, jesteś naprawdę zaawansowanym diabolistą!",
+            "link": "diabolo/ludobojstwo.html"
+          }
+        ]
+      }
+    })
+  </script>
+
+
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function (b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l;
+      b[l] || (b[l] =
+        function () {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+      b[l].l = +new Date;
+      e = o.createElement(i);
+      r = o.getElementsByTagName(i)[0];
+      e.src = 'https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>

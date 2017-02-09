@@ -1,45 +1,47 @@
-/*
+  /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-
-
-/* ==========================================================================
+  /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 
-* {
-  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  $main-blue-color: #337ab7;
+
+  body,
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  html {
+    color: #222;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+a {
+  color: $main-blue-color;
+  &:hover {
+    color: darken($main-blue-color, 20)
+  }
 }
 
-body,
-html {
-  max-width: 100%;
-  overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 14px;
-}
 
-html {
-  color: #222;
-  line-height: 1.4;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-
-/* FONT CLASSES */
-
-
-/* END OF FONT CLASSES */
-
-
-/*
+  /* FONT CLASSES */
+  /* END OF FONT CLASSES */
+  /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
  *
@@ -47,167 +49,150 @@ h1 {
  * Customize the background color to match your design.
  */
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-
-/*
+  ::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  /*
  * A better looking default horizontal rule
  */
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-
-/*
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+  /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-
-/*
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+  /*
  * Remove default fieldset styles.
  */
 
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-
-/*
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  /*
  * Allow only vertical resizing of textareas.
  */
 
-textarea {
-  resize: vertical;
-}
-
-
-/* ==========================================================================
+  textarea {
+    resize: vertical;
+  }
+  /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-
-/* MIXINS  */
-
-@mixin flexy($align-items, $justify-content) {
-  display: flex;
-  align-items: $align-items;
-  justify-content: $justify-content;
-}
-
-@mixin dark-bgs {
-  background-image: -webkit-linear-gradient(to top right, #0d1017, #2e3136);
-  background-image: -o-linear-gradient(to top right, #0d1017, #2e3136);
-  background-image: linear-gradient(to top right, #0d1017, #2e3136);
-  color: #f1f1f1;
-}
-
-
-/* USP CLASSES */
-
-#usp {
-  background-color: #131313;
-  color: #eee;
-  padding: 0 16%;
-}
-
-.usp-wrapper {
-  @include flexy(center, space-around);
-  flex-wrap: wrap;
-}
-
-.usp-item {
-  @include flexy(center, center);
-  margin: 0.5rem 0;
-}
-
-.material-icons {
-  font-size: 1.4rem;
-  width: 35px;
-}
-
-
-/* END OF USP CLASSES */
-
-
-/* MENU CLASSES */
-
-nav {
-  background-color: white;
-  box-shadow: none;
-  height: 100px;
-  padding: 0 15%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.15);
-  border: none;
-  & i {
-    color: #111
+  .browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
   }
-}
+  /* MIXINS  */
 
-nav ul a {
-  color: #111;
-}
-
-ul.menu,
-ul.menu li {
-  height: 60px;
-  text-transform: uppercase;
-  &.active {
-    background: none;
-    & a {
-      color: dodgerblue;
-    }
+  @mixin flexy($align-items, $justify-content) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
   }
-  & a {
+
+  @mixin dark-bgs {
+    background-image: -webkit-linear-gradient(to top right, #0d1017, #2e3136);
+    background-image: -o-linear-gradient(to top right, #0d1017, #2e3136);
+    background-image: linear-gradient(to top right, #0d1017, #2e3136);
+    color: #f1f1f1;
+  }
+  /* USP CLASSES */
+
+  #usp {
+    background-color: #131313;
+    color: #eee;
+    padding: 0 16%;
+  }
+
+  .usp-wrapper {
+    @include flexy(center, space-around);
+    flex-wrap: wrap;
+  }
+
+  .usp-item {
+    @include flexy(center, center);
+    margin: 0.5rem 0;
+  }
+
+  .material-icons {
+    font-size: 1.4rem;
+    width: 35px;
+  }
+  /* END OF USP CLASSES */
+  /* MENU CLASSES */
+
+  nav {
+    background-color: white;
+    box-shadow: none;
     height: 100px;
-    padding-top: 20px;
-    text-decoration: none;
-    &:hover,
-    &:focus,
-    &:active {
-      color: dodgerblue;
-      text-decoration: none;
-      background: transparent;
+    padding: 0 15%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.15);
+    border: none;
+    & i {
+      color: #111
     }
   }
-}
 
+  nav ul a {
+    color: #111;
+  }
 
-.menu * {
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
+  ul.menu,
+  ul.menu li {
+    height: 60px;
+    text-transform: uppercase;
+    &.active {
+      background: none;
+      & a {
+        color: dodgerblue;
+      }
+    }
+    & a {
+      height: 100px;
+      padding-top: 20px;
+      text-decoration: none;
+      &:hover,
+      &:focus,
+      &:active {
+        color: dodgerblue;
+        text-decoration: none;
+        background: transparent;
+      }
+    }
+  }
 
+  .brand-logo {
+    font-size: 0
+  }
 
-/*
+  .menu * {
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
+  /*
 .menu a {
   position: relative;
   &:before, &:after {
@@ -240,420 +225,468 @@ ul.menu li {
 }
 */
 
-.menu a:hover,
-.menu .active a {
-  color: #111;
-}
-
-.menu a:hover:before,
-.menu .active a:before,
-.menu a:hover:after,
-.menu .active a:after {
-  -webkit-transform: translate(0%, 0%);
-  transform: translate(0%, 0%);
-  opacity: 1;
-}
-
-.navbar-default .navbar-nav > li > a {
-  &:hover,
-  &:focus,
-  &:active,
-  &:visited {
+  .menu a:hover,
+  .menu .active a {
     color: #111;
   }
-}
 
-$navbar-height: 100px;
-.full-bg {
-  /* Preserve aspet ratio */
-  min-width: 100%;
-  position: relative;
-}
-
-.brand-logo {
-  height: 100px;
-}
-
-.brand {
-  height: 100px;
-  padding: 20px 0px;
-}
-
-.side-nav {
-  color: #111;
-  & li.active {
-    background: #eee;
+  .menu a:hover:before,
+  .menu .active a:before,
+  .menu a:hover:after,
+  .menu .active a:after {
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    opacity: 1;
   }
-  & a {
-    text-decoration: none;
-  }
-}
 
-.dropdown-content {
-  background-color: white;
-  margin: 0;
-  display: none;
-  min-width: 200px;
-  /* Changed this to accomodate content width */
-  max-height: auto;
-  margin-left: -1px;
-  /* Add this to keep dropdown in line with edge of navbar */
-  overflow: hidden;
-  /* Changed this from overflow-y:auto; to overflow:hidden; */
-  opacity: 0;
-  position: absolute;
-  white-space: nowrap;
-  z-index: 1;
-  will-change: width, height;
-  text-align: center;
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08), 0 0px 8px rgba(0, 0, 0, 0.15);
-  & li:hover {
-    background: white;
-  }
-  & li a {
-    color: #111
-  }
-}
-
-.caret {
-  margin-top: -5px;
-  margin-left: 5px;
-}
-
-
-/* END OF MENU CLASSES */
-
-
-/*  HEADERCLASSES */
-
-header {
-  margin: 4rem 0;
-  & h1,
-  p {
-    text-align: center;
-    margin: 0;
-  }
-  & button {
-    display: block !important;
-    margin: 40px auto 0 auto;
-  }
-  & .row {
-    @include flexy(center, center);
-  }
-}
-
-.header-div-wrapper {
-  padding: 1rem 2.5rem;
-}
-
-.btn-large {
-  background-color: lighten(#0b24fb, 5);
-  border-radius: 0.3rem;
-  &:hover,
-  &:focus,
-  &:active,
-  &:visited {
-    background-color: #0b24fb;
-  }
-}
-
-.header-flexy {
-  @include flexy(center, center);
-}
-
-li.what-we-do-item {
-  padding: 10px;
-  list-style-type: initial !important;
-}
-
-
-/* END OF HEADER CLASSES */
-
-
-/*  GALLERY CLASSES */
-
-.carousel {
-  height: 100%;
-  .row {
-    display: flex;
-    margin: 0;
-  }
-}
-
-.carousel-control {
-  width: 10%;
-  &.left {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .0001) 100%);
-    transition: 0.3s;
-    &:hover {
-      background-image: linear-gradient(to right, rgba(0, 0, 0, .22) 0, rgba(0, 0, 0, .0001) 100%);
+  .navbar-default .navbar-nav > li > a {
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: #111;
     }
   }
-  &.right {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .2) 100%);
-    transition: 0.3s;
-    &:hover {
-      background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .22) 100%);
-    }
+
+  $navbar-height: 100px;
+  .full-bg {
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    position: relative;
   }
-}
 
-
-/* END OF GALLERY CLASSES */
-
-
-/*  WHY US CLASSES */
-
-section#why-us {
-  background: url('../img/black-bg.png') center center no-repeat fixed;
-  background-size: cover;
-  color: #eee;
-  text-align: center;
-  height: 100vh;
-  @include flexy(center,
-  center);
-  flex-direction: column;
-  flex-wrap: wrap;
-  & .hr-wrapper {
-    margin: 4rem 0;
+  .brand-logo {
+    height: 100px;
   }
-}
 
-div.why-us-item {
-  background-color: #eee;
-  padding: 2rem;
-  margin: 1rem;
-  color: #111;
-  border-radius: 0.3rem;
-}
-
-.why-us-header {
-  margin: 2rem 0;
-}
-
-
-/* END OF WHY US  CLASSES */
-
-
-/*  CLIENTS CLASSES */
-
-section#clients {
-  background: url('../img/blue-bg2.png') center center no-repeat fixed;
-  background-size: cover;
-  color: white;
-  height: 100vh;
-  @include flexy(center,
-  center);
-  flex-direction: column;
-  & h1,
-  p.firm {
-    text-align: center;
+  .brand {
+    height: 100px;
+    padding: 20px 0px;
   }
-  & .hr-wrapper {
-    margin: 4rem 0;
-  }
-}
 
-.quote-box {
-  padding: 3rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 0.3rem;
-  margin: 1rem 0;
-}
-
-.clients-header {
-  margin: 2rem 0;
-}
-
-button.referral {
-  display: block;
-  margin: 2rem auto;
-  background-color: rgba(255, 255, 255, 0.90);
-  color: #111;
-  &:hover,
-  &:focus,
-  &:active,
-  &:visited {
+  .side-nav {
     color: #111;
-    text-decoration: none;
-    background-color: rgb(255, 255, 255);
-  }
-}
-
-
-/* END OF CLIENTS CLASSES */
-
-
-/*  FOOTER CLASSES */
-
-footer {
-  color: white;
-  background-color: #121212;
-  & .flexy {
-      @include flexy(center,center)
-  }
-  & ul li a {
-    color: white;
-    &:hover, &:focus, &:active {
-      color: white;
+    & li.active {
+      background: #eee;
+    }
+    & a {
+      text-decoration: none;
     }
   }
-}
 
-.footer-content {
-  padding: 2rem 0;
-}
-.footer-copyright {
-  background: black;
-  padding: 1rem 0;
-}
+  .dropdown-content {
+    background-color: white;
+    margin: 0;
+    display: none;
+    min-width: 200px;
+    /* Changed this to accomodate content width */
+    max-height: auto;
+    margin-left: -1px;
+    /* Add this to keep dropdown in line with edge of navbar */
+    overflow: hidden;
+    /* Changed this from overflow-y:auto; to overflow:hidden; */
+    opacity: 0;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1;
+    will-change: width, height;
+    text-align: center;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08), 0 0px 8px rgba(0, 0, 0, 0.15);
+    & li:hover {
+      background: white;
+    }
+    & li a {
+      color: #111
+    }
+  }
 
-/* END OF FOOTER CLASSES */
+  .caret {
+    margin-top: -5px;
+    margin-left: 5px;
+  }
+  /* END OF MENU CLASSES */
+  /*  HEADERCLASSES */
 
-/* CONTACT CLASSES */
+  header {
+    margin: 4rem 0;
+    & h1,
+    p {
+      text-align: center;
+      margin: 0;
+    }
+    & button {
+      display: block !important;
+      margin: 40px auto 0 auto;
+    }
+    & .row {
+      @include flexy(center, center);
+    }
+  }
 
-#contact {
-  margin: 3rem 0;
-  & .flexy {
+  .header-div-wrapper {
+    padding: 1rem 2.5rem;
+  }
+
+  .btn-large {
+    background-color: $main-blue-color;
+    border-radius: 0.3rem;
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      background-color: darken($main-blue-color, 5);
+    }
+  }
+
+  .header-flexy {
     @include flexy(center, center);
+  }
+
+  li.what-we-do-item {
+    padding: 10px;
+    list-style-type: initial !important;
+  }
+  /* END OF HEADER CLASSES */
+  /*  GALLERY CLASSES */
+
+  .carousel {
+    height: 100%;
+    .row {
+      display: flex;
+      margin: 0;
+    }
+  }
+
+  .carousel-control {
+    width: 10%;
+    &.left {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .0001) 100%);
+      transition: 0.3s;
+      &:hover {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, .22) 0, rgba(0, 0, 0, .0001) 100%);
+      }
+    }
+    &.right {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .2) 100%);
+      transition: 0.3s;
+      &:hover {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .22) 100%);
+      }
+    }
+  }
+  /* END OF GALLERY CLASSES */
+  /*  WHY US CLASSES */
+
+  section#why-us {
+    background: url('../img/black-bg.png') center center no-repeat fixed;
+    background-size: cover;
+    color: #eee;
+    text-align: center;
+    height: 100vh;
+    @include flexy(center,
+    center);
+    flex-direction: column;
     flex-wrap: wrap;
+    & .hr-wrapper {
+      margin: 4rem 0;
+    }
   }
-  & hr {
-    width: 60px;
+
+  div.why-us-item {
+    background-color: #eee;
+    padding: 2rem;
+    margin: 1rem;
+    color: #111;
+    border-radius: 0.3rem;
+  }
+
+  .why-us-header {
+    margin: 2rem 0;
+  }
+  /* END OF WHY US  CLASSES */
+  /*  CLIENTS CLASSES */
+
+  section#clients {
+    background: url('../img/blue-bg2.png') center center no-repeat fixed;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    @include flexy(center,
+    center);
+    flex-direction: column;
+    & h1,
+    p.firm {
+      text-align: center;
+    }
+    & .hr-wrapper {
+      margin: 4rem 0;
+    }
+  }
+
+  .quote-box {
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0.3rem;
     margin: 1rem 0;
   }
-}
 
-/* END OF CONTACT CLASSES */
-
-#gallery {
-  margin: 3rem 0;
-  & img {
-    padding: 3rem;
+  .clients-header {
+    margin: 2rem 0;
   }
-  & .flexy {
-    @include flexy(center, center);
+
+  button.referral {
+    display: block;
+    margin: 2rem auto;
+    background-color: rgba(255, 255, 255, 0.90);
+    color: #111;
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: #111;
+      text-decoration: none;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  /* END OF CLIENTS CLASSES */
+  /*  FOOTER CLASSES */
+
+  footer {
+    color: white;
+    background-color: #121212;
+    & .flexy {
+      @include flexy(center,
+      center);
+    }
+    & ul li a {
+      color: white;
+      &:hover,
+      &:focus,
+      &:active {
+        color: white;
+      }
+    }
+  }
+
+  .footer-content {
+    padding: 2rem 0;
+  }
+
+  .footer-copyright {
+    background: black;
+    padding: 1rem 0;
+  }
+  /* END OF FOOTER CLASSES */
+  /* CONTACT CLASSES */
+
+  #contact {
+    margin: 3rem 0;
+    & .flexy {
+      @include flexy(center,
+      center);
+      flex-wrap: wrap;
+    }
+    & hr {
+      width: 60px;
+      margin: 1rem 0;
+    }
+  }
+  /* END OF CONTACT CLASSES */
+
+  #gallery {
+    margin: 3rem 0;
+    & img {
+      padding: 3rem;
+    }
+    & .flexy {
+      @include flexy(center,
+      center);
+      flex-wrap: wrap;
+    }
+  }
+
+  .material-placeholder {
+    display: inline;
+  }
+  /* PRODUCTS CLASSES */
+  /* END OF PRODUCTS CLASSES */
+
+  section#welcome {
+    margin-top: 3rem;
+  }
+
+  .nav-pills {
+    border-spacing: 1rem 0.5rem;
+    & li {
+      margin: 1rem 0;
+      border-radius: 4px;
+      & a {
+        color: #111;
+        transition: all 0.3s;
+        border: 1px solid $main-blue-color;
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+
+  .nav-pills > li + li {
+    margin-left: 0;
+  }
+
+  .nav-pills li:hover {
+    transition: all 0.3s;
+    background-color: $main-blue-color;
+    & a {
+      color: #eee;
+    }
+  }
+
+  .nav-pills > li.active > a {
+    border-radius: 4px;
+    &:hover,
+    &:focus,
+    &:visited,
+    &:active {
+      color: #fff;
+      background-color: $main-blue-color;
+      border-radius: 4px;
+    }
+  }
+
+  .product-flex {
+    @include flexy(center,
+    center);
     flex-wrap: wrap;
+    & img {
+      margin: 0 auto 1.5rem auto;
+    }
   }
-}
 
-.material-placeholder {
-  display: inline;
-}
+  .product-div h4 {
+    margin: 2rem 0;
+  }
 
-/* ==========================================================================
+  .other-stuff {
+    @include flexy(center,
+    center);
+    flex-direction: column;
+  }
+
+  ul:not(.browser-default) li {
+    list-style-type: square;
+  }
+
+  .product-images {
+    @include flexy(center,
+    center)
+  }
+
+  .catalog {
+    margin: 4rem 0 8rem;
+  }
+  /* ==========================================================================
    Helper classes
    ========================================================================== */
 
-.hr-wrapper {
-  position: relative;
-  margin: 2rem 0;
-}
+  .hr-wrapper {
+    position: relative;
+    margin: 2rem 0;
+  }
 
-.icon-wrapper {
-  position: absolute;
-  top: -1.1rem;
-  left: calc(50% - 1.1rem);
-  height: 2.2rem;
-  width: 2.2rem;
-  background-color: black;
-  border-radius: 50%;
-  & .fa {
-    font-size: 1rem;
+  .icon-wrapper {
     position: absolute;
-    top: calc(50% - 0.5rem);
-    left: calc(50% - 0.48rem);
-    color: white;
+    top: -1.1rem;
+    left: calc(50% - 1.1rem);
+    height: 2.2rem;
+    width: 2.2rem;
+    background-color: black;
+    border-radius: 50%;
+    & .fa {
+      font-size: 1rem;
+      position: absolute;
+      top: calc(50% - 0.5rem);
+      left: calc(50% - 0.48rem);
+      color: white;
+    }
+    &.on-white {
+      background-size: black;
+    }
   }
-  &.on-white {
-    background-size: black;
+  /* FIRM CLASSES */
+
+  #description {
+    margin: 2rem 0;
+    line-height: 1.5rem;
+    & p {
+      margin: 1.5rem 0;
+    }
   }
-}
 
-/* FIRM CLASSES */
-
-#description {
-  margin: 2rem 0;
-  line-height: 1.5rem;
-  & p {
-    margin: 1.5rem 0;
-  }
-}
-
-#jobs-header {
-  background: url('../img/blue-bg2.png') no-repeat fixed;
-  background-size: cover;
-  padding: 2rem 0;
-  text-align: center;
-  color: #eee
-}
-
-#jobs {
-  margin: 3rem 0;
-  & p.lead {
+  #jobs-header {
+    background: url('../img/blue-bg2.png') no-repeat fixed;
+    background-size: cover;
+    padding: 2rem 0;
     text-align: center;
+    color: #eee
   }
-  & img {
-    padding: 2rem;
+
+  #jobs {
+    margin: 3rem 0;
+    & p.lead {
+      text-align: center;
+    }
+    & img {
+      padding: 2rem;
+    }
   }
-}
-
-/*  END OF FIRM CLASSES */
-
-
-/*
+  /*  END OF FIRM CLASSES */
+  /*
  * Hide visually and from screen readers
  */
 
-.hidden {
-  display: none !important;
-}
-
-
-/*
+  .hidden {
+    display: none !important;
+  }
+  /*
  * Hide only visually, but have it available for screen readers:
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-
-/*
+  .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  /*
  * Extends the .visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-
-/*
+  .visuallyhidden.focusable:active,
+  .visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+  /*
  * Hide visually and from screen readers, but maintain layout
  */
 
-.invisible {
-  visibility: hidden;
-}
-
-
-/*
+  .invisible {
+    visibility: hidden;
+  }
+  /*
  * Clearfix: contain floats
  *
  * For modern browsers
@@ -665,162 +698,179 @@ footer {
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
-}
+  .clearfix:before,
+  .clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
 
-.clearfix:after {
-  clear: both;
-}
-
-
-/* ==========================================================================
+  .clearfix:after {
+    clear: both;
+  }
+  /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
 
-@media all and (min-width: 1600px) {
-  /* Style adjustments for viewports that meet the condition */
-  body,
-  html {
-    font-size: 1rem;
+  @media all and (min-width: 1600px) {
+    /* Style adjustments for viewports that meet the condition */
+    body,
+    html {
+      font-size: 1rem;
+    }
   }
-}
 
-@media all and (max-width: 1200px) {
-  /* Style adjustments for viewports that meet the condition */
-  body {
-    font-size: 0.9em;
+  @media all and (max-width: 1200px) {
+    /* Style adjustments for viewports that meet the condition */
+    body {
+      font-size: 0.9em;
+    }
   }
-}
 
-@media all and (max-width: 1024px) {
-  /* Style adjustments for viewports that meet the condition */
-  body {
-    font-size: 0.9em;
+  @media all and (max-width: 1024px) {
+    /* Style adjustments for viewports that meet the condition */
+    body {
+      font-size: 0.9em;
+    }
+    section#why-us,
+    section#clients {
+      height: 100%;
+      padding: 3rem 0;
+    }
   }
-  section#why-us,
-  section#clients {
-    height: 100%;
-    padding: 3rem 0;
-  }
-}
 
-@media all and (max-width: 992px) {
-  nav {
-    height: 64px;
+  @media all and (max-width: 992px) {
+    nav {
+      height: 64px;
+      padding: 0;
+    }
+    .brand {
+      height: 40px;
+      padding: 0;
+    }
+    #usp {
+      display: none;
+    }
   }
-  #usp {
-    display: none;
+
+  @media all and (max-width: 768px) {
+    /* Style adjustments for viewports that meet the condition */
+    body {
+      font-size: 0.9em;
+    }
+    header .row {
+      flex-wrap: wrap;
+    }
   }
-}
 
-@media all and (max-width: 768px) {
-  /* Style adjustments for viewports that meet the condition */
-  body {
-    font-size: 0.9em;
+  @media all and (max-width: 600px) {
+    nav {
+      height: 56px;
+    }
+    .brand {
+      height: 30px;
+      padding: 0;
+    }
   }
-  header .row {
-    flex-wrap: wrap;
+
+  @media all and (max-width: 480px) {
+    /* Style adjustments for viewports that meet the condition */
+    body {
+      font-size: 0.8em;
+    }
   }
-}
 
-@media all and (max-width: 600px) {
-  nav {
-    height: 56px;
+  @media all and (max-width: 320px) {
+    /* Style adjustments for viewports that meet the condition */
+    body {
+      font-size: 0.7em;
+    }
   }
-}
 
-@media all and (max-width: 480px) {
-  /* Style adjustments for viewports that meet the condition */
-  body {
-    font-size: 0.8em;
+  @media print,
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
   }
-}
-
-@media all and (max-width: 320px) {
-  /* Style adjustments for viewports that meet the condition */
-  body {
-    font-size: 0.7em;
-  }
-}
-
-@media print,
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-
-/* ==========================================================================
+  /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
    http://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
-@media print {
-  *,
-  *:before,
-  *:after,
-  *:first-letter,
-  *:first-line {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster:
+  @media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+      background: transparent !important;
+      color: #000 !important;
+      /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-  /*
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+    /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-  /*
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
+    pre,
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+    /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-  thead {
-    display: table-header-group;
+    thead {
+      display: table-header-group;
+    }
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+    img {
+      max-width: 100% !important;
+    }
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
   }
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-  img {
-    max-width: 100% !important;
-  }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+
+
+// other
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid $main-blue-color;
+    box-shadow: 0 1px 0 0 $main-blue-color;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+    color: $main-blue-color;
 }

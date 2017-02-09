@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+    });
+  </script>
+
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <div class="trick-wrapper">
+    <div class="container">
+      <h2>Kaskada</h2>
+      <div class="row flexy">
+        <a href="#">
+          <div class="col-sm-1 hidden-xs left-arrow">
+            <p>Poprzedni</p>
+            <i class="material-icons rotate180">forward</i>
+
+          </div>
+        </a>
+        <div class="col-sm-8">
+          <div class="video-wrapper">
+            <!-- Copy & Pasted from YouTube -->
+            <iframe width="500" height="400" src="https://www.youtube.com/embed/h-u2P4tIveY?rel=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+        </div>
+        <a href="#">
+          <div class="col-sm-1 hidden-xs right-arrow">
+            <p>Następny</p>
+
+            <i class="material-icons ">forward</i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="container-arrow">
+    <div class="container-fluid container-arrow">
+      <a class="arrow-wrapper">
+        <span class="glyphicon glyphicon-chevron-down chevron-down1"></span>
+        <br>
+        <span class="glyphicon glyphicon-chevron-down chevron-down2"></span>
+        <br>
+        <span class="glyphicon glyphicon-chevron-down chevron-down3"></span>
+      </a>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+
+
+body {
+	max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'sofia-pro';
+}
+
+html {
+	@extend body;
+	color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+
+}
+
+
+$navbar-height: 100px;
+
+
+.full-bg {
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  position: relative;
+}
+
+
+.landing {
+    background: url("../img/juggling-bg1-1.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+        &-content {
+    	text-align: center;
+    	color: white;
+    }
+
+}
+
+.navbar {
+	height: $navbar-height;
+    text-align: right;
+    padding: 0 5%;
+    .navbar-nav {
+    display: inline-block;
+    float: none;
+    height: $navbar-height;
+    font-size: 1.1em;
+    }
+}
+
+
+.brand {
+    height: 100px;
+
+}
+
+.navbar-default {
+	background: transparent;
+    border: none;
+    .navbar-nav > li > a {
+    	color: white;
+    	&:hover {
+    		text-decoration: underline;
+    	}
+    }
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:active,{
+    background: none;
+    box-shadow: none;
+}
+
+
+.navbar-nav > li {
+	padding: 2.5em 0.5em;
+	height: $navbar-height;
+	a {
+		height: $navbar-height/5;
+	}
+}
+
+
+.container-arrow {
+
+  position:relative;
+}
+
+.arrow-wrapper {
+    position:absolute;
+    z-index:1;
+    left: 50%;
+    top:-7em;
+
+}
+
+.big-logo {
+    width: 30vw;
+    margin: 0 auto;
+}
+
+	@for $i from 1 through 3 {
+		.chevron-down#{$i} {
+			$opacity: 1;
+			$top: 0;
+			color: white;
+			opacity: $opacity/$i*1.8;
+			top: $top - $i * 5px;
+		}
+	}
+
+
+.chevron-down1 {
+    color: white;
+    opacity: 1;
+    animation: chevron-down1 2.8s 0.4s;
+    animation-delay: 3s;
+    -webkit-animation: chevron-down1 2.8s 0.4s;
+    -webkit-animation-delay: 3s;
+}
+
+
+@mixin button ($color, $bg, $border-color) {
+	color: $color;
+	background-color: $bg;
+	border-color: $border-color;
+}
+
+.btn-pilki {
+	@include button(white, transparent, lightblue)
+}
+
+
+
+
+
+
+
+
+
+
