@@ -1,0 +1,21 @@
+<div class="image">
+  <img src="http://lorempixel.com/400/300" alt="">
+</div>
+<div id="content">
+  <div class="header">
+    {{ article.title }}
+  </div>
+  <div class="meta">
+    Voting and votes will be here
+  </div>
+  <div class="meta date">
+    {{ article.date()  | date: 'medium' }}   <!-- This will call the method in app.component.ts which returns a new Date, | is for pipes (filters in Ang 1, which changes what is on the left) -->
+  </div>
+  <div class="meta description">
+    <p> {{ article.description }} </p>
+  </div>
+  <div class="extra">
+    <a href="#" target="_blank" class="ui right floated button primary">Read more</a>
+    <i class="right chevron icon"></i>
+  </div>
+</div>
