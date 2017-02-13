@@ -1,0 +1,1 @@
+var effecktCaptions={init:function(){this.bindUIActions()},bindUIActions:function(){var t=this;$("[data-effeckt-type]").on(Effeckt.buttonPressedEvent,function(e){t.activateCaptions(this),e.preventDefault()})},activateCaptions:function(t){var e="active";if(document.documentElement.classList)t.classList.toggle(e);else{var i=$(t);i.toggleClass(e)}}};effecktCaptions.init();

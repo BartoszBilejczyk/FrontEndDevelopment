@@ -577,6 +577,68 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/piesek\/492386_T08rpDctivzIBZ8p5B9vBPspe.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 134368,
+		"inputAbbreviatedPath": "\/piesek\/492386_T08rpDctivzIBZ8p5B9vBPspe.jpg",
+		"outputAbbreviatedPath": "\/piesek\/492386_T08rpDctivzIBZ8p5B9vBPspe.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/piesek\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/piesek\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/piesek\/main.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/piesek\/main.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/piesek\/Nickelodeon_Nick_Jr._PAW_Patrol_Zuma_From_Front_2D.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 121176,
+		"inputAbbreviatedPath": "\/piesek\/Nickelodeon_Nick_Jr._PAW_Patrol_Zuma_From_Front_2D.png",
+		"outputAbbreviatedPath": "\/piesek\/Nickelodeon_Nick_Jr._PAW_Patrol_Zuma_From_Front_2D.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/piesek\/samo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 53952,
+		"inputAbbreviatedPath": "\/piesek\/samo.jpg",
+		"outputAbbreviatedPath": "\/piesek\/samo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/piesek\/Samoyed_hero1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 105853,
+		"inputAbbreviatedPath": "\/piesek\/Samoyed_hero1.jpg",
+		"outputAbbreviatedPath": "\/piesek\/Samoyed_hero1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/tile-wide.png": {
 		"fileType": 32768,
 		"ignore": 0,
