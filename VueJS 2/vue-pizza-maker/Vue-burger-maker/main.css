@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rosybrown;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-container, .right-container {
+    background-color: saddlebrown;
+    height: 80vh;
+    width: 35vw;
+    margin: 2vw;
+    color: antiquewhite;
+    text-align: center;
+    position: relative;
+}
+
+
+.margins {
+    margin-bottom: 15px;
+}
+
+.negativeMargins {
+    margin-bottom: -15px;
+}
+
+.burger-wrapper {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.burger-choosing {
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+div.start {
+    background-color: rosybrown;
+    color: saddlebrown;
+    cursor: pointer;
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+    transform: translateX(-50%);
+      padding: 15px 10px;
+      width: 30%;
+      text-align: center;
+}
+
+div.yes-button {
+    background-color: rosybrown;
+    color: saddlebrown;
+    cursor: pointer;
+      position: absolute;
+      bottom: 20%;
+      left: 15%;
+      padding: 15px 10px;
+      width: 30%;
+      text-align: center;
+}
+
+div.no-button {
+    background-color: rosybrown;
+    color: saddlebrown;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    padding: 15px 10px;
+    width: 30%;
+    text-align: center;
+}
+
+

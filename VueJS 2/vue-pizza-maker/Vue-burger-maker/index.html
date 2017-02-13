@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="left-container container">
+            <h1>MAKE AN ORDER</h1>
+            <div class="burger-choosing ">
+                <h2>{{currentChoice}}</h2>
+                <img src="img/cheese.png" v-if="chooseCheese" class=" img-responsive cheese"></img>
+                <img src="img/meat.png" v-if="chooseMeat" class=" img-responsive meat"></img>
+                <img src="img/lettuce.png" v-if="chooseLettuce" class=" img-responsive lettuce"></img>
+                <img src="img/pickle.png" v-if="choosepickle" class=" img-responsive pickle"></img>
+                <img src="img/ketchup.png" v-if="chooseKetchup" class=" img-responsive ketchup"></img>
+                <img src="img/mustard.png" v-if="chooseMustard" class=" img-responsive mustard"></img>
+            </div>
+            <div v-if="startButton" @click="start" class="start">START</div>
+            <div v-if="buttonsOn" @click="processDecision(1)" class="yes-button button">{{yesButton}}</div>
+            <div v-if="buttonsOn" @click="processDecision(2)" class="no-button button">{{noButton}}</div>
+        </div>
+        <div class="right-container container">
+            <h1>COST: {{totalCost}}</h1>
+        <div class="burger-wrapper">
+            <div class="burger">
+                <img v-if="showBurger" :class="marginBottom" class="burger-top img-responsive" src="img/burger.png"></div>
+                <img v-if="showCheese1" :class="marginBottom" class="cheese1 img-responsive" src="img/cheese.png"></img>
+                <img v-if="showMeat1" :class="marginBottom" class="meat1 img-responsive" src="img/meat.png"></img>
+                <img v-if="showLettuce" :class="marginBottom" class="lettuce img-responsive" src="img/lettuce.png"></img>
+                <img v-if="showpickle" :class="marginBottom" class="pickle img-responsive" src="img/pickle.png"></img>
+                <img v-if="showKetchup" :class="marginBottom" class="ketchup img-responsive" src="img/ketchup.png"></img>
+                <img v-if="showMustard" :class="marginBottom" class="mustard img-responsive" src="img/mustard.png"></img>
+                <img v-if="showMeat2" :class="marginBottom" class="meat2 img-responsive" src="img/meat.png"></img>
+                <img v-if="showCheese2" :class="marginBottom" class="cheese2 img-responsive" src="img/cheese.png"></img>
+                <img v-if="showLettuce" :class="marginBottom" class="lettuce img-responsive" src="img/lettuce.png"></img>
+                <img v-if="showBurgerBottom" :class="marginBottom" class="burger-bottom img-responsive" src="img/burger-bottom.png"></img>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                attachMargin: true,
+                noMargins: false,
+
+                currentChoice: 'Welcome',
+                currentPrice: 0,
+                totalCost: '$0',
+                buttonsOn: false,
+                yesButton: "YES",
+                noButton: "NO",
+                startButton: true,
+                //left
+                chooseCheese: false,
+                chooseMeat: false,
+                chooseLettuce: false,
+                choosepickle: false,
+                chooseKetchup: false,
+                chooseMustard: false,
+
+
+                //right
+
+                showBurger: true,
+                showCheese1: false,
+                showCheese2: false,
+                showMeat1: false,
+                showMeat2: false,
+                showLettuce: false,
+                showpickle: false,
+                showKetchup: false,
+                showMustard: false,
+                showBurgerBottom: true,
+
+                prices: [1,2,3,4,5,6],
+                stage: 1
+            },
+            computed: {
+                marginBottom: function() {
+                    return {
+                        margins: this.attachMargin,
+                        negativeMargins: this.noMargins
+                    }
+                }
+            },
+            methods: {
+                start: function() {
+                    this.startButton = false;
+                    this.buttonsOn = true;
+                    this.currentChoice = "Meat?"
+                    this.chooseMeat = true
+                },
+                processDecision: function(selection) {
+                    // what happens on the right side
+                    if (selection === 1) {
+                        if(this.stage === 1) {
+                            this.showMeat2 = true;
+                        } else if (this.stage === 2) {
+                            this.showCheese2 = true
+                        } else if (this.stage === 3) {
+                            this.showLettuce = true
+                        } else if (this.stage === 4) {
+                            this.showKetchup = true
+                        } else if (this.stage === 5) {
+                            this.showMustard = true
+                        } else if (this.stage === 6) {
+                            this.showpickle = true
+                        }
+
+                        if (this.stage < 7) {
+                            this.currentPrice += this.prices[this.stage-1];
+                            this.totalCost = "$" + this.currentPrice
+                        }
+                    } else if (selection === 2) {
+
+                    }
+
+
+                    // what happens on the left side
+
+
+                    if (this.stage === 1) {
+                        this.chooseMeat = false;
+                        this.chooseCheese = true;
+                        this.currentChoice = "Cheese?"
+                    } else if (this.stage === 2) {
+                        this.chooseCheese = false;
+                        this.chooseLettuce = true;
+                        this.currentChoice = "Lettuce?"
+                    } else if (this.stage === 3) {
+                        this.chooseLettuce = false;
+                        this.chooseKetchup = true;
+                        this.currentChoice = "Ketchup?"
+                    } else if (this.stage === 4) {
+                        this.chooseKetchup = false;
+                        this.chooseMustard = true;
+                        this.currentChoice = "Mustard?"
+                    } else if (this.stage === 5) {
+                        this.chooseMustard = false;
+                        this.choosepickle = true;
+                        this.currentChoice = "Pickle?"
+                    } else if (this.stage === 6) {
+                        this.choosepickle = false;
+                        this.buttonsOn = false;
+                        this.currentChoice = "Your burger is ready";
+                        this.attachMargin = false;
+                        this.noMargins = true
+                    }
+
+                    this.stage ++
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
