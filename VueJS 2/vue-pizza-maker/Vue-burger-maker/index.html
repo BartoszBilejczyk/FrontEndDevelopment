@@ -13,32 +13,35 @@
     <div id="app">
         <div class="left-container container">
             <h1>MAKE AN ORDER</h1>
-            <div class="burger-choosing ">
-                <h2>{{currentChoice}}</h2> {{stage}}
+            <div class="burger-choosing">
+                <h2>{{currentChoice}}</h2>
                 <div v-if="chooseCheese" class="cheese"></div>
                 <div v-if="chooseMeat" class="meat"></div>
                 <div v-if="chooseLettuce" class="lettuce"></div>
                 <div v-if="choosepickle" class="pickle"></div>
                 <div v-if="chooseKetchup" class="ketchup"></div>
                 <div v-if="chooseMustard" class="mustard"></div>
-            </div>
-            <div v-if="startButton" @click="start" class="start">START</div>
-            <div v-if="buttonsOn" class="normal-buttons">
-                <div @click="processDecision(1)" class="yes-button button">{{yesButton}}</div>
-                <div @click="processDecision(2)" class="no-button button">{{noButton}}</div>
+                <div v-if="startButton" @click="start" class="start">START</div>
+                <div v-if="buttonsOn" class="normal-buttons">
+                    <div @click="processDecision(1)" class="yes-button button">{{yesButton}}</div>
+                    <div @click="processDecision(2)" class="no-button button">{{noButton}}</div>
+                </div>
+                <div class="burger-and-cheese-buttons" v-if="burgerCheeseButtons">
+                    <div @click="processDecision(3)" class="double-button button">DOUBLE</div>
+                    <div @click="processDecision(4)" class="single-button button">SINGLE</div>
+
+                </div>
             </div>
 
-            <div class="burger-and-cheese-buttons" v-if="burgerCheeseButtons">
-                <div @click="processDecision(3)" class="double-button button">Double</div>
-                <div @click="processDecision(4)" class="single-button button">Single</div>
 
-            </div>
+
+
 
         </div>
         <div class="right-container container">
             <h1>COST: {{totalCost}}</h1>
             <div class="burger-wrapper">
-                    <div v-if="showBurger" :class="marginBottom" class="burger-top"></div>
+                <div v-if="showBurger" :class="marginBottom" class="burger-top"></div>
 
                 <div v-if="showMeat1" :class="marginBottom" class="meat"></div>
                 <div v-if="showCheese1" :class="marginBottom" class="cheese"></div>
@@ -158,14 +161,18 @@
 
                     if (this.stage === 1) {
                         this.burgerCheeseButtons = true;
+                        this.buttonsOn = false;
                     } else if (this.stage === 2) {
+                        this.buttonsOn = true;
                         this.chooseMeat = false;
                         this.chooseCheese = true;
                         this.burgerCheeseButtons = false;
                         this.currentChoice = "Cheese?"
                     } else if (this.stage === 3) {
+                        this.buttonsOn = false;
                         this.burgerCheeseButtons = true;
                     } else if (this.stage === 4) {
+                        this.buttonsOn = true;
                         this.chooseCheese = false;
                         this.chooseLettuce = true;
                         this.burgerCheeseButtons = false;
