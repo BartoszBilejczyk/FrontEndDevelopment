@@ -3,25 +3,29 @@
 }
 
 body {
-    background-color: rosybrown;
+    background-color: #c69a6d;
     height: 100vh;
     max-width: 100vw;
 }
 
 #app {
     display: flex;
+    display: -webkit-flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
 }
 
 .left-container, .right-container {
-    background-color: saddlebrown;
-    height: 80vh;
+    background-color: #736356;
+    height: 90vh;
     width: 35vw;
     margin: 2vw;
     color: antiquewhite;
     text-align: center;
     position: relative;
+    min-width: 300px;
 }
 
 
@@ -30,19 +34,23 @@ body {
 }
 
 .negativeMargins {
-    margin-bottom: -15px;
+    margin-bottom: 5px;
 }
 
 .burger-wrapper {
     height: 90%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column
+    flex-direction: column;
+    margin-left: 5%;
 }
 
 .burger-choosing {
+    width: 85%;
     height: 70%;
+    margin-left: 7.5%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,8 +58,8 @@ body {
 }
 
 div.start {
-    background-color: rosybrown;
-    color: saddlebrown;
+    background-color: #c69a6d;
+    color: #736356;
     cursor: pointer;
       position: absolute;
       bottom: 20%;
@@ -63,8 +71,8 @@ div.start {
 }
 
 div.yes-button {
-    background-color: rosybrown;
-    color: saddlebrown;
+    background-color: #c69a6d;
+    color: #736356;
     cursor: pointer;
       position: absolute;
       bottom: 20%;
@@ -75,8 +83,8 @@ div.yes-button {
 }
 
 div.no-button {
-    background-color: rosybrown;
-    color: saddlebrown;
+    background-color: #c69a6d;
+    color: #736356;
     cursor: pointer;
     position: absolute;
     bottom: 20%;
@@ -85,5 +93,102 @@ div.no-button {
     width: 30%;
     text-align: center;
 }
+
+div.double-button, .single-button {
+    background-color: #c69a6d;
+    color: #736356;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10%;
+    text-align: center;
+    padding: 15px 10px;
+    width: 15%
+}
+
+.double-button {
+    left: 10%;
+
+}
+
+.single-button {
+    left: 35%;
+}
+
+/* clear CSS burger parts */
+
+.burger-top {
+    width: 95%;
+    height: 140px;
+    background-color: bisque;
+    border-radius: 400px 400px 0 0;
+     -moz-border-radius: 400px 400px 0 0;
+     -webkit-border-radius: 400px 400px 0 0;
+}
+
+.burger-bottom {
+    width: 95%;
+    background-color: bisque;
+    height: 70px;
+    border-radius: 10px;
+     -moz-border-radius: 10px;
+     -webkit-border-radius: 10px;
+}
+
+div.meat {
+    width: 100%;
+    background-color: saddlebrown;
+    height: 40px;
+    border-radius: 10px;
+}
+
+div.cheese {
+    width: 100%;
+    background-color: yellow;
+    height: 15px;
+    border-radius: 10px;
+}
+div.lettuce {
+    width: 100%;
+    background-color: lawngreen;
+    height: 15px;
+    border-radius: 10px;
+}
+div.ketchup {
+    width: 50%;
+    background-color: darkred;
+    height: 15px;
+    border-radius: 10px;
+    margin-left: -35%
+}
+div.mustard {
+    width: 50%;
+    background-color: orange;
+    height: 15px;
+    border-radius: 10px;
+    margin-left: 35%;
+}
+div.pickle {
+    width: 30%;
+    background-color: darkgreen;
+    height: 15px;
+    border-radius: 10px;
+    margin-left: 25%;
+}
+
+div.burger-choosing > div.pickle, div.burger-choosing > div.ketchup, div.burger-choosing > div.mustard {
+    margin-left: 0%;
+}
+/* end of CSS burger parts */
+
+
+@media all and (max-width: 600px) {
+    .left-container, .right-container {
+        height: 45vh;
+    }
+}
+
+
+
+
 
 

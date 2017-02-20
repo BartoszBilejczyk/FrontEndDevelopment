@@ -14,33 +14,42 @@
         <div class="left-container container">
             <h1>MAKE AN ORDER</h1>
             <div class="burger-choosing ">
-                <h2>{{currentChoice}}</h2>
-                <img src="img/cheese.png" v-if="chooseCheese" class=" img-responsive cheese"></img>
-                <img src="img/meat.png" v-if="chooseMeat" class=" img-responsive meat"></img>
-                <img src="img/lettuce.png" v-if="chooseLettuce" class=" img-responsive lettuce"></img>
-                <img src="img/pickle.png" v-if="choosepickle" class=" img-responsive pickle"></img>
-                <img src="img/ketchup.png" v-if="chooseKetchup" class=" img-responsive ketchup"></img>
-                <img src="img/mustard.png" v-if="chooseMustard" class=" img-responsive mustard"></img>
+                <h2>{{currentChoice}}</h2> {{stage}}
+                <div v-if="chooseCheese" class="cheese"></div>
+                <div v-if="chooseMeat" class="meat"></div>
+                <div v-if="chooseLettuce" class="lettuce"></div>
+                <div v-if="choosepickle" class="pickle"></div>
+                <div v-if="chooseKetchup" class="ketchup"></div>
+                <div v-if="chooseMustard" class="mustard"></div>
             </div>
             <div v-if="startButton" @click="start" class="start">START</div>
-            <div v-if="buttonsOn" @click="processDecision(1)" class="yes-button button">{{yesButton}}</div>
-            <div v-if="buttonsOn" @click="processDecision(2)" class="no-button button">{{noButton}}</div>
+            <div v-if="buttonsOn" class="normal-buttons">
+                <div @click="processDecision(1)" class="yes-button button">{{yesButton}}</div>
+                <div @click="processDecision(2)" class="no-button button">{{noButton}}</div>
+            </div>
+
+            <div class="burger-and-cheese-buttons" v-if="burgerCheeseButtons">
+                <div @click="processDecision(3)" class="double-button button">Double</div>
+                <div @click="processDecision(4)" class="single-button button">Single</div>
+
+            </div>
+
         </div>
         <div class="right-container container">
             <h1>COST: {{totalCost}}</h1>
-        <div class="burger-wrapper">
-            <div class="burger">
-                <img v-if="showBurger" :class="marginBottom" class="burger-top img-responsive" src="img/burger.png"></div>
-                <img v-if="showCheese1" :class="marginBottom" class="cheese1 img-responsive" src="img/cheese.png"></img>
-                <img v-if="showMeat1" :class="marginBottom" class="meat1 img-responsive" src="img/meat.png"></img>
-                <img v-if="showLettuce" :class="marginBottom" class="lettuce img-responsive" src="img/lettuce.png"></img>
-                <img v-if="showpickle" :class="marginBottom" class="pickle img-responsive" src="img/pickle.png"></img>
-                <img v-if="showKetchup" :class="marginBottom" class="ketchup img-responsive" src="img/ketchup.png"></img>
-                <img v-if="showMustard" :class="marginBottom" class="mustard img-responsive" src="img/mustard.png"></img>
-                <img v-if="showMeat2" :class="marginBottom" class="meat2 img-responsive" src="img/meat.png"></img>
-                <img v-if="showCheese2" :class="marginBottom" class="cheese2 img-responsive" src="img/cheese.png"></img>
-                <img v-if="showLettuce" :class="marginBottom" class="lettuce img-responsive" src="img/lettuce.png"></img>
-                <img v-if="showBurgerBottom" :class="marginBottom" class="burger-bottom img-responsive" src="img/burger-bottom.png"></img>
+            <div class="burger-wrapper">
+                    <div v-if="showBurger" :class="marginBottom" class="burger-top"></div>
+
+                <div v-if="showMeat1" :class="marginBottom" class="meat"></div>
+                <div v-if="showCheese1" :class="marginBottom" class="cheese"></div>
+                <div v-if="showLettuce" :class="marginBottom" class="lettuce"></div>
+                <div v-if="showpickle" :class="marginBottom" class="pickle"></div>
+                <div v-if="showKetchup" :class="marginBottom" class="ketchup"></div>
+                <div v-if="showMustard" :class="marginBottom" class="mustard"></div>
+                <div v-if="showMeat2" :class="marginBottom" class="meat"></div>
+                <div v-if="showCheese2" :class="marginBottom" class="cheese"></div>
+                <div v-if="showLettuce" :class="marginBottom" class="lettuce"></div>
+                <div v-if="showBurgerBottom" :class="marginBottom" class="burger-bottom"></div>
             </div>
         </div>
     </div>
@@ -57,6 +66,7 @@
                 currentPrice: 0,
                 totalCost: '$0',
                 buttonsOn: false,
+                burgerCheeseButtons: false,
                 yesButton: "YES",
                 noButton: "NO",
                 startButton: true,
@@ -82,11 +92,11 @@
                 showMustard: false,
                 showBurgerBottom: true,
 
-                prices: [1,2,3,4,5,6],
+                prices: [1, 2, 3, 4, 5, 6, 7, 8],
                 stage: 1
             },
             computed: {
-                marginBottom: function() {
+                marginBottom: function () {
                     return {
                         margins: this.attachMargin,
                         negativeMargins: this.noMargins
@@ -94,75 +104,96 @@
                 }
             },
             methods: {
-                start: function() {
+                start: function () {
                     this.startButton = false;
                     this.buttonsOn = true;
+                    this.burgerCheeseButtons = false;
                     this.currentChoice = "Meat?"
                     this.chooseMeat = true
                 },
-                processDecision: function(selection) {
+                processDecision: function (selection) {
                     // what happens on the right side
                     if (selection === 1) {
-                        if(this.stage === 1) {
-                            this.showMeat2 = true;
-                        } else if (this.stage === 2) {
-                            this.showCheese2 = true
-                        } else if (this.stage === 3) {
-                            this.showLettuce = true
-                        } else if (this.stage === 4) {
-                            this.showKetchup = true
+                        if (this.stage < 5) {
+
                         } else if (this.stage === 5) {
-                            this.showMustard = true
+                            this.showLettuce = true
                         } else if (this.stage === 6) {
+                            this.showKetchup = true
+                        } else if (this.stage === 7) {
+                            this.showMustard = true
+                        } else if (this.stage === 8) {
                             this.showpickle = true
                         }
 
                         if (this.stage < 7) {
-                            this.currentPrice += this.prices[this.stage-1];
+                            this.currentPrice += this.prices[this.stage - 1];
                             this.totalCost = "$" + this.currentPrice
+
                         }
                     } else if (selection === 2) {
+                        if (this.stage === 1 || this.stage === 3) {
+                            this.stage++
+                        }
 
+                    } else if (selection === 3) {
+                        if (this.stage === 2) {
+                            console.log("sds");
+                            this.showMeat1 = true;
+                            this.showMeat2 = true;
+                        } else if (this.stage === 4) {
+                            this.showCheese1 = true;
+                            this.showCheese2 = true;
+                        }
+                    } else if (selection === 4) {
+                        if (this.stage === 2) {
+                            this.showMeat2 = true;
+                        } else if (this.stage === 4) {
+                            this.showCheese1 = true
+                        }
                     }
-
 
                     // what happens on the left side
 
 
                     if (this.stage === 1) {
+                        this.burgerCheeseButtons = true;
+                    } else if (this.stage === 2) {
                         this.chooseMeat = false;
                         this.chooseCheese = true;
+                        this.burgerCheeseButtons = false;
                         this.currentChoice = "Cheese?"
-                    } else if (this.stage === 2) {
+                    } else if (this.stage === 3) {
+                        this.burgerCheeseButtons = true;
+                    } else if (this.stage === 4) {
                         this.chooseCheese = false;
                         this.chooseLettuce = true;
+                        this.burgerCheeseButtons = false;
                         this.currentChoice = "Lettuce?"
-                    } else if (this.stage === 3) {
+                    } else if (this.stage === 5) {
                         this.chooseLettuce = false;
                         this.chooseKetchup = true;
                         this.currentChoice = "Ketchup?"
-                    } else if (this.stage === 4) {
+                    } else if (this.stage === 6) {
                         this.chooseKetchup = false;
                         this.chooseMustard = true;
                         this.currentChoice = "Mustard?"
-                    } else if (this.stage === 5) {
+                    } else if (this.stage === 7) {
                         this.chooseMustard = false;
                         this.choosepickle = true;
                         this.currentChoice = "Pickle?"
-                    } else if (this.stage === 6) {
+                    } else if (this.stage === 8) {
                         this.choosepickle = false;
                         this.buttonsOn = false;
-                        this.currentChoice = "Your burger is ready";
+                        this.currentChoice = "Your burger is ready, please pay " + this.totalCost;
                         this.attachMargin = false;
                         this.noMargins = true
                     }
 
-                    this.stage ++
+                    this.stage++
                 }
             }
         })
-
-
     </script>
 </body>
 
