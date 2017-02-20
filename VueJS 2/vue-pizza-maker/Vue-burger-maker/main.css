@@ -71,7 +71,8 @@ div.start {
     text-align: center;
 }
 
-div.yes-button, div.no-button {
+div.yes-button,
+div.no-button {
     background-color: #c69a6d;
     color: #736356;
     cursor: pointer;
@@ -93,13 +94,20 @@ div.double-button,
 }
 
 
-
 /* clear CSS burger parts */
 
 .burger-top {
     width: 95%;
     height: 140px;
-    background-color: bisque;
+    background: #ed9f21;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ed9f21 0%, #e8891f 41%, #ea7d22 69%, #fbca64 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ed9f21 0%, #e8891f 41%, #ea7d22 69%, #fbca64 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ed9f21 0%, #e8891f 41%, #ea7d22 69%, #fbca64 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ed9f21', endColorstr='#fbca64', GradientType=0);
     border-radius: 400px 400px 0 0;
     -moz-border-radius: 400px 400px 0 0;
     -webkit-border-radius: 400px 400px 0 0;
@@ -107,7 +115,16 @@ div.double-button,
 
 .burger-bottom {
     width: 95%;
-    background-color: bisque;
+    background: #ecd1b2;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ecd1b2 1%, #d89533 58%, #d89533 59%, #c77d29 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ecd1b2 1%, #d89533 58%, #d89533 59%, #c77d29 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ecd1b2 1%, #d89533 58%, #d89533 59%, #c77d29 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ecd1b2', endColorstr='#c77d29', GradientType=0);
+    /* IE6-9 */
     height: 70px;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -116,28 +133,52 @@ div.double-button,
 
 div.meat {
     width: 100%;
-    background-color: saddlebrown;
+    background: #502d25;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #502d25 0%, #824828 30%, #824828 41%, #824828 41%, #a35c42 60%, #502d25 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #502d25 0%, #824828 30%, #824828 41%, #824828 41%, #a35c42 60%, #502d25 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #502d25 0%, #824828 30%, #824828 41%, #824828 41%, #a35c42 60%, #502d25 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#502d25', endColorstr='#502d25', GradientType=0);
     height: 40px;
     border-radius: 10px;
 }
 
 div.cheese {
     width: 100%;
-    background-color: yellow;
+    background: background: #f6ca29;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f6ca29 0%, #fbd436 54%, #f9e48e 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f6ca29 0%, #fbd436 54%, #f9e48e 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f6ca29 0%, #fbd436 54%, #f9e48e 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f6ca29', endColorstr='#f9e48e', GradientType=0);
     height: 15px;
     border-radius: 10px;
 }
 
 div.lettuce {
     width: 100%;
-    background-color: lawngreen;
+    background: #b8a22b;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #b8a22b 0%, #c8c334 0%, #6d8800 25%, #6d8800 25%, #779b00 35%, #c8c334 71%, #c8c334 71%, #6d8800 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #b8a22b 0%, #c8c334 0%, #6d8800 25%, #6d8800 25%, #779b00 35%, #c8c334 71%, #c8c334 71%, #6d8800 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #b8a22b 0%, #c8c334 0%, #6d8800 25%, #6d8800 25%, #779b00 35%, #c8c334 71%, #c8c334 71%, #6d8800 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b8a22b', endColorstr='#6d8800', GradientType=1);
     height: 15px;
     border-radius: 10px;
 }
 
 div.ketchup {
     width: 50%;
-    background-color: darkred;
+    background-color: #9c1913;
     height: 15px;
     border-radius: 10px;
     margin-left: -35%
@@ -145,7 +186,7 @@ div.ketchup {
 
 div.mustard {
     width: 50%;
-    background-color: orange;
+    background-color: #d7a500;
     height: 15px;
     border-radius: 10px;
     margin-left: 35%;
@@ -153,7 +194,15 @@ div.mustard {
 
 div.pickle {
     width: 30%;
-    background-color: darkgreen;
+    background: #b8a22b;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #b8a22b 0%, #6f8216 0%, #328416 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #b8a22b 0%, #6f8216 0%, #328416 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #b8a22b 0%, #6f8216 0%, #328416 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b8a22b', endColorstr='#328416', GradientType=0);
     height: 15px;
     border-radius: 10px;
     margin-left: 25%;
