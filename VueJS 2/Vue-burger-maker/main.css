@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #c69a6d;
+    background-color: #B85750;
     height: 100vh;
     max-width: 100vw;
 }
@@ -19,7 +19,7 @@ body {
 
 .left-container,
 .right-container {
-    background-color: #736356;
+    background-color: #301F0D;
     height: 90vh;
     width: 35vw;
     margin: 2vw;
@@ -49,7 +49,7 @@ body {
 
 .burger-choosing {
     width: 85%;
-    height: 70%;
+    height: 90%;
     margin-left: 7.5%;
     display: flex;
     align-items: center;
@@ -62,18 +62,18 @@ body {
 }
 
 div.start {
-    background-color: #c69a6d;
+    background-color: antiquewhite;
     color: #736356;
     cursor: pointer;
     margin: 0 auto;
     padding: 20px 30px;
-    width: 100%;
+    width: 50%;
     text-align: center;
 }
 
 div.yes-button,
 div.no-button {
-    background-color: #c69a6d;
+    background-color: antiquewhite;
     color: #736356;
     cursor: pointer;
     padding: 20px 30px;
@@ -84,7 +84,7 @@ div.no-button {
 
 div.double-button,
 .single-button {
-    background-color: #c69a6d;
+    background-color: antiquewhite;
     color: #736356;
     cursor: pointer;
     text-align: center;
@@ -217,14 +217,17 @@ div.burger-choosing > div.mustard {
 
 /* end of CSS burger parts */
 
-@media all and (max-width: 652px) {
+@media all (max-width: 652px) {
     .left-container,
     .right-container {
         height: 100%;
         text-align: center;
+        min-width: 300px;
     }
     .left-container > *,
     normal-buttons {
         margin: 70px auto;
     }
+
+
 }

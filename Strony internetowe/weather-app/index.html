@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <link href="http://websygen.github.io/owfont/css/owfont-regular.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+
+
+    <div id="app">
+
+        <div class="weather container">
+
+            <input class="input-field" type="text" id="city" name="city" placeholder="Insert a city" />
+
+            <span class="error"></span>
+            <br />
+            <button id="submit-weather">Check</button>
+            <br />
+            <button id="change-button"></button>
+
+
+            <h1 class="city"></h1>
+            <div class="main-temp">
+                <h2 class="temp"></h2><span class="format"></span>
+            </div>
+
+            <h3 class="description"></h3>
+
+            <div class="weather-details">
+                <div class="humidity"></div>
+                <div class="pressure"></div>
+                <div class="wind"></div>
+            </div>
+
+
+            <div class="weather-forecast">
+                <div class="forecast-day">
+                    <span class="day1"></span>
+                    <i class="owf owf-small1 owf-2x"></i>
+                    <span class="forecast-temp-max-1"></span>
+                    <span class="forecast-temp-min-1"></span>
+                </div>
+                <div class="forecast-day">
+                    <span class="day2"></span>
+                    <i class="owf owf-small2 owf-2x"></i>
+                    <span class="forecast-temp-max-2"></span>
+                    <span class="forecast-temp-min-2"></span>
+                </div>
+                <div class="forecast-day">
+                    <span class="day3"></span>
+                    <i class="owf owf-small3 owf-2x"></i>
+                    <span class="forecast-temp-max-3"></span>
+                    <span class="forecast-temp-min-3"></span>
+                </div>
+                <div class="forecast-day">
+                    <span class="day4"></span>
+                    <i class="owf owf-small4 owf-2x"></i>
+                    <span class="forecast-temp-max-4"></span>
+                    <span class="forecast-temp-min-4"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

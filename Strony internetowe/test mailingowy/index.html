@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="form-messages" class="container">
+
+
+<form id="ajax-contact" method="post" action="mailer.php">
+
+
+<div class="info-section">
+
+	<div class="input-field">
+          <input placeholder="Placeholder" id="name" type="text" name="name" class="validate" required="" aria-required="true">
+          <label for="name">Imię i nazwisko</label>
+        </div>
+        <div class="input-field">
+          <input id="email" type="email" class="validate" name="email" required="" aria-required="true">
+          <label for="email">E-mail</label>
+        </div>
+
+
+</div>
+
+
+	<div class="message-section">
+    <div class="field">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+
+    <div class="field">
+        <button class="btn-large" type="submit">Wyślij</button>
+    </div>
+    </div>
+</form>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
