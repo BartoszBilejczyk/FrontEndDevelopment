@@ -3,14 +3,15 @@ body {
 }
 
 #app::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    background: url('http://lorempixel.com/1920/1080/');
-    filter: brightness(50%);
+    filter: brightness(20%);
+
+
+}
+
+.full-bg {
+    background-color: #111;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 * {
@@ -21,6 +22,13 @@ body {
 #app {
     width: 100%;
     min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background-color: #111;
 }
 
 .weather {
@@ -130,15 +138,10 @@ button {
 }
 
 @media screen and (max-width: 480px) {
-    #app::before {
-        background: #111 !important;
-        min-height: 100%;
-
-    }
 
     #app {
         min-height: 100%;
-        background: #111 !important;
+        background-color: #111 !important;
 
     }
 

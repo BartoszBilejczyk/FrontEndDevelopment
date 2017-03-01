@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js Poster Shop</title>
+    <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="public/style.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="header">
+            <h1>Vue.js Poster Store</h1>
+            <form class="searchbar" @submit.prevent="searchPosters()">
+                <input v-model="newSearch" type="text">
+                <input type="submit" class="btn" value="search">
+                <span v-if="errorMessage" style="color: red">Search input cannot be empty</span>
+
+            </form>
+
+            <div v-if="loading">
+                Loading...
+            </div>
+
+            <div v-else>Showing {{ results.length }} results for phrase <i>{{ lastSearch }}</i></p>
+            </div>
+            <div class="main">
+                <div class="products">
+                    <div class="product" v-for="(item, index) in products">
+                        <div>
+                            <div class="product-image">
+                                <img :src="item.link" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="product-title">{{ item.title }}</h4>
+                            <p>Price: {{ price | currency }} </p>
+                            <button class="btn add-to-cart" @click="addItem(index)">Add to basket</button>
+                        </div>
+                    </div>
+                    <div id="product-list-bottom">
+                        <p v-if="scrolledDown">No more items.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="cart">
+                    <h2>Shopping Cart</h2>
+
+                    <div>
+                        <!-- in order for every li to work with fade, there are several things to remember
+                            1. transition group and its tag: ul, because it needs to be a list with list items which are rendered
+                            2. transition group must have a span inside, which will be changed into tag when rendering
+                            3. span has to have to key, unique identifier for the array  -->
+
+                        <transition-group name="fade" tag="ul">
+                            <li v-for="(item, index) in cart" :key="item.id" class="cart-item product">
+                                <div>
+                                    <div class="product-image"><img :src="item.image" alt=""></div>
+                                </div>
+                                <div class="cart-item-details">
+                                    <div class="item-title">{{ item.title }}</div>
+                                    <div>
+                                        <div class="item-qty">{{ price | currency }} x {{item.qty }}</div>
+                                        <div>
+                                            <button class="btn" @click="dec(item, index)">-</button>
+                                            <button class="btn" @click="inc(item, index)">+</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </li>
+                        </transition-group>
+
+                        <transition name="fade">
+                            <div v-if="cart.length">
+                                Total: {{ total | currency }}
+                            </div>
+                        </transition>
+                    </div>
+
+                    <div v-if="cart.length === 0">
+                        No items in the cart.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/reload/reload.js"></script>
+        <script src="node_modules/vue/dist/vue.js"></script>
+        <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+        <script src="node_modules/scrollmonitor/scrollMonitor.js"></script>
+        <script type="text/javascript" src="public/script.js"></script>
+
+</body>
+
+</html>

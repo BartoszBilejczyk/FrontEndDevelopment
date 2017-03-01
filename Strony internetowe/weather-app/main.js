@@ -74,6 +74,27 @@ $(document).ready(function () {
                     pressure = showPressure(data);
                     wind = showWind(data);
 
+                    if (description === 'clear sky' ) {
+                        $('#app').css('background-image', 'url("img/clear-sky.jpg")').addClass('full-bg')
+                    } else if (description === 'few clouds') {
+                        $('#app').css('background-image', 'url("img/clouds.jpg")').addClass('full-bg')
+                    } else if (description === 'broken clouds') {
+                        $('#app').css('background-image', 'url("img/scattered-clouds.jpg")').addClass('full-bg')
+                    } else if (description === 'overcast clouds') {
+                        $('#app').css('background-image', 'url("img/scattered-clouds.jpg")').addClass('full-bg')
+                    } else if (description === 'light rain') {
+                        $('#app').css('background-image', 'url("img/rain.jpg")').addClass('full-bg')
+                    } else if (description === 'rain') {
+                        $('#app').css('background-image', 'url("img/rain.jpg")').addClass('full-bg')
+                    } else if (description === 'thunderstorm') {
+                        $('#app').css('background-image', 'url("img/.thunderstorm.jpg")').addClass('full-bg')
+                    } else if (description === 'snow') {
+                        $('#app').css('background-image', 'url("img/snow.jpg")').addClass('full-bg')
+                    } else if (description === 'mist') {
+                        $('#app').css('background-image', 'url("img/mist.jpg")').addClass('full-bg')
+                    }
+
+
 
                     $('.temp').html(temp);
                     $('.format').html(tempFormat);
