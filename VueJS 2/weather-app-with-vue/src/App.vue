@@ -8,61 +8,37 @@
             <br />
             <button id="submit-weather" @click="show">Search</button>
             <br />
-            <button id="change-button" @click="">{{weatherImage}}</button>
-            <i class="owf owf-lg"></i>
 
+            <div class="global-wrapper">
+                <h1 class="city">{{city}}</h1>
+                <div class="main-temp">
+                    <h2 class="temp">{{temp}}</h2>
+                    <div class="format">
+                        <span @click="changeToCelsius()"><sup>o</sup>{{celsius}}</span>
+                        <span>|</span>
+                        <span @click="changeToFahrenheit()"><sup>o</sup>{{fahrenheit}}</span>
+                    </div>
+                </div>
 
-            <h1 class="city">{{city}}</h1>
-            <div class="main-temp">
-                <h2 class="temp">{{temp}}</h2><span class="format"><sup>o</sup>{{tempFormat}}</span>
-            </div>
+                <h3 class="description"></h3>
 
-            <h3 class="description"></h3>
+                <div class="weather-details">
+                    <div class="humidity">Humidity <br><div class="separator"></div>{{ humidity }}%</div>
+                    <div class="pressure">Pressure <br><div class="separator"></div>{{ pressure }}hPa</div>
+                    <div class="wind">Wind <br><div class="separator"></div>{{ wind }}{{windUnit}}</div>
+                </div>
 
-            <div class="weather-details">
-                <div class="humidity">Humidity <br><div class="separator"></div>{{ humidity }}%</div>
-                <div class="pressure">Pressure <br><div class="separator"></div>{{ pressure }}hPa</div>
-                <div class="wind">Wind <br><div class="separator"></div>{{ wind }}km/h</div>
-            </div>
-
-            <div class="weather-forecast">
-                <div class="forecast-day" v-for='(forecastDay, index) in forecastDays'>
-                    <span class="day">{{ showDayFromUnix(forecastDay.dt) }}</span>
-                    <i class="owf owf-2x" :class="['owf-' + forecastDay.weather[0].id]"></i>
-                    <span class="forecast-day-temp">{{ parseInt(forecastDay.temp.day) }}<sup>o</sup> </span>
-                    <span class="forecast-night temp">{{ parseInt(forecastDay.temp.night) }}<sup>o</sup> </span>
+                <div class="weather-forecast">
+                    <div class="forecast-day" v-for='(forecastDay, index) in forecastDays'>
+                        <span class="day">{{ showDayFromUnix(forecastDay.dt) }}</span>
+                        <i class="owf owf-2x" :class="['owf-' + forecastDay.weather[0].id]"></i>
+                        <span class="forecast-day-temp">{{ parseInt(forecastDay.temp.day) }}<sup>o</sup> </span>
+                        <span class="forecast-night temp">{{ parseInt(forecastDay.temp.night) }}<sup>o</sup> </span>
+                    </div>
                 </div>
             </div>
 
-           <!--
-            <div class="weather-forecast">
-                <div class="forecast-day">
-                    <span class="day1"></span>
-                    <i class="owf owf-small1 owf-2x" :class="weatherImage"></i>
-                    <span class="forecast-temp-max-1"></span>
-                    <span class="forecast-temp-min-1"></span>
-                </div>
-                <div class="forecast-day">
-                    <span class="day2"></span>
-                    <i class="owf owf-small2 owf-2x"></i>
-                    <span class="forecast-temp-max-2"></span>
-                    <span class="forecast-temp-min-2"></span>
-                </div>
-                <div class="forecast-day">
-                    <span class="day3"></span>
-                    <i class="owf owf-small3 owf-2x"></i>
-                    <span class="forecast-temp-max-3"></span>
-                    <span class="forecast-temp-min-3"></span>
-                </div>
-                <div class="forecast-day">
-                    <span class="day4"></span>
-                    <i class="owf owf-small4 owf-2x"></i>
-                    <span class="forecast-temp-max-4"></span>
-                    <span class="forecast-temp-min-4"></span>
-                </div>
-            </div>
 
-            -->
 
         </div>
   </div>
@@ -78,6 +54,7 @@ export default {
             errorMsg: '',
             city: 'London',
             units: 'metric',
+            windUnit: 'km/h',
             noOfDays: 7,
             temp: '',
             weatherImage: '',
@@ -89,15 +66,13 @@ export default {
             pressure: '',
             wind: '',
             isInCelsius: true,
-            tempFormat: 'C',
-            tempFormatToChange: 'F',
+            tempFormatActive: 'C',
+            celsius: 'C',
+            fahrenheit: 'F',
             forecastDays: [],
             days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            weatherData: []
+            weatherData: [],
         }
-    },
-    computed: {
-
     },
     methods: {
         show() {
@@ -177,6 +152,22 @@ export default {
         },
         showDayFromUnix(unixTime) {
             return moment.unix(unixTime).format("dddd").substr(0, 3)
+        },
+        changeToFahrenheit() {
+            if (this.isInCelsius == true) {
+                this.units = 'imperial';
+                this.windUnit = 'mp/h'
+                this.show()
+                this.isInCelsius = false;
+            }
+        },
+        changeToCelsius() {
+            if (this.isInCelsius == false) {
+                this.units = 'metric';
+                this.windUnit = 'km/h'
+                this.show();
+                this.isInCelsius = true;
+            }
         }
     }
 
@@ -246,8 +237,9 @@ h3.description {
     font-size: 1.5rem;
 }
 
-span.format {
-    margin-top: 10px;
+.format {
+    margin-top: 15px;
+    cursor: pointer
 }
 
 
