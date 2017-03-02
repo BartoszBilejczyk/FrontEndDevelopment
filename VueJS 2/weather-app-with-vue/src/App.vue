@@ -9,7 +9,7 @@
             <button id="submit-weather" @click="show">Search</button>
             <br />
             <button id="change-button" @click="">{{weatherImage}}</button>
-            <i class="owf owf-lg" :class="weatherImageComputed"></i>
+            <i class="owf owf-lg"></i>
 
 
             <h1 class="city">{{city}}</h1>
@@ -25,12 +25,12 @@
                 <div class="wind">Wind <br><div class="separator"></div>{{ wind }}km/h</div>
             </div>
 
-            <div class="weather-forecast" v-for='forecastDay in forecastDays'>
-                <div class="forecast-day">
-                    <span class="day"></span>
-                    <i class="owf owf-2x"></i>
-                    <span class="forecast-day-temp"></span>
-                    <span class="forecast-night temp"></span>
+            <div class="weather-forecast">
+                <div class="forecast-day" v-for='(forecastDay, index) in forecastDays'>
+                    <span class="day">{{ showDayFromUnix(forecastDay.dt) }}</span>
+                    <i class="owf owf-2x" :class="['owf-' + forecastDay.weather[0].id]"></i>
+                    <span class="forecast-day-temp">{{ parseInt(forecastDay.temp.day) }}<sup>o</sup> </span>
+                    <span class="forecast-night temp">{{ parseInt(forecastDay.temp.night) }}<sup>o</sup> </span>
                 </div>
             </div>
 
@@ -97,9 +97,7 @@ export default {
         }
     },
     computed: {
-        weatherImageComputed() {
-            return "owf-" + this.weatherImage
-        }
+
     },
     methods: {
         show() {
@@ -115,9 +113,10 @@ export default {
                 .then(function(response) {
 
                     // here will go everything
-                    console.log(response.data.list)
+                    console.log(response.data.list[0])
 
                     self.weatherData = response;
+                    self.forecastDays = response.data.list
                     var weatherData = self.weatherData;
 
                     // how to make these variables from here change also in Vue data??
@@ -149,10 +148,10 @@ export default {
             return weatherData.data.city.country
         },
         showTemp(weatherData) {
-            return weatherData.data.list[0].temp.day
+            return parseInt(weatherData.data.list[0].temp.day)
         },
         showTempNight(weatherData) {
-            return weatherData.data.list[0].temp.night
+            return parseInt(weatherData.data.list[0].temp.night)
         },
         showWeatherImage(weatherData) {
             return weatherData.data.list[0].weather[0].id
@@ -176,10 +175,9 @@ export default {
         showWind(weatherData) {
             return weatherData.data.list[0].speed;
         },
-        showDayName(weatherData) {
-            return moment.unix(weatherData.data.list[0].dt)
+        showDayFromUnix(unixTime) {
+            return moment.unix(unixTime).format("dddd").substr(0, 3)
         }
-
     }
 
 }
@@ -211,12 +209,7 @@ body {
 
 #app {
     width: 100%;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    min-height: 100vh;
     content: '';
     background: url('assets/clouds.jpg')
 }
@@ -263,7 +256,7 @@ span.format {
     align-items: center;
     justify-content: center;
     margin: 20px 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .humidity, .pressure, .wind {
@@ -318,7 +311,7 @@ button {
 }
 
 .weather-forecast {
-    max-width: 400px;
+    max-width: 700px;
     padding: 20px 0;
     display: flex;
     align-items: flex-start;
@@ -327,24 +320,28 @@ button {
 }
 
 .forecast-day {
-    width: calc(100% / 5);
+    width: calc(100% / 7);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: 0 10px;
 }
 
 @media screen and (max-width: 480px) {
 
     #app {
-        min-height: 100%;
-        background-color: #111 !important;
+        background: #111 !important;
 
     }
 
 
     .options, .input-field{
         width: 100%;
+    }
+
+    .forecast-day {
+        margin: 5px;
     }
 }
 
