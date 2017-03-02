@@ -2,13 +2,14 @@
   <div id="app">
     <div class="weather container">
 
-            <input class="input-field" type="text" id="city" name="city" placeholder="Insert a city" v-model.lazy="city" />
+            <input class="input-field" type="text" id="city" name="city" placeholder="Insert a city"/>
 
-            <span class="error"></span>
+            <span class="error" v-if='errorMsg'>{{ errorMsg }}</span>
             <br />
             <button id="submit-weather" @click="show">Search</button>
             <br />
-            <button id="change-button" @click="showHumidity">{{weatherImage}}</button>
+            <button id="change-button" @click="">{{weatherImage}}</button>
+            <i class="owf owf-lg" :class="weatherImageComputed"></i>
 
 
             <h1 class="city">{{city}}</h1>
@@ -19,16 +20,25 @@
             <h3 class="description"></h3>
 
             <div class="weather-details">
-                <div class="humidity"></div>
-                <div class="pressure"></div>
-                <div class="wind"></div>
+                <div class="humidity">Humidity <br><div class="separator"></div>{{ humidity }}%</div>
+                <div class="pressure">Pressure <br><div class="separator"></div>{{ pressure }}hPa</div>
+                <div class="wind">Wind <br><div class="separator"></div>{{ wind }}km/h</div>
             </div>
 
+            <div class="weather-forecast" v-for='forecastDay in forecastDays'>
+                <div class="forecast-day">
+                    <span class="day"></span>
+                    <i class="owf owf-2x"></i>
+                    <span class="forecast-day-temp"></span>
+                    <span class="forecast-night temp"></span>
+                </div>
+            </div>
 
+           <!--
             <div class="weather-forecast">
                 <div class="forecast-day">
                     <span class="day1"></span>
-                    <i class="owf owf-small1 owf-2x"></i>
+                    <i class="owf owf-small1 owf-2x" :class="weatherImage"></i>
                     <span class="forecast-temp-max-1"></span>
                     <span class="forecast-temp-min-1"></span>
                 </div>
@@ -52,6 +62,8 @@
                 </div>
             </div>
 
+            -->
+
         </div>
   </div>
 </template>
@@ -63,12 +75,15 @@ export default {
     name: 'app',
     data() {
         return {
-            msg: 'Welcome to Your Vue.js App',
-            city: 'london',
+            errorMsg: '',
+            city: 'London',
             units: 'metric',
-            temp: '30',
-            temp_min: '3',
-            temp_max: '',
+            noOfDays: 7,
+            temp: '',
+            weatherImage: '',
+            tempNight: '',
+            tempMin: '',
+            tempMax: '',
             description: '',
             humidity: '',
             pressure: '',
@@ -76,67 +91,95 @@ export default {
             isInCelsius: true,
             tempFormat: 'C',
             tempFormatToChange: 'F',
-            weatherImage: '',
+            forecastDays: [],
             days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             weatherData: []
         }
     },
+    computed: {
+        weatherImageComputed() {
+            return "owf-" + this.weatherImage
+        }
+    },
     methods: {
         show() {
+            this.errorMsg = '';
+            var rawCity = document.getElementById('city').value;
+            var formattedCity = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
+
+            //for use inside axios.
             var self = this;
-            this.temp = '';
+            //
             axios
-                .get("http://api.openweathermap.org/data/2.5/forecast/find?q=" + this.city + "&units=" + this.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                .get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + formattedCity + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
                 .then(function(response) {
 
                     // here will go everything
+                    console.log(response.data.list)
 
                     self.weatherData = response;
                     var weatherData = self.weatherData;
 
-                    self.weatherImage = self.showWeatherImage(weatherData);
-                    self.showTemp(weatherData);
-                    self.showTempMin(weatherData);
-                    self.showTempMax(weatherData);
-                    self.showDescription(weatherData);
-                    self.showHumidity(weatherData);
-                    self.showPressure(weatherData);
-                    self.showWind(weatherData);
-                    self.showDayName(weatherData);
+                    // how to make these variables from here change also in Vue data??
+
+
+                    self.city = self.showCity(weatherData)
+                    self.country = self.showCountry(weatherData)
+                    self.temp = self.showTemp(weatherData)
+                    self.tempNight = self.showTemp(weatherData)
+                    self.weatherImage = self.showWeatherImage(weatherData)
+                    self.tempMin = self.showTempMin(weatherData)
+                    self.tempMax = self.showTempMax(weatherData)
+                    self.description = self.showDescription(weatherData)
+                    self.humidity = self.showHumidity(weatherData)
+                    self.pressure = self.showPressure(weatherData)
+                    self.wind = self.showWind(weatherData)
 
                 })
                 .catch(function(error) {
-                    console.log(error)
+                    self.errorMsg = 'Wrong City'
                 })
 
         },
-        showWeatherImage(weatherData) {
-            console.log(weatherData.data.list[0].weather[0].id)
+
+        showCity(weatherData) {
+            return weatherData.data.city.name
+        },
+        showCountry(weatherData) {
+            return weatherData.data.city.country
         },
         showTemp(weatherData) {
-            console.log(weatherData.data.list[0].main.temp)
+            return weatherData.data.list[0].temp.day
         },
+        showTempNight(weatherData) {
+            return weatherData.data.list[0].temp.night
+        },
+        showWeatherImage(weatherData) {
+            return weatherData.data.list[0].weather[0].id
+        },
+
         showTempMin(weatherData) {
-            console.log(parseInt(weatherData.data.list[0].main.temp_min))
+            return parseInt(weatherData.data.list[0].temp.min)
         },
         showTempMax(weatherData) {
-            console.log(parseInt(weatherData.data.list[0].main.temp_max))
+            return parseInt(weatherData.data.list[0].temp.max)
         },
         showDescription(weatherData) {
-            console.log(weatherData.data.list[0].weather[0].description);
+            return weatherData.data.list[0].weather[0].description;
         },
         showHumidity(weatherData) {
-            console.log(weatherData.data.list[0].main.humidity);
+            return weatherData.data.list[0].humidity;
         },
         showPressure(weatherData) {
-            console.log(weatherData.data.list[0].main.pressure);
+            return weatherData.data.list[0].pressure;
         },
         showWind(weatherData) {
-            console.log(weatherData.data.list[0].wind.speed);
+            return weatherData.data.list[0].speed;
         },
         showDayName(weatherData) {
-            console.log(moment.unix(weatherData.data.list[0].dt))
+            return moment.unix(weatherData.data.list[0].dt)
         }
+
     }
 
 }
@@ -225,6 +268,13 @@ span.format {
 
 .humidity, .pressure, .wind {
     margin: 10px;
+}
+
+.separator {
+    width: 10%;
+    height: 1px;
+    background-color: aliceblue;
+    margin: 5px auto;
 }
 
 .detail {
