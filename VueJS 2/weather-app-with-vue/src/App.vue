@@ -47,6 +47,7 @@
 
 
 <script>
+
 export default {
     name: 'app',
     data() {
@@ -75,10 +76,24 @@ export default {
         }
     },
     methods: {
+        getProperCity() {
+            var cityy = 'los aNGeles'
+            var splitted = cityy.split(" ");
+            for( var i = 0; i < splitted.length; i++) {
+                console.log(splitted[i].charAt(0).toUpperCase() + splitted[i].slice(1).toLowerCase());
+            }
+            console.log(made)
+        },
         show() {
+            this.getProperCity();
             this.errorMsg = '';
             var rawCity = document.getElementById('city').value;
-            var formattedCity = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
+
+            var formattedCity =
+                // take whole string. Split it with space, find charAt(0) and UpperCase it, then slice(1) to LowerCase and then concat
+
+
+                rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
             //for use inside axios.
             var self = this;
