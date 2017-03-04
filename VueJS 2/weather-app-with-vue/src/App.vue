@@ -13,7 +13,6 @@
            </div>
            </transition>
 
-
            <transition name="fade">
             <div class="global-wrapper" v-if="city != ''">
                 <h1 class="city">{{city}}, {{country}}</h1>
@@ -99,14 +98,9 @@ export default {
             viewportWidth: document.documentElement.clientWidth,
             errorMsg: '',
             city: '',
-            cityLat: navigator.geolocation.getCurrentPosition(function(position) {
-                        self.cityLat = (position.coords.latitude).toFixed(4);
-                        console.log(self.cityLat + ', ' + self.cityLon)
-                    }),
-            cityLon: navigator.geolocation.getCurrentPosition(function(position) {
-                        self.cityLon = (position.coords.longitude).toFixed(4);
-                        console.log(self.cityLat + ', ' + self.cityLon)
-                    }),
+            cityLat: '',
+            cityLon: '',
+            coordsSet: false,
             country: 'PL',
             units: 'metric',
             windUnit: 'km/h',
@@ -170,10 +164,12 @@ export default {
     },
     methods: {
             findCity() {
+            var self = this;
                if( navigator.geolocation ) {
                     navigator.geolocation.getCurrentPosition(function(position) {
                         self.cityLat = (position.coords.latitude).toFixed(4);
                         self.cityLon = (position.coords.longitude).toFixed(4);
+                        self.coordsSet = true
                         console.log(self.cityLat + ', ' + self.cityLon)
                     });
                  }
@@ -350,8 +346,12 @@ export default {
         created() {
             this.findCity()
         },
-        mounted() {
-            this.show();
+        watch: {
+            // if cityLon changes, fire show() function
+            coordsSet: function() {
+                console.log(2);
+                this.show();
+            }
         }
 
     }
