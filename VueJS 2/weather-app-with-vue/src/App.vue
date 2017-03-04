@@ -99,8 +99,14 @@ export default {
             viewportWidth: document.documentElement.clientWidth,
             errorMsg: '',
             city: '',
-            cityLat: '52.2297',
-            cityLon: '21.0122',
+            cityLat: navigator.geolocation.getCurrentPosition(function(position) {
+                        self.cityLat = (position.coords.latitude).toFixed(4);
+                        console.log(self.cityLat + ', ' + self.cityLon)
+                    }),
+            cityLon: navigator.geolocation.getCurrentPosition(function(position) {
+                        self.cityLon = (position.coords.longitude).toFixed(4);
+                        console.log(self.cityLat + ', ' + self.cityLon)
+                    }),
             country: 'PL',
             units: 'metric',
             windUnit: 'km/h',
@@ -164,190 +170,191 @@ export default {
     },
     methods: {
             findCity() {
-                var self = this;
-                if( navigator.geolocation ) {
+               if( navigator.geolocation ) {
                     navigator.geolocation.getCurrentPosition(function(position) {
-                        self.cityLat = position.coords.latitude;
-                        self.cityLon = position.coords.longitude;
+                        self.cityLat = (position.coords.latitude).toFixed(4);
+                        self.cityLon = (position.coords.longitude).toFixed(4);
                         console.log(self.cityLat + ', ' + self.cityLon)
                     });
-                }
+                 }
             },
             show() {
-            console.log(this.city)
-            this.errorMsg = '';
-            var rawCity = document.getElementById('city').value;
-            console.log(this.viewportWidth);
+                    console.log(this.city)
+                    this.errorMsg = '';
+                    var rawCity = document.getElementById('city').value;
+                    console.log(this.viewportWidth);
 
-            var formattedCity = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
+                    var formattedCity = rawCity.charAt(0).toUpperCase() + rawCity.slice(1).toLowerCase();
 
-            //for use inside axios.
-            var self = this;
-            //
-            axios
-                .get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
-                .then(function(response) {
+                    //for use inside axios.
+                    var self = this;
+                    //
+                    axios
+                        .get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                        .then(function(response) {
 
-                    // here will go everything
-                    console.log(response.data.list[0].weather[0])
+                            // here will go everything
+                            console.log(1)
 
-                    self.weatherData = response;
-                    self.forecastDays = response.data.list
-                    var weatherData = self.weatherData;
-                    self.formattedDescription = self.description.replace(/\s+/g, '-');
-
-
-                    // how to make these variables from here change also in Vue data??
+                            self.weatherData = response;
+                            self.forecastDays = response.data.list
+                            var weatherData = self.weatherData;
+                            self.formattedDescription = self.description.replace(/\s+/g, '-');
 
 
-                    self.city = self.showCity(weatherData)
-                    self.country = self.showCountry(weatherData)
-                    self.temp = self.showTemp(weatherData)
-                    self.tempNight = self.showTemp(weatherData)
-                    self.weatherImage = self.showWeatherImage(weatherData)
-                    self.tempMin = self.showTempMin(weatherData)
-                    self.tempMax = self.showTempMax(weatherData)
-                    self.description = self.showDescription(weatherData)
-                    self.humidity = self.showHumidity(weatherData)
-                    self.pressure = self.showPressure(weatherData)
-                    self.wind = self.showWind(weatherData)
-                    self.formattedDescription = self.formatDescription()
-                    console.log(self.formattedDescription)
-
-                })
-                .catch(function(error) {
-                    self.errorMsg = 'Wrong City'
-                })
+                            // how to make these variables from here change also in Vue data??
 
 
+                            self.city = self.showCity(weatherData)
+                            self.country = self.showCountry(weatherData)
+                            self.temp = self.showTemp(weatherData)
+                            self.tempNight = self.showTemp(weatherData)
+                            self.weatherImage = self.showWeatherImage(weatherData)
+                            self.tempMin = self.showTempMin(weatherData)
+                            self.tempMax = self.showTempMax(weatherData)
+                            self.description = self.showDescription(weatherData)
+                            self.humidity = self.showHumidity(weatherData)
+                            self.pressure = self.showPressure(weatherData)
+                            self.wind = self.showWind(weatherData)
+                            self.formattedDescription = self.formatDescription()
+                            console.log(self.formattedDescription)
 
-            axios
-                .get("http://api.openweathermap.org/data/2.5/weather?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
-                .then(function(response) {
-
-                    self.weatherDataNow = response;
-                    var weatherData = self.weatherDataNow;
-
-                    self.sunrise = self.showSunrise(weatherData)
-                    self.sunset = self.showSunset(weatherData)
-                    self.lat = self.showLat(weatherData)
-                    self.long = self.showLong(weatherData)
-                })
-
-                .catch(function(error) {
-                    console.log(error)
-                })
-
-
-            axios
-                .get("http://api.openweathermap.org/data/2.5/forecast?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
-                .then(function(response) {
-
-                    self.weatherDataHourly = response;
-                    self.forecastHours = response.data.list
-                    var weatherData = self.weatherDataHourly;
-                console.log(self.forecastHours)
-
-                })
-
-                .catch(function(error) {
-                    console.log(error)
-                })
-
-        },
+                        })
+                        .catch(function(error) {
+                            self.errorMsg = 'Wrong City'
+                        })
 
 
-        showCity(weatherData) {
-            return weatherData.data.city.name
-        },
-        showCountry(weatherData) {
-            return weatherData.data.city.country
-        },
-        showTemp(weatherData) {
-            return parseInt(weatherData.data.list[0].temp.day)
-        },
-        showTempNight(weatherData) {
-            return parseInt(weatherData.data.list[0].temp.night)
-        },
-        showWeatherImage(weatherData) {
-            return weatherData.data.list[0].weather[0].id
-        },
 
-        showTempMin(weatherData) {
-            return parseFloat(weatherData.data.list[0].temp.min)
-        },
-        showTempMax(weatherData) {
-            return parseFloat(weatherData.data.list[0].temp.max)
-        },
-        showDescription(weatherData) {
-            return weatherData.data.list[0].weather[0].description;
-        },
-        showHumidity(weatherData) {
-            return weatherData.data.list[0].humidity;
-        },
-        showPressure(weatherData) {
-            return parseInt(weatherData.data.list[0].pressure);
-        },
-        showWind(weatherData) {
-            return parseFloat(weatherData.data.list[0].speed);
-        },
-        showLat(weatherData) {
-            return weatherData.data.coord.lat;
-        },
-        showLong(weatherData) {
-            return weatherData.data.coord.lon;
-        },
-        showSunrise(weatherData) {
-            return moment.unix(weatherData.data.sys.sunrise).format("hh:mm a");
-        },
-        showSunset(weatherData) {
-            return moment.unix(weatherData.data.sys.sunset).format("hh:mm a");
-        },
-        showDayFromUnix(unixTime) {
-            return moment.unix(unixTime).format("dddd").substr(0, 3)
-        },
-        showHourFromUnix(unixTime) {
-            return moment.unix(unixTime).format("hh:mm a")
-        },
-        showDayMonthFromUnix(unixTime){
-            return moment.unix(unixTime).format("DD/MM")
-        },
-        formatDescription() {
-            return this.description.replace(/\s+/g, '-')
-        },
-        changeToFahrenheit() {
-            if (this.isInCelsius == true) {
-                this.units = 'imperial';
-                this.windUnit = 'mp/h'
-                this.show()
-                this.isInCelsius = false;
+                    axios
+                        .get("http://api.openweathermap.org/data/2.5/weather?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                        .then(function(response) {
+
+                            self.weatherDataNow = response;
+                            var weatherData = self.weatherDataNow;
+                            console.log(2)
+                            self.sunrise = self.showSunrise(weatherData)
+                            self.sunset = self.showSunset(weatherData)
+                            self.lat = self.showLat(weatherData)
+                            self.long = self.showLong(weatherData)
+                        })
+
+                        .catch(function(error) {
+                            console.log(error)
+                        })
+
+
+                    axios
+                        .get("http://api.openweathermap.org/data/2.5/forecast?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                        .then(function(response) {
+
+                            self.weatherDataHourly = response;
+                            self.forecastHours = response.data.list
+                            var weatherData = self.weatherDataHourly;
+                        console.log(3)
+
+                        })
+
+                        .catch(function(error) {
+                            console.log(error)
+                        })
+
+            },
+
+
+            showCity(weatherData) {
+                return weatherData.data.city.name
+            },
+            showCountry(weatherData) {
+                return weatherData.data.city.country
+            },
+            showTemp(weatherData) {
+                return parseInt(weatherData.data.list[0].temp.day)
+            },
+            showTempNight(weatherData) {
+                return parseInt(weatherData.data.list[0].temp.night)
+            },
+            showWeatherImage(weatherData) {
+                return weatherData.data.list[0].weather[0].id
+            },
+
+            showTempMin(weatherData) {
+                return parseFloat(weatherData.data.list[0].temp.min)
+            },
+            showTempMax(weatherData) {
+                return parseFloat(weatherData.data.list[0].temp.max)
+            },
+            showDescription(weatherData) {
+                return weatherData.data.list[0].weather[0].description;
+            },
+            showHumidity(weatherData) {
+                return weatherData.data.list[0].humidity;
+            },
+            showPressure(weatherData) {
+                return parseInt(weatherData.data.list[0].pressure);
+            },
+            showWind(weatherData) {
+                return parseFloat(weatherData.data.list[0].speed);
+            },
+            showLat(weatherData) {
+                return weatherData.data.coord.lat;
+            },
+            showLong(weatherData) {
+                return weatherData.data.coord.lon;
+            },
+            showSunrise(weatherData) {
+                return moment.unix(weatherData.data.sys.sunrise).format("hh:mm a");
+            },
+            showSunset(weatherData) {
+                return moment.unix(weatherData.data.sys.sunset).format("hh:mm a");
+            },
+            showDayFromUnix(unixTime) {
+                return moment.unix(unixTime).format("dddd").substr(0, 3)
+            },
+            showHourFromUnix(unixTime) {
+                return moment.unix(unixTime).format("hh:mm a")
+            },
+            showDayMonthFromUnix(unixTime){
+                return moment.unix(unixTime).format("DD/MM")
+            },
+            formatDescription() {
+                return this.description.replace(/\s+/g, '-')
+            },
+            changeToFahrenheit() {
+                if (this.isInCelsius == true) {
+                    this.units = 'imperial';
+                    this.windUnit = 'mp/h'
+                    this.show()
+                    this.isInCelsius = false;
+                }
+            },
+            changeToCelsius() {
+                if (this.isInCelsius == false) {
+                    this.units = 'metric';
+                    this.windUnit = 'km/h'
+                    this.show();
+                    this.isInCelsius = true;
+                }
+            },
+            changeForecastType() {
+                if (this.forecastType === 'Change to hourly forecast') {
+                    this.forecastType = 'Daily';
+                    this.dailyForecast = false
+                } else if (this.forecastType === 'Change to daily forecast') {
+                    this.forecastType = 'Hourly';
+                    this.dailyForecast = true
+                }
             }
+
         },
-        changeToCelsius() {
-            if (this.isInCelsius == false) {
-                this.units = 'metric';
-                this.windUnit = 'km/h'
-                this.show();
-                this.isInCelsius = true;
-            }
+        created() {
+            this.findCity()
         },
-        changeForecastType() {
-            if (this.forecastType === 'Change to hourly forecast') {
-                this.forecastType = 'Daily';
-                this.dailyForecast = false
-            } else if (this.forecastType === 'Change to daily forecast') {
-                this.forecastType = 'Hourly';
-                this.dailyForecast = true
-            }
+        mounted() {
+            this.show();
         }
 
-    },
-    mounted() {
-        this.findCity()
-        this.show();
     }
-
-}
 </script>
 
 
