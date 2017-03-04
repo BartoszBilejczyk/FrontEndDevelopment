@@ -161,6 +161,13 @@ export default {
 
     },
     methods: {
+            findCity() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        $("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
+                    });
+                }
+            },
             show() {
             console.log(this.city)
             this.errorMsg = '';
@@ -210,7 +217,7 @@ export default {
 
 
             axios
-                .get("http://api.openweathermap.org/data/2.5/weather?q=" + formattedCity + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                .get("http://api.openweathermap.org/data/2.5/weather?lat=52.2297&lon=21.0122&APPID=c609a67002c7af9ecf56719e3992c66f")
                 .then(function(response) {
 
                     self.weatherDataNow = response;
@@ -243,6 +250,7 @@ export default {
                 })
 
         },
+
 
         showCity(weatherData) {
             return weatherData.data.city.name
