@@ -98,7 +98,9 @@ export default {
         return {
             viewportWidth: document.documentElement.clientWidth,
             errorMsg: '',
-            city: this.findCity(),
+            city: '',
+            cityLat: '52.2297',
+            cityLon: '21.0122',
             country: 'PL',
             units: 'metric',
             windUnit: 'km/h',
@@ -162,9 +164,12 @@ export default {
     },
     methods: {
             findCity() {
-                if (navigator.geolocation) {
+                var self = this;
+                if( navigator.geolocation ) {
                     navigator.geolocation.getCurrentPosition(function(position) {
-                        $("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
+                        self.cityLat = position.coords.latitude;
+                        self.cityLon = position.coords.longitude;
+                        console.log(self.cityLat + ', ' + self.cityLon)
                     });
                 }
             },
@@ -180,7 +185,7 @@ export default {
             var self = this;
             //
             axios
-                .get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + formattedCity + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                .get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
                 .then(function(response) {
 
                     // here will go everything
@@ -217,7 +222,7 @@ export default {
 
 
             axios
-                .get("http://api.openweathermap.org/data/2.5/weather?lat=52.2297&lon=21.0122&APPID=c609a67002c7af9ecf56719e3992c66f")
+                .get("http://api.openweathermap.org/data/2.5/weather?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
                 .then(function(response) {
 
                     self.weatherDataNow = response;
@@ -235,7 +240,7 @@ export default {
 
 
             axios
-                .get("http://api.openweathermap.org/data/2.5/forecast?q=" + formattedCity + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                .get("http://api.openweathermap.org/data/2.5/forecast?lat=" + self.cityLat + "&lon=" + self.cityLon  + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
                 .then(function(response) {
 
                     self.weatherDataHourly = response;
@@ -338,6 +343,7 @@ export default {
 
     },
     mounted() {
+        this.findCity()
         this.show();
     }
 
