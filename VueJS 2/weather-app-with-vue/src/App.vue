@@ -6,7 +6,7 @@
         <ul id="slide-out" class="side-nav" v-if='true'>
             <div class="input-field">
                 <input id="weather" type="text" placeholder="Where would you like to go?">
-                <label for="weather">City</label> {{city}}
+                <label for="weather">City</label>{{city}}
                 <span class="error" v-if='errorMsg'>{{ errorMsg }}</span>
                 <br />
                 <button class="btn" id="submit-weather" @click="findWeather()">Search</button>
@@ -121,7 +121,7 @@ export default {
         return {
             viewportWidth: document.documentElement.clientWidth,
             errorMsg: '',
-            city: 'Warsaw',
+            city: '',
             cityLat: '',
             cityLon: '',
             coordsSet: false,
@@ -229,84 +229,92 @@ export default {
             }
         },
         findWeather() {
-          this.errorMsg = '';
-          console.log(this.viewportWidth);
-          this.city = document.getElementById('weather').value;
-          console.log(this.city)
-          //for use inside axios.
-          var self = this;
-          //
-          axios
-              .get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + self.city + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
-              .then(function(response) {
+            if (document.getElementById('weather').value === '') {
+                this.errorMsg = 'Wrong city, you geographical moron'
+            } else if (document.getElementById('weather').value !== '') {
+                $('#weather').sideNav('hide');
+                this.errorMsg = '';
+                console.log(this.viewportWidth);
+                this.city = document.getElementById('weather').value;
+                console.log(this.city)
+                //for use inside axios.
+                var self = this;
+                //
+                axios
+                    .get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + self.city + "&units=" + self.units + "&cnt=" + self.noOfDays + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                    .then(function(response) {
 
-                  // here will go everything
-                  console.log(1)
-                  console.log(1)
-                  console.log(1)
+                        // here will go everything
+                        console.log(1)
+                        console.log(1)
+                        console.log(1)
 
-                  self.weatherData = response;
-                  self.forecastDays = response.data.list
-                  var weatherData = self.weatherData;
-                  self.formattedDescription = self.description.replace(/\s+/g, '-');
-
-
-                  // how to make these variables from here change also in Vue data??
-
-
-                  self.city = self.showCity(weatherData)
-                  self.country = self.showCountry(weatherData)
-                  self.temp = self.showTemp(weatherData)
-                  self.tempNight = self.showTemp(weatherData)
-                  self.weatherImage = self.showWeatherImage(weatherData)
-                  self.tempMin = self.showTempMin(weatherData)
-                  self.tempMax = self.showTempMax(weatherData)
-                  self.description = self.showDescription(weatherData)
-                  self.humidity = self.showHumidity(weatherData)
-                  self.pressure = self.showPressure(weatherData)
-                  self.wind = self.showWind(weatherData)
-                  self.formattedDescription = self.formatDescription()
-                  console.log(self.formattedDescription)
-
-              })
-              .catch(function(error) {
-                  self.errorMsg = 'Wrong City'
-              })
+                        self.weatherData = response;
+                        self.forecastDays = response.data.list
+                        var weatherData = self.weatherData;
+                        self.formattedDescription = self.description.replace(/\s+/g, '-');
 
 
-
-          axios
-              .get("http://api.openweathermap.org/data/2.5/weather?q=" + self.city + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
-              .then(function(response) {
-
-                  self.weatherDataNow = response;
-                  var weatherData = self.weatherDataNow;
-                  console.log(2)
-                  self.sunrise = self.showSunrise(weatherData)
-                  self.sunset = self.showSunset(weatherData)
-                  self.lat = self.showLat(weatherData)
-                  self.long = self.showLong(weatherData)
-              })
-
-              .catch(function(error) {
-                  console.log(error)
-              })
+                        // how to make these variables from here change also in Vue data??
 
 
-          axios
-              .get("http://api.openweathermap.org/data/2.5/forecast?q=" + self.city + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
-              .then(function(response) {
+                        self.city = self.showCity(weatherData)
+                        self.country = self.showCountry(weatherData)
+                        self.temp = self.showTemp(weatherData)
+                        self.tempNight = self.showTemp(weatherData)
+                        self.weatherImage = self.showWeatherImage(weatherData)
+                        self.tempMin = self.showTempMin(weatherData)
+                        self.tempMax = self.showTempMax(weatherData)
+                        self.description = self.showDescription(weatherData)
+                        self.humidity = self.showHumidity(weatherData)
+                        self.pressure = self.showPressure(weatherData)
+                        self.wind = self.showWind(weatherData)
+                        self.formattedDescription = self.formatDescription()
+                        console.log(self.formattedDescription)
 
-                  self.weatherDataHourly = response;
-                  self.forecastHours = response.data.list
-                  var weatherData = self.weatherDataHourly;
-                  console.log(3)
+                    })
+                    .catch(function(error) {
+                        self.errorMsg = 'Wrong City'
+                    })
 
-              })
 
-              .catch(function(error) {
-                  console.log(error)
-              })
+
+                axios
+                    .get("http://api.openweathermap.org/data/2.5/weather?q=" + self.city + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                    .then(function(response) {
+
+                        self.weatherDataNow = response;
+                        var weatherData = self.weatherDataNow;
+                        console.log(2)
+                        self.sunrise = self.showSunrise(weatherData)
+                        self.sunset = self.showSunset(weatherData)
+                        self.lat = self.showLat(weatherData)
+                        self.long = self.showLong(weatherData)
+                    })
+
+                    .catch(function(error) {
+                        console.log(error)
+                    })
+
+
+                axios
+                    .get("http://api.openweathermap.org/data/2.5/forecast?q=" + self.city + "&units=" + self.units + "&APPID=c609a67002c7af9ecf56719e3992c66f")
+                    .then(function(response) {
+
+                        self.weatherDataHourly = response;
+                        self.forecastHours = response.data.list
+                        var weatherData = self.weatherDataHourly;
+                        console.log(3)
+
+                    })
+
+                    .catch(function(error) {
+                        console.log(error)
+                    })
+
+
+            }
+
 
         },
         showCity(weatherData) {
@@ -399,7 +407,7 @@ export default {
 
     },
     watch: {
-        // if cityLon changes, fire show() function
+        // if coordsSet changes, fire show() function
         coordsSet: function() {
             console.log(2);
             this.errorMsg = '';
