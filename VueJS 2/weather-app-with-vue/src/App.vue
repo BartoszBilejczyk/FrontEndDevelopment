@@ -6,7 +6,7 @@
         <ul id="slide-out" class="side-nav" v-if='true'>
             <div class="input-field">
                 <input id="weather" type="text" placeholder="Where would you like to go?">
-                <label for="weather">City</label>{{city}}
+                <label for="weather">City</label>
                 <span class="error" v-if='errorMsg'>{{ errorMsg }}</span>
                 <br />
                 <button class="btn" id="submit-weather" @click="findWeather()">Search</button>
@@ -77,18 +77,23 @@
                 <transition name="fade">
                     <vue-chart
                       chart-type="LineChart" :columns="chartTemperatures.columns" :rows="chartTemperatures.rows" :options="chartTemperatures.options" v-if="showChartTemp"></vue-chart>
-                  </transition>
-                  <transition name="fade">
+                      sasda
+                </transition>
+                <!-- <transition name="fade">
+                    <vue-chart
+                      chart-type="LineChart" :columns="chartPressure.columns" :rows="chartPressure.rows" :options="chartPressure.options" v-if="showChartTemp"></vue-chart>
+                      sasda
+                </transition>
+                <transition name="fade">
                     <vue-chart
                       chart-type="ColumnChart"
                       :columns="chartPrecipitation.columns"
                       :rows="chartPrecipitation.rows"
                       :options="chartPrecipitation.options" v-if="showChartPrecipitation"></vue-chart>
-                  </transition>
-                  {{chartPrecipitation.rows}}
+                </transition> -->
 
                   <div class="chart-buttons">
-                      <button type="button" name="button">Button</button>
+                      <button type="button" name="button">Buton</button>
                       <button type="button" name="button" @click="">Button</button>
                       <button type="button" name="button">Button</button>
                   </div>
@@ -177,7 +182,7 @@ export default {
             weatherDataNow: [],
             weatherDataHourly: [],
             showChartTemp: true,
-            showChartPrecipitation: true,
+            // showChartPrecipitation: true,
             chartTemperatures: {
                 columns: [{
                     'type': 'string',
@@ -193,36 +198,59 @@ export default {
                         title: 'Date',
                     },
                     vAxis: {
-                        title: 'Temp',
+                        title: 'Temp'
                     },
-                    width: 200,
-                    height: 300,
+                    width: $('.details').width() * 0.9,
+                    height: $('.vue-chart-wrapper').height() * 1,
                     curveType: 'function',
                     backgroundColor: 'transparent'
                 }
             },
-            chartPrecipitation: {
-                columns: [{
-                    'type': 'string',
-                    'label': 'Date'
-                }, {
-                    'type': 'number',
-                    'label': 'mm'
-                }],
-                rows: [],
-                options: {
-                    title: 'Company Performance',
-                    hAxis: {
-                        title: 'Precipitation',
-                    },
-                    vAxis: {
-                        title: ''
-                    },
-                    width: 200,
-                    height: 300,
-                    curveType: 'function'
-                  }
-              }
+            // chartPressure: {
+            //     columns: [{
+            //         'type': 'string',
+            //         'label': 'Day'
+            //     }, {
+            //         'type': 'number',
+            //         'label': 'Temp'
+            //     }],
+            //     rows: [],
+            //     options: {
+            //         title: 'Temperature chart',
+            //         hAxis: {
+            //             title: 'Date',
+            //         },
+            //         vAxis: {
+            //             title: 'Temp',
+            //         },
+            //         width: 200,
+            //         height: 300,
+            //         curveType: 'function',
+            //         backgroundColor: 'transparent'
+            //     }
+            // },
+            // chartPrecipitation: {
+            //     columns: [{
+            //         'type': 'string',
+            //         'label': 'Date'
+            //     }, {
+            //         'type': 'number',
+            //         'label': 'mm'
+            //     }],
+            //     rows: [],
+            //     options: {
+            //         title: 'Company Performance',
+            //         hAxis: {
+            //             title: 'Precipitation',
+            //         },
+            //         vAxis: {
+            //             title: ''
+            //         },
+            //         width: 200,
+            //         height: 300,
+            //         curveType: 'function'
+            //       }
+            //   }
         }
     },
     computed: {
@@ -307,8 +335,8 @@ export default {
                         self.pressure = self.showPressure(weatherData)
                         self.wind = self.showWind(weatherData)
                         self.formattedDescription = self.formatDescription()
-                        self.chartTemperatures.rows = self.getChartTemps(weatherData);
-                        self.chartPrecipitation.rows = self.getChartPrecipitation(weatherData);
+                        // self.chartTemperatures.rows = self.getChartTemps(weatherData);
+                        // self.chartPrecipitation.rows = self.getChartPrecipitation(weatherData);
                         console.log(self.formattedDescription)
 
                     })
@@ -411,15 +439,25 @@ export default {
         getChartTemps(weatherData) {
             this.chartTemperatures.rows = [];
             for (var i = 0; i <= 5; i++) {
-                this.chartTemperatures.rows.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].temp.day, ])
+                this.chartTemperatures.rows.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].temp.day]);
+                console.log(weatherData.data.list[i].rain)
+
             }
         },
-        getChartPrecipitation(weatherData) {
-            this.chartPrecipitation.rows = [];
-            for (var i = 0; i <= 5; i++) {
-              this.chartPrecipitation.rows.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].rain, ])
-          }
-        },
+        // getChartPressure(weatherData) {
+        //     this.chartPressure.rows = [];
+        //     for (var i = 0; i <= 5; i++) {
+        //         this.chartPressure.rows.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].temp.day]);
+        //         console.log(weatherData.data.list[i].pressure)
+        //
+        //     }
+        // },
+        // getChartPrecipitation(weatherData) {
+        //     for (var i = 0; i <= 5; i++) {
+        //       this.chartPrecipitation.columns.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].speed]);
+        //
+        //   }
+        // },
         showDayMonthFromUnix(unixTime) {
             return moment.unix(unixTime).format("DD/MM")
         },
@@ -496,8 +534,10 @@ export default {
                     self.wind = self.showWind(weatherData)
                     self.formattedDescription = self.formatDescription();
                     self.chartTemperatures.rows = self.getChartTemps(weatherData);
-                    self.chartPrecipitation.rows = self.getChartPrecipitation(weatherData);
+                    // self.chartPressure.rows = self.getChartPressure(weatherData);
+                    // self.chartPrecipitation.rows = self.getChartPrecipitation(weatherData);
                     console.log(self.formattedDescription)
+
 
                 })
                 .catch(function(error) {
@@ -936,6 +976,9 @@ button {
     }
     & text {
         fill: #ddd;
+    }
+    & svg {
+      width: 100%;
     }
 }
 @media all and (max-width: 767px) {
