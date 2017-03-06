@@ -73,11 +73,33 @@
 
         <transition name="fade">
             <div class="details" v-if="city != ''">
-                <vue-chart :chart-type="chartType" :columns="columns" :rows="rows" :options="options"></vue-chart>
+              <div class="vue-chart-wrapper">
+                <transition name="fade">
+                    <vue-chart
+                      chart-type="LineChart" :columns="chartTemperatures.columns" :rows="chartTemperatures.rows" :options="chartTemperatures.options" v-if="showChartTemp"></vue-chart>
+                  </transition>
+                  <transition name="fade">
+                    <vue-chart
+                      chart-type="ColumnChart"
+                      :columns="chartPrecipitation.columns"
+                      :rows="chartPrecipitation.rows"
+                      :options="chartPrecipitation.options" v-if="showChartPrecipitation"></vue-chart>
+                  </transition>
+                  {{chartPrecipitation.rows}}
+
+                  <div class="chart-buttons">
+                      <button type="button" name="button">Button</button>
+                      <button type="button" name="button" @click="">Button</button>
+                      <button type="button" name="button">Button</button>
+                  </div>
+
+              </div>
+
                 <div class="forecast">
                     <div class="choose-view" v-if="city != ''">
                         <button @click="changeForecastType()" class="btn white black-text">{{ forecastType }}</button>
                     </div>
+
 
                     <transition name="fade">
                         <div class="weather-forecast-daily" v-if="dailyForecast">
@@ -154,38 +176,53 @@ export default {
             weatherDataForecast: [],
             weatherDataNow: [],
             weatherDataHourly: [],
-            columns: [{
-                'type': 'string',
-                'label': 'Year'
-            }, {
-                'type': 'number',
-                'label': 'Sales'
-            }, {
-                'type': 'number',
-                'label': 'Expenses'
-            }],
-            rows: [
-                ['2004', 1000, 400],
-                ['2005', 1170, 460],
-                ['2006', 660, 1120],
-                ['2007', 1030, 540]
-            ],
-            options: {
-                title: 'Company Performance',
-                hAxis: {
-                    title: 'Year',
-                    minValue: '2004',
-                    maxValue: '2007'
-                },
-                vAxis: {
-                    title: '',
-                    minValue: 300,
-                    maxValue: 1200
-                },
-                width: 600,
-                height: 300,
-                curveType: 'function'
-            }
+            showChartTemp: true,
+            showChartPrecipitation: true,
+            chartTemperatures: {
+                columns: [{
+                    'type': 'string',
+                    'label': 'Day'
+                }, {
+                    'type': 'number',
+                    'label': 'Temp'
+                }],
+                rows: [],
+                options: {
+                    title: 'Temperature chart',
+                    hAxis: {
+                        title: 'Date',
+                    },
+                    vAxis: {
+                        title: 'Temp',
+                    },
+                    width: 200,
+                    height: 300,
+                    curveType: 'function',
+                    backgroundColor: 'transparent'
+                }
+            },
+            chartPrecipitation: {
+                columns: [{
+                    'type': 'string',
+                    'label': 'Date'
+                }, {
+                    'type': 'number',
+                    'label': 'mm'
+                }],
+                rows: [],
+                options: {
+                    title: 'Company Performance',
+                    hAxis: {
+                        title: 'Precipitation',
+                    },
+                    vAxis: {
+                        title: ''
+                    },
+                    width: 200,
+                    height: 300,
+                    curveType: 'function'
+                  }
+              }
         }
     },
     computed: {
@@ -270,11 +307,13 @@ export default {
                         self.pressure = self.showPressure(weatherData)
                         self.wind = self.showWind(weatherData)
                         self.formattedDescription = self.formatDescription()
+                        self.chartTemperatures.rows = self.getChartTemps(weatherData);
+                        self.chartPrecipitation.rows = self.getChartPrecipitation(weatherData);
                         console.log(self.formattedDescription)
 
                     })
                     .catch(function(error) {
-                        self.errorMsg = 'Wrong City'
+                        console.log(error);
                     })
 
 
@@ -285,7 +324,7 @@ export default {
 
                         self.weatherDataNow = response;
                         var weatherData = self.weatherDataNow;
-                        console.log(2)
+                        console.log(response.data)
                         self.sunrise = self.showSunrise(weatherData)
                         self.sunset = self.showSunset(weatherData)
                         self.lat = self.showLat(weatherData)
@@ -369,6 +408,18 @@ export default {
         showHourFromUnix(unixTime) {
             return moment.unix(unixTime).format("hh:mm a")
         },
+        getChartTemps(weatherData) {
+            this.chartTemperatures.rows = [];
+            for (var i = 0; i <= 5; i++) {
+                this.chartTemperatures.rows.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].temp.day, ])
+            }
+        },
+        getChartPrecipitation(weatherData) {
+            this.chartPrecipitation.rows = [];
+            for (var i = 0; i <= 5; i++) {
+              this.chartPrecipitation.rows.push([moment.unix(weatherData.data.list[i].dt).format("DD/MM"), weatherData.data.list[i].rain, ])
+          }
+        },
         showDayMonthFromUnix(unixTime) {
             return moment.unix(unixTime).format("DD/MM")
         },
@@ -421,6 +472,7 @@ export default {
 
                     // here will go everything
                     console.log(1)
+                    console.log(response.data)
 
                     self.weatherData = response;
                     self.forecastDays = response.data.list
@@ -442,12 +494,16 @@ export default {
                     self.humidity = self.showHumidity(weatherData)
                     self.pressure = self.showPressure(weatherData)
                     self.wind = self.showWind(weatherData)
-                    self.formattedDescription = self.formatDescription()
+                    self.formattedDescription = self.formatDescription();
+                    self.chartTemperatures.rows = self.getChartTemps(weatherData);
+                    self.chartPrecipitation.rows = self.getChartPrecipitation(weatherData);
                     console.log(self.formattedDescription)
 
                 })
                 .catch(function(error) {
-                    self.errorMsg = 'Wrong City'
+                     console.log(error)
+                     console.log('sieeema')
+
                 })
 
 
@@ -624,6 +680,10 @@ hr {
         top: 20px;
         background: #fff;
     }
+}
+
+.side-nav {
+  left: 0 !important;
 }
 
 .input-field {
@@ -855,6 +915,28 @@ button {
 
 .fade-leave {
     opacity: 0;
+}
+
+.vue-chart-wrapper {
+    display: flex;
+}
+
+.chart-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vue-chart {
+    & rect {
+        fill: rgba(255,255,255,0.2);
+    }
+    & path {
+        stroke: #ddd;
+    }
+    & text {
+        fill: #ddd;
+    }
 }
 @media all and (max-width: 767px) {
     #app {
