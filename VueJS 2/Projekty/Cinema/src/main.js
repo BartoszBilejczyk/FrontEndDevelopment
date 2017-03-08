@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import './style.scss';
 
-import MovieList from './components/MovieList'
-import MovieFilter from './components/MovieFilter'
+import MovieList from './components/MovieList.vue'
+import MovieFilter from './components/MovieFilter.vue'
 
 new Vue({
     el: '#app',
@@ -27,6 +27,6 @@ new Vue({
     },
     components: {
       MovieList,
-      MovieFilter,
+      MovieFilter
     }
 })

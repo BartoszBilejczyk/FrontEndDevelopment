@@ -6,7 +6,7 @@
 
 <script>
 
-import genres from '../util.genres'
+import genres from '../util/genres'
 
 export default {
 

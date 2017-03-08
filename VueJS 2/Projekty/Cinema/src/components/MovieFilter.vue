@@ -9,7 +9,7 @@
 
 <script>
 import genres from '../util/genres'
-import CheckFilter from './Check-Filter'
+import CheckFilter from './CheckFilter.vue'
 
 export default {
     data() {
@@ -22,7 +22,7 @@ export default {
         this.$emit('check-filter', category, title, checked);
       }
     },
-    components {
+    components: {
       CheckFilter
     }
 }
