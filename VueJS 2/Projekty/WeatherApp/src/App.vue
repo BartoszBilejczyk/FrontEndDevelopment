@@ -673,8 +673,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translateY(-50%);
-    width: 250px;
-    height: 250px;
+    width: 240px;
+    height: 240px;
     z-index: 1;
 
     p {
