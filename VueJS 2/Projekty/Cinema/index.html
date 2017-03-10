@@ -19,8 +19,8 @@
         <h1>Vue.js Cinema</h1>
     </div>
     <div id="overview">
-      <div id="main">
-        <movie-list :genres="genres" :times="times"></movie-list>
+      <div class="main">
+        <movie-list :genres="genres" :times="times" :movies="movies"></movie-list>
         <movie-filter @check-filter="checkFilter"></movie-filter>
       </div>
     </div>

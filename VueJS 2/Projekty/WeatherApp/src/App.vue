@@ -13,9 +13,49 @@
                 <br />
             </div>
         </ul>
-
-        <div id="loader" v-if="city == ''"></div>
-        <p class="text-center" v-if="city == ''" style="margin-top: 200px;">Loading current weather...</p>
+        <div id="loader"  v-if="city == ''">
+            <div class="cloud">
+                <div class="cloud-base">
+                    <div class="cloud-small-part"></div>
+                    <div class="cloud-big-part"></div>
+                </div>
+            </div>
+            <div class="sun">
+                <div class="sun-beams1"></div>
+                <div class="sun-beams2"></div>
+                <div class="sun-beams3"></div>
+                <div class="sun-beams4"></div>
+                <div class="sun-beams5"></div>
+                <div class="sun-beams6"></div>
+                <div class="sun-beams7"></div>
+                <div class="sun-beams8"></div>
+                <div class="sun-beams9"></div>
+                <div class="sun-beams10"></div>
+                <div class="sun-beams11"></div>
+                <div class="sun-beams12"></div>
+            </div>
+            <div class="teardrops">
+                <div class="teardrop1">
+                    <svg width="80%" viewbox="0 0 30 42">
+                  <path fill="#fff"
+                    d="M15 3
+                       Q16.5 6.8 25 18
+                       A12.8 12.8 0 1 1 5 18
+                       Q13.5 6.8 15 3z" />
+                  </svg>
+                </div>
+                <div class="teardrop2">
+                    <svg width="80%" viewbox="0 0 30 42">
+                  <path fill="#fff"
+                    d="M15 3
+                       Q16.5 6.8 25 18
+                       A12.8 12.8 0 1 1 5 18
+                       Q13.5 6.8 15 3z" />
+                  </svg>
+                </div>
+            </div>
+            <p class="text-center" style="margin-top: 220px;">Loading current weather...</p>
+        </div>
 
 
         <a href="#!" data-activates="slide-out" class="button-collapse">
@@ -73,13 +113,12 @@
 
         <transition name="fade">
             <div class="details" v-if="city != ''">
-              <div class="vue-chart-wrapper">
-                <transition name="fade">
-                    <vue-chart
-                      chart-type="LineChart" :columns="chartTemperatures.columns" :rows="chartTemperatures.rows" :options="chartTemperatures.options" v-if="showChartTemp"></vue-chart>
-                      sasda
-                </transition>
-                <!-- <transition name="fade">
+                <div class="vue-chart-wrapper">
+                    <transition name="fade">
+                        <vue-chart chart-type="LineChart" :columns="chartTemperatures.columns" :rows="chartTemperatures.rows" :options="chartTemperatures.options" v-if="showChartTemp"></vue-chart>
+                        sasda
+                    </transition>
+                    <!-- <transition name="fade">
                     <vue-chart
                       chart-type="LineChart" :columns="chartPressure.columns" :rows="chartPressure.rows" :options="chartPressure.options" v-if="showChartTemp"></vue-chart>
                       sasda
@@ -91,14 +130,14 @@
                       :rows="chartPrecipitation.rows"
                       :options="chartPrecipitation.options" v-if="showChartPrecipitation"></vue-chart>
                 </transition> -->
+<!--
+                    <div class="chart-buttons">
+                        <button type="button" name="button">Buton</button>
+                        <button type="button" name="button" @click="">Button</button>
+                        <button type="button" name="button">Button</button>
+                    </div> -->
 
-                  <div class="chart-buttons">
-                      <button type="button" name="button">Buton</button>
-                      <button type="button" name="button" @click="">Button</button>
-                      <button type="button" name="button">Button</button>
-                  </div>
-
-              </div>
+                </div>
 
                 <div class="forecast">
                     <div class="choose-view" v-if="city != ''">
@@ -162,7 +201,7 @@ export default {
             tempMin: '',
             tempMax: '',
             description: '',
-            formattedDescription: 'gradient2',
+            formattedDescription: 'snow',
             humidity: '',
             pressure: '',
             wind: '',
@@ -200,7 +239,7 @@ export default {
                     vAxis: {
                         title: 'Temp'
                     },
-                    width: $('.details').width() * 0.9,
+                    width: $('.vue-chart-wrapper').width() * 0.7,
                     height: $('.vue-chart-wrapper').height() * 1,
                     curveType: 'function',
                     backgroundColor: 'transparent'
@@ -541,8 +580,8 @@ export default {
 
                 })
                 .catch(function(error) {
-                     console.log(error)
-                     console.log('sieeema')
+                    console.log(error)
+                    console.log('sieeema')
 
                 })
 
@@ -618,57 +657,117 @@ body {
 }
 
 /*PRELOADER*/
-
-h4 {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    margin: 0;
-    font-weight: 200;
-    opacity: 1;
-    font-family: sans-serif;
-    color: #fff;
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin absolute-centering {
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
 }
 
-#loader {
-    animation: animate 1.5s linear infinite;
-    clip: rect(0, 80px, 80px, 40px);
-    height: 80px;
-    width: 80px;
-    position: absolute;
-    left: calc(50% - 40px);
-    top: calc(50% - 40px);
+  #loader {
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 250px;
+    z-index: 1;
+
+    p {
+      margin-top: 20px;
+    }
+
+    .cloud {
+      z-index: 3;
+
+      .cloud-base {
+        @include absolute-centering;
+        width: 50%;
+        height: 10%;
+        background: #fff;
+        position: absolute;
+        border-radius: 20px;
+        z-index: 3;
+
+
+        .cloud-small-part {
+          position: absolute;
+          width: 40%;
+          height: 200%;
+          background: #fff;
+          top: -100%;
+          left: 10%;
+          border-radius: 50%;
+          z-index: 3;
+        }
+        .cloud-big-part {
+          position: absolute;
+          width: 50%;
+          height: 250%;
+          background: #fff;
+          top: -150%;
+          left: 40%;
+          border-radius: 50%;
+          z-index: 3;
+        }
+      }
+    }
+  }
+  @for $i from 1 through 12 {
+    .sun-beams#{$i} {
+      animation: 1s infinite alternate sun-animation;
+      width: 3px;
+      height: 12px;
+      background-color: #fff;
+      position: absolute;
+      top: 35%;
+      left: 35%;
+      padding: 20px;
+      transform: rotate(360deg / 12 * $i)
+  }
 }
-@keyframes animate {
+
+@for $i from 1 through 2 {
+  .teardrop#{$i} {
+    animation: 1s infinite rain#{$i};
+    @include absolute-centering;
+    display: inline;
+    position: absolute;
+    top: 45% + $i * 5%;
+    width: 15%;
+    left: 40% * 0.7 + $i * 15%;
+  }
+}
+
+@keyframes sun-animation {
+ from {
+    top: 35%;
+    left: 35%;
+  }
+  to {
+    top: 25%;
+    left: 25%;
+  }
+}
+
+@for $i from 1 through 2 {
+  @keyframes rain#{$i} {
     0% {
-        transform: rotate(0deg);
+      top: 45% + $i * 5%;
+      opacity: 1
     }
     100% {
-        transform: rotate(220deg);
+      top: 55% + $i * 5%;
+      opacity: 0
     }
+  }
 }
-#loader:after {
-    animation: animate2 1.5s ease-in-out infinite;
-    clip: rect(0, 80px, 80px, 40px);
-    content: '';
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
-    position: absolute;
-}
-@keyframes animate2 {
-    0% {
-        box-shadow: inset #fff 0 0 0 2px;
-        transform: rotate(-140deg);
-    }
-    50% {
-        box-shadow: inset #fff 0 0 0 2px;
-    }
-    100% {
-        box-shadow: inset #fff 0 0 0 2px;
-        transform: rotate(140deg);
-    }
-}
+
+
 
 /*END OF PRELOADER*/
 
@@ -723,7 +822,7 @@ hr {
 }
 
 .side-nav {
-  left: 0 !important;
+    left: 0 !important;
 }
 
 .input-field {
@@ -744,6 +843,9 @@ hr {
 .details {
     width: calc(60vw - 50px);
     height: calc(100vh - 50px);
+    >div {
+      margin: 20px 0;
+    }
 }
 
 .details,
@@ -959,13 +1061,14 @@ button {
 
 .vue-chart-wrapper {
     display: flex;
-}
-
-.chart-buttons {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-}
+  }
+
+// .chart-buttons {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
 
 .vue-chart {
     & rect {
@@ -978,7 +1081,7 @@ button {
         fill: #ddd;
     }
     & svg {
-      width: 100%;
+        width: 100%;
     }
 }
 @media all and (max-width: 767px) {
