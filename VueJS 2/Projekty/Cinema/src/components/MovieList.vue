@@ -1,11 +1,14 @@
 <template lang="html">
   <div id="movie-list" >
     <div v-if="filteredMovies.length">
-      <movie-item v-for="movie in filteredMovies"
-        :movie="movie.movie"
-        :sessions="movie.sessions"
-        :day="day"
-        :times="times">
+      <movie-item v-for="movie in filteredMovies" :movie="movie.movie">
+        <div class="movie-sessions" >
+          <div v-for="session in filteredSessions(movie.sessions)" class="session-time-wrapper">
+            <div class="session-time">
+              {{ formatSessionTime(session.time) }}
+            </div>
+          </div>
+        </div>
       </movie-item>
     </div>
     <div class="no-results" v-else-if="movies.length">
@@ -58,6 +61,13 @@ export default {
         } else {
           return this.$moment(session.time).hour() < 18;
         }
+      },
+      formatSessionTime(raw) {
+        return this.$moment(raw).format('h:mm A')
+      },
+      filteredSessions(sessions) {
+        // look at each session and then return true or false based on the day of the session and the day prop (currently selected day)
+        return sessions.filter(this.sessionsPassesTimeFilter);
       }
     },
     computed: {
