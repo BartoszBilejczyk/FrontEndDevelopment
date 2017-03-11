@@ -18,6 +18,5 @@ export default {
     MovieList,
     MovieFilter
   }
-
 }
 </script>
