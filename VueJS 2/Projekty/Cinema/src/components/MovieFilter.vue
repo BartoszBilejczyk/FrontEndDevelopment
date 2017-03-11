@@ -3,11 +3,11 @@
     <h2>Filter results</h2>
     <h3>By time of day</h3>
     <div class="filter-group">
-      <check-filter v-for="time in times" :category="time" :title="time" @check-filter="checkFilter"></check-filter>
+      <check-filter v-for="time in times" category='times' :title="time"></check-filter>
     </div>
     <h3>By genre</h3>
     <div class="filter-group">
-      <check-filter v-for="genre in genres" :category="genre" :title="genre" @check-filter="checkFilter"></check-filter>
+      <check-filter v-for="genre in genres" category="genres" :title="genre"></check-filter>
     </div>
   </div>
 </template>
@@ -22,11 +22,6 @@ export default {
       return {
         genres,
         times
-      }
-    },
-    methods: {
-      checkFilter(category, title, checked) {
-        this.$emit('check-filter', category, title, checked);
       }
     },
     components: {

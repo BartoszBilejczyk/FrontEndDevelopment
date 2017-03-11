@@ -9,8 +9,11 @@ moment.tz.setDefault("UTC");
 
 Object.defineProperty(Vue.prototype, '$moment', {get() { return this.$root.moment } })
 
-import MovieList from './components/MovieList.vue'
-import MovieFilter from './components/MovieFilter.vue'
+import { checkFilter } from './util/bus'
+const bus = new Vue();
+Object.defineProperty(Vue.prototype, '$bus', { get() { return this.$root.bus} })
+
+import Overview from './components/Overview.vue'
 
 new Vue({
     el: '#app',
@@ -19,38 +22,17 @@ new Vue({
       times: [],
       movies: [],
       moment,
-      day: moment()
-    },
-    methods: {
-      // receives information from grandchild about what checkbox was clicked so I can process it to filter movies.
-      checkFilter(category, title, checked) {
-        // if checked, push the title to the array of proper category
-        if (checked) {
-          console.log(title)
-          console.log(category)
-
-          this[category].push(title);
-          console.log(category)
-
-        } else {
-          let index = this[category].indexOf(title);
-          if (index > -1) {// if it's not in the array, it will return -1 - in other words if it is in the array
-            this[category].splice(index, 1);
-          }
-        }
-      }
+      day: moment(),
+      bus
     },
     components: {
-      MovieList,
-      MovieFilter
+      Overview
     },
     created() {
       this.$http.get('/api')
         .then((response) => {
          this.movies = response.data;
-       })
-        .catch((error) => {
-          console.log(eror)
-        })
+       });
+      this.$bus.$on('check-filter', checkFilter.bind(this))
     }
 })
