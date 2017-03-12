@@ -686,7 +686,7 @@ body {
         @include absolute-centering;
         width: 50%;
         height: 10%;
-        background: #fff;
+        background: rgba(255,255,255, 0.8);
         position: absolute;
         border-radius: 20px;
         z-index: 3;
@@ -696,7 +696,7 @@ body {
           position: absolute;
           width: 40%;
           height: 200%;
-          background: #fff;
+          background: rgba(255,255,255, 0.8);
           top: -100%;
           left: 10%;
           border-radius: 50%;
@@ -706,7 +706,7 @@ body {
           position: absolute;
           width: 50%;
           height: 250%;
-          background: #fff;
+          background: rgba(255,255,255, 0.8);
           top: -150%;
           left: 40%;
           border-radius: 50%;
@@ -720,7 +720,7 @@ body {
       animation: 1s infinite alternate sun-animation;
       width: 3px;
       height: 12px;
-      background-color: #fff;
+      background: rgba(255,255,255, 0.8);
       position: absolute;
       top: 35%;
       left: 35%;
