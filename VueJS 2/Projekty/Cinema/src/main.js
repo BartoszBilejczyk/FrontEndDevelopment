@@ -19,9 +19,11 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import routes from './util/routes'
-const router = new VueRouter({
-  routes
-})
+const router = new VueRouter({ routes })
+
+// use Vue plugin that I created
+import Tooltip from './util/tooltip';
+Vue.use(Tooltip)
 
 new Vue({
     el: '#app',

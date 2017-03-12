@@ -13,12 +13,15 @@
     </style>
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak>
     <div id="title">
         <img src="/public/logo.png">
         <h1>Vue.js Cinema</h1>
     </div>
-    <router-view :genres="genres" :times="times" :movies="movies" :day="day"></router-view>
+    <!-- don't destroy any components when routes are changing, keep them in memory -->
+    <keep-alive>
+      <router-view :genres="genres" :times="times" :movies="movies" :day="day"></router-view>
+    </keep-alive>
 </div>
 <script src="/dist/build.js"></script>
 </body>

@@ -76,8 +76,6 @@
                         <h2 class="temp">{{temp}}</h2>
                         <div class="format">
                             <span :class="addTransparencyToCelsius" @click="changeToCelsius()"><sup>o</sup>{{celsius}}</span>
-                            <span>|</span>
-                            <span :class="addTransparencyToFahrenheit" @click="changeToFahrenheit()"><sup>o</sup>{{fahrenheit}}</span>
                         </div>
                     </div>
 
@@ -228,7 +226,7 @@ export default {
                     'label': 'Day'
                 }, {
                     'type': 'number',
-                    'label': 'Temp'
+                    'label': ''
                 }],
                 rows: [],
                 options: {
@@ -239,7 +237,7 @@ export default {
                     vAxis: {
                         title: 'Temp'
                     },
-                    width: $('.vue-chart-wrapper').width() * 0.7,
+                    width: $('.details').width() * 0.91,
                     height: $('.vue-chart-wrapper').height() * 1,
                     curveType: 'function',
                     backgroundColor: 'transparent'
@@ -334,7 +332,7 @@ export default {
         },
         findWeather() {
             if (document.getElementById('weather').value === '') {
-                this.errorMsg = 'Wrong city, you geographical moron'
+                this.errorMsg = 'Wrong city'
             } else if (document.getElementById('weather').value !== '') {
                 $('#weather').sideNav('hide');
                 this.errorMsg = '';
@@ -507,7 +505,7 @@ export default {
             if (this.isInCelsius == true) {
                 this.units = 'imperial';
                 this.windUnit = 'mp/h'
-                this.show()
+                this.findWeather()
                 this.isInCelsius = false;
             }
         },
@@ -515,7 +513,7 @@ export default {
             if (this.isInCelsius == false) {
                 this.units = 'metric';
                 this.windUnit = 'km/h'
-                this.show();
+                this.findWeather();
                 this.isInCelsius = true;
             }
         },
@@ -1078,7 +1076,7 @@ button {
         stroke: #ddd;
     }
     & text {
-        fill: #ddd;
+        fill: white;
     }
     & svg {
         width: 100%;
