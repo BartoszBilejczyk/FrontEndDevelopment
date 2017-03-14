@@ -2,24 +2,20 @@
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item"><img src="../assets/logo.png" alt=""></li>
-      <li class="nav-item" v-for="menuItem in menu">
-        <i class="material-icons">{{ menuItem.icon }}</i>
-        {{ menuItem.category }}
+      <li class="nav-item" v-for="item in stored.listTypes">
+        <i class="material-icons">{{ item.icon }}</i>
+        {{ item.shortTitle }}
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
+import stored from '../stored'
 export default {
   data () {
     return {
-      menu: [
-          {category: 'Popular', icon: 'search'},
-          {category: 'First', icon: 'done'},
-          {category: 'Second', icon: 'cached'},
-          {category: 'Third', icon: 'code'}
-      ]
+      stored
     }
   }
 }
@@ -34,6 +30,7 @@ $menu-dimensions: 80px;
     height: 100vh;
     position: fixed;
     z-index: 10;
+    border-right: 1px solid rgba(220,220,220,0.3);
     .nav-list {
       padding: 0;
       margin: 0;
@@ -47,6 +44,9 @@ $menu-dimensions: 80px;
         align-items: center;
         justify-content: center;
         border-bottom: 1px solid rgba(220,220,220,0.3);
+        border-right: 1px solid rgba(220,220,220,0.3);
+
+        font-size: 0.8rem;
         &:first-child {
           background: #111;
           height: $menu-dimensions

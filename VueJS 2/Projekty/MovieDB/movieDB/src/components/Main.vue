@@ -1,48 +1,85 @@
 <template lang="html">
   <div class="main">
-    <header class="main-header"></header>
-    <div class="items">
-      <div class="item" v-for="item in items">
-      </div>
-    </div>
+          <div class="movie-category-wrapper">
+            <div class="movie" v-for="(popularMovie, index) in movieData.popular.results">
+              <div class="movie-poster"><img :src="movieData.config.images.secure_base_url + movieData.config.images.poster_sizes[3] + movieData.popular.results[index].poster_path" alt=""></div>
+              <p class="movie-title">{{ popularMovie.title }}</p>
+
+            </div>
+
+          </div>
   </div>
 
 </template>
 
 <script>
+import axios from 'axios'
+import stored from '../stored.js'
+
 export default {
   data () {
     return {
-      items: [1, 2, 3, 4]
+      items: [1, 2, 3, 4],
+      stored,
+      movieData: {
+        config: [],
+        popular: []
+      }
     }
+  },
+  methods: {
+    fetchPopular () {
+      var self = this
+      axios.get(`https://api.themoviedb.org/3/movie/popular?&api_key=${stored.apiKey}`)
+        .then(function (response) {
+          let data = response.data
+          self.movieData.popular = data
+          self.movieData.popular.results = self.movieData.popular.results.slice(0, 5)
+          console.log(self.movieData.popular.results.slice(0, 5))
+        })
+    }
+    // for (var i = 0; i < stored.listTypes.length - 1; i++) {
+    //   axios.get(`https://api.themoviedb.org/3/movie/${stored.listTypes[i].query}?api_key=${stored.apiKey}`)
+    //     .then(function (response) {
+    //       let data = response.data
+    //       console.log(data)
+    //     })
+    // }
+  },
+  created () {
+    var self = this
+    axios.get(`https://api.themoviedb.org/3/configuration?api_key=${stored.apiKey}`)
+      .then(function (response) {
+        self.movieData.config = response.data
+        console.log(self.movieData.config)
+      })
+    this.fetchPopular()
   }
 }
 </script>
 
 <style lang="scss">
-
 $menu-dimensions: 80px;
 
 .main {
     padding: $menu-dimensions 0 0;
     margin-left: $menu-dimensions;
-    width: 100%;
+    width: calc(100% - $menu-dimensions);
     height: 100%;
 }
 
-.main-header {
-    background: url('http://www.lorempixel.com/1000/300/nature/5');
-    background-size: cover;
-    position: relative;
+.movie-category-wrapper {
     width: 100%;
-    height: 400px;
-}
-
-.items {
-    .item {
-      width: 100%;
-      height: 500px;
-      border: 1px solid lightgray
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .movie {
+      padding: 3rem;
+      width: 342px;
+      img {
+        max-width: 100%;
+      }
     }
 }
 
