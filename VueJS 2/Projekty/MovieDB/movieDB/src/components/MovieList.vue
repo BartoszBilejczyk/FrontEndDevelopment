@@ -4,6 +4,10 @@
       <div class="movie-poster"><img :src="config.images.secure_base_url + config.images.poster_sizes[3] + movieData.popular.results[index].poster_path" alt=""></div>
       <p class="movie-title">{{ popularMovie.title }}</p>
     </div>
+    <div class="movie" v-for="(upcomingMovie, index) in movieData.upcoming.results">
+      <div class="movie-poster"><img :src="config.images.secure_base_url + config.images.poster_sizes[3] + movieData.upcoming.results[index].poster_path" alt=""></div>
+      <p class="movie-title">{{ upcomingMovie.title }}</p>
+    </div>
   </div>
 </template>
 
@@ -16,9 +20,10 @@
       return {
         stored,
         movieData: {
-          popular: {}
+          popular: {},
+          upcoming: {}
         },
-        config: []
+        config: {}
       }
     },
     methods: {
@@ -39,6 +44,16 @@
             self.movieData.popular.results = self.movieData.popular.results.slice(0, 5)
             console.log(self.movieData.popular.results.slice(0, 5))
           })
+      },
+      fetchUpcoming () {
+        var self = this
+        axios.get(`https://api.themoviedb.org/3/movie/upcoming?&api_key=${stored.apiKey}`)
+          .then(function (response) {
+            let data = response.data
+            self.movieData.upcoming = data
+            self.movieData.upcoming.results = self.movieData.upcoming.results.slice(0, 5)
+            console.log(self.movieData.upcoming.results.slice(0, 5))
+          })
       }
 
       // for (var i = 0; i < stored.listTypes.length - 1; i++) {
@@ -52,6 +67,7 @@
     created () {
       this.fetchConfig()
       this.fetchPopular()
+      this.fetchUpcoming()
     }
 }
 </script>
