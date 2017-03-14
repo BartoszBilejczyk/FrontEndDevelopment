@@ -2,11 +2,9 @@
   <div class="main">
           <div class="movie-category-wrapper">
             <div class="movie" v-for="(popularMovie, index) in movieData.popular.results">
-              <div class="movie-poster"><img :src="movieData.config.images.secure_base_url + movieData.config.images.poster_sizes[3] + movieData.popular.results[index].poster_path" alt=""></div>
+              <div class="movie-poster"><img :src="config.images.secure_base_url + config.images.poster_sizes[3] + movieData.popular.results[index].poster_path" alt=""></div>
               <p class="movie-title">{{ popularMovie.title }}</p>
-
             </div>
-
           </div>
   </div>
 
@@ -19,15 +17,22 @@ import stored from '../stored.js'
 export default {
   data () {
     return {
-      items: [1, 2, 3, 4],
       stored,
       movieData: {
-        config: [],
         popular: []
-      }
+      },
+      config: []
     }
   },
   methods: {
+    fetchConfig () {
+      var self = this
+      axios.get(`https://api.themoviedb.org/3/configuration?api_key=${stored.apiKey}`)
+        .then(function (response) {
+          self.config = response.data
+          console.log(self.config)
+        })
+    },
     fetchPopular () {
       var self = this
       axios.get(`https://api.themoviedb.org/3/movie/popular?&api_key=${stored.apiKey}`)
@@ -38,6 +43,7 @@ export default {
           console.log(self.movieData.popular.results.slice(0, 5))
         })
     }
+
     // for (var i = 0; i < stored.listTypes.length - 1; i++) {
     //   axios.get(`https://api.themoviedb.org/3/movie/${stored.listTypes[i].query}?api_key=${stored.apiKey}`)
     //     .then(function (response) {
@@ -47,12 +53,7 @@ export default {
     // }
   },
   created () {
-    var self = this
-    axios.get(`https://api.themoviedb.org/3/configuration?api_key=${stored.apiKey}`)
-      .then(function (response) {
-        self.movieData.config = response.data
-        console.log(self.movieData.config)
-      })
+    this.fetchConfig()
     this.fetchPopular()
   }
 }
