@@ -18,14 +18,6 @@ let stored = {
       icon: 'cached'
     },
     {
-      title: 'Latest Movies',
-      shortTitle: 'Latest',
-      query: 'latest',
-      type: 'collection',
-      isCategory: true,
-      icon: 'cached'
-    },
-    {
       title: 'Upcoming Movies',
       shortTitle: 'Upcoming',
       query: 'upcoming',

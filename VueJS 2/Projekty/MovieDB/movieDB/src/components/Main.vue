@@ -1,14 +1,22 @@
 <template lang="html">
   <div class="main">
-    <movie-list></movie-list>
+    <!-- render multiple list if the list is a category: true -->
+    <movie-list v-for="list in listTypes" v-if="list.isCategory" :type="'component'" :mode="'collection'" :category="list.query" :shortList="true" :key="list.query"></movie-list>
   </div>
 
 </template>
 
 <script>
+
 import MovieList from './MovieList.vue'
+import stored from '../stored.js'
 
 export default {
+  data () {
+    return {
+      listTypes: stored.listTypes
+    }
+  },
   components: {
     MovieList
   }
@@ -25,19 +33,5 @@ $menu-dimensions: 80px;
     height: 100%;
 }
 
-.movie-category-wrapper {
-    width: 100%;
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    .movie {
-      padding: 3rem;
-      width: 342px;
-      img {
-        max-width: 100%;
-      }
-    }
-}
 
 </style>

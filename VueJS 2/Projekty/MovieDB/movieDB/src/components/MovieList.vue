@@ -1,77 +1,83 @@
 <template lang="html">
   <div class="movie-category-wrapper">
-    <div class="movie" v-for="(popularMovie, index) in movieData.popular.results">
-      <div class="movie-poster"><img :src="config.images.secure_base_url + config.images.poster_sizes[3] + movieData.popular.results[index].poster_path" alt=""></div>
-      <p class="movie-title">{{ popularMovie.title }}</p>
+    <div class="movies">
+      <header class="movies-header">
+        <span>{{ category }}</span>
+        <span>{{ data.total_results }}</span>
+      </header>
     </div>
-    <div class="movie" v-for="(upcomingMovie, index) in movieData.upcoming.results">
-      <div class="movie-poster"><img :src="config.images.secure_base_url + config.images.poster_sizes[3] + movieData.upcoming.results[index].poster_path" alt=""></div>
-      <p class="movie-title">{{ upcomingMovie.title }}</p>
+    <div class="movie-list">
+      <movie-list-item v-for="movie in movies" :movie="movie"></movie-list-item>
     </div>
   </div>
+
 </template>
 
 <script>
   import axios from 'axios'
   import stored from '../stored.js'
+  import MovieListItem from './MovieListItem.vue'
 
   export default {
+    props: ['type', 'mode', 'category', 'shortList'],
     data () {
       return {
+        movies: {},
+        pages: '',
+        results: '',
+        currentPage: 1,
         stored,
-        movieData: {
-          popular: {},
-          upcoming: {}
-        },
-        config: {}
+        data: {}
       }
+    },
+    components: {
+      MovieListItem
     },
     methods: {
-      fetchConfig () {
+      // requestData () {
+      //   let category = this.category
+      //   return `https://api.themoviedb.org/3/movie/${category}?api_key=${stored.apiKey}&language=en-US&page=${this.currentPage}`
+      // },
+
+      // I will fetch the category, and the ${category} is sent back to main and iterated
+      fetchCategory () {
         var self = this
-        axios.get(`https://api.themoviedb.org/3/configuration?api_key=${stored.apiKey}`)
-          .then(function (response) {
-            self.config = response.data
-            console.log(self.config)
-          })
-      },
-      fetchPopular () {
-        var self = this
-        axios.get(`https://api.themoviedb.org/3/movie/popular?&api_key=${stored.apiKey}`)
+        axios(`https://api.themoviedb.org/3/movie/${self.category}?api_key=${stored.apiKey}`)
           .then(function (response) {
             let data = response.data
-            self.movieData.popular = data
-            self.movieData.popular.results = self.movieData.popular.results.slice(0, 5)
-            console.log(self.movieData.popular.results.slice(0, 5))
+            self.data = data
+            self.movies = data.results.slice(0, 5)
+            self.pages = 1
+            self.results = 5
+            console.log(data)
           })
-      },
-      fetchUpcoming () {
-        var self = this
-        axios.get(`https://api.themoviedb.org/3/movie/upcoming?&api_key=${stored.apiKey}`)
-          .then(function (response) {
-            let data = response.data
-            self.movieData.upcoming = data
-            self.movieData.upcoming.results = self.movieData.upcoming.results.slice(0, 5)
-            console.log(self.movieData.upcoming.results.slice(0, 5))
+          .catch(function (error) {
+            console.log(error)
           })
       }
-
-      // for (var i = 0; i < stored.listTypes.length - 1; i++) {
-      //   axios.get(`https://api.themoviedb.org/3/movie/${stored.listTypes[i].query}?api_key=${stored.apiKey}`)
-      //     .then(function (response) {
-      //       let data = response.data
-      //       console.log(data)
-      //     })
-      // }
     },
     created () {
-      this.fetchConfig()
-      this.fetchPopular()
-      this.fetchUpcoming()
+      this.fetchCategory()
     }
 }
 </script>
 
 <style lang="scss">
+
+@mixin flexy ($align-items, $justify-content, $flex-wrap: wrap) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-wrap: $flex-wrap;
+}
+
+.movie-category-wrapper {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    .movie-list {
+      @include flexy(center, center)
+    }
+}
 
 </style>
