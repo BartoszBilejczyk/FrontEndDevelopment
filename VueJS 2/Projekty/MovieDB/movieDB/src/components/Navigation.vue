@@ -1,10 +1,12 @@
 <template lang="html">
   <nav class="nav">
     <ul class="nav-list">
-      <li class="nav-item"><img src="../assets/logo.png" alt=""></li>
-      <li class="nav-item" v-for="item in stored.listTypes">
-        <i class="material-icons">{{ item.icon }}</i>
-        {{ item.shortTitle }}
+      <li class="logo"><img src="../assets/logo.png" alt=""></li>
+      <li class="nav-item" v-for="item in listTypes" v-if="item.isCategory">
+        <router-link class="nav-item" :to="{name: 'main-category', params: { category: item.query } }">
+          <i class="material-icons menu-icon">{{ item.icon }}</i>
+          <span class="menu-title">{{ item.shortTitle }}</span>
+        </router-link>
       </li>
     </ul>
   </nav>
@@ -15,7 +17,7 @@ import stored from '../stored'
 export default {
   data () {
     return {
-      stored
+      listTypes: stored.listTypes
     }
   }
 }
@@ -23,7 +25,7 @@ export default {
 
 <style lang="scss">
 
-$menu-dimensions: 80px;
+$menu-dimensions: 90px;
 
   .nav {
     width: $menu-dimensions;
@@ -34,8 +36,19 @@ $menu-dimensions: 80px;
     .nav-list {
       padding: 0;
       margin: 0;
+      .logo {
+        height: $menu-dimensions;
+        width: $menu-dimensions;
+        background: #000;
+        list-style-type: none;;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid rgba(220,220,220,0.3);
+      }
       .nav-item {
-        height: $menu-dimensions * 1.3;
+        height: $menu-dimensions;
         width: $menu-dimensions;
         background: #fff;
         list-style-type: none;;
@@ -45,11 +58,14 @@ $menu-dimensions: 80px;
         justify-content: center;
         border-bottom: 1px solid rgba(220,220,220,0.3);
         border-right: 1px solid rgba(220,220,220,0.3);
-
-        font-size: 0.8rem;
-        &:first-child {
-          background: #111;
-          height: $menu-dimensions
+        font-size: 0.6rem;
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          color: #000;
+        }
+        .menu-icon {
+          padding: 10px;
         }
       }
     }

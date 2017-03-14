@@ -1,11 +1,12 @@
 <template lang="html">
   <div class="movie-category-wrapper">
-    <div class="movies">
-      <header class="movies-header">
-        <span>{{ category }}</span>
-        <span>{{ data.total_results }}</span>
-      </header>
-    </div>
+    <header class="movies-header">
+      <span>{{ title }}</span>
+      <!-- <span>{{ data.total_results }}</span> -->
+      <router-link v-if="shortList" class="movies__link" :to="{name: 'main-category', params: {category: category}}">
+          View All
+      </router-link>
+    </header>
     <div class="movie-list">
       <movie-list-item v-for="movie in movies" :movie="movie"></movie-list-item>
     </div>
@@ -19,7 +20,8 @@
   import MovieListItem from './MovieListItem.vue'
 
   export default {
-    props: ['type', 'mode', 'category', 'shortList'],
+    // To add to props so that it's not hardcoded 'category', 'shortList',
+    props: ['type', 'mode', 'title'],
     data () {
       return {
         movies: {},
@@ -27,7 +29,9 @@
         results: '',
         currentPage: 1,
         stored,
-        data: {}
+        isListLoaded: true,
+        category: 'popular',
+        shortList: false
       }
     },
     components: {
@@ -42,14 +46,19 @@
       // I will fetch the category, and the ${category} is sent back to main and iterated
       fetchCategory () {
         var self = this
-        axios(`https://api.themoviedb.org/3/movie/${self.category}?api_key=${stored.apiKey}`)
+        axios(`https://api.themoviedb.org/3/movie/${self.category}?api_key=${stored.apiKey}&language=pl`)
           .then(function (response) {
             let data = response.data
-            self.data = data
-            self.movies = data.results.slice(0, 5)
-            self.pages = 1
-            self.results = 5
-            console.log(data)
+            if (self.shortList) {
+              self.movies = data.results.slice(0, 5)
+              self.pages = 1
+              self.results = 5
+              console.log(data)
+            } else {
+              self.movies = data.results
+              self.pages = data.total_pages
+              self.results = data.total_results
+            }
           })
           .catch(function (error) {
             console.log(error)
@@ -58,6 +67,7 @@
     },
     created () {
       this.fetchCategory()
+      console.log(this.title)
     }
 }
 </script>
@@ -75,6 +85,13 @@
     width: 100%;
     padding: 30px;
     display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(220,220,220, 0.5);
+    .movies-header {
+      @include flexy(center, space-between, nowrap);
+      font-weight: 400;
+      padding: 0 30px
+    }
     .movie-list {
       @include flexy(center, center)
     }

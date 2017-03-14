@@ -6,8 +6,13 @@
           <i class="material-icons material-icons-search">search</i>
           <input type="text" name="" value="" placeholder="Type a movie title">
         </div>
-      </div>
-    <router-view name="main"></router-view>
+    </div>
+    <div class="main">
+      <transition name="fade">
+        <router-view name="list-router-view" :type="'page'" mode="'collection'" :key="$route.params.category"></router-view>
+      </transition>
+    </div>
+
   </div>
 </template>
 
@@ -25,7 +30,7 @@ export default {
 
 <style lang="scss">
 
-$menu-dimensions: 80px;
+$menu-dimensions: 90px;
 
 * {
   box-sizing: border-box;
@@ -43,7 +48,7 @@ html, body {
 }
 
 input, textarea, select {
-  font-family:inherit;
+  font-family: inherit;
 }
 
 div.header {
@@ -68,5 +73,24 @@ div.header {
       outline: none;
     }
   }
+}
+
+.main {
+    padding: $menu-dimensions 0 0;
+    margin-left: $menu-dimensions;
+    width: calc(100% - $menu-dimensions);
+    height: 100%;
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: 0.25s;
+}
+.fade-enter-active {
+  transition-delay: 0.25s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>
