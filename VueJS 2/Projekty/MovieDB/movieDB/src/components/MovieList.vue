@@ -3,7 +3,7 @@
     <header class="movies-header">
       <span>{{ title }}</span>
       <!-- <span>{{ data.total_results }}</span> -->
-      <router-link v-if="shortList" class="movies__link" :to="{name: 'main-category', params: {category: category}}">
+      <router-link v-if="shortList" :to="{name: 'main-category', params: {category: category}}">
           View All
       </router-link>
     </header>
@@ -21,7 +21,7 @@
 
   export default {
     // To add to props so that it's not hardcoded 'category', 'shortList',
-    props: ['type', 'mode', 'title'],
+    props: ['type', 'mode', 'category', 'shortList', 'title'],
     data () {
       return {
         movies: {},
@@ -29,9 +29,7 @@
         results: '',
         currentPage: 1,
         stored,
-        isListLoaded: true,
-        category: 'popular',
-        shortList: false
+        isListLoaded: true
       }
     },
     components: {
@@ -74,6 +72,8 @@
 
 <style lang="scss">
 
+@import '../styles/media.scss';
+
 @mixin flexy ($align-items, $justify-content, $flex-wrap: wrap) {
   display: flex;
   align-items: $align-items;
@@ -87,13 +87,16 @@
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgba(220,220,220, 0.5);
+    // @include tablet-landscape-and-down {
+    //   background-color: green;
+    // }
     .movies-header {
       @include flexy(center, space-between, nowrap);
       font-weight: 400;
       padding: 0 30px
     }
     .movie-list {
-      @include flexy(center, center)
+      @include flexy(center, space-between, wrap)
     }
 }
 

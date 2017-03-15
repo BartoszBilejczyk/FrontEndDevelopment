@@ -9,7 +9,7 @@
     </div>
     <div class="main">
       <transition name="fade">
-        <router-view name="list-router-view" :type="'page'" mode="'collection'" :key="$route.params.category"></router-view>
+        <router-view name="list-router-view" :type="'page'" :mode="'collection'" :shortList="false" :category="$route.params.category" :key="$route.params.category"></router-view>
       </transition>
     </div>
 
@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import '/styles/media.scss';
 
 $menu-dimensions: 90px;
 

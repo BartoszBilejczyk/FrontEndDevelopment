@@ -1,7 +1,7 @@
 <template lang="html">
-  <div class="movies">
+  <div class="main-movies">
     <!-- render multiple list if the list is a category: true -->
-    <movie-list v-for="list in listTypes" v-if="list.isCategory" :shortList="true" :type="'component'" :mode="'collection'" :title="list.title" :category="list.query"  :key="list.query"></movie-list>
+    <movie-list v-for="item in listTypes" v-if="item.isCategory" :type="'component'" :mode="'collection'" :category="item.query" :shortList="true" :title="item.title"></movie-list>
   </div>
 
 </template>
@@ -23,9 +23,26 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-$menu-dimensions: 90px;
+<style lang="scss">
 
+@import '../styles/media.scss';
 
+.main-movies {
+  .movie {
+    width: 50%;
+    @include tablet-portrait-and-up {
+      width: 25%;
+    }
+    @include desktop-and-up {
+      width: 20%;
+    }
+    &:last-child {
+      display: none;
+      @include desktop-and-up {
+        display: block;
+      }
+    }
+  }
+}
 
 </style>

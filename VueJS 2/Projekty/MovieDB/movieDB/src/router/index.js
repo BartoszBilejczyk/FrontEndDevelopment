@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Main from '../components/Main.vue'
+import MovieList from '../components/MovieList.vue'
 
 Vue.use(Router)
 
@@ -9,7 +11,7 @@ export default new Router({
       name: 'main',
       path: '/',
       components: {
-        'list-router-view': require('../components/Main.vue')
+        'list-router-view': Main
       }
     },
     {
@@ -17,7 +19,7 @@ export default new Router({
       // :category will be used in params in router-view in html
       path: '/movies/:category',
       components: {
-        'list-router-view': require('../components/MovieList.vue')
+        'list-router-view': MovieList
       }
     }
   ]

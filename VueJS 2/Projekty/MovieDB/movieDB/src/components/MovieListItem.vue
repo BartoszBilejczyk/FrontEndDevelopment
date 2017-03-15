@@ -3,7 +3,7 @@
     <!-- it is iterated in MovieList.vue so the only thing I need to do is a callback to axios data -->
       <div class="movie-poster"><img :src="fetchPoster()" alt=""></div>
       <p class="movie-title">{{ movie.title }}</p>
-      <p class="movie-desc">{{ movie.overview.substring(0,20) }}...</p>
+      <!-- <p class="movie-desc">{{ movie.overview.substring(0,20) }}...</p> -->
   </div>
 
 </template>
@@ -73,9 +73,11 @@ export default {
 
 <style lang="scss">
 
+@import '../styles/media.scss';
+
 .movie {
-  padding: 30px;
-  width: calc(100% / 5);
+  padding: 2rem;
+  width: 20%;
   .movie-poster img {
     max-width: 100%;
   }
