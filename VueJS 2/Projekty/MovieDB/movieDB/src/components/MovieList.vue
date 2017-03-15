@@ -10,6 +10,7 @@
     <div class="movie-list">
       <movie-list-item v-for="movie in movies" :movie="movie"></movie-list-item>
     </div>
+      <button type="button" name="button" @click="loadMore">LOAD MORE</button>
   </div>
 
 </template>
@@ -36,15 +37,14 @@
       MovieListItem
     },
     methods: {
-      // requestData () {
-      //   let category = this.category
-      //   return `https://api.themoviedb.org/3/movie/${category}?api_key=${stored.apiKey}&language=en-US&page=${this.currentPage}`
-      // },
-
+      requestData () {
+        let category = this.category
+        return `https://api.themoviedb.org/3/movie/${category}?api_key=${stored.apiKey}&language=pl&page=${this.currentPage}`
+      },
       // I will fetch the category, and the ${category} is sent back to main and iterated
       fetchCategory () {
         var self = this
-        axios(`https://api.themoviedb.org/3/movie/${self.category}?api_key=${stored.apiKey}&language=pl`)
+        axios(this.requestData())
           .then(function (response) {
             let data = response.data
             if (self.shortList) {
@@ -60,6 +60,18 @@
           })
           .catch(function (error) {
             console.log(error)
+          })
+      },
+      loadMore () {
+        var self = this
+        this.currentPage++
+        axios(this.requestData())
+          .then(function (response) {
+            let data = response.data
+            let newData = self.movies.concat(data.results)
+            self.movies = newData
+            console.log(data)
+            console.log(self.currentPage)
           })
       }
     },
@@ -105,7 +117,19 @@
       }
     }
     .movie-list {
-      @include flexy(center, space-between, wrap)
+      @include flexy(flex-start, flex-start, wrap);
+      .movie {
+        width: 50%;
+        @include tablet-portrait-and-up {
+          width: 33.333333%;
+        }
+        @include tablet-landscape-and-up {
+          width: 25%;
+        }
+        @include desktop-and-up {
+          width: 20%;
+        }
+      }
     }
 }
 

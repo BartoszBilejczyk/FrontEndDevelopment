@@ -27,7 +27,7 @@ let stored = {
     },
     {
       title: 'Obecnie grane w kinach',
-      shortTitle: 'Obecnie grane w kinach',
+      shortTitle: 'Obecnie grane',
       query: 'now_playing',
       type: 'collection',
       isCategory: true,

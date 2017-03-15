@@ -10,7 +10,7 @@
     </div>
     <div class="main">
       <transition name="fade">
-        <router-view name="list-router-view" :type="'page'" :mode="'collection'" :shortList="false" :category="$route.params.category" :key="$route.params.category"></router-view>
+        <router-view name="list-router-view" :type="'page'" :mode="'collection'" :shortList="false"  :category="$route.params.category" :key="$route.params.category"></router-view>
       </transition>
     </div>
 

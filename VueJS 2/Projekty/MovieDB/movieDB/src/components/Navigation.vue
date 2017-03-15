@@ -61,6 +61,10 @@ $menu-dimensions: 90px;
         .menu-icon {
           padding: 10px;
         }
+        .menu-title {
+          padding: 0 3px;
+          text-align: center;
+        }
       }
     }
   }
