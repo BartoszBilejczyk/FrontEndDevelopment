@@ -34,7 +34,7 @@ $desktop-width: 1200px;
 }
 
 @mixin tablet-portrait-and-down {
-  @media (max-width: $tablet-portrait-width) {
+  @media (max-width: $tablet-portrait-width - 1px) {
     @content;
   }
 }
@@ -46,7 +46,7 @@ $desktop-width: 1200px;
 }
 
 @mixin tablet-landscape-and-down {
-  @media (max-width: $tablet-landscape-width) {
+  @media (max-width: $tablet-landscape-width - 1px) {
     @content;
   }
 }

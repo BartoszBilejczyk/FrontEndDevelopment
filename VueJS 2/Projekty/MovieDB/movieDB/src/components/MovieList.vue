@@ -93,7 +93,7 @@
     .movies-header {
       @include flexy(center, space-between, nowrap);
       font-weight: 400;
-      padding: 0 30px
+      padding: 0 15px
     }
     .movie-list {
       @include flexy(center, space-between, wrap)

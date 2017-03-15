@@ -2,6 +2,7 @@
   <div id="app">
     <navigation></navigation>
     <div class="header">
+      <div class="logo"><img src="./assets/logo.png" alt=""></div>
         <div class="search-wrapper">
           <i class="material-icons material-icons-search">search</i>
           <input type="text" name="" value="" placeholder="Type a movie title">
@@ -57,14 +58,24 @@ div.header {
   width: 100%;
   height: $menu-dimensions;
   background: #fff;
-  margin-left: $menu-dimensions;
   position: fixed;
   z-index: 15;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(220,220,220,0.3);
+  .logo {
+    height: $menu-dimensions;
+    width: $menu-dimensions;
+    background: #000;
+    list-style-type: none;;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(220,220,220,0.3);
+  }
   .search-wrapper {
-    margin-left: $menu-dimensions;
+    margin-left: 60px;
     .material-icons-search {
       padding: 5px;
     }
@@ -78,10 +89,13 @@ div.header {
 }
 
 .main {
+  padding: $menu-dimensions 0 0;
+  @include tablet-portrait-and-up {
     padding: $menu-dimensions 0 0;
     margin-left: $menu-dimensions;
     width: calc(100% - $menu-dimensions);
     height: 100%;
+  }
 }
 
 

@@ -76,7 +76,7 @@ export default {
 @import '../styles/media.scss';
 
 .movie {
-  padding: 2rem;
+  padding: 15px;
   width: 20%;
   .movie-poster img {
     max-width: 100%;
