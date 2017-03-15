@@ -2,32 +2,32 @@ let stored = {
   apiKey: '02db3ee444ae78d83c46eeea92a9e2a0',
   listTypes: [
     {
-      title: 'Popular Movies',
-      shortTitle: 'Popular',
+      title: 'Popularne',
+      shortTitle: 'Popularne',
       query: 'popular',
       type: 'collection',
       isCategory: true,
       icon: 'done'
     },
     {
-      title: 'Top Rated Movies',
-      shortTitle: 'Top Rated',
+      title: 'Najwyżej ocenione',
+      shortTitle: 'Najwyżej ocenione',
       query: 'top_rated',
       type: 'collection',
       isCategory: true,
       icon: 'cached'
     },
     {
-      title: 'Upcoming Movies',
-      shortTitle: 'Upcoming',
+      title: 'Nadchodzące',
+      shortTitle: 'Nadchodzące',
       query: 'upcoming',
       type: 'collection',
       isCategory: true,
       icon: 'cached'
     },
     {
-      title: 'Now Playing Movies',
-      shortTitle: 'Now Playing',
+      title: 'Obecnie grane w kinach',
+      shortTitle: 'Obecnie grane w kinach',
       query: 'now_playing',
       type: 'collection',
       isCategory: true,

@@ -3,8 +3,8 @@
     <header class="movies-header">
       <span>{{ title }}</span>
       <!-- <span>{{ data.total_results }}</span> -->
-      <router-link v-if="shortList" :to="{name: 'main-category', params: {category: category}}">
-          View All
+      <router-link class="view-all" v-if="shortList" :to="{name: 'main-category', params: {category: category}}">
+          <span>Zobacz wszystkie</span><i class="material-icons material-icons-go">call_made</i>
       </router-link>
     </header>
     <div class="movie-list">
@@ -93,7 +93,16 @@
     .movies-header {
       @include flexy(center, space-between, nowrap);
       font-weight: 400;
-      padding: 0 15px
+      padding: 0 15px;
+      .view-all {
+        color: #000;
+        text-decoration: none;
+      }
+      .material-icons-go {
+        transform: rotate(45deg);
+        font-size: 10px;
+        padding: 5px;
+      }
     }
     .movie-list {
       @include flexy(center, space-between, wrap)

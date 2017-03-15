@@ -32,6 +32,12 @@ export default {
 <style lang="scss">
 
 @import '/styles/media.scss';
+@mixin flexy ($align-items, $justify-content, $flex-wrap: wrap) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-wrap: $flex-wrap;
+}
 
 $menu-dimensions: 90px;
 
@@ -63,6 +69,9 @@ div.header {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(220,220,220,0.3);
+  @include mobile-only {
+    height: $menu-dimensions / 1.8;
+  }
   .logo {
     height: $menu-dimensions;
     width: $menu-dimensions;
@@ -73,9 +82,20 @@ div.header {
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid rgba(220,220,220,0.3);
+    @include mobile-only {
+      height: $menu-dimensions / 1.8;
+      width: $menu-dimensions / 1.8;
+    }
+    img {
+      width: 70%;
+    }
   }
   .search-wrapper {
     margin-left: 60px;
+    @include flexy(center, flex-start, nowrap);
+    @include mobile-only {
+      margin-left: 30px;
+    }
     .material-icons-search {
       padding: 5px;
     }
@@ -89,7 +109,7 @@ div.header {
 }
 
 .main {
-  padding: $menu-dimensions 0 0;
+  padding: $menu-dimensions/1.8 0 0;
   @include tablet-portrait-and-up {
     padding: $menu-dimensions 0 0;
     margin-left: $menu-dimensions;
