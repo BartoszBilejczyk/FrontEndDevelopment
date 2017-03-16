@@ -5,12 +5,13 @@
       <div class="logo"><img src="./assets/logo.png" alt=""></div>
         <div class="search-wrapper">
           <i class="material-icons material-icons-search">search</i>
-          <input type="text" name="" value="" placeholder="Type a movie title">
+          <input type="text" name="" value="" placeholder="Type a movie title" v-model.trim="searchQuery" @blur="search"><button type="button" name="button" @click="search">click</button>
         </div>
     </div>
     <div class="main">
       <transition name="fade">
         <router-view name="list-router-view" :type="'page'" :mode="'collection'" :shortList="false"  :category="$route.params.category" :key="$route.params.category"></router-view>
+        <!-- <router-view name="search-router-view" :type="'page'" :mode="'search'" :key="$route.params.query"></router-view> -->
       </transition>
     </div>
 
@@ -22,6 +23,24 @@ import Navigation from './components/Navigation.vue'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      searchQuery: ''
+    }
+  },
+  computed: {
+    queryForRouter () {
+      return encodeURI(this.searchQuery.replace(/ /g, '+'))
+    }
+  },
+  methods: {
+    search () {
+      if (this.searchQuery !== '') {
+        console.log(this.queryForRouter)
+        this.$router.push({ name: 'search', params: { query: this.queryForRouter } })
+      }
+    }
+  },
   components: {
     Navigation
   }
@@ -52,8 +71,6 @@ html, body {
 #app {
   font-family: 'Raleway', 'Avenir', Helvetica, Arial, sans-serif;
   font-weight: 200;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 input, textarea, select {
@@ -109,6 +126,8 @@ div.header {
 }
 
 .main {
+  position: relative;
+  min-height: 100vh;
   padding: $menu-dimensions/1.8 0 0;
   @include tablet-portrait-and-up {
     padding: $menu-dimensions 0 0;

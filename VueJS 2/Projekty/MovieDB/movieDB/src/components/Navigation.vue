@@ -36,11 +36,21 @@ $menu-dimensions: 90px;
     z-index: 10;
     border-right: 1px solid rgba(220,220,220,0.3);
     @include tablet-portrait-and-down {
-      display: none;
+      width: 0;
+      height: 0;
+      border: none;
     }
     .nav-list {
       padding: 0;
       margin: 0;
+      @include tablet-portrait-and-down {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        border-top: 1px solid rgba(220,220,220,0.3);
+      }
       .nav-item {
         height: $menu-dimensions;
         width: $menu-dimensions;
@@ -53,11 +63,19 @@ $menu-dimensions: 90px;
         border-bottom: 1px solid rgba(220,220,220,0.3);
         border-right: 1px solid rgba(220,220,220,0.3);
         font-size: 0.6rem;
+        @include tablet-portrait-and-down {
+          width: 25%;
+          border: none;
+        }
         a {
           text-decoration: none;
           text-transform: uppercase;
           color: #000;
+          &:hover {
+            color: green
+          }
         }
+
         .menu-icon {
           padding: 10px;
         }

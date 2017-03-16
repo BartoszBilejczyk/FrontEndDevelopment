@@ -21,6 +21,13 @@ export default new Router({
       components: {
         'list-router-view': MovieList
       }
+    },
+    {
+      name: 'search',
+      path: '/search/:query',
+      components: {
+        'search-router-view': MovieList
+      }
     }
   ]
 })
