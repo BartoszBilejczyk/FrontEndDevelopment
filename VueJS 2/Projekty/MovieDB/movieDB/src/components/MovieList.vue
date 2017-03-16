@@ -87,7 +87,7 @@
           return `https://api.themoviedb.org/3/movie/${category}?api_key=${stored.apiKey}&language=pl&page=${this.currentPage}`
         } else if (this.mode === 'search') {
           console.log('searched')
-          return `https://api.themoviedb.org/3/search/movie/?api_key=${stored.apiKey}&language=pl&query=land&page=${this.currentPage}`
+          return `https://api.themoviedb.org/3/search/movie/?api_key=${stored.apiKey}&language=pl&query=${this.query}&page=${this.currentPage}`
         }
       },
       // I will fetch the category, and the ${category} is sent back to main and iterated
