@@ -86,6 +86,7 @@
           let category = this.category
           return `https://api.themoviedb.org/3/movie/${category}?api_key=${stored.apiKey}&language=pl&page=${this.currentPage}`
         } else if (this.mode === 'search') {
+          console.log('searched')
           return `https://api.themoviedb.org/3/search/movie/?api_key=${stored.apiKey}&language=pl&query=land&page=${this.currentPage}`
         }
       },

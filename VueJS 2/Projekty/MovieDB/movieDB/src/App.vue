@@ -8,10 +8,14 @@
           <input type="text" name="" value="" placeholder="Type a movie title" v-model.trim="searchQuery" @blur="search"><button type="button" name="button" @click="search">click</button>
         </div>
     </div>
+
+    <movie-popup v-if="moviePopupVisible" @close="closeMoviePopup" :id="moviePopupId"></movie-popup>
+
     <div class="main">
       <transition name="fade">
         <router-view name="list-router-view" :type="'page'" :mode="'collection'" :shortList="false"  :category="$route.params.category" :key="$route.params.category"></router-view>
-        <!-- <router-view name="search-router-view" :type="'page'" :mode="'search'" :key="$route.params.query"></router-view> -->
+        <router-view name="page-router-view"></router-view>
+        <router-view name="search-router-view" :type="'page'" :mode="'search'" :key="$route.params.query"></router-view>
       </transition>
     </div>
 
@@ -20,12 +24,15 @@
 
 <script>
 import Navigation from './components/Navigation.vue'
+import MoviePopup from './components/MoviePopup.vue'
 
 export default {
   name: 'app',
   data () {
     return {
-      searchQuery: ''
+      searchQuery: '',
+      moviePopupVisible: false,
+      moviePopupId: 0
     }
   },
   computed: {
@@ -42,7 +49,8 @@ export default {
     }
   },
   components: {
-    Navigation
+    Navigation,
+    MoviePopup
   }
 
 }
