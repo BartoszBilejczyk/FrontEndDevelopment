@@ -2,7 +2,10 @@
   <transition name='fade'>
     <div class="movie">
       <!-- it is iterated in MovieList.vue so the only thing I need to do is a callback to axios data -->
-        <div class="movie-poster"><img :src="fetchPoster()" alt=""></div>
+        <div class="movie-poster">
+          <img v-if="!poster" src="../assets/poster-placeholder.jpg" alt="poster placeholder">
+          <img v-if="poster" :src="fetchPoster()" alt="">
+        </div>
         <p class="movie-title">{{ movie.title }}</p>
         <!-- <p class="movie-desc">{{ movie.overview.substring(0,20) }}...</p> -->
     </div>
@@ -18,13 +21,16 @@ export default {
   data () {
     return {
       stored,
-      config: {}
+      config: {},
+      poster: true
     }
   },
   methods: {
     fetchPoster () {
       if (this.movie.poster_path) {
         return `https://image.tmdb.org/t/p/w370_and_h556_bestv2${this.movie.poster_path}`
+      } else {
+        this.poster = false
       }
     },
     fetchConfig () {
