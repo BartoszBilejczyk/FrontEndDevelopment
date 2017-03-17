@@ -45,6 +45,7 @@ export default {
         })
     },
     openMoviePopup (id, event) {
+    // http://stackoverflow.com/questions/41065669/vue-js-event-emitting-from-child-component-to-grandparent-component-using-glob
       EventBus.$emit('openMoviePopup', id, event)
     }
     // fetchPopular () {
