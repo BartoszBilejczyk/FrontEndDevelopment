@@ -1,25 +1,26 @@
 <template lang="html">
   <nav>
     <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Another link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+      <a href="#">
+        <div class="logo">LOGO </div>
+      </a>
+      <li class="nav-item" v-for="type in listTypes">
+        <i :class="type.icon" class="fa fa-2x"></i>
+        <span>{{ type.shortTitle.toUpperCase() }}</span>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-export default {
+import storage from '../storage.js'
 
+export default {
+  data () {
+    return {
+      listTypes: storage.listTypes
+    }
+  }
 }
 </script>
 
@@ -38,6 +39,22 @@ nav {
     width: $main-home-width;
     margin: 0;
     padding: 0;
+    div.logo {
+      background: #aaa;
+      width: $main-home-width;
+      height: $main-home-width;
+    }
+    li.nav-item {
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      width: $main-home-width;
+      height: $main-home-width;
+      @include flexy(center, center, wrap, column);
+      i {
+        padding: 5px;
+      }
+    }
   }
 }
 
