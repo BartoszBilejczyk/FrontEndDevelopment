@@ -12,6 +12,13 @@ export default new Router({
       components: {
         'list-view': Home
       }
+    },
+    {
+      path: '/:category',
+      name: 'main-category',
+      components: {
+        'list-view': Home
+      }
     }
   ]
 })

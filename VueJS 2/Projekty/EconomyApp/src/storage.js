@@ -4,23 +4,26 @@ let stored = {
     {
       title: '',
       shortTitle: 'Economy',
+      mainCategory: 'economy',
       query: '',
       type: '',
-      icon: 'fa-camera-retro'
+      icon: 'fa-connectdevelop'
     },
     {
       title: '',
       shortTitle: 'Capital Markets',
+      mainCategory: 'capital-markets',
       query: '',
       type: '',
-      icon: 'fa-camera-retro'
+      icon: 'fa-money'
     },
     {
       title: '',
       shortTitle: 'Society',
+      mainCategory: 'society',
       query: '',
       type: '',
-      icon: 'fa-camera-retro'
+      icon: 'fa-user-o'
     }
   ]
 }

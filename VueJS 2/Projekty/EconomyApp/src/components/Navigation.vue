@@ -4,9 +4,11 @@
       <a href="#">
         <div class="logo">LOGO </div>
       </a>
-      <li class="nav-item" v-for="type in listTypes">
-        <i :class="type.icon" class="fa fa-2x"></i>
-        <span>{{ type.shortTitle.toUpperCase() }}</span>
+      <li class="nav-item" v-for="list in listTypes">
+        <router-link class="main-category" :to="{ name: 'main-category', params: { category: list.mainCategory } }">
+          <i :class="list.icon" class="fa fa-2x"></i>
+          <span>{{ list.shortTitle.toUpperCase() }}</span>
+        </router-link>
       </li>
     </ul>
   </nav>
@@ -45,14 +47,17 @@ nav {
       height: $main-home-width;
     }
     li.nav-item {
-      color: #fff;
       text-align: center;
       font-size: 12px;
       width: $main-home-width;
       height: $main-home-width;
-      @include flexy(center, center, wrap, column);
-      i {
-        padding: 5px;
+      .main-category {
+        @include flexy(center, center, wrap, column);
+        text-decoration: none;
+        color: #fff;
+        i {
+          padding: 5px;
+        }
       }
     }
   }
