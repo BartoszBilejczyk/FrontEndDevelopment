@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '../components/Main.vue'
 import MovieList from '../components/MovieList.vue'
+import MoviePage from '../components/MoviePage.vue'
 
 Vue.use(Router)
 
@@ -26,7 +27,14 @@ export default new Router({
       name: 'search',
       path: '/search/:query',
       components: {
-        'search-router-view': MovieList
+        'page-router-view': MovieList
+      }
+    },
+    {
+      name: 'movie',
+      path: '/movie/:id',
+      components: {
+        'search-router-view': MoviePage
       }
     }
   ]

@@ -2,12 +2,14 @@
   <transition name='fade'>
     <div class="movie">
       <!-- it is iterated in MovieList.vue so the only thing I need to do is a callback to axios data -->
+      <a :href="/movie/" @click.prevent="openMoviePopup(movie.id, true)">
         <div class="movie-poster">
           <img v-if="!poster" src="../assets/poster-placeholder.jpg" alt="poster placeholder">
           <img v-if="poster" :src="fetchPoster()" alt="">
         </div>
         <p class="movie-title">{{ movie.title }}</p>
         <!-- <p class="movie-desc">{{ movie.overview.substring(0,20) }}...</p> -->
+      </a>
     </div>
   </transition>
 </template>
@@ -15,6 +17,7 @@
 <script>
 import axios from 'axios'
 import stored from '../stored.js'
+import EventBus from '../bus.js'
 
 export default {
   props: ['movie'],
@@ -40,6 +43,9 @@ export default {
           self.config = response.data
           console.log(self.config)
         })
+    },
+    openMoviePopup (id, event) {
+      EventBus.$emit('openMoviePopup', id, event)
     }
     // fetchPopular () {
     //   var self = this

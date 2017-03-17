@@ -25,6 +25,7 @@
 <script>
 import Navigation from './components/Navigation.vue'
 import MoviePopup from './components/MoviePopup.vue'
+import EventBus from './bus.js'
 
 export default {
   name: 'app',
@@ -51,6 +52,9 @@ export default {
   components: {
     Navigation,
     MoviePopup
+  },
+  created () {
+    EventBus.$on('openMoviePopup', this.openMoviePopup)
   }
 
 }
