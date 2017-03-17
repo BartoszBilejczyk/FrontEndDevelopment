@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <navigation></navigation>
+    <header>
+      siema
+    </header>
+    <router-view name="list-view"></router-view>
   </div>
 </template>
 
 <script>
+import Navigation from './components/Navigation.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Navigation
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
