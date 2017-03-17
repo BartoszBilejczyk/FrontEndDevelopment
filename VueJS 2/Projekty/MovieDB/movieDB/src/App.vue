@@ -54,7 +54,7 @@ export default {
     MoviePopup
   },
   created () {
-    EventBus.$on('openMoviePopup', this.openMoviePopup)
+    EventBus.$on('openMoviePopup', () => { console.log('s') })
   }
 
 }
