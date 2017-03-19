@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="home">
     <div class="main-category-list">
-      <category-list v-for="list in listTypes" :shortList='true' >{{ list }}</category-list>
+      <category-list v-for="list in listTypes" :shortList='true' :category="'TRADE'">{{ list }}</category-list>
     </div>
   </div>
 </template>
@@ -26,10 +26,8 @@ export default {
 @import '../scss/globals.scss';
 @import '../scss/responsive.scss';
 
-.home {
-  margin-left: $main-home-width;
-  background: #eee;
-  width: calc(100% - $main-home-width);
-  min-height: 100vh;
+.main-category-list {
+  padding: 50px;
+  display: inline;
 }
 </style>

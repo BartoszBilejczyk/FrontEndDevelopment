@@ -7,3 +7,16 @@ $main-home-width: 100px;
   flex-wrap: $flex-wrap;
   flex-direction: $flex-direction;
 }
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.25s
+}
+
+.fade-enter-active {
+  transition-delay: 0.25s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}

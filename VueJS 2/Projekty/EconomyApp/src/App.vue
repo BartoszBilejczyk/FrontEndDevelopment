@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <navigation></navigation>
-
-    <router-view name="list-view"></router-view>
+    <div class="main">
+      <transition name='fade'>
+        <router-view name="list-view" :shortList='true' :category="$route.params.category"></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -33,4 +36,10 @@ html, body {
   width: 100%;
 }
 
+.main {
+  margin-left: $main-home-width;
+  background: #eee;
+  width: calc(100% - $main-home-width);
+  min-height: 100vh;
+}
 </style>
