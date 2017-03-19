@@ -1,14 +1,27 @@
 <template lang="html">
-  <div class="">
-      {{ subcategory }}
+  <div class="subcategory">
+      {{ quandlDataItem[index].id }}
   </div>
 </template>
 
 <script>
 export default {
-  props: [ 'subcategory' ]
+  props: [ 'quandlDataItem', 'index' ],
+  created () {
+    console.log(this.quandlDataItem)
+  }
 }
 </script>
 
 <style lang="scss">
+
+
+@import '../scss/globals.scss';
+@import '../scss/responsive.scss';
+
+
+.subcategory {
+  margin: 20px;
+}
+
 </style>

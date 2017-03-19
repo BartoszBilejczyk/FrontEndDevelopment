@@ -5,6 +5,7 @@ let stored = {
       title: 'Economy',
       shortTitle: 'Economy',
       mainCategory: 'economy',
+      subcategories: ['INFL', 'LIFEXP', 'TRADE'],
       query: '',
       type: '',
       icon: 'fa-connectdevelop'
@@ -13,6 +14,7 @@ let stored = {
       title: 'Capital Markets',
       shortTitle: 'Capital Markets',
       mainCategory: 'capital-markets',
+      subcategories: ['INFL', 'LIFEXP'],
       query: '',
       type: '',
       icon: 'fa-money'
@@ -21,6 +23,7 @@ let stored = {
       title: 'Society',
       shortTitle: 'Society',
       mainCategory: 'society',
+      subcategories: ['INFL', 'TRADE'],
       query: '',
       type: '',
       icon: 'fa-user-o'
