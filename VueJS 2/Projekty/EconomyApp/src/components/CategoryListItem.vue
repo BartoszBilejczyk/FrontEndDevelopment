@@ -1,15 +1,12 @@
 <template lang="html">
   <div class="subcategory">
-      {{ quandlDataItem[index].id }}
+    {{ subcategory }}
   </div>
 </template>
 
 <script>
 export default {
-  props: [ 'quandlDataItem', 'index' ],
-  created () {
-    console.log(this.quandlDataItem)
-  }
+  props: [ 'subcategory', 'index' ]
 }
 </script>
 

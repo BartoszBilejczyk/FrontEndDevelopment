@@ -34,10 +34,10 @@ let stored = {
       'INFL', 'LIFEXP', 'TRADE'
     ],
     [
-      'INFL', 'LIFEXP'
+      'EMPM', 'BEER'
     ],
     [
-      'INFL'
+      'PEST'
     ]
   ]
 }

@@ -2,11 +2,12 @@
   <div class="category">
     <!-- category list item is e.g. inflation, unemployment, mortality rate etc., there will be also CategoryListItemDetails with chart etc.
     when going to category list, iterate through every axios request and concat the data to quandl  -->
-    <category-list-item :quandlDataItem='quandlDataItem' v-for="(quandlDataItem, index) in quandlData"></category-list-item>
+    <category-list-item v-for="(subcategory, index) in storage.subcategories[index]" :index='index' :subcategory='subcategory'></category-list-item>
 
     <router-link class="view-all" :to="{name: 'main-category', params: {category: category}}">
-            <span>Zobacz wszystkie</span><i class="material-icons material-icons-go">call_made</i>
+        <span>Zobacz wszystkie</span>
     </router-link>
+
   </div>
 </template>
 
@@ -16,51 +17,59 @@ import storage from '../storage.js'
 import axios from 'axios'
 
 export default {
-  props: ['category', 'index'],
+  props: ['category', 'list', 'index'],
   data () {
     return {
-      // indexes doesn't work, HOW TO GET INDEX OF CATEGORY LIST, because home is not rendered OR how to render lists inside home
-      indexes: [],
-      subcategories: storage.subcategories,
-      quandlData: []
+      storage,
+      fetchedData: {
+        economyData: [1, 1],
+        financialData: [2, 2, 3, 4],
+        socialData: ['sad', 'ssss']
+      }
     }
   },
   components: {
     CategoryListItem
   },
   methods: {
-    makeCategory () {
+    fetchEconomyData () {
       var self = this
-      for (let i = 0; i < this.subcategories.length; i++) {
-        for (let j = 0; j < this.subcategories[i].length; j++) {
-          axios.get(`https://www.quandl.com/api/v3/datasets/UGID/${self.subcategories[i][j]}_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
-            .then(function (response) {
-              let data = response.data.dataset
-              self.quandlData = self.quandlData.concat(data)
-              console.log(self.subcategories[2].length)
-              console.log(self.quandlData)
-            })
-            .catch(function (error) {
-              console.log(error)
-            })
-        }
-      }
-      // axios.get(`https://www.quandl.com/api/v3/datasets/UGID/${self.subcategories[0][0]}_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
-      //   .then(function (response) {
-      //     let data = response.data.dataset
-      //     self.quandlData = self.quandlData.concat(data)
-      //     console.log(self.quandlData)
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error)
-      //   })
+      axios.get(`https://www.quandl.com/api/v3/datasets/UGID/BEER_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
+        .then(function (response) {
+          let data = response.data.dataset
+          self.fetchedData.economyData = self.fetchedData.economyData.concat(data.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
+    fetchFinancialData () {
+      var self = this
+      axios.get(`https://www.quandl.com/api/v3/datasets/UGID/INFL_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
+        .then(function (response) {
+          let data = response.data.dataset
+          self.fetchedData.financialData = self.fetchedData.financialData.concat(data.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
+    fetchSocialData () {
+      var self = this
+      axios.get(`https://www.quandl.com/api/v3/datasets/UGID/EMPM_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
+        .then(function (response) {
+          let data = response.data.dataset
+          self.fetchedData.socialData = self.fetchedData.socialData.concat(data.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   },
   created () {
-    this.makeCategory()
-    for (let i = 0; i < storage.subcategories.length; i++) {
-      return i
-    }
+    this.fetchEconomyData()
+    this.fetchFinancialData()
+    this.fetchSocialData()
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="home">
     <div class="main-category-list">
-      <category-list v-for="(list, index) in listTypes" :shortList='true' :category="'category'" :index="index"></category-list>
+      <category-list v-for="(list, index) in categories" :shortList='true' :category="'category'" :index="index" :list="list"></category-list>
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@ import storage from '../storage.js'
 export default {
   data () {
     return {
-      listTypes: storage.listTypes
+      categories: storage.subcategories
     }
   },
   components: {

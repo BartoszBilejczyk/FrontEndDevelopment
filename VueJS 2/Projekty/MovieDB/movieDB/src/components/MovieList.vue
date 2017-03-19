@@ -131,7 +131,7 @@
     created () {
       this.fetchCategory()
       console.log(this.title)
-     }
+    }
 }
 </script>
 
