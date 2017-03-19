@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="home">
     <div class="main-category-list">
-      <category-list v-for="(list, index) in listTypes" :shortList='true' :category="'category'">{{ list }}</category-list>
+      <category-list v-for="(list, index) in listTypes" :shortList='true' :category="'category'" :index="index"></category-list>
     </div>
   </div>
 </template>

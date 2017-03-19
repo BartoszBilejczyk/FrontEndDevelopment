@@ -12,11 +12,11 @@ import storage from '../storage.js'
 import axios from 'axios'
 
 export default {
-  props: ['shortList', 'category'],
+  props: ['shortList', 'category', 'index'],
   data () {
     return {
       subcategories: [1, 2, 3],
-      listTypes: storage.listTypes,
+      listTypes: storage.listTypes[this.index],
       quandlData: {}
     }
   },
@@ -30,7 +30,7 @@ export default {
         axios.get(`https://www.quandl.com/api/v3/datasets/UGID/TRADE_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
           .then(function (response) {
             console.log(response.data.dataset)
-            console.log(storage)
+            console.log(self.listTypes)
             let data = response.data.dataset
             self.quandlData = data
           })
