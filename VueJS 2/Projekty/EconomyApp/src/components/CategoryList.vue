@@ -2,7 +2,12 @@
   <div class="category">
     <!-- category list item is e.g. inflation, unemployment, mortality rate etc., there will be also CategoryListItemDetails with chart etc.
     when going to category list, iterate through every axios request and concat the data to quandl  -->
-    <category-list-item v-for="(subcategory, index) in storage.subcategories[index]" :index='index' :subcategory='subcategory'></category-list-item>
+    <div v-if="list != undefined">
+      <category-list-item v-for="(subcategory, index) in list" :index='index' :subcategory='subcategory'></category-list-item>
+    </div>
+    <div v-if="list == undefined">
+      <category-list-item v-for="(subcategory, index) in categories[0]" :index='index' :subcategory='subcategory'></category-list-item>
+    </div>
 
     <router-link class="view-all" :to="{name: 'main-category', params: {category: category}}">
         <span>Zobacz wszystkie</span>
@@ -20,6 +25,7 @@ export default {
   props: ['category', 'list', 'index'],
   data () {
     return {
+      categories: storage.subcategories,
       storage,
       fetchedData: {
         economyData: [1, 1],

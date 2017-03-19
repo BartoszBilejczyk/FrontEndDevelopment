@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="subcategory">
     {{ subcategory }}
+
+    {{index}}
   </div>
 </template>
 
