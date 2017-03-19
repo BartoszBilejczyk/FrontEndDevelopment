@@ -1,5 +1,7 @@
 <template lang="html">
   <div>
+    <!-- category list item is e.g. inflation, unemployment, mortality rate etc., there will be also CategoryListItemDetails with chart etc.
+    when going to category list, iterate through every axios request and concat the data to quandl  -->
     <category-list-item :subcategory='subcategory' v-for="subcategory in subcategories"></category-list-item>
   </div>
 </template>
@@ -13,7 +15,8 @@ export default {
   props: ['shortList', 'category'],
   data () {
     return {
-      subcategories: storage.listTypes[0].subcategories,
+      subcategories: [1, 2, 3],
+      listTypes: storage.listTypes,
       quandlData: {}
     }
   },
@@ -24,10 +27,10 @@ export default {
     makeCategory () {
       if (this.shortList) {
         var self = this
-        axios.get(`https://www.quandl.com/api/v3/datasets/UGID/${self.category}_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
+        axios.get(`https://www.quandl.com/api/v3/datasets/UGID/TRADE_POL.json?api_key=zCzq9ac25fyL89JXt7Rs`)
           .then(function (response) {
             console.log(response.data.dataset)
-            console.log(storage.listTypes[0].subcategories)
+            console.log(storage)
             let data = response.data.dataset
             self.quandlData = data
           })

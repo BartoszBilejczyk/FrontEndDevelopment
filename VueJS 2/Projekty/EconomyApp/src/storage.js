@@ -5,9 +5,6 @@ let stored = {
       title: 'Economy',
       shortTitle: 'Economy',
       mainCategory: 'economy',
-      subcategories: [
-        'LIF', 'LIFEXP', 'TRADE'
-      ],
       query: '',
       type: '',
       icon: 'fa-connectdevelop'
@@ -16,9 +13,6 @@ let stored = {
       title: 'Capital Markets',
       shortTitle: 'Capital Markets',
       mainCategory: 'capital-markets',
-      subcategories: [
-        'LIF', 'LIFEXP'
-      ],
       query: '',
       type: '',
       icon: 'fa-money'
@@ -27,13 +21,21 @@ let stored = {
       title: 'Society',
       shortTitle: 'Society',
       mainCategory: 'society',
-      subcategories: [
-        'LIF', 'TRADE'
-      ],
       query: '',
       type: '',
       icon: 'fa-user-o'
     }
+  ],
+  subcategories: [
+    [
+      'INFL', 'LIFEXP', 'TRADE'
+    ],
+    [
+      'INFL', 'LIFEXP'
+    ],
+    [
+      'INFL'
+    ]
   ]
 }
 
