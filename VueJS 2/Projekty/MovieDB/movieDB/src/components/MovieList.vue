@@ -28,7 +28,7 @@
         </div>
       </div>
 
-    <div class="movie-category-wrapper">
+    <div class="movie-category-wrapper" v-if="isListLoaded">
       <header class="movies-header">
         <span>{{ title }}</span>
         <!-- <span>{{ data.total_results }}</span> -->
@@ -130,6 +130,7 @@
     },
     created () {
       this.fetchCategory()
+      console.log(this.title)
     }
 }
 </script>
@@ -258,9 +259,7 @@
       @include flexy(flex-start, flex-start, wrap);
       .movie {
         width: 50%;
-        @include tablet-portrait-and-up {
-          width: 33.333333%;
-        }
+
         @include tablet-landscape-and-up {
           width: 25%;
         }
