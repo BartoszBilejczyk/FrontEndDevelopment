@@ -7,7 +7,7 @@ let stored = {
       query: 'popular',
       type: 'collection',
       isCategory: true,
-      icon: 'done'
+      icon: 'favorite'
     },
     {
       title: 'Najwyżej ocenione',
@@ -15,7 +15,7 @@ let stored = {
       query: 'top_rated',
       type: 'collection',
       isCategory: true,
-      icon: 'cached'
+      icon: 'file_upload'
     },
     {
       title: 'Nadchodzące',
@@ -23,7 +23,7 @@ let stored = {
       query: 'upcoming',
       type: 'collection',
       isCategory: true,
-      icon: 'cached'
+      icon: 'add'
     },
     {
       title: 'Obecnie grane w kinach',
@@ -31,7 +31,7 @@ let stored = {
       query: 'now_playing',
       type: 'collection',
       isCategory: true,
-      icon: 'cached'
+      icon: 'live_tv'
     },
     {
       title: 'Search Results',
