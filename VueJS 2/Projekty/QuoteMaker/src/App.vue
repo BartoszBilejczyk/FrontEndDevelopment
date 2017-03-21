@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       quotes: [
-        'just a  quotequot'
+        `Click to delete me. Use menu on the left to add new quotes`
       ],
       maxQuotes: 5
     }
