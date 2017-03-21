@@ -13,7 +13,7 @@
 4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
 4 verbose stack     at tryToString (fs.js:426:3)
 4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:413:12)
-5 verbose cwd /Users/Bartek/Dropbox/FrontEndDevelopment/VueJS 2/PosterShop
+5 verbose cwd /Users/Bartek/Dropbox/FrontEndDevelopment/VueJS 2/Projekty/PosterShop
 6 error Darwin 15.0.0
 7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev"
 8 error node v7.5.0

@@ -12,7 +12,11 @@ export default new Router({
       name: 'Home',
       components: {
         'list-view': Home
-      }
+      },
+      props: { Home: true }
+      // children: [
+      //
+      // ]
     },
     {
       path: '/:category',
