@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <navigation></navigation>
+    <!-- Something wrong with search -->
     <div class="header">
       <div class="logo"><img src="./assets/logo.png" alt=""></div>
-        <div class="search-wrapper">
+        <!-- <div class="search-wrapper">
           <i class="material-icons material-icons-search">search</i>
-          <input type="text" name="" value="" placeholder="Type a movie title" v-model.trim="searchQuery" @blur="search"><button type="button" name="button" @click="search">click</button>
-        </div>
+          <input type="text" name="" value="" placeholder="Type a movie title" v-model.trim="searchQuery" @blur="search"><button class="btn" type="button" name="button" @click="search">Szukaj</button>
+        </div> -->
     </div>
 
     <movie-popup v-if="moviePopupVisible" @close="closeMoviePopup" :id="moviePopupId"></movie-popup>
@@ -133,6 +134,13 @@ div.header {
       color: #333;
       font-size: 1rem;
       outline: none;
+    }
+    button.btn {
+      background: transparent;
+      border: 1px solid black;
+      padding: 10px;
+      font-family: inherit;
+      border-radius: 5px
     }
   }
 }

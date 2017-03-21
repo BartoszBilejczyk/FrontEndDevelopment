@@ -2,14 +2,14 @@
   <transition name='fade'>
     <div class="movie">
       <!-- it is iterated in MovieList.vue so the only thing I need to do is a callback to axios data -->
-      <a :href="/movie/" @click.prevent="openMoviePopup(movie.id, true)">
+      <!-- <a :href="/movie/" @click.prevent="openMoviePopup(movie.id, true)"> -->
         <div class="movie-poster">
           <img v-if="!poster" src="../assets/poster-placeholder.jpg" alt="poster placeholder">
           <img v-if="poster" :src="fetchPoster()" alt="">
         </div>
         <p class="movie-title">{{ movie.title }}</p>
         <!-- <p class="movie-desc">{{ movie.overview.substring(0,20) }}...</p> -->
-      </a>
+      <!-- </a> -->
     </div>
   </transition>
 </template>

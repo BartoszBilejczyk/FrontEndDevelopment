@@ -28,7 +28,7 @@
         </div>
       </div>
 
-    <div class="movie-category-wrapper" v-if="isListLoaded">
+    <div class="movie-category-wrapper">
       <header class="movies-header">
         <span>{{ title }}</span>
         <!-- <span>{{ data.total_results }}</span> -->
@@ -39,7 +39,7 @@
       <div class="movie-list">
         <movie-list-item v-for="movie in movies" :movie="movie"></movie-list-item>
       </div>
-        <button type="button" name="button" @click="loadMore" v-if="isListLoaded">LOAD MORE</button>
+        <button class="btn" type="button" name="button" @click="loadMore" v-if="isListLoaded">LOAD MORE</button>
     </div>
   </div>
 
@@ -130,7 +130,6 @@
     },
     created () {
       this.fetchCategory()
-      console.log(this.title)
     }
 }
 </script>
@@ -236,7 +235,6 @@
 .movie-category-wrapper {
     width: 100%;
     padding: 30px;
-    display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgba(220,220,220, 0.5);
     // @include tablet-landscape-and-down {
@@ -271,6 +269,16 @@
         }
       }
     }
+}
+
+button.btn {
+  background: transparent;
+  border: 1px solid black;
+  padding: 10px;
+  font-family: inherit;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
 }
 
 </style>
