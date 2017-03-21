@@ -22,7 +22,6 @@
             <form class="searchbar" @submit.prevent="searchPosters()">
                 <input v-model="newSearch" type="text">
                 <input type="submit" class="btn" value="search">
-                <span v-if="errorMessage" style="color: red">Search input cannot be empty</span>
 
             </form>
 

@@ -19,7 +19,7 @@ new Vue({
         products: [],
         results: [],
         cart: [],
-        newSearch: '90s',
+        newSearch: '',
         lastSearch: '',
         loading: false,
         price: 9.99,
