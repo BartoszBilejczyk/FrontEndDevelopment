@@ -7,46 +7,66 @@
       <div class="bottom-lines"></div>
       <div class="container">
         <div class="box-wrapper">
-          <div class="box">
             <div class="left-box">
             </div>
             <div class="right-box">
               <div class="content">
-                <h1 class="title"></h1>
-                <p class="subtitle"></p>
+                <h1 class="title">Your account</h1>
+                <p class="subtitle">Take it all with you. Switch between devices,
+and pick up.</p>
                 <form action="">
-                  <label for=""></label>
-                  <input type="text">
-                  <label for=""></label>
-                  <select name="" id="">
-                    <option value=""></option>
-                  </select>
-                  <label for=""></label>
-                  <input type="text">
-                  <label for=""></label>
-
                   <div class="input-group">
-                    <label for=""></label>
-                    <input type="text">
-                    <input type="text">
+                    <label for="">Your name</label>
+                    <input type="text" class="name">
+                  </div>
+                  <div class="input-group">
+                    <label for="">Mobile</label>
+                    <select name="" id="" class="mobile">
+                      <option value=""></option>
+                    </select>
+                    <input type="text" class="mobile">
+                  </div>
+                  <div class="input-group">
+                    <label for="">Gender</label>
+                    <input type="radio">
+                    <input type="radio">
                   </div>
 
                   <div class="input-group">
-                    <label for=""></label>
-                    <input type="text">
+                    <label for="">Date of birth</label>
+                    <input type="text" class="day">
                     <div class="form-hr"></div>
-                    <input type="text">
+                    <input type="text" class="month">
                     <div class="form-hr"></div>
-                    <input type="text">
+                    <input type="text" class="year">
                   </div>
                   <div class="submit" type="submit">
-                    <span>CONTINUE</span>
-                    <div class="arrow"></div>
+                    <div class="continue"><span>CONTINUE</span></div>
+                    <div class="arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
                   </div>
                 </form>
               </div>
+              <div class="steps">
+                <div class="step">
+                  <div class="line"></div>
+                  <span>01</span>
+                  <br>
+                  <span></span>
+                </div>
+                <div class="step active">
+                  <div class="line active"></div>
+                  <span>02</span>
+                  <br>
+                  <span>Personal</span>
+                </div>
+                <div class="step">
+                  <div class="line"></div>
+                  <span>03</span>
+                  <br>
+                  <span></span>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -66,6 +86,7 @@ export default {
 
 * {
   box-sizing: border-box;
+  font-weight: lighter;
 }
 
 html, body {
@@ -74,7 +95,7 @@ html, body {
 }
 #app {
   font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
-  font-weight: lighter;
+
 }
 
 div.main {
@@ -83,6 +104,7 @@ div.main {
   width: 100vw;
   min-height: 100vh;
   color: #fff;
+  z-index: 1;
 }
 
 div.gradient-drop {
@@ -105,14 +127,184 @@ div.top-lines {
   z-index: 2;
 }
 
-div.bottom-lines {
-  position: absolute;
-  bottom: 0;
-  left: 200px;
-  height: 800px;
-  width: 100%;
-  background: url('assets/bottom-lines.png');
+div.container {
+  margin-left: $container-margin;
+  margin-right: $container-margin;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
+div.box-wrapper {
+  width: 100% - 2 * $column-width - 2 * $gutter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+
+}
+
+div.left-box {
+  width: 3 * $column-width + 3 * $gutter;
+  background: url('assets/left_box.png');
+  height: 500px;
+}
+
+div.right-box {
+  position: relative;
+  width: 5 * $column-width + 4 * $gutter;
+  background: #f9f9fb; /* Old browsers */
+  background: -moz-linear-gradient(top, #f9f9fb 0%, #f9f9fb 0%, #efeff2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f9f9fb 0%,#f9f9fb 0%,#efeff2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f9f9fb 0%,#f9f9fb 0%,#efeff2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9fb', endColorstr='#efeff2',GradientType=0 ); /* IE6-9 */
+  height: 500px;
+  .content {
+
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  position: relative;
+}
+
+h1.title {
+  position: absolute;
+  top: -100px;
+  left: $column-width;
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+p.subtitle {
+  color: $text;
+  padding: $column-width
+}
+
+form {
+  color: $text;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: 100%;
+  padding: 0 $column-width 50px $column-width;
+}
+
+.input-group {
+  width: 100%;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid #aaa;
+  background-color: transparent;
+  color: $text-light;
+  &.name {
+    width: 100%;
+  }
+  &.mobile {
+    width: 70%;
+  }
+  &.day {
+    width: 20%;
+  }
+  &.month {
+    width: 25%;
+  }
+  &.year {
+    width: 25%;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  display: block;
+}
+
+select {
+  width: 25%;
+  display: inline;
+}
+
+.form-hr {
+  display: inline-block;
+  width: 3%;
+  height: 2px;
+  background-color: black;
+}
+
+div.submit {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  bottom: -25px;
+  background: #f9f9fb; /* Old browsers */
+  background: -moz-linear-gradient(left, #f9f9fb 0%, #8658eb 0%, #6a31e6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f9f9fb 0%,#8658eb 0%,#6a31e6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f9f9fb 0%,#8658eb 0%,#6a31e6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9fb', endColorstr='#6a31e6',GradientType=1 ); /* IE6-9 */
+  right: -50px;
+  color: #fff
+}
+
+div.continue {
+  position: absolute;
+  background-color: transparent;
+  width: 250px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+div.arrow {
+  position: absolute;
+  background-color: $purple;
+  height: 50px;
+  width: 50px;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.steps {
+  position: absolute;
+  left: 100%;
+  top: 5%;
+  font-size: 0.8rem;
+  color: #555556;
+  .step {
+    padding: 30% 0;
+    &.active {
+      color: #1af5b9
+    }
+  }
+  .line {
+    width: 20px;
+    height: 2px;
+    background-color: #555556;
+    margin: 15px 0;
+    &.active {
+      background-color: #1af5b9
+    }
+  }
+  span {
+    padding: 10px 5px;
+  }
+}
 
 </style>
