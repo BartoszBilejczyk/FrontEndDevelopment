@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="main">
+      <!-- <svgicon icon="gradient-bg"></svgicon> -->
       <div class="gradient-drop"></div>
       <div class="top-lines"></div>
       <div class="bottom-lines"></div>
@@ -8,29 +9,6 @@
         <div class="box-wrapper">
           <div class="box">
             <div class="left-box">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="674" height="663" viewBox="0 0 674 663">
-                <defs>
-                  <style>
-                    .cls-1 {
-                      fill-rule: evenodd;
-                      fill: url(#linear-gradient);
-                      filter: url(#filter);
-                    }
-                  </style>
-                  <linearGradient id="linear-gradient" x1="30" y1="472.172" x2="690.844" y2="472.172" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="#8658eb"/>
-                    <stop offset="1" stop-color="#652ae6"/>
-                  </linearGradient>
-                  <filter id="filter" x="6" y="160" width="710" height="666" filterUnits="userSpaceOnUse">
-                    <feOffset result="offset" dy="20" in="SourceAlpha"/>
-                    <feGaussianBlur result="blur" stdDeviation="5"/>
-                    <feFlood result="flood" flood-color="#201f36" flood-opacity="0.05"/>
-                    <feComposite result="composite" operator="in" in2="blur"/>
-                    <feBlend result="blend" in="SourceGraphic"/>
-                  </filter>
-                </defs>
-                <path id="gredient" class="cls-1" d="M42,164H308s43.592,75.385,160,92c87.842,12.537,133.476,13.05,208,62,94.562,94.563-291.435,453.61-337,461C149.816,809.683,275.77,297.034,30,406" transform="translate(-42 -163)"/>
-              </svg>
             </div>
             <div class="right-box">
               <div class="content">
@@ -76,7 +54,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'app'
 }
@@ -87,13 +64,54 @@ export default {
 @import './style/globals.scss';
 @import './style/responsive.scss';
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+}
+
+div.main {
+  position: relative;
+  background-color: $base-bg;
+  width: 100vw;
+  min-height: 100vh;
+  color: #fff;
+}
+
+div.gradient-drop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 630px;
+  width: 654px;
+  background: url('assets/gradient.png');
+  z-index: 3;
+}
+
+div.top-lines {
+  position: absolute;
+  top: 0;
+  left: $container-margin + $column-width * 2 + $gutter * 2;
+  height: 155px;
+  width: 604px;
+  background: url('assets/top-lines.png');
+  z-index: 2;
+}
+
+div.bottom-lines {
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+  height: 800px;
+  width: 100%;
+  background: url('assets/bottom-lines.png');
 }
 
 
