@@ -139,7 +139,6 @@ export default {
 
 * {
     box-sizing: border-box;
-    font-weight: lighter;
 }
 
 body,
@@ -189,7 +188,7 @@ div.main-container, div.main-row {
 div.left-box {
     // width: 500px;
     background: url('assets/left_box.png');
-    height: 500px;
+    height: 550px;
 }
 
 div.right-box {
@@ -204,7 +203,7 @@ div.right-box {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#f9f9fb', endColorstr='#efeff2',GradientType=0 );
     /* IE6-9 */
-    height: 500px;
+    height: 550px;
     .container {
       height: 100%;
     }
@@ -222,8 +221,7 @@ div.content {
 
 h1.title {
     position: absolute;
-    top: -100px;
-    left: 10%;
+    top: -70px;
     font-size: 3rem;
     font-weight: lighter;
 }
@@ -331,7 +329,7 @@ div.arrow {
 div.steps {
     position: absolute;
     left: 100%;
-    top: 5%;
+    top: 10%;
     font-size: 0.8rem;
     color: #555556;
     .step {
