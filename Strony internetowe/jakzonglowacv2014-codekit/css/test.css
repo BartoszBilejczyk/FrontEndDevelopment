@@ -1,0 +1,137 @@
+.nested {
+  margin-top: 20px;
+}
+.nested .something {
+  display: block;
+}
+
+.btn-a {
+  color: black;
+  border-radius: 4px;
+}
+
+.btn-b {
+  color: white;
+}
+
+.book-50grey {
+  color: green;
+  background: url("book-50grey.png");
+}
+
+.book-nick-in-woods {
+  color: green;
+  background: url("book-nick-in-woods.png");
+}
+
+.book-grubeusz {
+  color: green;
+  background: url("book-grubeusz.png");
+}
+
+.bookstore {
+  margin-top: 50px;
+  display: block;
+}
+.bookstore.bookstore-1 {
+  width: 10px;
+}
+.bookstore.bookstore-1:hover {
+  color: grey;
+}
+.bookstore.bookstore-2 {
+  width: 20px;
+}
+.bookstore.bookstore-2:hover {
+  color: grey;
+}
+.bookstore.bookstore-3 {
+  width: 30px;
+}
+.bookstore.bookstore-3:hover {
+  color: grey;
+}
+.bookstore.bookstore-4 {
+  width: 40px;
+}
+.bookstore.bookstore-4:hover {
+  color: grey;
+}
+.bookstore.bookstore-5 {
+  width: 50px;
+}
+.bookstore.bookstore-5:hover {
+  color: grey;
+}
+.bookstore.bookstore-6 {
+  width: 60px;
+}
+.bookstore.bookstore-6:hover {
+  color: grey;
+}
+.bookstore.bookstore-7 {
+  width: 70px;
+}
+.bookstore.bookstore-7:hover {
+  color: grey;
+}
+.bookstore.bookstore-8 {
+  width: 80px;
+}
+.bookstore.bookstore-8:hover {
+  color: grey;
+}
+.bookstore.bookstore-9 {
+  width: 90px;
+}
+.bookstore.bookstore-9:hover {
+  color: grey;
+}
+.bookstore.bookstore-10 {
+  width: 100px;
+}
+.bookstore.bookstore-10:hover {
+  color: grey;
+}
+
+.book-title-1 {
+  color: grey;
+}
+
+.book-title-2 {
+  color: grey;
+}
+
+.book-title-3 {
+  color: grey;
+}
+
+.book-title-4 {
+  color: grey;
+}
+
+.book-title-5 {
+  color: grey;
+}
+
+.buttons {
+  color: white;
+  border-radius: 20px;
+  background-color: black;
+}
+
+.package-a, .package-b {
+  background-color: white;
+  margin: 10px;
+}
+
+.package-a {
+  color: white;
+}
+
+.circles {
+  color: white;
+  border-radius: 500px;
+}
+
+/*# sourceMappingURL=test.css.map */

@@ -1,0 +1,1208 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html, body {
+ 
+    margin: 0;
+    padding: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+button {
+  text-align: center;
+}
+html {
+    font-family: 'Open Sans' !important;
+
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('OpenSans-Regular-webfont.eot');
+    src: url('OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Regular-webfont.woff2') format('woff2'),
+         url('OpenSans-Regular-webfont.woff') format('woff'),
+         url('OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.navbar-brand {
+    float: left;
+    font-size: 18px;
+    height: 50px;
+    line-height: 20px;
+    padding: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+
+
+    /* SOCIAL IMAGES*/
+
+    .social-icon-hover:hover {
+      box-shadow:         0px 6px 12px -12px white;
+
+    }
+
+
+
+    /*My styles*/
+
+
+
+    /*KONTAKT MODAL */
+
+    label {
+    display:block;
+    margin-top:20px;
+    letter-spacing:2px;
+}
+
+/* Centre the form within the page */
+form {
+    margin:0 auto;
+    width:459px;
+}
+
+/* Style the text boxes */
+
+
+input, textarea {
+  width:439px;
+  height:35px;
+  background:#efefef;
+  border: 2px solid;
+  padding:10px;
+  margin-top:3px;
+  font-size:0.9em;
+  color:#3a3a3a;
+   -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+input:focus, textarea:focus {
+    border:1px solid #97d6eb;
+}
+
+textarea {
+  height:213px;
+}
+
+#submit {
+    margin-left: 67%;
+    width:127px;
+    height:38px;
+    border: 2px solid;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+  #submit:hover {
+      opacity:.9;
+  }
+
+
+/*..........................*/
+
+
+
+    body {
+        font-family: 'Open Sans',Helvetica,Arial;
+    }
+
+.adsbygoogle {
+  border: transparent;
+  border: none;
+  background: none;
+  margin-top: 35px;
+
+}
+.navbar-collapse {
+  max-height: 600px !important;
+}
+
+.navbar-color {
+    box-shadow: 0 6px 6px 0 rgba(255, 255, 255, 0.15) inset, 0 6px 6px rgba(128, 128, 128, 0.4);
+}
+
+.navbar-color:hover {
+      box-shadow: 0 6px 6px 0 rgba(255, 255, 255, 0.15) inset, 0 6px 10px rgba(128, 128, 128, 0.4);
+
+}
+
+
+  .navbar-default {
+    border-bottom: 2px solid #dedede;
+}
+
+  .navbar-header {
+    margin-top: 6px;
+  }
+
+
+  #bs-example-navbar-collapse-1{
+        background-color: #f7f7f7;
+  }
+
+  #bs-example-navbar-collapse-2 {
+
+        border-bottom: 0px solid #dedede;
+        max-height: 450px !important;
+
+  }
+
+    #bs-example-navbar-collapse-2 .nav > li {
+        border-bottom: 0px solid #dedede;
+        height: 75px !important;
+}
+
+
+    .navbar-nav > li > a.onlymenu {
+    padding: 1px 25px 15px 25px;
+    height: 75px;
+}
+
+
+/*NAVBAR DEFAULT*/
+
+    .navbar-default .navbar-nav > li > a.onlymenu {
+    color: #1d1d1d;
+
+} 
+
+  .navbar-default .navbar-nav > li:active {
+    color: black;
+
+}
+
+   .navbar-default .navbar-right > li > a {
+    margin-top: 15px;
+
+  }
+   .navbar-default .navbar-right > li:hover {
+    background-color: #353f52;
+
+  }
+    .navbar-default .navbar-nav > li > a {
+    color: #1d1d1d;
+
+  }
+
+
+   .navbar-default .navbar-nav > li:hover > a.onlymenu {
+    background-color: #e4e4e4;
+    height: 60px;
+
+  }
+
+
+
+   .navbar-default .navbar-nav > li:active > a.onlymenu,
+   .navbar-default .navbar-nav > li:focus > a.onlymenu {
+
+    background-color: #d8d8d8;
+    
+  }
+
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #000000;
+}
+
+
+
+#insidepagenav {
+    background-color: #f7f7f7;
+}
+.navbar-nav .open .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #d8d8d8;
+    box-shadow: none;
+    float: none;
+    margin-top: 0;
+    position: absolute;
+    width: 100%;
+}
+  /*NAVBAR COLOR*/
+
+  .nav {
+    height: 75px;
+
+  }
+
+
+   .navbar-color .navbar-collapse, .navbar-color .navbar-form {
+    background-color: #353f52;
+    border-color: #353f52;
+    color: white;
+
+}
+
+   .navbar-color {
+    background-color: #353f52;
+    border-color: #353f52;
+    color: white;
+    height: 75px !important;
+}
+
+  .navbar-color .navbar-nav > li > a.onlymenu {
+    color: #f7f7f7;
+  }
+
+    .navbar-color .navbar-nav > li > a.onlymenu:hover {
+    color: #353f52;
+
+  }
+
+
+   .navbar-color .navbar-nav > li:hover > a.onlymenu {
+    background-color: #f7f7f7;
+     color: #353f52;
+  }
+  
+  .navbar-color .navbar-nav > li > a.shownone {
+    color: #f7f7f7;
+  }
+
+    .navbar-color .navbar-nav > li > a.shownone:hover {
+    color: #353f52;
+    height: 70px;
+  }
+
+   #bs-example-navbar-collapse > ul > li {
+    height: 70px;
+    color: green;
+      
+   }
+
+
+   .navbar-color .navbar-nav > li:hover > a.shownone {
+    color: #353f52;
+  }
+
+   .navbar-color .navbar-nav > li:hover > a.shownone {
+    background-color: #353f52;
+  }
+
+  .nav > li {
+    height: 54px;
+}
+
+
+
+.nav > li:hover {
+    background-color: #f7f7f7;
+
+}
+
+
+  
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Open Sans',Helvetica,Arial;
+        font-weight: bold;
+    }
+
+    b {
+              font-family: 'Open Sans',Helvetica,Arial;
+
+    }
+
+    #howtostart #statistics #partners {
+        text-align: center;
+    }
+
+    #relative {
+        position: absolute;
+        top: 500px; 
+    }
+
+    .margintop {
+        margin-top: 100px;
+    }
+    .marginbottom{
+        margin-bottom: 100px;
+    }
+
+    .img-responsive {
+      display: inline-block;
+    }
+
+    #footer {
+      color: white;
+    }
+
+    .shadow-bottom {
+      -webkit-box-shadow: 0px 3px 7px -1px rgba(20, 20, 20, 0.6);
+      -moz-box-shadow:    0px 3px 7px -1px rgba(20, 20, 20, 0.6);
+      box-shadow:         0px 3px 7px -1px rgba(20, 20, 20, 0.6);
+        -webkit-transition: all 0.25s ease 0s;
+  -moz-transition: all 0.25s ease 0s;
+  -o-transition: all 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
+    }
+    #learnimg:hover,
+    #learnimg:active,
+    #learnimg:focus {
+      -webkit-box-shadow: 0px 15px 19px -8px rgba(20, 20, 20, 0.6);
+      -moz-box-shadow:    0px 15px 19px -8px rgba(20, 20, 20, 0.6);
+      box-shadow:         0px 15px 19px -8px  rgba(20, 20, 20, 0.6);
+        -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+    }
+
+     .shadow-bottom2 {
+      -webkit-box-shadow: 0px 14px 12px -12px rgba(20, 20, 20, 0.6);
+      -moz-box-shadow:    0px 14px 12px -12px rgba(20, 20, 20, 0.6);
+      box-shadow:         0px 14px 12px -12px rgba(20, 20, 20, 0.6);
+        -webkit-transition: all 0.25s ease 0s;
+  -moz-transition: all 0.25s ease 0s;
+  -o-transition: all 0.25s ease 0s;
+  transition: all 0.25s ease 0s;
+    }
+
+.iframe {
+  height: 380px;
+ }
+
+
+.iframe {
+    border: 6px solid #353f52;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(20, 20, 20, 0.6);
+    -moz-box-shadow:    0px 2px 5px 0px rgba(20, 20, 20, 0.6);
+    box-shadow:         0px 2px 5px 0px rgba(20, 20, 20, 0.6);
+    
+}
+
+a#bcf_logo {
+    display: none !important;
+  }
+
+
+    /*Navbar styles*/
+
+    .navbar-default {
+        height: 70px;
+        z-index: 100;
+    }
+
+    /*BUTTONS*/
+
+    .btn-start {
+        background-color: #39538d;
+        color: white;
+    }
+    .btn-large {
+      height: 100px;
+      width: 250px;
+
+    }
+
+    .btn-custom {
+  color: white;
+  background-color: #353f52;
+  border: 2px solid #353f52;
+      white-space: normal;
+      font-size: 37px;
+        border-radius: 25px;
+
+        
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active,
+.open .dropdown-toggle.btn-custom {
+  color: #353f52;
+  background-color: #f7f7f7;
+  border-color: #34435f;
+      white-space: normal;
+              border-radius: 25px;
+
+
+}
+.btn-custom:active,
+.btn-custom.active,
+.open .dropdown-toggle.btn-custom {
+  background-image: none;
+      white-space: normal;
+
+        border-radius: 25px;
+
+
+
+}
+
+
+
+    .btn-custom2 {
+  color: #353f52;
+  background-color: none;
+  border: 8px solid #353f52;
+      white-space: normal;
+      font-size: 25px;
+}
+.btn-custom2:hover,
+.btn-custom2:focus,
+.btn-custom2:active,
+.btn-custom2.active,
+.open .dropdown-toggle.btn-custom2 {
+  color: #353f52;
+  background-color: white;
+  border-color: #34435f;
+      white-space: normal;
+}
+.btn-custom2:active,
+.btn-custom2.active,
+.open .dropdown-toggle.btn-custom2 {
+  background-image: none;
+      white-space: normal;
+}
+
+    .btn-custom3 {
+  color: #f7f7f7;
+  background-color: none;
+  border: 1px solid #353f52;
+  border-radius: 15px;
+      white-space: normal;
+      font-size: 15px;
+      padding: 0;
+      background-color: #353f52;
+
+}
+.btn-custom3:hover,
+.btn-custom3:focus,
+.btn-custom3:active,
+.btn-custom3.active,
+.open .dropdown-toggle.btn-custom3 {
+  color: #353f52;
+  background-color: white;
+  border-color: #34435f;
+      white-space: normal;
+}
+.btn-custom3:active,
+.btn-custom3.active,
+.open .dropdown-toggle.btn-custom3 {
+  background-image: none;
+      white-space: normal;
+}
+
+
+
+
+button:hover > h2 > span.chevron-color,
+button:active > h2 > span.chevron-color,
+button:focus > h2 > span.chevron-color {
+  color: #353f52;
+}
+
+
+
+
+
+    .btn-customseethevideotutorial {
+  color: white;
+  background-color: #353f52;
+  border: 2px solid #353f52;
+      white-space: normal;
+      font-size: 15px;
+        border-radius: 10px;
+}
+.btn-customseethevideotutorial:hover,
+.btn-customseethevideotutorial:focus,
+.btn-customseethevideotutorial:active,
+.btn-customseethevideotutorial.active,
+.open .dropdown-toggle.btn-customseethevideotutorial {
+  color: #353f52;
+  background-color: #f7f7f7;
+  border-color: #34435f;
+      white-space: normal;
+              border-radius: 10px;
+
+}
+.btn-customseethevideotutorial:active,
+.btn-customseethevideotutorial.active,
+.open .dropdown-toggle.btn-customseethevideotutorial {
+  background-image: none;
+      white-space: normal;
+
+        border-radius: 10px;
+
+
+}
+
+
+div .downwhenxs {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    margin-top: 40px;
+    
+}
+
+.relative {
+  position: relative;
+}
+
+.img-bordered {
+  border: 1px solid transparent;
+  border-radius: 160px;
+}
+
+hr.fancy-line { 
+    border: 0; 
+    height: 1px;
+    overflow: hidden;
+
+}
+hr.fancy-line:before {
+    top: -0.5em;
+    height: 1em;
+    overflow: hidden;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 75%);
+}
+
+body, hr.fancy-line:after {
+    background: #f4f4f4;
+}
+
+hr {
+  width: 100%;
+}
+
+
+#headercontainer {
+  width: 100%;
+}
+
+     /*CAROUSEL STYLES*/
+  
+
+   #mycarousel {
+      margin-top: 48px;
+   }
+   .first-div-down {
+    margin-top: 69px;
+   }
+
+   .carousel-caption {
+      font-size: 24px;
+   }
+
+   .carousel-caption h4 {
+      font-size: 32px;
+   }
+
+   #mycarousel .item {
+      height: 400px;
+   }
+
+   #slide1 {
+      background: url("../images/carousel_large_01.jpg") top center no-repeat;
+   }
+
+   #slide2 {
+      background: url('../images/carousel_large_01.jpg') top center no-repeat;
+   }
+
+   #slide3 {
+      background: url('../images/carousel_large_01.jpg') top center no-repeat;
+   }
+
+
+   #slide4 {
+      background: url("../images/carousel_large_01.jpg") top center no-repeat;
+   }
+
+   #slide5 {
+      background: url('../images/carousel_large_01.jpg') top center no-repeat;
+   }
+
+  
+
+
+/*LISTA TRIKÓW*/
+
+.panel-heading {
+  background-color: #353f52;
+  text-align: center;
+  }
+  .panel-default > .panel-heading {
+background-color: #353f52;
+  text-align: center;    border-color: #DDDDDD;
+    color: #333333;
+}
+  .panel-title {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+
+/*TRIKI*/
+
+p > a {
+  
+  color: darkblue;
+}
+
+p > a:hover {
+  color: darkblue;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 2px;
+}
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+
+/* Large desktop */
+
+
+
+@media (min-width: 980px) and (max-width: 1199px) { 
+
+
+  .iframe {
+  height: 320px;
+}
+ .btn-custom {
+  font-size: 30px;
+ }
+
+ div .downwhenxs {
+    left: 0;
+    position: relative;
+    text-align: center;
+    margin-top: 45px;
+}
+.vr
+{
+  display:inline-block;
+  height:100%;
+  width:1px;
+  border:1px inset;
+  margin:5px;
+  height: 1600px;
+}
+
+.vr2
+{
+  display:inline-block;
+  height:100%;
+  width:1px;
+  border:1px inset;
+  margin:5px;
+  height: 1400px;
+}
+
+.vr3
+{
+  display:inline-block;
+  height:100%;
+  width:1px;
+  border:1px inset;
+  margin:5px;
+  height: 300px;
+}
+#headercontainer {
+  width: 950px;
+}
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+  .vr {
+  display: none !important;
+    visibility: hidden;
+}
+
+  .vr2 {
+  display: none !important;
+    visibility: hidden;
+}
+
+
+  .vr3 {
+  display: none !important;
+    visibility: hidden;
+}
+
+
+#headercontainer {
+  width: 100%;
+}
+
+.chevrondown {
+  margin-top: 100px;
+}
+.iframe {
+  height: 280px;
+  width: 80%;
+}
+}
+
+
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+
+  .iframe {
+  height: 340px;
+}
+ .btn-custom {
+  font-size: 28px;
+ }
+
+ .smallwhensmall {
+  height: 75%;
+  width: 75%;
+}
+
+hr.fancy-line { 
+  visibility: hidden !important;
+
+}
+
+div .downwhenxs {
+    left: 0;
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+.vr {
+  display: none !important;
+    visibility: hidden;
+}
+
+.vr2 {
+  display: none !important;
+    visibility: hidden;
+}
+
+  .vr3 {
+  display: none !important;
+    visibility: hidden;
+}
+#headercontainer {
+  width: 100%;
+}
+
+a#bcf_2c99262f954b7a5dd1e0cf98e92054363cc5d43b_trigger {
+    display: none !important;
+    visibility: hidden;
+}
+
+.navbar-right {
+  margin-top: 140px;
+  text-align: center;
+}
+
+  #bs-example-navbar-collapse-2 .nav > li {
+        border-bottom: 0px solid #dedede;
+        height: 70px !important;
+}
+.navbar-right > li > a {
+  margin-top: -50px;
+}
+
+
+    }
+
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+
+.btn-custom {
+  font-size: 22px;
+ }
+.iframe {
+  height: 260px;
+}
+
+button {
+  font-size: 35px;
+}
+
+div .downwhenxs {
+    left: 0;
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+.vr {
+  display: none !important;
+    visibility: hidden;
+}
+
+.vr2 {
+  display: none !important;
+    visibility: hidden;
+}
+  .vr3 {
+  display: none !important;
+    visibility: hidden;
+}
+
+#headercontainer {
+  width: 100%;
+}
+
+a#bcf-trigger {
+    display: none !important;
+    visibility: hidden;
+}
+
+
+
+}
+
+@media (min-width: 1200px) {
+
+  .iframe {
+  height: 370px;
+}
+.vr
+{
+  display:inline-block;
+  height:100%;
+  width:1px;
+  border: 2px solid;
+  margin:5px;
+  height: 1750px;
+}
+
+.vr2
+{
+  display:inline-block;
+  height:100%;
+  width:1px;
+  border: 2px solid;
+  margin:5px;
+  height: 1450px;
+
+}
+
+.vr3{
+
+  display:inline-block;
+  height:100%;
+  width:1px;
+  border: 2px solid;
+  margin:5px;
+  height: 350px;
+}
+
+#headercontainer {
+  width: 950px;
+}
+
+}

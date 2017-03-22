@@ -1,0 +1,93 @@
+.nested {
+	margin-top: 20px;
+	.something {
+		display: block;
+	}
+}
+
+@mixin button ($color, $rounded: true) {
+	color: $color;
+	@if $rounded == true {
+		border-radius: 4px;
+	}
+}
+
+.btn-a {
+	@include button(black, true)
+}
+
+.btn-b {
+	@include button(white, false)
+}
+
+
+$main-color: green;
+$books: 50grey nick-in-woods grubeusz;
+
+@each $book in $books {
+	.book-#{$book} {
+		color: $main-color;
+		background: url('book-#{$book}.png')
+
+	}
+} 
+
+.bookstore {
+	margin-top: 50px;
+	display: block;
+	@for $i from 1 through 10 {
+		&.bookstore-#{$i} {
+			width: $i * 10px;
+			&:hover {
+				color: grey;
+			}
+		}
+
+	}
+}
+
+$i: 1;
+
+@while $i < 6 {
+	.book-title-#{$i} {
+		color: grey;
+	}
+	$i: $i + 1;
+}
+
+@mixin buttons ($color, $border-radius, $bg: black) {
+	color: $color;
+	border-radius: $border-radius;
+	background-color: $bg;
+}
+
+.buttons {
+	@include buttons (white, 20px)
+}
+
+%package {
+	background-color: white;
+	margin: 10px;
+
+}
+
+.package-a {
+	@extend %package;
+	color: white;
+}
+
+.package-b {
+	@extend %package;
+}
+
+$circle: white, 500px;
+
+@mixin circles ($color, $border-radius) {
+	color: $color;
+	border-radius: $border-radius;
+
+}
+
+.circles {
+	@include circles ($circle...);
+}

@@ -1,0 +1,86 @@
+/* ==========================================================
+ *
+ *	Name: Free Social Media Icons
+ *	Author: Dorin Vancea
+ *	Published: modernuidesign.com
+ *	Date: 30 September 2012	
+ *
+ * ========================================================*/
+
+#page { max-width: 960px; margin:0 auto; padding:0 50px 50px 50px;}
+h1 { font-family: Arial, sans-serif; font-size: 26px; color: #3b3b3b; font-weight: bold; letter-spacing: -1.5px; margin-bottom: 5px; }
+strong { font-weight: bold;}
+.info { padding:50px 0}
+.footer { margin:50px 0;}
+p, p a, a { font-family: Arial, sans-serif; font-size: 12px; color:#5e5e5e; text-decoration: none; }
+p a { color: #17acf2;}
+p a:hover { text-decoration: underline; color:#17acf2; }
+
+a.download { width: 100%; font-size:20px; margin:50px 0 10px 0; padding:20px 0; display: inline-block; border-top:1px solid #ccc; border-bottom:1px solid #ccc; text-align: center;}
+a.download:hover { background:#e41677; color: #fff; border-top-color:#e41677; border-bottom-color:#e41677; }
+
+
+
+/* Social Media Icons =====================================*/
+
+ul#sm { width: 100%; overflow: hidden; }
+ul#sm li { float: left; margin:0 5px 5px 0}
+ul#sm li:nth-last-child(1) { margin-right:0 }
+ul#sm li a { width:33px; height: 33px; display: block; background-image:url("../images/socialmedia.svg"); text-indent:-99999px }
+
+a.facebook { background-position: 0 0 }
+a.facebook:hover { background-position: 0 -33px;}
+
+a.twitter { background-position: -40px 0 }
+a.twitter:hover { background-position: -40px -33px;}
+
+a.gplus { background-position: -80px 0 }
+a.gplus:hover { background-position: -80px -33px;}
+
+a.pinterest { background-position: -120px 0 }
+a.pinterest:hover { background-position: -120px -33px;}
+
+a.dribbble { background-position: -160px 0 }
+a.dribbble:hover { background-position: -160px -33px;}
+
+a.skype { background-position: -200px 0 }
+a.skype:hover { background-position: -200px -33px;}
+
+a.linkedin { background-position: -240px 0 }
+a.linkedin:hover { background-position: -240px -33px;}
+
+a.vimeo { background-position: -280px 0 }
+a.vimeo:hover { background-position: -280px -33px;}
+
+a.yahoo { background-position: -320px 0 }
+a.yahoo:hover { background-position: -320px -33px;}
+
+a.apple { background-position: -360px 0 }
+a.apple:hover { background-position: -360px -33px;}
+
+a.windows { background-position: -400px 0 }
+a.windows:hover { background-position: -400px -33px;}
+
+a.youtube { background-position: -440px 0 }
+a.youtube:hover { background-position: -440px -33px;}
+
+a.delicious { background-position: -480px 0 }
+a.delicious:hover { background-position: -480px -33px;}
+
+a.supon { background-position: -520px 0 }
+a.supon:hover { background-position: -520px -33px;}
+
+a.blogger { background-position: -560px 0 }
+a.blogger:hover { background-position: -560px -33px;}
+
+a.wordpress { background-position: -600px 0 }
+a.wordpress:hover { background-position: -600px -33px;}
+
+a.amazon { background-position: -640px 0 }
+a.amazon:hover { background-position: -640px -33px;}
+
+a.paypal { background-position: -680px 0 }
+a.paypal:hover { background-position: -680px -33px;}
+
+a.rss { background-position: -720px 0 }
+a.rss:hover { background-position: -720px -33px;}
