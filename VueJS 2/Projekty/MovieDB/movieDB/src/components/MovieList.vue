@@ -259,7 +259,6 @@
       @include flexy(flex-start, flex-start, wrap);
       .movie {
         width: 50%;
-s
         @include tablet-landscape-and-up {
           width: 25%;
         }
