@@ -11,6 +11,7 @@
     "generate-icons": "vsvg -s ./src/assets/svg-icons -t ./src/assets/compiled-icons"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "node-sass": "^4.5.1",
     "sass-loader": "^6.0.3",
     "vue": "^2.2.2",
