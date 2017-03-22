@@ -5,7 +5,7 @@
        <textarea id="quote-text" class="materialize-textarea" v-model="quote"></textarea>
        <label for="quote-text">Your Quote</label>
       </div>
-     <button @click.prevent="addNewQuote()" class="btn btn-large">sds</button>
+     <button @click.prevent="addNewQuote()" class="btn btn-large">Add</button>
    </form>
   </div>
 
