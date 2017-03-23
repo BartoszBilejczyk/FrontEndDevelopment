@@ -33,7 +33,7 @@
                   </div>
                   <div class="row">
                     <div class="input-field col col-5 col-sm-4">
-                      <select size="10" id="select-prefix" v-model="prefix" required>
+                      <select size="10" id="select-prefix" v-model="prefix">
                         <!-- Countries often selected by users can be moved to the top of the list. -->
                         <!-- Countries known to be subject to general US embargo are commented out by default. -->
                         <!-- The data-countryCode attribute is populated with ISO country code, and value is int'l calling code. -->
@@ -364,12 +364,6 @@ export default {
     }
   },
   created () {
-    $(document).ready(function () {
-      $('select').material_select()
-      $('#select-prefix').change(function () {
-        $('#select-prefix option:selected').text($('#select-prefix').val())
-      })
-    })
     setTimeout(() => {
       this.preLoad = false
       this.afterLoad = true
