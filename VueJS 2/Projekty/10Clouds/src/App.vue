@@ -13,7 +13,7 @@
     <div class="bottom-lines"></div>
     <div class="container main-container" v-if="afterLoad">
       <div class="row no-gutters main-row align-items-center">
-        <div class="col"></div>
+        <div class="col"><button class="changer" type="button" name="button">change</button></div>
         <div class="hidden-md-down col-lg-3">
           <div class="left-box">
             <img src="static/img/left_box.754f4b4.png" alt="">
@@ -31,6 +31,7 @@
                       <label for="first_name">Your Name</label>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="input-field col col-5 col-sm-4">
                       <select size="10" id="select-prefix" v-model="prefix">
@@ -330,7 +331,34 @@
             </div>
           </div>
         </div>
-        <div class="col"></div>
+        <div class="col">
+          <ul>
+  <li>
+      <div class="cars">Cars</div>
+      <ul>
+        <li>Honda</li>
+        <li>Toyota</li>
+        <li>Fiat</li>
+      </ul>
+  </li>
+  <li>
+  	  <div>Trucks</div>
+      <ul>
+        <li>Dodge</li>
+        <li>Ford</li>
+        <li>Chevy</li>
+      </ul>
+  </li>
+  <li>
+      <div>Motorcycles</div>
+      <ul>
+        <li>Harley Davidson</li>
+        <li>Victory</li>
+        <li>Triumph</li>
+      </ul>
+  </li>
+</ul>
+        </div>
       </div>
 
 
@@ -342,7 +370,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'app',
   data () {
@@ -368,17 +395,22 @@ export default {
       this.preLoad = false
       this.afterLoad = true
     }, 1900)
+  },
+  mounted () {
+    $(document).ready(function () {
+      $('div').click(function () {
+        $('.left-box').show('slide', { direction: 'left' }, 1000)
+      })
+    })
   }
 }
 </script>
 
 <style lang="scss">@import './style/globals.scss';
 @import './style/responsive.scss';
-
 * {
     box-sizing: border-box;
 }
-
 body,
 html {
     margin: 0;
@@ -388,9 +420,7 @@ html {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
     position: relative;
 }
-
 // LOADER
-
 .wrapper {
   position: absolute;
   width: 100vw;
@@ -408,13 +438,11 @@ html {
   transform-origin: 45% 50%;
   opacity: 1;
 }
-
 @keyframes loader {
   0% {
     transform: scaleX(1);
     opacity: 1;
     }
-
   80% {
     transform: scaleX(0);
     opacity: 1;
@@ -424,13 +452,10 @@ html {
     opacity: 1;
   }
 }
-
-
 @keyframes fade {
   0% {
     opacity: 1
   }
-
   80% {
     opacity: 0;
   }
@@ -438,16 +463,13 @@ html {
     opacity: 0
   }
 }
-
 .logo {
   position: absolute;
   width: 20%;
   height: auto;
   animation: 1s fade 1s cubic-bezier(.94,.15,.81,.69);
 }
-
 // END OF LOADER
-
 div.main {
     position: absolute;
     background-color: $base-bg;
@@ -457,9 +479,7 @@ div.main {
     z-index: 1;
     top: 0;
     left: 0;
-
 }
-
 div.gradient-drop {
     position: absolute;
     top: 0;
@@ -469,7 +489,6 @@ div.gradient-drop {
     // background: url('assets/gradient.png');
     z-index: 3;
 }
-
 div.top-lines {
     position: absolute;
     top: 0;
@@ -479,20 +498,17 @@ div.top-lines {
     // background: url('assets/top-lines.png');
     z-index: 2;
 }
-
 div.main-container, div.main-row {
     min-height: 100vh;
     z-index: 5;
     margin-bottom: 0;
 }
-
 div.left-box {
     // width: 500px;
     height: 552px;
     animation: fadeIn 1s;
-    transform-origin: 100% 50%
+    transform-origin: 0 0;
 }
-
 div.right-box {
     position: relative;
     background: #f9f9fb;
@@ -515,7 +531,6 @@ div.right-box {
       height: 100%;
     }
 }
-
 div.content {
   height: 100%;
   width: 100%;
@@ -525,20 +540,17 @@ div.content {
   justify-content: center;
   padding: 10%;
 }
-
 h1.title {
     position: absolute;
     top: -3.5rem;
     font-size: 2.5rem;
     font-weight: lighter;
 }
-
 p.subtitle {
     color: $text;
     width: 100%;
     height: 15%;
 }
-
 form {
   color: #454545;
   height: 85%;
@@ -549,15 +561,12 @@ form {
     }
   }
 }
-
 .dropdown-content {
   max-height: 300px !important;
 }
-
 .input-group {
   width: 100%;
 }
-
 input {
   background-color: transparent;
   border: none;
@@ -574,11 +583,9 @@ input {
   transition: all 0.3s;
   color: $text;
 }
-
 label {
   display: block;
 }
-
 input#day, input#month, input#year {
   margin-top: 10px;
   border: 2px solid lightgray;
@@ -588,14 +595,12 @@ input#day, input#month, input#year {
     box-shadow: none;
   }
 }
-
 .form-hr {
   display: block;
   width: 10px;
   height: 2px;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 button.submit {
     position: absolute;
     width: 50%;
@@ -627,9 +632,7 @@ button.submit {
     &:focus {
       outline: none;
     }
-
 }
-
 div.continue {
   font-size: 0.8rem;
     position: absolute;
@@ -642,7 +645,6 @@ div.continue {
     align-items: center;
     height: 100%;
 }
-
 div.arrow {
     position: absolute;
     background-color: $purple;
@@ -654,7 +656,6 @@ div.arrow {
     justify-content: center;
     align-items: center;
 }
-
 div.steps {
     position: absolute;
     left: 100%;
@@ -696,7 +697,6 @@ div.steps {
 //     top: -12.5px;
 //     left: -30px;
 //   }
-
 form {
   p {
   position: relative;
@@ -710,11 +710,9 @@ form {
     transform: translate(-50%, -50%);
   }
 }
-
   .label-gender {
     margin-left: 0.75rem;
   }
-
   .gender-icon {
     width: 40px;
     height: 40px;
@@ -724,49 +722,38 @@ form {
     left: -27px;
     z-index: 5
   }
-
   [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after {
     border: 2px solid lightgray;
     background-color: $form-bg-down;
     z-index: 10
   }
-
   [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after, [type="radio"]:checked+label:before, [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
     border-radius: 0;
 }
-
   [type="radio"]:checked+label:after {
     -webkit-transform: scale(0.2);
     transform: scale(0.2);
     z-index: 10;
-
 }
-
 [type="radio"]:checked+label:before, {
     border: 2px solid $form-green;
     background-color: $form-bg-down;
     z-index: 10;
 }
-
-
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after, {
     background-color: $form-green;
 }
-
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after,  [type="radio"]:checked + label .gender-icon  {
     border: 2px solid $form-green;
 }
-
 input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid $form-purple;
     box-shadow: 0 1px 0 0 $form-purple;
 }
-
 input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
     border-bottom: 1px solid $form-green;
     box-shadow: 0 1px 0 0 $form-green;
 }
-
 .dropdown-content li>a, .dropdown-content li>span {
     font-size: 16px;
     color: $form-green;
@@ -774,17 +761,13 @@ input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, 
     line-height: 22px;
     padding: 14px 16px;
 }
-
 input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
     color: lightgray;
 }
-
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, .select-wrapper input.select-dropdown {
     border-bottom: 2px solid lightgray;
   }
-
   //  Animations
-
 @keyframes fadeIn {
   from {
     transform: scaleX(0);
@@ -793,7 +776,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     transform: scaleX(1);
   }
 }
-
 @keyframes fadeInRightBox {
   0% {
     transform: scaleX(0);
@@ -805,7 +787,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     transform: scaleX(1);
   }
 }
-
 @keyframes fadeInSteps {
   0% {
     left: 90%;
@@ -821,6 +802,16 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   }
 }
 
-
+ul li ul {
+	height: 0;
+  overflow: hidden;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+ul li ul.active-menu {
+	height: 60px;
+}
 
 </style>
