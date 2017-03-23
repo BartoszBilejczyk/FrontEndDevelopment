@@ -3,9 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 
-import VueSVGIcon from 'vue-svgicon'
-
-Vue.use(VueSVGIcon)
+import Icon from 'vue-svg-icon/Icon.vue'
+Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
 

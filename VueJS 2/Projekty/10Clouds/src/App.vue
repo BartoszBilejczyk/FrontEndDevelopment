@@ -1,17 +1,22 @@
 <template>
 <div id="app">
-  <div class="main">
+  <div class="wrapper" v-if="preLoad">
+    <div class="bg"></div>
+    <img src="https://10clouds.com/wp-content/themes/thegem/dist/images/10clouds-logo.svg" alt="" class="logo" />
+  </div>
+  <div class="main" >
     <!-- <svgicon icon="gradient-bg"></svgicon> -->
     <div class="gradient-drop">
-      <img src="" alt="">
+        <!-- <icon name="gradient"></icon> -->
     </div>
     <div class="top-lines"></div>
     <div class="bottom-lines"></div>
-    <div class="container main-container">
+    <div class="container main-container" v-if="afterLoad">
       <div class="row no-gutters main-row align-items-center">
         <div class="col"></div>
         <div class="hidden-md-down col-lg-3">
           <div class="left-box">
+            <img src="static/img/left_box.754f4b4.png" alt="">
           </div>
         </div>
         <div class="col-xs-12 col-md-8 col-lg-5">
@@ -22,13 +27,13 @@
                 <form action="">
                   <div class="row">
                     <div class="input-field col col-12">
-                      <input id="first_name" type="text" class="validate" v-model="name">
+                      <input placeholder="John Doe" id="first_name" type="text" class="validate" v-model="name" required="" aria-required="true">
                       <label for="first_name">Your Name</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col col-5 col-sm-4">
-                      <select size="10" id="select-prefix" v-model="prefix">
+                      <select size="10" id="select-prefix" v-model="prefix" required>
                         <!-- Countries often selected by users can be moved to the top of the list. -->
                         <!-- Countries known to be subject to general US embargo are commented out by default. -->
                         <!-- The data-countryCode attribute is populated with ISO country code, and value is int'l calling code. -->
@@ -253,7 +258,7 @@
                       <label>Mobile</label>
                     </div>
                     <div class="input-field col col-7 col-sm-8">
-                      <input id="mobile" type="text" class="validate" v-model="mobile">
+                      <input placeholder="123 456 789" id="mobile" type="text" class="validate" v-model="mobile" required>
                     </div>
                   </div>
                   <div class="row">
@@ -261,31 +266,32 @@
                   </div>
                   <div class="row">
                     <p>
-                      <input type="radio" name="group1" id="gender-female" value="female" v-model="gender">
+                      <input type="radio" name="group1" id="gender-female" value="female" v-model="gender" required>
                       <label for="gender-female"><span class="radio"><span class="gender-icon"><i class="fa fa-venus"></i></span></span></label>
 
                      </p>
                      <p>
-                       <input type="radio" name="group1" id="gender-male" value="male" v-model="gender">
+                       <input type="radio" name="group1" id="gender-male" value="male" v-model="gender" required>
                        <label for="gender-male"><span class="radio"><span class="gender-icon"><i class="fa fa-mars"></i></span></span></label>
                      </p>
                   </div>
+
                   <div class="row date-of-birth align-items-center">
                     <div class="input-field col col-3">
-                      <input placeholder="1" id="day" type="text" class="validate" v-model="day">
+                      <input placeholder="1" id="day" type="text" class="validate" v-model="day" required>
                       <label for="day">Date of birth</label>
                     </div>
                     <!-- <div class="col-xs-1">
                       <div class="form-hr"></div>
                     </div> -->
                     <div class="input-field col">
-                      <input placeholder="January" id="month" type="text" class="validate" v-model="month">
+                      <input placeholder="January" id="month" type="text" class="validate" v-model="month" required>
                     </div>
                     <!-- <div class="col-xs-1">
                       <div class="form-hr"></div>
                     </div> -->
                     <div class="input-field col">
-                      <input placeholder="1990" id="year" type="text" class="validate" v-model="year">
+                      <input placeholder="1990" id="year" type="text" class="validate" v-model="year" required>
                     </div>
                   </div>
                   {{ name }}
@@ -296,32 +302,31 @@
                   {{ month }}
                   {{ year }}
 
-                    <button class="submit" type="submit" @click.prevent="submitForm()">
+                    <button class="submit" name="action" type="submit" @click.prevent="submitForm()">
                       <div class="continue"><span>CONTINUE</span></div>
                       <div class="arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
                     </button>
                 </form>
               </div>
-
-            <div class="steps">
-              <div class="step">
-                <div class="line"></div>
-                <span>01</span>
-                <br>
-                <span></span>
-              </div>
-              <div class="step active">
-                <div class="line active"></div>
-                <span>02</span>
-                <br>
-                <span>Personal</span>
-              </div>
-              <div class="step">
-                <div class="line"></div>
-                <span>03</span>
-                <br>
-                <span></span>
-              </div>
+            </div>
+          <div class="steps">
+            <div class="step">
+              <div class="line"></div>
+              <span>01</span>
+              <br>
+              <span></span>
+            </div>
+            <div class="step active">
+              <div class="line active"></div>
+              <span>02</span>
+              <br>
+              <span>Personal</span>
+            </div>
+            <div class="step">
+              <div class="line"></div>
+              <span>03</span>
+              <br>
+              <span></span>
             </div>
           </div>
         </div>
@@ -342,12 +347,14 @@ export default {
   name: 'app',
   data () {
     return {
+      preLoad: true,
+      afterLoad: false,
       name: '',
       prefix: '',
       mobile: '',
       gender: '',
       day: '',
-      monthe: '',
+      month: '',
       year: ''
     }
   },
@@ -356,14 +363,17 @@ export default {
       alert('Form submitted')
     }
   },
-  mounted () {
+  created () {
     $(document).ready(function () {
       $('select').material_select()
-
       $('#select-prefix').change(function () {
         $('#select-prefix option:selected').text($('#select-prefix').val())
       })
     })
+    setTimeout(() => {
+      this.preLoad = false
+      this.afterLoad = true
+    }, 1900)
   }
 }
 </script>
@@ -382,16 +392,78 @@ html {
 }
 #app {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
-
+    position: relative;
 }
 
+// LOADER
+
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.bg {
+  width: 100%;
+  height: 100%;
+  background: #e4e4ea;
+  animation: 1s loader 1s cubic-bezier(.94,.15,.81,.69);
+  transform-origin: 45% 50%;
+  opacity: 1;
+}
+
+@keyframes loader {
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+    }
+
+  80% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes fade {
+  0% {
+    opacity: 1
+  }
+
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  animation: 1s fade 1s cubic-bezier(.94,.15,.81,.69);
+}
+
+// END OF LOADER
+
 div.main {
-    position: relative;
+    position: absolute;
     background-color: $base-bg;
     width: 100vw;
     min-height: 100vh;
     color: #fff;
     z-index: 1;
+    top: 0;
+    left: 0;
+
 }
 
 div.gradient-drop {
@@ -416,13 +488,15 @@ div.top-lines {
 
 div.main-container, div.main-row {
     min-height: 100vh;
-    z-index: 5
+    z-index: 5;
+    margin-bottom: 0;
 }
 
 div.left-box {
     // width: 500px;
-    background: url('assets/left_box.png');
-    height: 550px;
+    height: 552px;
+    animation: fadeIn 1s;
+    transform-origin: 100% 50%
 }
 
 div.right-box {
@@ -437,7 +511,12 @@ div.right-box {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#f9f9fb', endColorstr='#efeff2',GradientType=0 );
     /* IE6-9 */
-    height: 550px;
+    height: 552px;
+    animation: fadeInRightBox 1.2s;
+    transform-origin: 0 50%;
+    @include tablet-portrait-and-down {
+      height: 100%;
+    }
     .container {
       height: 100%;
     }
@@ -455,8 +534,8 @@ div.content {
 
 h1.title {
     position: absolute;
-    top: -70px;
-    font-size: 3rem;
+    top: -3.5rem;
+    font-size: 2.5rem;
     font-weight: lighter;
 }
 
@@ -471,6 +550,9 @@ form {
   height: 85%;
   .row {
     margin-bottom: 10px;
+    @include tablet-portrait-and-down {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -505,7 +587,12 @@ label {
 
 input#day, input#month, input#year {
   margin-top: 10px;
-  border: 1px solid black;
+  border: 2px solid lightgray;
+  padding-left: 10px;
+  &:focus {
+    border: 2px solid $form-purple;
+    box-shadow: none;
+  }
 }
 
 .form-hr {
@@ -540,8 +627,11 @@ button.submit {
       left: 50%;
       transform: translateX(-50%);
     }
-    @include tablet-portrait-and-down {
-      width: 80%;
+    @include mobile-only {
+      width: 60%;
+    }
+    &:focus {
+      outline: none;
     }
 
 }
@@ -577,6 +667,9 @@ div.steps {
     top: 10%;
     font-size: 0.8rem;
     color: #555556;
+    animation: fadeInSteps 1.8s;
+    transform-origin: left;
+    z-index: -1;
     @include tablet-portrait-and-down {
       display: none;
     }
@@ -613,7 +706,7 @@ div.steps {
 form {
   p {
   position: relative;
-  margin-left: 35px;
+  margin-left: 38px;
   }
   .fa-venus, .fa-mars {
     color: $text;
@@ -689,6 +782,51 @@ input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, 
 }
 
 input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
-    color: #9e9e9e;
+    color: lightgray;
 }
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, .select-wrapper input.select-dropdown {
+    border-bottom: 2px solid lightgray;
+  }
+
+  //  Animations
+
+@keyframes fadeIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeInRightBox {
+  0% {
+    transform: scaleX(0);
+  }
+  20% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeInSteps {
+  0% {
+    left: 90%;
+    opacity: 0
+  }
+  60% {
+    left: 90%;
+    opacity: 0;
+  }
+  100% {
+    left: 100%;
+    opacity: 1;
+  }
+}
+
+
+
 </style>
