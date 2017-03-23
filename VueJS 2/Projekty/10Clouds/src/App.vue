@@ -13,11 +13,10 @@
     <div class="bottom-lines"></div>
     <div class="container main-container" v-if="afterLoad">
       <div class="row no-gutters main-row align-items-center">
-        <div class="col"><button class="changer" type="button" name="button">change</button></div>
+        <div class="col"></div>
         <div class="hidden-md-down col-lg-3">
-          <div class="left-box">
-            <img src="static/img/left_box.754f4b4.png" alt="">
-          </div>
+          <div class="left-box"></div>
+          <div class="lines"></div>
         </div>
         <div class="col-xs-12 col-md-8 col-lg-5">
           <div class="right-box">
@@ -331,38 +330,8 @@
             </div>
           </div>
         </div>
-        <div class="col">
-          <ul>
-  <li>
-      <div class="cars">Cars</div>
-      <ul>
-        <li>Honda</li>
-        <li>Toyota</li>
-        <li>Fiat</li>
-      </ul>
-  </li>
-  <li>
-  	  <div>Trucks</div>
-      <ul>
-        <li>Dodge</li>
-        <li>Ford</li>
-        <li>Chevy</li>
-      </ul>
-  </li>
-  <li>
-      <div>Motorcycles</div>
-      <ul>
-        <li>Harley Davidson</li>
-        <li>Victory</li>
-        <li>Triumph</li>
-      </ul>
-  </li>
-</ul>
-        </div>
+        <div class="col"></div>
       </div>
-
-
-
     </div>
   </div>
 </div>
@@ -399,7 +368,7 @@ export default {
   mounted () {
     $(document).ready(function () {
       $('div').click(function () {
-        $('.left-box').show('slide', { direction: 'left' }, 1000)
+        $('this').addClass('big-blue', 1000, 'easeOutBounce')
       })
     })
   }
@@ -505,9 +474,21 @@ div.main-container, div.main-row {
 }
 div.left-box {
     // width: 500px;
+    position: relative;
     height: 552px;
     animation: fadeIn 1s;
-    transform-origin: 0 0;
+    transform-origin: 100% 50%;
+    background: url('../src/assets/left_box.png');
+}
+.lines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: fadeInRightBox 1.2s;
+  transform-origin: 0 50%;
+  background: url('../src/assets/LINES.png');
 }
 div.right-box {
     position: relative;
@@ -780,7 +761,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   0% {
     transform: scaleX(0);
   }
-  20% {
+  30% {
     transform: scaleX(0);
   }
   100% {
@@ -800,18 +781,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     left: 100%;
     opacity: 1;
   }
-}
-
-ul li ul {
-	height: 0;
-  overflow: hidden;
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-ul li ul.active-menu {
-	height: 60px;
 }
 
 </style>
