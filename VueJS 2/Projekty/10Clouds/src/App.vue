@@ -16,7 +16,6 @@
         <div class="col"></div>
         <div class="hidden-md-down col-lg-3">
           <div class="left-box">
-            <img src="" alt="">
           </div>
           <div class="lines"></div>
         </div>
