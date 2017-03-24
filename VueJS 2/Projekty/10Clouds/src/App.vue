@@ -31,13 +31,13 @@
                 <div class="content-in-right-box">
                   <p class="subtitle">Take it all with you. Switch between devices, and pick up.</p>
                   <div class="error" v-if="error">
-                    <span>You have to fill all fields</span>
+                    <span>You have to fill in all fields</span>
                   </div>
                   <form action="" class="mui-form">
                     <div class="row">
                       <div class="mui-textfield col-12">
                         <input type="text" placeholder="John Doe" v-model="name" required>
-                        <label>Input 1</label>
+                        <label>Your name</label>
                       </div>
                     </div>
                     <div class="row">
@@ -273,30 +273,32 @@
                     <div class="row">
                       <p>
                         <input type="radio" name="group1" id="gender-female" value="female" v-model="gender" required>
-                        <label for="gender-female"><span class="radio"><span class="gender-icon"><i class="fa fa-venus fa-2x"></i></span></span></label>
+                        <label for="gender-female"><span class="radio"><span class="gender-icon">
+                          <img src="../src/assets/female.png" alt="">
+                        </span></span></label>
 
                        </p>
                        <p>
                          <input type="radio" name="group1" id="gender-male" value="male" v-model="gender" required>
-                         <label for="gender-male"><span class="radio"><span class="gender-icon"><i class="fa fa-mars fa-2x"></i></span></span></label>
+                         <label for="gender-male"><span class="radio"><span class="gender-icon">
+                         <img src="../src/assets/male.png" alt=""></span></span></label>
                        </p>
                     </div>
                     <div class="row date-of-birth align-items-center">
-                      <div class="mui-textfield col-3">
-                        <input type="text" placeholder="01" v-model="day" required>
-                        <label>Date of birth</label>
+                      <div class="mui-textfield col-3 col-md-2">
+                        <input type="text" placeholder="01" v-model="day" required id="day">
+                        <label id="day">Date of birth</label>
                       </div>
-                      <!-- <div class="col-xs-1">
-                        <div class="form-hr"></div>
-                      </div> -->
-                      <div class="mui-textfield col">
-                        <input type="text" placeholder="January" v-model="month" required>
+                      <div class="form-hr"></div>
+                      <div class="mui-textfield col-3 hidden-sm-up">
+                        <input type="text" placeholder="01" v-model="month" required id="month">
                       </div>
-                      <!-- <div class="col-xs-1">
-                        <div class="form-hr"></div>
-                      </div> -->
+                      <div class="mui-textfield col hidden-xs-down">
+                        <input type="text" placeholder="January" v-model="month" required id="month">
+                      </div>
+                      <div class="form-hr"></div>
                       <div class="mui-textfield col">
-                        <input type="text" placeholder="1990" v-model="year" required>
+                        <input type="text" placeholder="1990" v-model="year" required id="year">
                       </div>
                     </div>
                     <button class="submit" name="action" type="submit" @click.prevent="submitForm()">
@@ -363,7 +365,7 @@ export default {
 
   Thanks for your submission, ${gender}.
 
-  PS. We'll send you a discount code on ${this.day}/${this.month}/${this.year} to your mobile ${this.prefix} ${this.mobile}`
+  PS. We'll send you a discount code on ${this.day}/${this.month} to your mobile ${this.prefix} ${this.mobile}`
         )
       } else {
         this.error = true
@@ -395,11 +397,13 @@ body,
 html {
     margin: 0;
     padding: 0;
-    max-width: 100vw
+    max-width: 100vw;
+    font-size: 14px;
 }
 #app {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
     position: relative;
+    font-weight: 200
 }
 // LOADER
 .wrapper {
@@ -578,11 +582,18 @@ h1.title {
     top: -4rem;
     font-size: 2.8rem;
     font-weight: lighter;
+    @include tablet-portrait-and-down {
+      font-size: 2rem;
+      top: -3rem;
+    }
 }
 p.subtitle {
     color: $text;
     width: 100%;
     font-size: 1.5rem;
+    @include tablet-portrait-and-down {
+      font-size: 0.9rem;
+    }
 }
 
 .content-in-right-box {
@@ -601,6 +612,14 @@ form {
   color: #454545;
   .row {
     margin-bottom: 10px;
+    @include tablet-portrait-and-down {
+      margin-bottom: 3px;
+    }
+  }
+  p {
+  position: relative;
+  margin-left: 65px;
+  height: 40px;
   }
 }
 .dropdown-content {
@@ -609,38 +628,65 @@ form {
 .input-group {
   width: 100%;
 }
-input {
+
+.mui-textfield>input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #9e9e9e;
   border-radius: 0;
   outline: none;
-  height: 3rem;
   width: 100%;
-  font-size: 1rem;
   padding: 0;
   box-shadow: none;
   box-sizing: content-box;
   transition: all 0.3s;
   color: $text;
 }
-label {
-  display: block;
+
+label#day {
+  width: 200%;
 }
+
 input#day, input#month, input#year {
   margin-top: 10px;
-  border: 2px solid lightgray;
-  padding-left: 10px;
+  border: 1px solid #9e9e9e;
+  padding: 5px 0 0 8px;
+  height: 40px;
   &:focus {
     border: 2px solid $form-purple;
     box-shadow: none;
   }
 }
+
+
+  .gender-icon {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    border: 1px solid #9e9e9e;
+    top: -2px;
+    left: -50px;
+    z-index: 5;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .mui-select__menu {
+      z-index: 10;
+      max-height: 250px;
+      overflow-y: auto;
+  }
+
 .form-hr {
   display: block;
-  width: 10px;
+  width: 5px;
   height: 2px;
   background-color: rgba(0, 0, 0, 0.4);
+  margin-left: 6px;
+  margin-right: -6px;
 }
 button.submit {
     position: absolute;
@@ -705,7 +751,7 @@ div.arrow {
 div.steps {
     position: absolute;
     left: 100%;
-    top: 10%;
+    top: 8%;
     color: #555556;
     animation: 1.8s fadeInSteps;
     transform-origin: left;
@@ -714,7 +760,7 @@ div.steps {
       display: none;
     }
     .step {
-        padding: 30% 0;
+        padding: 25% 0;
         &.active {
             color: #fff;
         }
@@ -742,45 +788,12 @@ div.steps {
 //     top: -12.5px;
 //     left: -30px;
 //   }
-form {
-  p {
-  position: relative;
-  margin-left: 50px;
-    // input {
-    //   height: 2px;
-    //   content: '';
-    //   top: 5px;
-    //   left: 5px;
-    //   border: 3px solid lightgray;
-    //   background-color: #efeff2;
-    //   z-index: 10;
-    //   appearance: initial;
-    // }
-  }
-  .fa-venus, .fa-mars {
-    color: $text;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
-  }
+
+[type="radio"] {
+  display: none;
 }
 
-  .gender-icon {
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    border: 2px solid lightgray;
-    top: -6px;
-    left: -35px;
-    z-index: 5;
-  }
-  .mui-select__menu {
-      z-index: 10;
-      max-height: 250px;
-      overflow-y: auto;
-  }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after,  [type="radio"]:checked + label .gender-icon  {
     border: 2px solid $form-green;
