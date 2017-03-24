@@ -520,7 +520,6 @@ h1.title {
 p.subtitle {
     color: $text;
     width: 100%;
-    height: 15%;
     font-size: 1.5rem;
 }
 
@@ -534,7 +533,6 @@ p.subtitle {
 
 form {
   color: #454545;
-  height: 85%;
   .row {
     margin-bottom: 10px;
   }
