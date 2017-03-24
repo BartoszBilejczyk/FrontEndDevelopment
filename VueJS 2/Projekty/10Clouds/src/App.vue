@@ -24,17 +24,16 @@
               <div class="content">
                 <h1 class="title">Your account</h1>
                   <p class="subtitle">Take it all with you. Switch between devices, and pick up.</p>
-                <form action="">
+                <form action="" class="mui-form">
                   <div class="row">
-                    <div class="input-field col col-12">
-                      <input placeholder="John Doe" id="first_name" type="text" class="validate" v-model="name" required="" aria-required="true">
-                      <label for="first_name">Your Name</label>
+                    <div class="mui-textfield col-12">
+                      <input type="text" placeholder="John Doe" v-model="name">
+                      <label>Input 1</label>
                     </div>
                   </div>
-
                   <div class="row">
-                    <div class="input-field col col-5 col-sm-4">
-                      <select size="10" id="select-prefix" v-model="prefix">
+                    <div class="mui-select col col-5 col-sm-4">
+                      <select v-model="prefix">
                         <!-- Countries often selected by users can be moved to the top of the list. -->
                         <!-- Countries known to be subject to general US embargo are commented out by default. -->
                         <!-- The data-countryCode attribute is populated with ISO country code, and value is int'l calling code. -->
@@ -43,7 +42,7 @@
 
                         <option disabled="disabled">Other Countries</option>
                         <option data-countryCode="DZ" :value="213">+213 (DZ)</option>
-                        <option data-countryCode="AD" value="376">+376 (AD)</option>
+                        <!-- <option data-countryCode="AD" value="376">+376 (AD)</option>
                         <option data-countryCode="AO" value="244">+244 (AO)</option>
                         <option data-countryCode="AI" value="1264">+1264 (AI)</option>
                         <option data-countryCode="AG" value="1268">+1268 (AG)</option>
@@ -85,7 +84,7 @@
                         <option data-countryCode="CK" value="682">+682 (CK)</option>
                         <option data-countryCode="CR" value="506">+506 (CR)</option>
                         <option data-countryCode="HR" value="385">+385 (HR)</option>
-                        <!-- <option data-countryCode="CU" value="53">+53 ()</option> -->
+                        <option data-countryCode="CU" value="53">+53 ()</option>
                         <option data-countryCode="CY" value="90">+90 (CY)</option>
                         <option data-countryCode="CY" value="357">+357 (CY)</option>
                         <option data-countryCode="CZ" value="420">+420 (CZ)</option>
@@ -130,7 +129,7 @@
                         <option data-countryCode="IN" value="91">+91 ()</option>
                         <option data-countryCode="ID" value="62">+62 ()</option>
                         <option data-countryCode="IQ" value="964">+964 ()</option>
-                        <!-- <option data-countryCode="IR" value="98">+98 ()</option> -->
+                        <option data-countryCode="IR" value="98">+98 ()</option>
                         <option data-countryCode="IE" value="353">+353 ()</option>
                         <option data-countryCode="IL" value="972">+972 ()</option>
                         <option data-countryCode="IT" value="39">+39 ()</option>
@@ -140,7 +139,7 @@
                         <option data-countryCode="KZ" value="7">+7 ()</option>
                         <option data-countryCode="KE" value="254">+254 ()</option>
                         <option data-countryCode="KI" value="686">+686 ()</option>
-                        <!-- <option data-countryCode="KP" value="850">Korea +850 ()</option> -->
+                        <option data-countryCode="KP" value="850">Korea +850 ()</option>
                         <option data-countryCode="KR" value="82">+82 ()</option>
                         <option data-countryCode="KW" value="965">+965 ()</option>
                         <option data-countryCode="KG" value="996">+996 ()</option>
@@ -225,7 +224,7 @@
                         <option data-countryCode="SZ" value="268">+268 ()</option>
                         <option data-countryCode="SE" value="46">+46 ()</option>
                         <option data-countryCode="CH" value="41">+41 ()</option>
-                        <!-- <option data-countryCode="SY" value="963">+963 ()</option> -->
+                        <option data-countryCode="SY" value="963">+963 ()</option>
                         <option data-countryCode="TW" value="886">+886 ()</option>
                         <option data-countryCode="TJ" value="992">+992 ()</option>
                         <option data-countryCode="TH" value="66">+66 ()</option>
@@ -254,12 +253,12 @@
                         <option data-countryCode="YE" value="969">+969 ()</option>
                         <option data-countryCode="YE" value="967">+967 ()</option>
                         <option data-countryCode="ZM" value="260">+260 ()</option>
-                        <option data-countryCode="ZW" value="263">+263 ()</option>
+                        <option data-countryCode="ZW" value="263">+263 ()</option> -->
                       </select>
                       <label>Mobile</label>
                     </div>
-                    <div class="input-field col col-7 col-sm-8">
-                      <input placeholder="123 456 789" id="mobile" type="text" class="validate" v-model="mobile" required>
+                    <div class="mui-textfield col-7 col-sm-8">
+                      <input type="text" placeholder="John Doe" v-model="name">
                     </div>
                   </div>
                   <div class="row">
@@ -704,6 +703,11 @@ form {
     left: -27px;
     z-index: 5
   }
+
+  .mui-select__menu {
+      z-index: 10;
+  }
+
   [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after {
     border: 2px solid lightgray;
     background-color: $form-bg-down;
@@ -728,27 +732,27 @@ form {
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after,  [type="radio"]:checked + label .gender-icon  {
     border: 2px solid $form-green;
 }
-input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid $form-purple;
-    box-shadow: 0 1px 0 0 $form-purple;
-}
-input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
-    border-bottom: 1px solid $form-green;
-    box-shadow: 0 1px 0 0 $form-green;
-}
-.dropdown-content li>a, .dropdown-content li>span {
-    font-size: 16px;
-    color: $form-green;
-    display: block;
-    line-height: 22px;
-    padding: 14px 16px;
-}
-input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
-    color: lightgray;
-}
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, .select-wrapper input.select-dropdown {
-    border-bottom: 2px solid lightgray;
-  }
+// input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+//     border-bottom: 1px solid $form-purple;
+//     box-shadow: 0 1px 0 0 $form-purple;
+// }
+// input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
+//     border-bottom: 1px solid $form-green;
+//     box-shadow: 0 1px 0 0 $form-green;
+// }
+// .dropdown-content li>a, .dropdown-content li>span {
+//     font-size: 16px;
+//     color: $form-green;
+//     display: block;
+//     line-height: 22px;
+//     padding: 14px 16px;
+// }
+// input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+//     color: lightgray;
+// }
+// input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, .select-wrapper input.select-dropdown {
+//     border-bottom: 2px solid lightgray;
+//   }
   //  Animations
 @keyframes fadeIn {
   from {
