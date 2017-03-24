@@ -482,7 +482,8 @@ div.gradient-drop {
     left: 0;
     z-index: 3;
     img {
-      animation: 3s getBigger 0.5s;
+      animation: 5s getBigger 0.5s;
+      width: 90%;
     }
 }
 div.top-lines {
@@ -695,14 +696,18 @@ div.arrow {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: 1.8s fadeInArrowWrapper;
+    transform-origin: 50% 100%;
+    i.fa-long-arrow-right {
+      animation: 2.3s fadeInArrow;
+    }
 }
 div.steps {
     position: absolute;
     left: 100%;
     top: 10%;
-    font-size: 0.8rem;
     color: #555556;
-    animation: fadeInSteps 1.8s;
+    animation: 1.8s fadeInSteps;
     transform-origin: left;
     z-index: -1;
     @include tablet-portrait-and-down {
@@ -771,69 +776,23 @@ form {
     left: -35px;
     z-index: 5;
   }
-  //
-  // #gender-male::after {
-  //   content: '';
-  //   height: 40px;
-  //   width: 40px;
-  //   top: 0;
-  //   left: 0;
-  //   border: 2px solid lightgray;
-  //   background-color: $form-bg-down;
-  //   z-index: 10
-  // }
-
   .mui-select__menu {
       z-index: 10;
       max-height: 250px;
       overflow-y: auto;
   }
-//
-//   [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after {
-//     border: 2px solid lightgray;
-//     background-color: $form-bg-down;
-//     z-index: 10
-//   }
-//   [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after, [type="radio"]:checked+label:before, [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
-//     border-radius: 0;
-// }
-//   [type="radio"]:checked+label:after {
-//     -webkit-transform: scale(0.2);
-//     transform: scale(0.2);
-//     z-index: 10;
-// }
-// [type="radio"]:checked+label:before, {
-//     border: 2px solid $form-green;
-//     background-color: $form-bg-down;
-//     z-index: 10;
-// }
-// [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after, {
-//     background-color: $form-green;
-// }
+
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after,  [type="radio"]:checked + label .gender-icon  {
     border: 2px solid $form-green;
 }
-// input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-//     border-bottom: 1px solid $form-purple;
-//     box-shadow: 0 1px 0 0 $form-purple;
-// }
-// input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
-//     border-bottom: 1px solid $form-green;
-//     box-shadow: 0 1px 0 0 $form-green;
-// }
-// .dropdown-content li>a, .dropdown-content li>span {
-//     font-size: 16px;
-//     color: $form-green;
-//     display: block;
-//     line-height: 22px;
-//     padding: 14px 16px;
-// }
-// input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
-//     color: lightgray;
-// }
-// input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, .select-wrapper input.select-dropdown {
-//     border-bottom: 2px solid lightgray;
-//   }
+
+.mui-textfield>input:focus, .mui-textfield>textarea:focus, .mui-select:focus>select {
+  border-bottom: 2px solid $form-purple;
+}
+
+.mui-textfield>input:focus~label, .mui-textfield>textarea:focus~label, .mui-select:focus>label, .mui-select>select:focus~label {
+  color: $form-purple
+}
   //  Animations
 @keyframes fadeIn {
   from {
@@ -874,13 +833,9 @@ form {
     height: auto;
     width: 80%
   }
-  30% {
-    height: auto;
-    width: 80%
-  }
   to {
     height: auto;
-    width: 100%
+    width: 90%
   }
 }
 
@@ -894,6 +849,34 @@ form {
   }
   to {
     transform: translateY(0%)
+  }
+}
+
+
+@keyframes fadeInArrowWrapper {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInArrow {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.4)
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
