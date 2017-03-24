@@ -15,7 +15,9 @@
       <div class="row no-gutters main-row align-items-center">
         <div class="col"></div>
         <div class="hidden-md-down col-lg-3">
-          <div class="left-box"></div>
+          <div class="left-box">
+            <img src="" alt="">
+          </div>
           <div class="lines"></div>
         </div>
         <div class="col-xs-12 col-md-8 col-lg-5">
