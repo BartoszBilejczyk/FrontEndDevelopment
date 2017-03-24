@@ -2,7 +2,7 @@
 <div id="app">
   <div class="wrapper" v-if="preLoad">
     <div class="bg"></div>
-    <img src="https://10clouds.com/wp-content/themes/thegem/dist/images/10clouds-logo.svg" alt="" class="logo" />
+    <img src="/static/img/logo-kopia.0fafedc.png" alt="" class="logo" />
   </div>
   <div class="main" >
     <!-- <svgicon icon="gradient-bg"></svgicon> -->
@@ -11,7 +11,6 @@
         <img src="/static/img/gradient.4ce29c4.png" class="img-fluid" alt="">
     </div>
     <div class="top-lines">
-      <img src="/static/img/top-lines.1b485e6.png" alt="" class="img-fluid">
     </div>
     <div class="bottom-lines">
       <img src="/static/img/bottom-lines.b394d5e.png" alt="img-fluid">
@@ -414,10 +413,11 @@ html {
 .bg {
   width: 100%;
   height: 100%;
-  background: #e4e4ea;
+  background: #202020;
   animation: 1s loader 1s cubic-bezier(.94,.15,.81,.69);
   transform-origin: 45% 50%;
   opacity: 1;
+
 }
 @keyframes loader {
   0% {
@@ -435,9 +435,15 @@ html {
 }
 @keyframes fade {
   0% {
-    opacity: 1
+    opacity: 0;
   }
-  80% {
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
     opacity: 0;
   }
   100% {
@@ -448,7 +454,8 @@ html {
   position: absolute;
   width: 20%;
   height: auto;
-  animation: 1s fade 1s cubic-bezier(.94,.15,.81,.69);
+  opacity: 0;
+  animation: 2s fade cubic-bezier(.94,.15,.81,.69);
 }
 // END OF LOADER
 div.main {
@@ -460,6 +467,7 @@ div.main {
     z-index: 1;
     top: 0;
     left: 0;
+
 }
 div.gradient-drop {
     position: absolute;
@@ -476,6 +484,7 @@ div.top-lines {
     left: 15%;
     // height: 155px;
     // width: 604px;
+    background: ulr('assets/top-lines.png');
     z-index: 2;
     @include tablet-landscape-and-down {
       display: none;
