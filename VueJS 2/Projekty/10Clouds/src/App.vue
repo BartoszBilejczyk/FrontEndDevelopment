@@ -2,18 +2,19 @@
 <div id="app">
   <div class="wrapper" v-if="preLoad">
     <div class="bg"></div>
-    <img src="/static/img/logo-kopia.0fafedc.png" alt="" class="logo" />
+    <img src="../src/assets/logo-kopia.png" alt="" class="logo" />
   </div>
   <div class="main" >
     <!-- <svgicon icon="gradient-bg"></svgicon> -->
     <div class="gradient-drop">
         <!-- <icon name="gradient"></icon> -->
-        <img src="/static/img/gradient.4ce29c4.png" class="img-fluid" alt="">
+        <img src="../src/assets/gradient.png" class="img-fluid" alt="">
     </div>
     <div class="top-lines">
+      <img src="../src/assets/top-lines.png" alt="img-fluid">
     </div>
     <div class="bottom-lines">
-      <img src="/static/img/bottom-lines.b394d5e.png" alt="img-fluid">
+      <img src="../src/assets/bottom-lines.png" alt="img-fluid">
     </div>
     <div class="container main-container" v-if="afterLoad">
       <div class="row no-gutters main-row align-items-center">
@@ -414,23 +415,23 @@ html {
   width: 100%;
   height: 100%;
   background: #202020;
-  animation: 1s loader 1s cubic-bezier(.94,.15,.81,.69);
+  animation: 2s loader cubic-bezier(.94,.15,.81,.69);
   transform-origin: 45% 50%;
   opacity: 1;
 
 }
 @keyframes loader {
   0% {
-    transform: scaleX(1);
     opacity: 1;
     }
-  80% {
-    transform: scaleX(0);
+  60% {
     opacity: 1;
   }
+  90% {
+    opacity: 0;
+  }
   100% {
-    transform: scaleX(0);
-    opacity: 1;
+    opacity: 0;
   }
 }
 @keyframes fade {
@@ -456,6 +457,12 @@ html {
   height: auto;
   opacity: 0;
   animation: 2s fade cubic-bezier(.94,.15,.81,.69);
+  @include tablet-landscape-and-down {
+    width: 40%;
+  }
+  @include tablet-landscape-and-down {
+    width: 70%;
+  }
 }
 // END OF LOADER
 div.main {
