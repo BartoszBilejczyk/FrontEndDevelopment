@@ -27,28 +27,26 @@
                 <form action="" class="mui-form">
                   <div class="row">
                     <div class="mui-textfield col-12">
-                      <input type="text" placeholder="John Doe" v-model="name">
+                      <input type="text" placeholder="John Doe" v-model="name" required>
                       <label>Input 1</label>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="mui-select col col-5 col-sm-4">
+                    <div class="mui-select col col-5">
                       <select v-model="prefix">
                         <!-- Countries often selected by users can be moved to the top of the list. -->
                         <!-- Countries known to be subject to general US embargo are commented out by default. -->
                         <!-- The data-countryCode attribute is populated with ISO country code, and value is int'l calling code. -->
-
-                        <option data-countryCode="PL" value="48" selected>+48 (PL)</option>
-
-                        <option disabled="disabled">Other Countries</option>
-                        <option data-countryCode="DZ" :value="213">+213 (DZ)</option>
-                        <!-- <option data-countryCode="AD" value="376">+376 (AD)</option>
+                        <option value="">Prefix</option>
+                        <option data-countryCode="PL" value="48">+48 (PL)</option>
+                        <option data-countryCode="DZ" value="213">+213 (DZ)</option>
+                        <option data-countryCode="AD" value="376">+376 (AD)</option>
                         <option data-countryCode="AO" value="244">+244 (AO)</option>
                         <option data-countryCode="AI" value="1264">+1264 (AI)</option>
                         <option data-countryCode="AG" value="1268">+1268 (AG)</option>
                         <option data-countryCode="AR" value="54">+54 (AR)</option>
                         <option data-countryCode="AM" value="374">+374 (AM)</option>
-                        <option data-countryCode="AW" value="297">+297 (AW)</option>
+                        <!-- <option data-countryCode="AW" value="297">+297 (AW)</option>
                         <option data-countryCode="AU" value="61">+61 (AU)</option>
                         <option data-countryCode="AT" value="43">+43 (AT)</option>
                         <option data-countryCode="AZ" value="994">+994 (AZ)</option>
@@ -257,8 +255,8 @@
                       </select>
                       <label>Mobile</label>
                     </div>
-                    <div class="mui-textfield col-7 col-sm-8">
-                      <input type="text" placeholder="John Doe" v-model="name">
+                    <div class="mui-textfield col-7">
+                      <input type="tel" placeholder="123 456 789" v-model="mobile" required>
                     </div>
                   </div>
                   <div class="row">
@@ -277,21 +275,21 @@
                   </div>
 
                   <div class="row date-of-birth align-items-center">
-                    <div class="input-field col col-3">
-                      <input placeholder="1" id="day" type="text" class="validate" v-model="day" required>
-                      <label for="day">Date of birth</label>
+                    <div class="mui-textfield col-3">
+                      <input type="text" placeholder="01" v-model="day" required>
+                      <label>Date of birth</label>
                     </div>
                     <!-- <div class="col-xs-1">
                       <div class="form-hr"></div>
                     </div> -->
-                    <div class="input-field col">
-                      <input placeholder="January" id="month" type="text" class="validate" v-model="month" required>
+                    <div class="mui-textfield col">
+                      <input type="text" placeholder="January" v-model="month" required>
                     </div>
                     <!-- <div class="col-xs-1">
                       <div class="form-hr"></div>
                     </div> -->
-                    <div class="input-field col">
-                      <input placeholder="1990" id="year" type="text" class="validate" v-model="year" required>
+                    <div class="mui-textfield col">
+                      <input type="text" placeholder="1990" v-model="year" required>
                     </div>
                   </div>
                   {{ name }}
@@ -557,7 +555,6 @@ input {
   height: 3rem;
   width: 100%;
   font-size: 1rem;
-  margin: 0 0 20px 0;
   padding: 0;
   box-shadow: none;
   box-sizing: content-box;
