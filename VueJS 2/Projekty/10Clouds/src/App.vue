@@ -25,6 +25,9 @@
                 <h1 class="title">Your account</h1>
                 <div class="content-in-right-box">
                   <p class="subtitle">Take it all with you. Switch between devices, and pick up.</p>
+                  <div class="error" v-if="error">
+                    <span>You have to fill all fields</span>
+                  </div>
                   <form action="" class="mui-form">
                     <div class="row">
                       <div class="mui-textfield col-12">
@@ -333,6 +336,7 @@ export default {
   name: 'app',
   data () {
     return {
+      error: false,
       preLoad: true,
       afterLoad: false,
       name: '',
@@ -346,7 +350,19 @@ export default {
   },
   methods: {
     submitForm () {
-      alert('Form submitted')
+      if (this.name.length && this.prefix.length && this.mobile.length && this.gender.length && this.day.length && this.month.length && this.year.length) {
+        this.error = false
+        let gender = this.gender === 'male' ? 'man' : 'girl'
+        alert(
+          `Hey, ${this.name}.
+
+  Thanks for your submission, ${gender}.
+
+  PS. We'll send you a discount code on ${this.day}/${this.month}/${this.year} to your mobile ${this.prefix} ${this.mobile}`
+        )
+      } else {
+        this.error = true
+      }
     }
   },
   created () {
@@ -531,6 +547,10 @@ p.subtitle {
   justify-content: space-around;
 }
 
+.error {
+  color: red;
+}
+
 form {
   color: #454545;
   .row {
@@ -609,7 +629,7 @@ button.submit {
     }
 }
 div.continue {
-  font-size: 0.8rem;
+  font-size: 1rem;
     position: absolute;
     background-color: transparent;
     width: calc(100% - 50px);
