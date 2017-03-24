@@ -8,9 +8,14 @@
     <!-- <svgicon icon="gradient-bg"></svgicon> -->
     <div class="gradient-drop">
         <!-- <icon name="gradient"></icon> -->
+        <img src="/static/img/gradient.4ce29c4.png" class="img-fluid" alt="">
     </div>
-    <div class="top-lines"></div>
-    <div class="bottom-lines"></div>
+    <div class="top-lines">
+      <img src="/static/img/top-lines.1b485e6.png" alt="" class="img-fluid">
+    </div>
+    <div class="bottom-lines">
+      <img src="/static/img/bottom-lines.b394d5e.png" alt="img-fluid">
+    </div>
     <div class="container main-container" v-if="afterLoad">
       <div class="row no-gutters main-row align-items-center">
         <div class="col"></div>
@@ -390,6 +395,7 @@ body,
 html {
     margin: 0;
     padding: 0;
+    max-width: 100vw
 }
 #app {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
@@ -459,20 +465,43 @@ div.gradient-drop {
     position: absolute;
     top: 0;
     left: 0;
-    // height: 630px;
-    // width: 654px;
-    // background: url('assets/gradient.png');
     z-index: 3;
+    img {
+      animation: 3s getBigger 0.5s;
+    }
 }
 div.top-lines {
     position: absolute;
     top: 0;
-    left: $container-margin + $column-width * 2 + $gutter * 2;
+    left: 15%;
     // height: 155px;
     // width: 604px;
-    // background: url('assets/top-lines.png');
     z-index: 2;
+    @include tablet-landscape-and-down {
+      display: none;
+    }
+    img {
+      animation: 3s getBigger 0.5s;
+    }
 }
+
+div.bottom-lines {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    // height: 155px;
+    // width: 604px;
+    z-index: 2;
+    @include tablet-landscape-and-down {
+      display: none;
+    }
+    img {
+      animation: 4s Rotate 1s;
+      transform-origin: 100% 100%;
+    }
+}
+
+
 div.main-container, div.main-row {
     min-height: 100vh;
     z-index: 5;
@@ -529,8 +558,8 @@ div.content {
 }
 h1.title {
     position: absolute;
-    top: -3.5rem;
-    font-size: 2.5rem;
+    top: -4rem;
+    font-size: 2.8rem;
     font-weight: lighter;
 }
 p.subtitle {
@@ -823,5 +852,34 @@ form {
     opacity: 1;
   }
 }
+
+@keyframes getBigger {
+  0% {
+    height: auto;
+    width: 80%
+  }
+  30% {
+    height: auto;
+    width: 80%
+  }
+  to {
+    height: auto;
+    width: 100%
+  }
+}
+
+
+@keyframes Rotate {
+  0% {
+    transform: translateY(30%)
+  }
+  30% {
+    transform: translateY(30%)
+  }
+  to {
+    transform: translateY(0%)
+  }
+}
+
 
 </style>
