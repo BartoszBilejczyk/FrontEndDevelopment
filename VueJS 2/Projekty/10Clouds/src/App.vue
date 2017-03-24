@@ -423,8 +423,8 @@ html {
 @keyframes loader {
   0% {
     opacity: 1;
-    }
-  60% {
+  }
+  70% {
     opacity: 1;
   }
   90% {
@@ -438,13 +438,13 @@ html {
   0% {
     opacity: 0;
   }
-  30% {
+  20% {
     opacity: 1;
   }
-  60% {
+  40% {
     opacity: 1;
   }
-  90% {
+  80% {
     opacity: 0;
   }
   100% {
