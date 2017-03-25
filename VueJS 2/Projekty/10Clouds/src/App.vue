@@ -486,13 +486,13 @@ div.gradient-drop {
     left: 0;
     z-index: 3;
     img {
-      animation: 5s getBigger 0.5s;
+      animation: 6s getBigger 0.5s;
       width: 90%;
     }
 }
 div.top-lines {
     position: absolute;
-    top: 0;
+    top: 1%;
     left: 15%;
     // height: 155px;
     // width: 604px;
@@ -502,7 +502,9 @@ div.top-lines {
       display: none;
     }
     img {
-      animation: 3s getBigger 0.5s;
+      animation: 6s getBiggerTopLines 0.5s;
+      width: 110%;
+      height: auto;
     }
 }
 
@@ -849,6 +851,17 @@ div.steps {
   to {
     height: auto;
     width: 90%
+  }
+}
+
+@keyframes getBiggerTopLines {
+  0% {
+    height: auto;
+    width: 90%
+  }
+  to {
+    height: auto;
+    width: 110%
   }
 }
 
