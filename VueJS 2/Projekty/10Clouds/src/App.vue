@@ -46,7 +46,8 @@
                           <!-- Countries often selected by users can be moved to the top of the list. -->
                           <!-- Countries known to be subject to general US embargo are commented out by default. -->
                           <!-- The data-countryCode attribute is populated with ISO country code, and value is int'l calling code. -->
-                          <option data-countryCode="PL" :value="prefix">+48 (PL)</option>
+                          <option value="" placeholder="Prefix">Prefix</option>
+                          <option data-countryCode="PL" value="48">+48 (PL)</option>
                           <option data-countryCode="DZ" value="213">+213 (DZ)</option>
                           <option data-countryCode="AD" value="376">+376 (AD)</option>
                           <option data-countryCode="AO" value="244">+244 (AO)</option>
@@ -377,13 +378,6 @@ export default {
       this.preLoad = false
       this.afterLoad = true
     }, 1900)
-  },
-  mounted () {
-    $(document).ready(function () {
-      $('div').click(function () {
-        $('this').addClass('big-blue', 1000, 'easeOutBounce')
-      })
-    })
   }
 }
 </script>
@@ -564,10 +558,7 @@ div.right-box {
     animation: fadeInRightBox 1.2s;
     transform-origin: 0 50%;
     @include tablet-portrait-and-down {
-      height: 100%;
-    }
-    .container {
-      height: 100%;
+      height: 420px;
     }
 }
 div.content {
