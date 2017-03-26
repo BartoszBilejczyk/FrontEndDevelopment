@@ -26,6 +26,7 @@
         </div>
         <div class="col-xs-12 col-md-8 col-lg-5">
           <div class="right-box">
+              <div class="green-cap"></div>
               <div class="content">
                 <h1 class="title">Your account</h1>
                 <div class="content-in-right-box">
@@ -307,7 +308,7 @@
                         <input type="text" placeholder="01" v-model="month" required id="month">
                       </div>
                       <div class="mui-textfield col hidden-xs-down">
-                        <input type="text" placeholder="January" v-model="month" required id="month">
+                        <input type="text" placeholder="January" v-model="month" required id="month-full">
                       </div>
                       <div class="form-hr"></div>
                       <div class="mui-textfield col">
@@ -406,7 +407,7 @@ html {
     margin: 0;
     padding: 0;
     max-width: 100vw;
-    font-size: 14px;
+    font-size: 16px;
 }
 #app {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
@@ -485,16 +486,22 @@ div.main {
     z-index: 1;
     top: 0;
     left: 0;
-
+    overflow: hidden;
 }
 div.gradient-drop {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 3;
+    @include mobile-only {
+      top: -12%;
+      left: -3%;
+    }
     img {
       animation: 6s getBigger 0.5s;
-      width: 90%;
+      @include mobile-only {
+        max-width: 600px;
+      }
     }
 }
 div.top-lines {
@@ -546,14 +553,14 @@ div.left-box {
     background: url('../src/assets/left_box.png');
 }
 .lines {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  animation: fadeInRightBox 1.2s;
-  transform-origin: 0 50%;
-  background: url('../src/assets/LINES.png');
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: fadeInRightBox 1.2s;
+    transform-origin: 0 50%;
+    background: url('../src/assets/LINES.png');
 }
 div.right-box {
     position: relative;
@@ -573,19 +580,35 @@ div.right-box {
     @include tablet-portrait-and-down {
       height: 420px;
     }
+    .green-cap {
+      position: absolute;
+      top: -1px;
+      left: 9%;
+      height: 2px;
+      width: 70px;
+      background: #1bfec0;
+      @include tablet-portrait-and-down {
+        left: 5%;
+        width: 70px;
+      }
+    }
 }
 div.content {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10%;
+    @include tablet-portrait-and-down {
+      padding: 5%
+    }
 }
 h1.title {
     position: absolute;
     top: -4rem;
+    margin-left: 10px;
     font-size: 2.8rem;
     font-weight: lighter;
     @include tablet-portrait-and-down {
@@ -596,22 +619,23 @@ h1.title {
 p.subtitle {
     color: $text;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-left: 10px;
     @include tablet-portrait-and-down {
       font-size: 0.9rem;
     }
 }
 
 .content-in-right-box {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: 100%;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    justify-content: space-around;
 }
 
 .error {
-  color: red;
+    color: red;
 }
 
 form {
@@ -624,7 +648,7 @@ form {
   }
   p {
   position: relative;
-  margin-left: 65px;
+  margin-left: 70px;
   height: 40px;
   }
 }
@@ -635,28 +659,33 @@ form {
   width: 100%;
 }
 
-.mui-textfield>input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid lightgray;
-  border-radius: 0;
-  outline: none;
-  width: 100%;
-  padding: 0;
-  box-shadow: none;
-  box-sizing: content-box;
-  transition: all 0.3s;
-  color: $text;
+.mui-textfield {
+  >input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $form-inactive;
+    border-radius: 0;
+    outline: none;
+    width: 100%;
+    padding-left: 10px;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+    color: $text;
+  }
+  >label {
+    padding-left: 10px;
+  }
 }
 
 label#day {
   width: 200%;
 }
 
-input#day, input#month, input#year {
+input#day, input#month, input#month-full, input#year {
   margin-top: 6px;
-  border: 2px solid lightgray;
-  padding: 2px 0 0 10px;
+  border: 2px solid $form-inactive;
+  padding: 3px 0 0 10px;
   height: 40px;
   &:focus {
     border: 2px solid $form-purple;
@@ -666,12 +695,12 @@ input#day, input#month, input#year {
 
 
   .gender-icon {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    border: 2px solid lightgray;
+    border: 2px solid $form-inactive;
     top: -2px;
-    left: -50px;
+    left: -55px;
     z-index: 5;
     span:first-child {
       position: absolute;
@@ -684,7 +713,7 @@ input#day, input#month, input#year {
     .gender-icon-big-square {
       position: absolute;
       background: #efeff2;
-      border: 2px solid lightgray;
+      border: 2px solid $form-inactive;
       height: 12px;
       width: 12px;
       top: calc(50% - 7px);
@@ -692,17 +721,27 @@ input#day, input#month, input#year {
     }
     .gender-icon-small-square {
       position: absolute;
-      background: lightgray;
+      background: $form-inactive;
       height: 2px;
       width: 2px;
       top: calc(50% - 2px);
       right: -2px;
     }
   }
-  .mui-select__menu {
+
+  .mui-select {
+    > select {
+      border-bottom: 2px solid $form-inactive;
+      padding-left: 10px;
+    }
+    > label {
+      padding-left: 10px;
+    }
+    &__menu {
       z-index: 10;
       max-height: 250px;
       overflow-y: auto;
+    }
   }
 
 .form-hr {
@@ -873,11 +912,11 @@ div.steps {
 @keyframes getBigger {
   0% {
     height: auto;
-    width: 80%
+    width: 85%
   }
   to {
     height: auto;
-    width: 90%
+    width: 100%
   }
 }
 
