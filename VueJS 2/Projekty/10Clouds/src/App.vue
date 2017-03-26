@@ -274,15 +274,27 @@
                     <div class="row">
                       <p>
                         <input type="radio" name="group1" id="gender-female" value="female" v-model="gender" required>
-                        <label for="gender-female"><span class="radio"><span class="gender-icon">
-                          <img src="../src/assets/female.png" alt="">
-                        </span></span></label>
-
+                        <label for="gender-female">
+                          <span class="radio">
+                            <span class="gender-icon">
+                              <span class="icon-venus"></span>
+                              <span class="gender-icon-big-square"></span>
+                              <span class="gender-icon-small-square"></span>
+                            </span>
+                          </span>
+                        </label>
                        </p>
                        <p>
                          <input type="radio" name="group1" id="gender-male" value="male" v-model="gender" required>
-                         <label for="gender-male"><span class="radio"><span class="gender-icon">
-                         <img src="../src/assets/male.png" alt=""></span></span></label>
+                         <label for="gender-male">
+                           <span class="radio">
+                             <span class="gender-icon">
+                               <span class="icon-mars"></span>
+                               <span class="gender-icon-big-square"></span>
+                               <span class="gender-icon-small-square"></span>
+                             </span>
+                           </span>
+                         </label>
                        </p>
                     </div>
                     <div class="row date-of-birth align-items-center">
@@ -304,7 +316,9 @@
                     </div>
                     <button class="submit" name="action" type="submit" @click.prevent="submitForm()">
                       <div class="continue"><span>CONTINUE</span></div>
-                      <div class="arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+                      <div class="arrow"><span class="icon-right">
+
+                      </span></div>
                     </button>
                   </form>
                 </div>
@@ -364,9 +378,9 @@ export default {
         alert(
           `Hey, ${this.name}.
 
-  Thanks for your submission, ${gender}.
+Thanks for your submission, ${gender}.
 
-  PS. We'll send you a discount code on ${this.day}/${this.month} to your mobile ${this.prefix} ${this.mobile}`
+PS. We'll send you a discount code on ${this.day}/${this.month} to your mobile ${this.prefix} ${this.mobile}`
         )
       } else {
         this.error = true
@@ -397,7 +411,6 @@ html {
 #app {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
     position: relative;
-    font-weight: 200
 }
 // LOADER
 .wrapper {
@@ -486,8 +499,8 @@ div.gradient-drop {
 }
 div.top-lines {
     position: absolute;
-    top: 1%;
-    left: 15%;
+    top: 0;
+    left: 10%;
     // height: 155px;
     // width: 604px;
     background: ulr('assets/top-lines.png');
@@ -497,7 +510,7 @@ div.top-lines {
     }
     img {
       animation: 6s getBiggerTopLines 0.5s;
-      width: 110%;
+      width: 115%;
       height: auto;
     }
 }
@@ -625,7 +638,7 @@ form {
 .mui-textfield>input {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #9e9e9e;
+  border-bottom: 2px solid lightgray;
   border-radius: 0;
   outline: none;
   width: 100%;
@@ -641,9 +654,9 @@ label#day {
 }
 
 input#day, input#month, input#year {
-  margin-top: 10px;
-  border: 1px solid #9e9e9e;
-  padding: 5px 0 0 8px;
+  margin-top: 6px;
+  border: 2px solid lightgray;
+  padding: 2px 0 0 10px;
   height: 40px;
   &:focus {
     border: 2px solid $form-purple;
@@ -656,15 +669,34 @@ input#day, input#month, input#year {
     width: 45px;
     height: 45px;
     position: absolute;
-    border: 1px solid #9e9e9e;
+    border: 2px solid lightgray;
     top: -2px;
     left: -50px;
     z-index: 5;
-    img {
+    span:first-child {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      line-height: 1rem;
+    }
+    .gender-icon-big-square {
+      position: absolute;
+      background: #efeff2;
+      border: 2px solid lightgray;
+      height: 12px;
+      width: 12px;
+      top: calc(50% - 7px);
+      right: -7px;
+    }
+    .gender-icon-small-square {
+      position: absolute;
+      background: lightgray;
+      height: 2px;
+      width: 2px;
+      top: calc(50% - 2px);
+      right: -2px;
     }
   }
   .mui-select__menu {
@@ -737,7 +769,7 @@ div.arrow {
     align-items: center;
     animation: 1.8s fadeInArrowWrapper;
     transform-origin: 50% 100%;
-    i.fa-long-arrow-right {
+    span.icon-right {
       animation: 2.3s fadeInArrow;
     }
 }
@@ -787,9 +819,13 @@ div.steps {
   display: none;
 }
 
+[type="radio"]:checked + label .gender-icon,
+[type="radio"]:checked + label .gender-icon-big-square {
+  border: 2px solid $form-green;
+}
 
-[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after,  [type="radio"]:checked + label .gender-icon  {
-    border: 2px solid $form-green;
+[type="radio"]:checked + label .gender-icon-small-square {
+  background: $form-green;
 }
 
 .mui-textfield>input:focus, .mui-textfield>textarea:focus, .mui-select:focus>select {
@@ -852,7 +888,7 @@ div.steps {
   }
   to {
     height: auto;
-    width: 110%
+    width: 115%
   }
 }
 
