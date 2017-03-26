@@ -600,9 +600,15 @@ div.content {
     align-items: stretch;
     flex-direction: column;
     justify-content: center;
-    padding: 10%;
+    padding-top: 10%;
+    padding-right: calc(10% + 10px);
+    padding-bottom: 10%;
+    padding-left: 10%;
     @include tablet-portrait-and-down {
-      padding: 5%
+      padding-top: 5%;
+      padding-right: calc(5% + 10px);
+      padding-bottom: 5%;
+      padding-left: 5%;
     }
 }
 h1.title {
