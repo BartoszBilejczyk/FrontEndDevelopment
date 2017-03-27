@@ -53,13 +53,6 @@
                         <label>Your name</label>
                       </div>
                     </div>
-                    {{prefix}}
-                    {{name}}
-                    {{day}}
-                    {{month}}
-                    {{year}}
-                    {{mobile}}
-                    {{gender}}
                     <div class="row">
                       <div class="mui-select col col-5">
                         <select v-model="prefix">
@@ -324,8 +317,6 @@ html {
       transform-origin: 100% 100%;
     }
 }
-
-
 .main-container, .main-row {
     min-height: 100vh;
     z-index: 5;
