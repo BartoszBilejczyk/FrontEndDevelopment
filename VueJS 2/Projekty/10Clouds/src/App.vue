@@ -2,19 +2,17 @@
 <div id="app">
   <div class="wrapper" v-if="preLoad">
     <div class="bg"></div>
-    <img src="../src/assets/logo-kopia.png" alt="" class="logo" />
+    <img src="../src/assets/logo-kopia.png" alt='10Clouds logo' class='logo' />
   </div>
   <div class="main" >
-    <!-- <svgicon icon="gradient-bg"></svgicon> -->
     <div class="gradient-drop">
-        <!-- <icon name="gradient"></icon> -->
-        <img src="../src/assets/gradient.png" class="img-fluid" alt="">
+        <img src="../src/assets/gradient.png" class="img-fluid" alt='Gradient background'>
     </div>
     <div class="top-lines">
-      <img src="../src/assets/top-lines.png" alt="img-fluid">
+      <img src="../src/assets/top-lines.png" class="img-fluid" alt='top lines'>
     </div>
     <div class="bottom-lines">
-      <img src="../src/assets/bottom-lines.png" alt="img-fluid">
+      <img src="../src/assets/bottom-lines.png" class="img-fluid" alt='bottom lines'>
     </div>
     <div class="container main-container" v-if="afterLoad">
       <div class="row no-gutters main-row align-items-center">
@@ -37,7 +35,7 @@
                   <form action="" class="mui-form">
                     <div class="row">
                       <div class="mui-textfield col-12">
-                        <input type="text" placeholder="John Doe" v-model="name" required>
+                        <input type="text" placeholder="John Doe" v-model="name" required class="name">
                         <label>Your name</label>
                       </div>
                     </div>
@@ -47,7 +45,7 @@
                           <!-- Countries often selected by users can be moved to the top of the list. -->
                           <!-- Countries known to be subject to general US embargo are commented out by default. -->
                           <!-- The data-countryCode attribute is populated with ISO country code, and value is int'l calling code. -->
-                          <option value="" placeholder="Prefix">Prefix</option>
+                          <option value="" :placeholder="prefix">Prefix</option>
                           <option data-countryCode="PL" value="48">+48 (PL)</option>
                           <option data-countryCode="DZ" value="213">+213 (DZ)</option>
                           <option data-countryCode="AD" value="376">+376 (AD)</option>
@@ -56,7 +54,7 @@
                           <option data-countryCode="AG" value="1268">+1268 (AG)</option>
                           <option data-countryCode="AR" value="54">+54 (AR)</option>
                           <option data-countryCode="AM" value="374">+374 (AM)</option>
-                          <!-- <option data-countryCode="AW" value="297">+297 (AW)</option>
+                          <option data-countryCode="AW" value="297">+297 (AW)</option>
                           <option data-countryCode="AU" value="61">+61 (AU)</option>
                           <option data-countryCode="AT" value="43">+43 (AT)</option>
                           <option data-countryCode="AZ" value="994">+994 (AZ)</option>
@@ -261,7 +259,7 @@
                           <option data-countryCode="YE" value="969">+969 ()</option>
                           <option data-countryCode="YE" value="967">+967 ()</option>
                           <option data-countryCode="ZM" value="260">+260 ()</option>
-                          <option data-countryCode="ZW" value="263">+263 ()</option> -->
+                          <option data-countryCode="ZW" value="263">+263 ()</option>
                         </select>
                         <label>Mobile</label>
                       </div>
@@ -368,7 +366,9 @@ export default {
       gender: '',
       day: '',
       month: '',
-      year: ''
+      year: '',
+      yearInput: document.getElementById('year'),
+      currentElement: document.activeElement
     }
   },
   methods: {
@@ -413,7 +413,6 @@ html {
     font-family: 'Nimbus Sans', Helvetica, Arial, sans-serif;
     position: relative;
 }
-// LOADER
 .wrapper {
   position: absolute;
   width: 100vw;
@@ -432,37 +431,7 @@ html {
   opacity: 1;
 
 }
-@keyframes loader {
-  0% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0
-  }
-}
+
 .logo {
   position: absolute;
   width: 20%;
@@ -477,7 +446,7 @@ html {
   }
 }
 // END OF LOADER
-div.main {
+.main {
     position: absolute;
     background-color: $base-bg;
     width: 100vw;
@@ -488,7 +457,7 @@ div.main {
     left: 0;
     overflow: hidden;
 }
-div.gradient-drop {
+.gradient-drop {
     position: absolute;
     top: 0;
     left: 0;
@@ -499,12 +468,13 @@ div.gradient-drop {
     }
     img {
       animation: 6s getBigger 0.5s;
+      height: auto;
       @include mobile-only {
         max-width: 600px;
       }
     }
 }
-div.top-lines {
+.top-lines {
     position: absolute;
     top: 0;
     left: 10%;
@@ -512,17 +482,16 @@ div.top-lines {
     // width: 604px;
     background: ulr('assets/top-lines.png');
     z-index: 2;
-    @include tablet-landscape-and-down {
+    @include desktop-and-down {
       display: none;
     }
     img {
       animation: 6s getBiggerTopLines 0.5s;
-      width: 115%;
       height: auto;
     }
 }
 
-div.bottom-lines {
+.bottom-lines {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -539,12 +508,12 @@ div.bottom-lines {
 }
 
 
-div.main-container, div.main-row {
+.main-container, .main-row {
     min-height: 100vh;
     z-index: 5;
     margin-bottom: 0;
 }
-div.left-box {
+.left-box {
     // width: 500px;
     position: relative;
     height: 552px;
@@ -562,7 +531,7 @@ div.left-box {
     transform-origin: 0 50%;
     background: url('../src/assets/LINES.png');
 }
-div.right-box {
+.right-box {
     position: relative;
     background: #f9f9fb;
     /* Old browsers */
@@ -593,25 +562,21 @@ div.right-box {
       }
     }
 }
-div.content {
+.content {
     height: 100%;
     width: 100%;
     display: flex;
     align-items: stretch;
     flex-direction: column;
     justify-content: center;
-    padding-top: 10%;
+    padding: 10% calc(10% + 10px) 10% 10%;
+    // Added 10px to make up for padding that's added to inputs
     padding-right: calc(10% + 10px);
-    padding-bottom: 10%;
-    padding-left: 10%;
     @include tablet-portrait-and-down {
-      padding-top: 5%;
-      padding-right: calc(5% + 10px);
-      padding-bottom: 5%;
-      padding-left: 5%;
+      padding: 5% calc(5% + 10px) 5% 5%;
     }
 }
-h1.title {
+.title {
     position: absolute;
     top: -4rem;
     margin-left: 10px;
@@ -622,7 +587,7 @@ h1.title {
       top: -3rem;
     }
 }
-p.subtitle {
+.subtitle {
     color: $text;
     width: 100%;
     font-size: 1rem;
@@ -642,6 +607,8 @@ p.subtitle {
 
 .error {
     color: red;
+    font-size: 0.8rem;
+    padding-left: 10px;
 }
 
 form {
@@ -654,7 +621,7 @@ form {
   }
   p {
   position: relative;
-  margin-left: 70px;
+  margin-left: 75px;
   height: 40px;
   }
 }
@@ -681,6 +648,7 @@ form {
   }
   >label {
     padding-left: 10px;
+    color: #d0d0d7;
   }
 }
 
@@ -688,7 +656,7 @@ label#day {
   width: 200%;
 }
 
-input#day, input#month, input#month-full, input#year {
+input#day, #month, #month-full, #year {
   margin-top: 6px;
   border: 2px solid $form-inactive;
   padding: 3px 0 0 10px;
@@ -706,7 +674,7 @@ input#day, input#month, input#month-full, input#year {
     position: absolute;
     border: 2px solid $form-inactive;
     top: -2px;
-    left: -55px;
+    left: -60px;
     z-index: 5;
     span:first-child {
       position: absolute;
@@ -739,14 +707,21 @@ input#day, input#month, input#month-full, input#year {
     > select {
       border-bottom: 2px solid $form-inactive;
       padding-left: 10px;
+      height: 34px;
+      @include mobile-only {
+        font-size: 0.8rem;
+      }
     }
     > label {
       padding-left: 10px;
+      color: #d0d0d7;
     }
     &__menu {
       z-index: 10;
       max-height: 250px;
       overflow-y: auto;
+      top: 20px !important;
+      background: #f9f9fb;
     }
   }
 
@@ -758,7 +733,7 @@ input#day, input#month, input#month-full, input#year {
   margin-left: 6px;
   margin-right: -6px;
 }
-button.submit {
+.submit {
     position: absolute;
     width: 50%;
     min-width: 150px;
@@ -790,8 +765,8 @@ button.submit {
       outline: none;
     }
 }
-div.continue {
-  font-size: 1rem;
+.continue {
+    font-size: 0.85rem;
     position: absolute;
     background-color: transparent;
     width: calc(100% - 50px);
@@ -802,7 +777,7 @@ div.continue {
     align-items: center;
     height: 100%;
 }
-div.arrow {
+.arrow {
     position: absolute;
     background-color: $purple;
     height: 50px;
@@ -818,7 +793,7 @@ div.arrow {
       animation: 2.3s fadeInArrow;
     }
 }
-div.steps {
+.steps {
     position: absolute;
     left: 100%;
     top: 8%;
@@ -826,13 +801,14 @@ div.steps {
     animation: 1.8s fadeInSteps;
     transform-origin: left;
     z-index: -1;
+    font-size: 0.8rem;
     @include tablet-portrait-and-down {
       display: none;
     }
     .step {
         padding: 25% 0;
         &.active {
-            color: #fff;
+            color: #f2f2f2;
         }
     }
     .line {
@@ -848,17 +824,6 @@ div.steps {
         padding: 10px 10px;
     }
 }
-//
-// [type="radio"]:not(:checked)+label:after, [type="radio"]:not(:checked)+label:after {
-//     -webkit-transform: scale(0);
-//     transform: scale(1);
-//     height: 40px;
-//     width: 40px;
-//     border-radius: 0;
-//     top: -12.5px;
-//     left: -30px;
-//   }
-
 
 [type="radio"] {
   display: none;
@@ -880,7 +845,42 @@ div.steps {
 .mui-textfield>input:focus~label, .mui-textfield>textarea:focus~label, .mui-select:focus>label, .mui-select>select:focus~label {
   color: $form-purple
 }
+
   //  Animations
+  // loader
+  @keyframes loader {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0
+    }
+  }
+  // End of loader
+
 @keyframes fadeIn {
   from {
     transform: scaleX(0);

@@ -27,6 +27,12 @@ $desktop-width: 1200px;
   }
 }
 
+@mixin desktop-and-down {
+  @media (max-width: $desktop-width - 1px) {
+    @content;
+  }
+}
+
 @mixin tablet-portrait-and-up {
   @media (min-width: $tablet-portrait-width) {
     @content;
