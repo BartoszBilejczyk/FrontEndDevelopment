@@ -254,7 +254,7 @@ html {
   @include tablet-landscape-and-down {
     width: 70%;
   }
-}
+} 
 // END OF LOADER
 .main {
     position: absolute;
