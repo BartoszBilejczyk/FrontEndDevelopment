@@ -22,6 +22,7 @@
         <calendar-day class="" v-for="day in week" :day="day"></calendar-day>
       </div>
     </div>
+    <event-form></event-form>
   </div>
 
 </template>
@@ -29,13 +30,9 @@
 <script>
 import CalendarDay from './CalendarDay.vue'
 import CurrentMonth from './CurrentMonth.vue'
+import EventForm from './EventForm.vue'
+
 export default {
-  data() {
-    return {
-      month: 3,
-      year: 2017
-    }
-  },
   computed: {
     month() {
       return this.$store.state.currentMonth
@@ -94,7 +91,8 @@ export default {
   },
   components: {
     CalendarDay,
-    CurrentMonth
+    CurrentMonth,
+    EventForm 
   }
 }
 
