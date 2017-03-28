@@ -3,10 +3,13 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  store: {
-    state: {
-      currentYear: 2017,
-      currentMonth: 3
+  state: {
+    currentYear: 2017,
+    currentMonth: 3
+  },
+  mutations: {
+    setCurrentMonth(state, payload) {
+      state.currentMonth = payload
     }
   }
 })
