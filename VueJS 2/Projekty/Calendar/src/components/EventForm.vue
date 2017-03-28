@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="event-form" :class="" style="active" :style="{top: '500px', left: '500px'}"></div>
+  <div id="event-form" :class="" class="active" :style="{top: '500px', left: '500px'}"></div>
 </template>
 
 <script>

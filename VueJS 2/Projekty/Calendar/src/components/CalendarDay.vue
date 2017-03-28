@@ -1,5 +1,5 @@
 <template lang="html">
-  <div :class="classObject">
+  <div :class="classObject" @click="captureClick">
     <!-- this day is moment object so we can format it inside here -->
     {{ day.format('D') }}
   </div>
@@ -16,6 +16,11 @@
           today: this.day.isSame(this.$moment(), 'day'),
           past: this.day.isBefore(this.$moment(), 'day')
         }
+      }
+    },
+    methods: {
+      captureClick(event) {
+        this.$store.commit('eventFormPosition', {x: event.clientX, y: event.clientY })
       }
     }
   }
