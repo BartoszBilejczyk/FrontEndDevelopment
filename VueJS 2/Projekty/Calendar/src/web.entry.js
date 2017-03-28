@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import './style.scss';
+
+import store from './store'
 import App from './components/App.vue';
 
 import moment from '../node_modules/moment-timezone'
@@ -14,5 +16,6 @@ new Vue({
   },
   components: {
     App
-  }
+  },
+  store
 });
