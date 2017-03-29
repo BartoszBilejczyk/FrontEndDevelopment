@@ -1,9 +1,10 @@
 <template lang="html">
 <div id="event-form" :class="{ active: active }" :style="{top: top, left: left}">
     <h4>Add event</h4>
+    <span>{{ date.format('dddd, MMM Do') }}</span>
     <span v-if="error" class="error">Please provide a name for the event</span>
     <div class="text">
-      <input type="text" v-focus v-model="description" :placeholder="inputPlaceholder" @keyup.enter="create">
+      <input type="text" class="add-event" v-focus v-model="description" :placeholder="inputPlaceholder" @keyup.enter="create">
     </div>
     <div class="buttons">
       <button @click="create">Create</button>
@@ -36,8 +37,11 @@ export default {
     }
   },
   computed: {
+    date() {
+      return this.$store.state.eventFormDay
+    },
     inputPlaceholder() {
-      if (this.$store.state.eventFormDay.format('DD MM YYYY') == this.$moment().format('DD MM YYYY')) {
+      if (this.$store.state.eventFormDay.format('DD MM YYYY') === this.$moment().format('DD MM YYYY')) {
         return 'What are your plans for today?'
       } else {
         return 'What are your plans?'

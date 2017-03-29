@@ -7,11 +7,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    currentYear: 2017,
-    currentMonth: 3,
+    currentYear: moment().year(),
+    currentMonth: moment().month() + 1,
     eventFormPositionX: 0,
     eventFormPositionY: 0,
-    eventFormDay: '',
+    eventFormDay: moment(),
     eventFormActive: false,
     events: [
       { description: 'Do laundry', date: moment('2017-03-03', 'YYYY-MM-DD') },
