@@ -24,6 +24,7 @@ export default {
   methods: {
     close() {
       this.$store.commit('eventFormActive', false)
+      this.$store.commit('changeActiveDay', false)
     },
     create() {
       if (this.description.length > 0) {
@@ -38,10 +39,10 @@ export default {
   },
   computed: {
     date() {
-      return this.$store.state.eventFormDay
+      return this.$store.state.eventFormDate
     },
     inputPlaceholder() {
-      if (this.$store.state.eventFormDay.format('DD MM YYYY') === this.$moment().format('DD MM YYYY')) {
+      if (this.$store.state.eventFormDate.format('DD MM YYYY') === this.$moment().format('DD MM YYYY')) {
         return 'What are your plans for today?'
       } else {
         return 'What are your plans?'

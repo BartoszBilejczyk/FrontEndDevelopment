@@ -11,8 +11,9 @@ export default new Vuex.Store({
     currentMonth: moment().month() + 1,
     eventFormPositionX: 0,
     eventFormPositionY: 0,
-    eventFormDay: moment(),
+    eventFormDate: moment(),
     eventFormActive: false,
+    isDayActive: false,
     events: [
       { description: 'Do laundry', date: moment('2017-03-03', 'YYYY-MM-DD') },
       { description: 'Meeting with CEO', date: moment('2017-04-03', 'YYYY-MM-DD') },
@@ -36,11 +37,14 @@ export default new Vuex.Store({
     addEvent(state, payload) {
       state.events.push({
        description: payload,
-       date: state.eventFormDay
+       date: state.eventFormDate
       })
     },
-    eventFormDay(state, payload) {
-      state.eventFormDay = payload
+    eventFormDate(state, payload) {
+      state.eventFormDate = payload
+    },
+    changeActiveDay(state, payload) {
+      state.isDayActive = payload
     }
   }
 })

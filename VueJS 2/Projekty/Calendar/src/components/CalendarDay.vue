@@ -17,7 +17,8 @@
         return {
           day: true,
           today: this.day.isSame(this.$moment(), 'day'),
-          past: this.day.isBefore(this.$moment(), 'day')
+          past: this.day.isBefore(this.$moment(), 'day'),
+          active: this.$store.state.eventFormDate.isSame(this.day, 'day') && this.$store.state.eventFormActive
         }
       },
       events() {
@@ -28,8 +29,9 @@
     methods: {
       captureClick(event) {
         this.$store.commit('eventFormActive', true)
-        this.$store.commit('eventFormPosition', {x: event.clientX, y: event.clientY })
-        this.$store.commit('eventFormDay', this.day)
+        this.$store.commit('eventFormPosition', { x: event.clientX, y: event.clientY })
+        this.$store.commit('eventFormDate', this.day),
+        this.$store.commit('changeActiveDay', true)
       }
     }
   }
