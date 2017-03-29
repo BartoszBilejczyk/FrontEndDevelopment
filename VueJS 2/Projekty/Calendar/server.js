@@ -14,10 +14,21 @@ app.get('/', (req, res) => {
 
 });
 
+let events = [];
+
+
+// this is used to pass the event as json object
+app.use(require('body-parser').json());
+
 // first argument is path, second is where we handle our event
 app.post('/add_event', (req, res) => {
-  console.log('received')
+  //to be able to send data back to the browser
+  events.push(req.body)
+  res.sendStatus(200)
 });
+
+
+
 
 const server = http.createServer(app);
 
