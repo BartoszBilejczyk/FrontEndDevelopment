@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import moment from 'moment-timezone'
-moment.tz.setDefault('UTC')
+moment.tz.setDefault('UTC');
+
+import axios from 'axios';
 
 Vue.use(Vuex)
 
@@ -34,11 +36,14 @@ export default new Vuex.Store({
     eventFormActive(state, payload) {
       state.eventFormActive = payload
     },
+    // this will send data to the server
     addEvent(state, payload) {
-      state.events.push({
-       description: payload,
-       date: state.eventFormDate
-      })
+      let obj = {
+        description: payload,
+        date: state.eventFormDate
+      }
+      state.events.push(obj);
+      axios.post('/add_event', obj)
     },
     eventFormDate(state, payload) {
       state.eventFormDate = payload
