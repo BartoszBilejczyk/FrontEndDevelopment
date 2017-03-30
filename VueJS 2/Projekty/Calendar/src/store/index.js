@@ -17,9 +17,6 @@ export default new Vuex.Store({
     eventFormActive: false,
     isDayActive: false,
     events: [
-      { description: 'Do laundry', date: moment('2017-03-03', 'YYYY-MM-DD') },
-      { description: 'Meeting with CEO', date: moment('2017-04-03', 'YYYY-MM-DD') },
-      { description: `Standup in Jack's Cinema`, date: moment('2017-02-03', 'YYYY-MM-DD') }
     ]
   },
   mutations: {
