@@ -53,8 +53,12 @@ export default new Vuex.Store({
         description: payload,
         date: context.state.eventFormDate
       }
-      context.commit('addEvent', obj)
-      axios.post('/add_event', obj)
+      // I don't want to commit the addEvent until I've got the response 200 from the server (use a promise)
+      axios.post('/add_event', obj).then(response => {
+        if (response.status === 200) {
+          context.commit('addEvent', obj)
+        }
+      })
     }
   }
 })
