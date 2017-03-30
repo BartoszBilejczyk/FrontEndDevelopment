@@ -29,9 +29,11 @@ export default {
     create() {
       if (this.description.length > 0) {
         this.error = false
-        this.$store.dispatch('addEvent', this.description)
-        this.description = ''
-        this.close()
+        // clearing the description and closing the form only after an event is added (chained another promise inside index.js in store)
+        this.$store.dispatch('addEvent', this.description).then(_ => {
+          this.description = ''
+          this.close()
+        })
       } else {
         this.error = true
       }
