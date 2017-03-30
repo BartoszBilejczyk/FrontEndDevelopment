@@ -22,7 +22,7 @@ app.use(require('body-parser').json());
 
 // first argument is path, second is where we handle our event
 app.post('/add_event', (req, res) => {
-  //to be able to send data back to the browser
+  //to be able to send data back to the browser 
   events.push(req.body)
   res.sendStatus(200)
 });

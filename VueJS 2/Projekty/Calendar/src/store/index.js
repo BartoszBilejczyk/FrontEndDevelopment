@@ -38,18 +38,23 @@ export default new Vuex.Store({
     },
     // this will send data to the server
     addEvent(state, payload) {
-      let obj = {
-        description: payload,
-        date: state.eventFormDate
-      }
-      state.events.push(obj);
-      axios.post('/add_event', obj)
+      state.events.push(payload);
     },
     eventFormDate(state, payload) {
       state.eventFormDate = payload
     },
     changeActiveDay(state, payload) {
       state.isDayActive = payload
+    }
+  },
+  actions: {
+    addEvent(context, payload) {
+      let obj = {
+        description: payload,
+        date: context.state.eventFormDate
+      }
+      context.commit('addEvent', obj)
+      axios.post('/add_event', obj)
     }
   }
 })

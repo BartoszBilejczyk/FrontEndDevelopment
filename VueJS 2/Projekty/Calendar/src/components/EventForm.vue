@@ -29,7 +29,7 @@ export default {
     create() {
       if (this.description.length > 0) {
         this.error = false
-        this.$store.commit('addEvent', this.description)
+        this.$store.dispatch('addEvent', this.description)
         this.description = ''
         this.close()
       } else {
