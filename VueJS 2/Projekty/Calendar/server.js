@@ -43,7 +43,11 @@ app.use(require('body-parser').json());
 
 // first argument is path, second is where we handle our event
 app.post('/add_event', (req, res) => {
+<<<<<<< HEAD
   //to be able to send data back to the browser
+=======
+  //to be able to send data back to the browser 
+>>>>>>> parent of 8063339... Created some mock data to replace empty state upon loading
   events.push(req.body)
   res.sendStatus(200)
 });
