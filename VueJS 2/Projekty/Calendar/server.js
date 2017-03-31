@@ -18,9 +18,21 @@ let events = [
   { description: `Standup in Jack's Cinema`, date: moment('2017-02-03', 'YYYY-MM-DD') }
 ]
 
+let renderer;
+
 app.get('/', (req, res) => {
   let template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
   let contentMarker = '<!--APP-->';
+  if (renderer) {
+    renderer.renderToString({}, (err, html) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(html)
+      }
+    })
+  }
+
   // it is parsed to index.html (serialized) and available
   res.send(template.replace(contentMarker, `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>`));
 
@@ -46,7 +58,7 @@ if (process.env.NODE_ENV === 'development') {
   const reloadServer = reload(server, app);
   require('./webpack-dev-middleware').init(app);
   require('./webpack-server-compiler').init(function(bundle) {
-    console.log('Node bundle built')
+    renderer = require('vue-server-renderer').createBundleRenderer(bundle)
   });
 }
 
