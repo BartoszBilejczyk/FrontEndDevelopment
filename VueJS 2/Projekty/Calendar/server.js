@@ -18,20 +18,9 @@ let events = [
   { description: `Standup in Jack's Cinema`, date: moment('2017-02-03', 'YYYY-MM-DD') }
 ]
 
-let renderer;
-
 app.get('/', (req, res) => {
   let template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
   let contentMarker = '<!--APP-->';
-  if (renderer) {
-    renderer.renderToString({}, (err, html) => {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log(html)
-      }
-    })
-  }
 
   // it is parsed to index.html (serialized) and available
   res.send(template.replace(contentMarker, `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>`));
@@ -43,15 +32,9 @@ app.use(require('body-parser').json());
 
 // first argument is path, second is where we handle our event
 app.post('/add_event', (req, res) => {
-<<<<<<< HEAD
-  //to be able to send data back to the browser
-=======
-  //to be able to send data back to the browser 
->>>>>>> parent of 8063339... Created some mock data to replace empty state upon loading
   events.push(req.body)
   res.sendStatus(200)
 });
-
 
 
 
@@ -61,9 +44,6 @@ if (process.env.NODE_ENV === 'development') {
   const reload = require('reload');
   const reloadServer = reload(server, app);
   require('./webpack-dev-middleware').init(app);
-  require('./webpack-server-compiler').init(function(bundle) {
-    renderer = require('vue-server-renderer').createBundleRenderer(bundle)
-  });
 }
 
 server.listen(process.env.PORT, function () {

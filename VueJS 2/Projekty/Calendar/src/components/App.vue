@@ -93,6 +93,9 @@ export default {
     CalendarDay,
     CurrentMonth,
     EventForm
+  },
+  mounted() {
+    console.log(this.$store.state.events)
   }
 }
 
