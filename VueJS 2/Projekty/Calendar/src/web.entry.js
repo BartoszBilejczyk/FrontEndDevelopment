@@ -1,14 +1,9 @@
-import Vue from 'vue';
-import './style.scss';
+// this just includes things for the browser. Entry.js includes eveything for server-side rendering. This is client-entry file 
 
-import store from './store'
+import './style.scss';
 
 import moment from '../node_modules/moment-timezone'
 moment.tz.setDefault('UTC')
-Object.defineProperty(Vue.prototype, '$moment', { get() { return this.$root.moment } });
-
-import App from './components/App.vue';
-
 
 let events = window.__INITIAL_STATE__.map(event => {
   return {
@@ -17,19 +12,6 @@ let events = window.__INITIAL_STATE__.map(event => {
   }
 })
 
-//replace state object from index.js with object I provide here
-// initialState merges store.state and then events is passed into it, and upon loading store.state.events is not empty anymore
+import VueCalendar from './entry.js'
 
-let initialState = Object.assign({}, store.state, { events })
-store.replaceState(initialState)
-
-new Vue({
-  el: '#app',
-  data: {
-    moment
-  },
-  components: {
-    App
-  },
-  store
-});
+VueCalendar(events).$mount('#app')

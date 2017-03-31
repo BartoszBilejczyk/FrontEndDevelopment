@@ -45,6 +45,9 @@ if (process.env.NODE_ENV === 'development') {
   const reload = require('reload');
   const reloadServer = reload(server, app);
   require('./webpack-dev-middleware').init(app);
+  require('./webpack-server-compiler').init(function(bundle) {
+    console.log('Node bundle built')
+  });
 }
 
 server.listen(process.env.PORT, function () {
