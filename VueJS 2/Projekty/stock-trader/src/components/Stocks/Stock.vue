@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="col s6 m3">
+  <div class="col s12 m6">
     <v-card class="blue-grey darken-1">
         <div class="card-content white-text">
             <span class="card-title">{{ stock.name }}<small> (price: {{ stock.price }})</small></span>
