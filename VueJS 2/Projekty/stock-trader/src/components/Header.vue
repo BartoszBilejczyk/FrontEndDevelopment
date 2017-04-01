@@ -11,8 +11,8 @@
         <li>
           <v-btn v-dropdown:dropdown>Save / Load</v-btn>
           <v-dropdown id="dropdown">
-            <li><a href="#!">Save</a></li>
-            <li><a href="#!">Save</a></li>
+            <li><a @click="saveData">Save</a></li>
+            <li><a href="#!">Load</a></li>
           </v-dropdown>
         </li>
         <li>Funds: {{ funds | currency }}</li>
@@ -25,9 +25,6 @@
 <script>
 import {mapActions} from 'vuex'
 export default {
-  data () {
-    
-  }
   computed: {
     funds () {
       return this.$store.getters.funds
@@ -39,6 +36,17 @@ export default {
     ]),
     endDay () {
       this.randomizeStocks()
+    },
+    saveData () {
+      const data = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks
+      }
+      // $http to use Vue Resource
+      // on Firebase put will overwrite the data
+      // creating node data.json and passing data.
+      this.$http.put('data.json', data)
     }
   }
 }
