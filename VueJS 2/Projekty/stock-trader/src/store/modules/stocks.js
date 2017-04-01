@@ -16,7 +16,8 @@ const mutations = {
 const actions = {
   // normally would use (context), but I only need commit from the context so ({})
   buyStock: ({commit}, order) => {
-    commit()
+    // it will refer to the mutation from portfolio.js
+    commit('BUY_STOCK', order)
   },
   // initialize stocks
   initStocks: ({commit}) => {
