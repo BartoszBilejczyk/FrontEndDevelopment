@@ -6,7 +6,7 @@
             <input type="number" placeholder="Quantity" v-model="quantity">
             <button class="btn"
                     :disabled="quantity <= 0 || !Number.isInteger(Number(this.quantity))"
-                    @click="buyStock">Sell</button>
+                    @click="sellStock">Sell</button>
         </div>
     </v-card>
     {{quantity}}
@@ -24,9 +24,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'sellStock'
-    ]),
+    ...mapActions({
+      placeSellOrder: 'sellStock'
+    }),
     sellStock () {
       const order = {
         stockId: this.stock.id,
@@ -35,7 +35,8 @@ export default {
       }
       console.log(order)
       // this.sellStock can be used thanks to ...mapActions
-      this.sellStock
+      this.placeSellOrder(order)
+      this.quantity = 0
     }
   }
 }
