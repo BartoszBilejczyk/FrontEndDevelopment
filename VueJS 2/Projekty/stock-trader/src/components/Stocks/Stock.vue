@@ -3,10 +3,11 @@
     <v-card class="blue-grey darken-1">
         <div class="card-content white-text">
             <span class="card-title">{{ stock.name }}<small> (price: {{ stock.price }})</small></span>
-            <input type="number" placeholder="Quantity" v-model="quantity">
+            <input type="number" placeholder="Quantity" v-model="quantity" :class="{danger: noFunds}">
+            <span v-if="quantity > 0">Transaction value: {{ this.quantity * this.stock.price }}</span>
             <button class="btn"
-                    :disabled="quantity <= 0 || !Number.isInteger(Number(this.quantity))"
-                    @click="buyStock">Buy</button>
+                    :disabled="noFunds || quantity <= 0 || !Number.isInteger(Number(this.quantity))"
+                    @click="buyStock">{{ noFunds ? 'Insufficient funds' : 'Buy'}}</button>
         </div>
     </v-card>
     {{quantity}}
@@ -19,6 +20,15 @@ export default {
   data () {
     return {
       quantity: 0
+    }
+  },
+  computed: {
+    funds () {
+      return this.$store.getters.funds
+    },
+    noFunds () {
+      // will return true if I don't have enough money
+      return this.quantity * this.stock.price > this.funds
     }
   },
   methods: {
@@ -36,5 +46,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss" scoped>
+
+.danger {
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
+}
+
 </style>
