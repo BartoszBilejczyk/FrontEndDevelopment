@@ -1,24 +1,31 @@
 <template>
   <div id="app">
-    <div class="container">
-      <v-btn>Button</v-btn>
+    <app-header></app-header>
+    <div class="row">
+      <div class="col s12">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {}
+  },
+  components: {
+    appHeader: Header
+  }
 }
 </script>
 
 <style lang='scss'>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+
 }
 </style>
