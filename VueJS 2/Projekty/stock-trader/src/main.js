@@ -11,6 +11,8 @@ import store from './store/store'
 Vue.use(Materials)
 Vue.use(VueResource)
 
+Vue.http.options.root = 'https://vue-trader.firebaseio.com/'
+
 Vue.filter('currency', (value) => {
   return '$' + value.toLocaleString()
 })
