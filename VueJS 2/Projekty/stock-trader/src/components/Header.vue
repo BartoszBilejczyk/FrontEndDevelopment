@@ -7,9 +7,7 @@
         <router-link to="/stocks" activeClass="active" tag="li"><a>Stocks</a></router-link>
       </ul>
       <ul class="right">
-            <li>
-          <a href="#!">End day</a>
-        </li>
+        <li><a href="#!">End day</a></li>
         <li>
           <v-btn v-dropdown:dropdown>Save / Load</v-btn>
           <v-dropdown id="dropdown">
@@ -21,8 +19,20 @@
             </li>
           </v-dropdown>
         </li>
+        <li>Funds: {{ funds }}</li>
       </ul>
       <v-side-nav id="side2" slot="side-nav"></v-side-nav>
     </div>
   </v-nav>
 </template>
+
+<script>
+  export default {
+    computed: {
+      funds () {
+        return this.$store.getters.funds
+      }
+    }
+  }
+
+</script>
