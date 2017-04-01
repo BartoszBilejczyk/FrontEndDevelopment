@@ -3,7 +3,9 @@
     <app-header></app-header>
     <div class="row">
       <div class="col s12">
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </div>
     </div>
   </div>
@@ -31,4 +33,15 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
 
 }
+
+.fade-enter, .fade-leave-to {
+  opacity: 0.1
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s
+}
+
+
+
 </style>

@@ -4,10 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Materials from 'vue-materials'
+import VueResource from 'vue-resource'
 
 import store from './store/store'
 
 Vue.use(Materials)
+Vue.use(VueResource)
 
 Vue.filter('currency', (value) => {
   return '$' + value.toLocaleString()
