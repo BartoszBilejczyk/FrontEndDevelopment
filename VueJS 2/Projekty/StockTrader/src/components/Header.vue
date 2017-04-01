@@ -12,7 +12,7 @@
           <v-btn v-dropdown:dropdown>Save / Load</v-btn>
           <v-dropdown id="dropdown">
             <li><a @click="saveData">Save</a></li>
-            <li><a href="#!">Load</a></li>
+            <li><a @click="loadData">Load</a></li>
           </v-dropdown>
         </li>
         <li>Funds: {{ funds | currency }}</li>
@@ -31,9 +31,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'randomizeStocks'
-    ]),
+    ...mapActions({
+      randomizeStocks: 'randomizeStocks',
+      fetchData: 'loadData'
+    }),
     endDay () {
       this.randomizeStocks()
     },
@@ -47,6 +48,9 @@ export default {
       // on Firebase put will overwrite the data
       // creating node data.json and passing data.
       this.$http.put('data.json', data)
+    },
+    loadData () {
+      this.fetchData()
     }
   }
 }
