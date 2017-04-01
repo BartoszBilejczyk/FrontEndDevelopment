@@ -19,7 +19,7 @@
             </li>
           </v-dropdown>
         </li>
-        <li>Funds: {{ funds }}</li>
+        <li>Funds: {{ funds | currency }}</li>
       </ul>
       <v-side-nav id="side2" slot="side-nav"></v-side-nav>
     </div>

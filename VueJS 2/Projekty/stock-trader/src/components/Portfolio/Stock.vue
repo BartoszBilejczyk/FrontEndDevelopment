@@ -3,10 +3,11 @@
     <v-card class="blue-grey darken-1">
         <div class="card-content white-text">
             <span class="card-title">{{ stock.name }}<small> (price: {{ stock.price }}) | quantity: {{ stock.quantity }}</small></span>
-            <input type="number" placeholder="Quantity" v-model="quantity">
+            <input type="number" placeholder="Quantity" v-model="quantity" :class="{danger: noQuantity}">
+            <span v-if="quantity > 0">Transaction value: {{ this.quantity * this.stock.price }}</span>
             <button class="btn"
-                    :disabled="quantity <= 0 || !Number.isInteger(Number(this.quantity))"
-                    @click="sellStock">Sell</button>
+                    :disabled="noQuantity || quantity <= 0 || !Number.isInteger(Number(this.quantity))"
+                    @click="sellStock">{{ noQuantity ? 'Not enough stocks' : 'Sell' }}</button>
         </div>
     </v-card>
     {{quantity}}
@@ -21,6 +22,12 @@ export default {
   data () {
     return {
       quantity: 0
+    }
+  },
+  computed: {
+    noQuantity () {
+      // true if I want to sell more than I have
+      return this.quantity > this.stock.quantity
     }
   },
   methods: {
@@ -42,5 +49,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss" scoped>
+
+.danger {
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
+}
+
 </style>

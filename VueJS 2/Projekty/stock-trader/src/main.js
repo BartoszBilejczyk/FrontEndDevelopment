@@ -9,6 +9,10 @@ import store from './store/store'
 
 Vue.use(Materials)
 
+Vue.filter('currency', (value) => {
+  return '$' + value.toLocaleString()
+})
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
