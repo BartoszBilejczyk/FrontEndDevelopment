@@ -7,7 +7,7 @@
         <router-link to="/stocks" activeClass="active" tag="li"><a>Stocks</a></router-link>
       </ul>
       <ul class="right">
-        <li><a href="#!">End day</a></li>
+        <li @click="endDay"><a href="#!">End day</a></li>
         <li>
           <v-btn v-dropdown:dropdown>Save / Load</v-btn>
           <v-dropdown id="dropdown">
@@ -27,12 +27,21 @@
 </template>
 
 <script>
-  export default {
-    computed: {
-      funds () {
-        return this.$store.getters.funds
-      }
+import {mapActions} from 'vuex'
+export default {
+  computed: {
+    funds () {
+      return this.$store.getters.funds
+    }
+  },
+  methods: {
+    ...mapActions([
+      'randomizeStocks'
+    ]),
+    endDay () {
+      this.randomizeStocks()
     }
   }
+}
 
 </script>
