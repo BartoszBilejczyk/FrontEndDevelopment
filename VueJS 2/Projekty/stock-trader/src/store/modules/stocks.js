@@ -11,7 +11,8 @@ const mutations = {
   },
   'RANDOM_STOCKS' (state) {
     state.stocks.forEach(stock => {
-      stock.price = Math.round(stock.price * Math.pow(((1 + Math.random()) - 0.47), 0.05) * 100) / 100
+      // Mark G's solution for rounding http://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places
+      stock.price = +(Math.round(stock.price * Math.pow(((1 + Math.random()) - 0.47), 0.05) + 'e+2') + 'e-2')
     })
   }
 }
