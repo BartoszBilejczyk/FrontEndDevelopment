@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="soups">
+  <div class="drinks-and-desserts">
     <drink-dessert v-for="drinkDessert in 5"></drink-dessert>
   </div>
 </template>

@@ -3,7 +3,9 @@
     <app-menu></app-menu>
     <div class="main">
       <div class="choice">
-        <router-view></router-view>
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
       </div>
       <app-order-details></app-order-details>
     </div>
@@ -50,4 +52,13 @@ body {
   height: inherit;
   margin-top: 0;
 }
+
+.fade-enter-active {
+  transition: all 0.6s ease;
+}
+.fade-enter, .fade-leave-active, .fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  opacity: 0;
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="soups">
+  <div class="mains">
     <main-course v-for="mainCourse in 5"></main-course>
   </div>
 </template>
