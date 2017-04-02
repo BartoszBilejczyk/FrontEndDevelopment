@@ -72,10 +72,10 @@ const actions = {
   loadLiveStocks: ({commit}) => {
     // let today = moment().subtract(2, 'days').format('YYYY-MM-DD')
     for (let i = 0; i < state.companies.length; i++) {
-      axios.get(`https://www.quandl.com/api/v3/datasets/YAHOO/${state.companies[i]}.json?limit=1&api_key=zCzq9ac25fyL89JXt7Rs`)
+      axios.get(`http://dev.markitondemand.com/Api/v2/GOOG`)
         .then(response => {
           commit('SET_LIVE_STOCKS', {
-            data: response.data
+            data: response
           })
         })
         .catch(error => {
