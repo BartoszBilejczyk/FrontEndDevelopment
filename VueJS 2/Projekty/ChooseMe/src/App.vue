@@ -5,7 +5,7 @@
       <div class="cart-wrapper">
         <div class="icon" @mouseover="active = true" @mouseleave="active = false">Cart</div>
         <transition name="slide-fade">
-          <div class="cart" @mouseover="action = true" :class="">
+          <div class="cart" v-if="active" @mouseover="action = true">
             <div class="row">
               <div class="cart-item" v-for="(item, index) in order">
               {{ order[index].name }}
@@ -99,9 +99,10 @@ body {
   top: 0;
   right: 0px;
   width: 350px;
-  height: 200px;
+  min-height: 200px;
   background-color: white;
-  border: 1px solid #bbb
+  border: 1px solid #bbb;
+  padding: 20px;
 }
 
 .icon {
@@ -149,7 +150,7 @@ body {
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {
-  transform: translateX(400px);
+  transform: translateX(100px);
   opacity: 0;
 }
 //

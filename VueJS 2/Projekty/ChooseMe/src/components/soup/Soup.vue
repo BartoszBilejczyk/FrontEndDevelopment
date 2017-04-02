@@ -18,9 +18,15 @@
 <script>
 export default {
   props: ['soup'],
+  computed: {
+    order () {
+      return this.$store.state.order
+    }
+  },
   methods: {
     soupOrder () {
       const soupOrder = {
+        quantity: 1,
         type: 'soup',
         name: this.soup.name,
         price: this.soup.price,

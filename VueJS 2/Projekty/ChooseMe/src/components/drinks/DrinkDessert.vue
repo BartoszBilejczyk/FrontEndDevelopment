@@ -7,7 +7,7 @@
         <p>Preparation time: {{ drinkDessert.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <div class="" @click="">
+        <div class="" @click="drinkDessertOrder">
           <v-btn large='true'>ORDER</v-btn>
         </div>
       </div>
@@ -19,6 +19,15 @@
 export default {
   props: ['drinkDessert'],
   methods: {
+    drinkDessertOrder () {
+      const drinkDessertOrder = {
+        type: 'Drinks and desserts',
+        name: this.drinkDessert.name,
+        price: this.drinkDessert.price,
+        prepTime: this.drinkDessert.prepTime
+      }
+      this.$store.dispatch('drinkDessertOrder', drinkDessertOrder)
+    }
   }
 }
 </script>

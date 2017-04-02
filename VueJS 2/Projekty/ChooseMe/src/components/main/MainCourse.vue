@@ -7,7 +7,9 @@
         <p>Preparation time: {{ main.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <v-btn large='true'>ORDER</v-btn>
+        <div class="" @click="mainCourseOrder">
+          <v-btn large='true'>ORDER</v-btn>
+        </div>
       </div>
     </v-card>
   </div>
@@ -15,7 +17,18 @@
 
 <script>
 export default {
-  props: ['main']
+  props: ['main'],
+  methods: {
+    mainCourseOrder () {
+      const mainCourseOrder = {
+        type: 'Main Course',
+        name: this.main.name,
+        price: this.main.price,
+        prepTime: this.main.prepTime
+      }
+      this.$store.dispatch('mainCourseOrder', mainCourseOrder)
+    }
+  }
 }
 </script>
 

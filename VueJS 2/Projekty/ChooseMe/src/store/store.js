@@ -19,18 +19,43 @@ export default new Vuex.Store({
   },
   mutations: {
     soupOrder (state, payload) {
+      if (state.order.length) {
+        for (let i = 0; i < state.order.length; i++) {
+          if (state.order[i].name === payload.name) {
+            state.order[i].quantity++
+          } else {
+            state.order.push(payload)
+            state.totalCost += payload.price
+            state.totalTime += payload.prepTime
+          }
+        }
+      } else {
+        state.order.push(payload)
+        state.totalCost += payload.price
+        state.totalTime += payload.prepTime
+      }
+    },
+    drinkDessertOrder (state, payload) {
       state.order.push(payload)
       state.totalCost += payload.price
       state.totalTime += payload.prepTime
-      console.log('mutation')
-      console.log(state.order)
-      console.log(payload)
+    },
+    mainCourseOrder (state, payload) {
+      state.order.push(payload)
+      state.totalCost += payload.price
+      state.totalTime += payload.prepTime
     }
   },
   actions: {
     soupOrder ({commit}, payload) {
       commit('soupOrder', payload)
       console.log('Action')
+    },
+    drinkDessertOrder ({commit}, payload) {
+      commit('drinkDessertOrder', payload)
+    },
+    mainCourseOrder ({commit}, payload) {
+      commit('mainCourseOrder', payload)
     }
   }
 })
