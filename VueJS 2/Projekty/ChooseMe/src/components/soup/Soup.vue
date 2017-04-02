@@ -7,7 +7,7 @@
         <p>Preparation time: {{ soup.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <div class="" @click="testOrder">
+        <div class="" @click="soupOrder">
           <v-btn large='true'>ORDER</v-btn>
         </div>
       </div>
@@ -19,14 +19,15 @@
 export default {
   props: ['soup'],
   methods: {
-    testOrder () {
+    soupOrder () {
       const soupOrder = {
+        type: 'soup',
         name: this.soup.name,
         price: this.soup.price,
         prepTime: this.soup.prepTime
       }
       console.log(soupOrder)
-      this.$store.dispatch('testOrder', soupOrder)
+      this.$store.dispatch('soupOrder', soupOrder)
     }
   }
 }

@@ -18,7 +18,7 @@ export default new Vuex.Store({
     totalTime: 0
   },
   mutations: {
-    testOrderMutation (state, payload) {
+    soupOrder (state, payload) {
       state.order.push(payload)
       state.totalCost += payload.price
       state.totalTime += payload.prepTime
@@ -28,8 +28,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    testOrder ({commit}, payload) {
-      commit('testOrderMutation', payload)
+    soupOrder ({commit}, payload) {
+      commit('soupOrder', payload)
       console.log('Action')
     }
   }

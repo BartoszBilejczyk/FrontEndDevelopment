@@ -7,7 +7,9 @@
         <p>Preparation time: {{ drinkDessert.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <v-btn large='true'>ORDER</v-btn>
+        <div class="" @click="">
+          <v-btn large='true'>ORDER</v-btn>
+        </div>
       </div>
     </v-card>
   </div>
@@ -15,7 +17,9 @@
 
 <script>
 export default {
-  props: ['drinkDessert']
+  props: ['drinkDessert'],
+  methods: {
+  }
 }
 </script>
 

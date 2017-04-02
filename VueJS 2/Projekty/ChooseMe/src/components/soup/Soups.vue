@@ -5,6 +5,7 @@
         <soup v-for="soup in soups" :soup="soup"></soup>
       </div>
     </div>
+    <router-link :to="{name: 'mains'}"><v-btn large="true">Go to main courses</v-btn></router-link>
   </div>
 </template>
 

@@ -5,6 +5,7 @@
         <main-course v-for="main in mains" :main="main"></main-course>
       </div>
     </div>
+    <router-link :to="{name: 'drinks-and-desserts'}"><v-btn large="true">Go to drinks and deserts</v-btn></router-link>
   </div>
 </template>
 
