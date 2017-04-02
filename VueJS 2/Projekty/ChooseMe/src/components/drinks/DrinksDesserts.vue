@@ -1,10 +1,17 @@
 <template lang="html">
-  <h1>DRINKS</h1>
-
+  <div class="soups">
+    <drink-dessert v-for="drinkDessert in 5"></drink-dessert>
+  </div>
 </template>
 
 <script>
+
+import DrinkDessert from './DrinkDessert.vue'
+
 export default {
+  components: {
+    drinkDessert: DrinkDessert
+  }
 }
 </script>
 
