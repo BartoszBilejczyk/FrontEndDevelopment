@@ -2,7 +2,7 @@
   <div class="col s12 m6">
     <v-card class="blue-grey darken-1">
         <div class="card-content white-text">
-          {{ liveStock }}
+          {{ liveStock.name }}
         </div>
     </v-card>
   </div>

@@ -5,7 +5,38 @@ moment.tz.setDefault('UTC')
 
 const state = {
   stocks: [],
-  liveStocks: []
+  liveStocks: [],
+  companies: [
+    'RELX',
+    'RENX',
+    'MSFT',
+    'CAT',
+    'INDEX_IXIC',
+    'AGG',
+    'XLK',
+    'PA_HDP',
+    'INDEX_GSCP'
+    // 'V',
+    // 'UNH',
+    // 'PG',
+    // 'KO',
+    // 'GS',
+    // 'WMT',
+    // 'MRK',
+    // 'VZ',
+    // 'UTX',
+    // 'TRV',
+    // 'DIS',
+    // 'BA',
+    // 'HD',
+    // 'DD',
+    // 'MMM',
+    // 'PFE',
+    // 'NKE',
+    // 'MCD',
+    // 'JPM',
+    // 'INTC'
+  ]
 }
 
 // axios.get('https://www.quandl.com/api/v3/datasets.json?database_code=FSE&per_page=100&sort_by=id&page=1&api_key=zCzq9ac25fyL89JXt7Rs')
@@ -21,7 +52,7 @@ const mutations = {
   // live from quandl api
 
   'SET_LIVE_STOCKS' (state, {data}) {
-    state.liveStocks = data
+    state.liveStocks = state.liveStocks.concat(data)
   },
 
   // set stocks - 1) when rendered 2) when end of the day to randomize
@@ -39,18 +70,33 @@ const mutations = {
 const actions = {
 
   loadLiveStocks: ({commit}) => {
-    let today = moment().subtract(2, 'days').format('YYYY-MM-DD')
-    console.log(today)
-    axios.get(`https://www.quandl.com/api/v3/datasets/EOD/GE.json?start_date=${today}&api_key=zCzq9ac25fyL89JXt7Rs`)
-      .then(response => {
-        commit('SET_LIVE_STOCKS', {
-          data: response.data
+    // let today = moment().subtract(2, 'days').format('YYYY-MM-DD')
+    for (let i = 0; i < state.companies.length; i++) {
+      axios.get(`https://www.quandl.com/api/v3/datasets/YAHOO/${state.companies[i]}.json?limit=1&api_key=zCzq9ac25fyL89JXt7Rs`)
+        .then(response => {
+          commit('SET_LIVE_STOCKS', {
+            data: response.data
+          })
         })
-      })
-      .catch(error => {
-        console.log(error)
-      })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   },
+  // loadLiveStocks: ({commit}) => {
+  //   let today = moment().subtract(2, 'days').format('YYYY-MM-DD')
+  //   for (let i = 0; i < 30; i++) {
+  //     axios.get(`https://www.quandl.com/api/v3/datasets/EOD/${state.companies[i]}.json?start_date=${today}&api_key=zCzq9ac25fyL89JXt7Rs`)
+  //       .then(response => {
+  //         commit('SET_LIVE_STOCKS', {
+  //           data: response.data.dataset
+  //         })
+  //       })
+  //       .catch(error => {
+  //         console.log(error)
+  //       })
+  //   }
+  // },
 
   // normally would use (context), but I only need commit from the context so ({})
   buyStock: ({commit}, order) => {
