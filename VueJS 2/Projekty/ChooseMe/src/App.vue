@@ -3,10 +3,18 @@
     <app-menu></app-menu>
     <div class="main">
       <div class="cart-wrapper">
-        <div class="icon" @mouseover="active = true">Cart</div>
+        <div class="icon" @mouseover="active = true" @mouseleave="active = false">Cart</div>
         <transition name="slide-fade">
-          <div class="cart" v-show="active" @mouseleave="action = false" :class="">
-
+          <div class="cart" @mouseover="action = true" :class="">
+            <div class="row">
+              <div class="cart-item" v-for="(item, index) in order">
+              {{ order[index].name }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6">{{ totalCost }}</div>
+              <div class="col s6">{{ totalTime}}</div>
+            </div>
           </div>
         </transition>
       </div>
@@ -37,6 +45,15 @@ export default {
       return {
         reveal: this.active
       }
+    },
+    order () {
+      return this.$store.state.order
+    },
+    totalTime () {
+      return this.$store.state.totalTime
+    },
+    totalCost () {
+      return this.$store.state.totalCost
     }
   },
   components: {
@@ -66,22 +83,25 @@ body {
   color: #2c3e50;
   display: flex;
   overflow-x: hidden;
+  z-index: 1
 }
 .cart-wrapper {
   position: absolute;
   top: 60px;
   right: 0;
-  width: 200px;
-  height: 200px;
-  background-color: limegreen;
+  width: 350px;
+  height: auto;
+  background-color: #111;
+  z-index: 4
 }
 .cart {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 200px;
+  right: 0px;
+  width: 350px;
   height: 200px;
-  background-color: red;
+  background-color: white;
+  border: 1px solid #bbb
 }
 
 .icon {
@@ -129,7 +149,7 @@ body {
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {
-  transform: translateX(200px);
+  transform: translateX(400px);
   opacity: 0;
 }
 //
