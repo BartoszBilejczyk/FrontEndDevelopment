@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <app-menu></app-menu>
-    <h1>Test</h1>
     <div class="main">
-      <router-view></router-view>
+      <div class="choice">
+        <router-view></router-view>
+      </div>
+      <app-order-details></app-order-details>
     </div>
   </div>
 </template>
@@ -11,11 +13,13 @@
 <script>
 
 import Menu from './components/Menu.vue'
+import OrderDetails from './components/OrderDetails.vue'
 
 export default {
   name: 'app',
   components: {
-    appMenu: Menu
+    appMenu: Menu,
+    appOrderDetails: OrderDetails
   }
 }
 </script>
@@ -34,5 +38,16 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #2c3e50;
   display: flex;
+}
+
+.main {
+  width: 80vw;
+  height: calc(100vh - 50px);
+  background: #eee;
+}
+.choice {
+  width: inherit;
+  height: inherit;
+  margin-top: 0;
 }
 </style>

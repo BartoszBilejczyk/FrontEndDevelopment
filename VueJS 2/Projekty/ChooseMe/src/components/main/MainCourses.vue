@@ -1,7 +1,6 @@
 <template lang="html">
-  <div class="">
-    HOME
-  </div>
+  <h1>MAINS</h1>
+
 </template>
 
 <script>

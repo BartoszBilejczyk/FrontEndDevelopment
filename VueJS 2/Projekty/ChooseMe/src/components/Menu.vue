@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="menu">
-    <div class="logo">LOGO</div>
+    <div class="logo"><router-link :to="{name: 'home'}">LOGO</router-link></div>
     <nav class="nav">
       <ul class="steps">
-        <li class="step"><a href=""><i></i><span>Soups</span></a></li>
-        <li class="step"><a href=""><i></i><span>Main Courses</span></a></li>
-        <li class="step"><a href=""><i></i><span>Drinks and Desserts</span></a></li>
+        <li class="step"><router-link :to="{name: 'soups'}"><i></i><span>Soups</span></router-link></li>
+        <li class="step"><router-link :to="{name: 'mains'}"><i></i><span>Main Courses</span></router-link></li>
+        <li class="step"><router-link :to="{name: 'drinks-and-desserts'}"><i></i><span>Drinks and Desserts</span></router-link></li>
       </ul>
     </nav>
   </div>
@@ -23,13 +23,17 @@ export default {
 
 .menu {
   height: 100vh;
-  width: 20vh;
+  width: 20vw;
   background: #111;
   color: white;
   .logo {
     height: 10vh;
     background: #000;
     @include flexy(center, center);
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
   .nav {
     height: 60vh;

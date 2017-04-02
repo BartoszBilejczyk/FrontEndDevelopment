@@ -1,7 +1,5 @@
 <template lang="html">
-  <div class="">
-    HOME
-  </div>
+  <h1>SOUPS</h1>
 </template>
 
 <script>
