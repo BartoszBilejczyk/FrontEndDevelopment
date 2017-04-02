@@ -45,21 +45,21 @@ body {
   display: flex;
 }
 
+
 .main {
-  width: 80vw;
+  width: 100%;
   height: calc(100vh - 50px);
   background: #eee;
 }
 .choice {
-  width: inherit;
-  height: inherit;
+  height: calc(100vh - 50px);
   margin-top: 0;
   overflow-y: scroll;
-  @include flexy(center, center)
+  @include flexy(initial, center)
 }
 
 .fade-enter-active {
-  transition: all 0.6s ease;
+  transition: all 1s ease;
 }
 .fade-enter, .fade-leave-active, .fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {

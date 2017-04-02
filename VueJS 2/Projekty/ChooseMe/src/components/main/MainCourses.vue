@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="mains">
-    <div class="container">
+    <div class="small-paddings">
       <div class="row">
-        <main-course v-for="mainCourse in 9"></main-course>
+        <main-course v-for="main in mains" :main="main"></main-course>
       </div>
     </div>
   </div>
@@ -12,6 +12,11 @@
 import MainCourse from './MainCourse.vue'
 
 export default {
+  computed: {
+    mains () {
+      return this.$store.state.mains
+    }
+  },
   components: {
     mainCourse: MainCourse
   }
@@ -24,6 +29,7 @@ export default {
 @import '../../styling/responsive.scss';
 
 .mains {
+  @include flexy(center, center)
 }
 
 </style>

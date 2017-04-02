@@ -3,9 +3,30 @@
     <div class="logo"><router-link :to="{name: 'home'}">LOGO</router-link></div>
     <div class="nav">
       <ul class="steps">
-        <router-link :to="{name: 'soups'}"><li class="step"><i></i><span>Soups</span></li></router-link>
-        <router-link :to="{name: 'mains'}"><li class="step"><i></i><span>Main Courses</span></li></router-link>
-        <router-link :to="{name: 'drinks-and-desserts'}"><li class="step"><i></i><span>Drinks and Desserts</span></li></router-link>
+        <router-link :to="{name: 'soups'}">
+          <li class="step-wrapper">
+            <div class="step">
+              <img src="../assets/soup.png"></img>
+              <span>Soups</span>
+            </div>
+          </li>
+        </router-link>
+        <router-link :to="{name: 'mains'}">
+          <li class="step-wrapper">
+            <div class="step">
+              <img src="../assets/main.png"></img>
+              <span>Main Courses</span>
+            </div>
+          </li>
+        </router-link>
+        <router-link :to="{name: 'drinks-and-desserts'}">
+          <li class="step-wrapper">
+            <div class="step">
+              <img src="../assets/drink.png"></img>
+              <span>Drinks and Desserts</span>
+            </div>
+          </li>
+        </router-link>
       </ul>
     </div>
   </div>
@@ -23,7 +44,7 @@ export default {
 
 .menu {
   height: 100vh;
-  width: 20vw;
+  width: 180px;
   background: #111;
   color: white;
   .logo {
@@ -36,7 +57,7 @@ export default {
     }
   }
   .nav {
-    height: 60vh;
+    height: 30vh;
     @include flexy(center, center)
     .steps {
       padding: 0;
@@ -46,11 +67,20 @@ export default {
         text-decoration: none;
         color: white;
       }
-      .step {
-        width: 20vh;
+      .step-wrapper {
+        width: 180px;
         height: 10vh;
-        @include flexy(center, center);
-
+        padding: 4px;
+        @include flexy(center, center, wrap, column);
+        .step {
+          @include flexy(center, center, wrap, column);
+          &:hover {
+            border-bottom: 1px solid white;
+          }
+          img {
+            margin-bottom: 10px;
+          }
+        }
       }
     }
   }
