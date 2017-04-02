@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="soups">
-    <soup v-for="soup in 5"></soup>
+    <div class="container">
+      <div class="row">
+        <soup v-for="soup in 7"></soup>
+      </div>
+    </div>
   </div>
 </template>
 

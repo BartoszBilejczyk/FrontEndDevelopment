@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="mains">
-    <main-course v-for="mainCourse in 5"></main-course>
+    <div class="container">
+      <div class="row">
+        <main-course v-for="mainCourse in 9"></main-course>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,4 +19,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import '../../styling/globals.scss';
+@import '../../styling/responsive.scss';
+
+.mains {
+}
+
 </style>

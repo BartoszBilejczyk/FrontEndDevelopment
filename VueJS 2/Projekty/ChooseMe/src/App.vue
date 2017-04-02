@@ -28,6 +28,9 @@ export default {
 
 <style lang="scss">
 
+@import './styling/globals.scss';
+@import './styling/responsive.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -51,6 +54,8 @@ body {
   width: inherit;
   height: inherit;
   margin-top: 0;
+  overflow-y: scroll;
+  @include flexy(center, center)
 }
 
 .fade-enter-active {

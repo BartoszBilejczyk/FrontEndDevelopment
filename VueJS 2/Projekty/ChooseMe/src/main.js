@@ -3,10 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import materials from 'vue-materials'
+import Materials from 'vue-materials'
 import store from './store/store'
 
-Vue.use(materials)
+Vue.use(Materials)
 
 Vue.config.productionTip = false
 

@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="menu">
     <div class="logo"><router-link :to="{name: 'home'}">LOGO</router-link></div>
-    <nav class="nav">
+    <div class="nav">
       <ul class="steps">
-        <li class="step"><router-link :to="{name: 'soups'}"><i></i><span>Soups</span></router-link></li>
-        <li class="step"><router-link :to="{name: 'mains'}"><i></i><span>Main Courses</span></router-link></li>
-        <li class="step"><router-link :to="{name: 'drinks-and-desserts'}"><i></i><span>Drinks and Desserts</span></router-link></li>
+        <router-link :to="{name: 'soups'}"><li class="step"><i></i><span>Soups</span></li></router-link>
+        <router-link :to="{name: 'mains'}"><li class="step"><i></i><span>Main Courses</span></li></router-link>
+        <router-link :to="{name: 'drinks-and-desserts'}"><li class="step"><i></i><span>Drinks and Desserts</span></li></router-link>
       </ul>
-    </nav>
+    </div>
   </div>
 </template>
 
@@ -41,14 +41,16 @@ export default {
     .steps {
       padding: 0;
       height: 30vh;
+      text-decoration: none;
+      a {
+        text-decoration: none;
+        color: white;
+      }
       .step {
         width: 20vh;
         height: 10vh;
         @include flexy(center, center);
-        a {
-          text-decoration: none;
-          color: white;
-        }
+
       }
     }
   }

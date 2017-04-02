@@ -1,11 +1,15 @@
 <template lang="html">
   <div class="">
-    HOME
+    <router-link :to="{name: 'soups'}"><v-btn large="true" wavesTeal="true">Let's start</v-btn></router-link>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+    }
+  }
 }
 </script>
 

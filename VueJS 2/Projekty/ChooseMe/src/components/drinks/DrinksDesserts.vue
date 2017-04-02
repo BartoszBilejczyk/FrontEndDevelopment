@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="drinks-and-desserts">
-    <drink-dessert v-for="drinkDessert in 5"></drink-dessert>
+    <div class="container">
+      <div class="row">
+        <drink-dessert v-for="drinkDessert in 5"></drink-dessert>
+      </div>
+    </div>
   </div>
 </template>
 
