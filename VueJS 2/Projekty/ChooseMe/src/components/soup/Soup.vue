@@ -1,6 +1,9 @@
 <template lang="html">
-  <div class="col s12 m6">
+  <div class="col s12 m6 l3">
     <v-card>
+      <div class="card-image">
+            <img :src="soup.url">
+        </div>
       <div class="card-content">
         <span class="card-title">{{ soup.name }}</span>
         <p>Price: ${{ soup.price }} </p>
@@ -10,6 +13,10 @@
         <div class="" @click="soupOrder">
           <v-btn large='true'>ORDER</v-btn>
         </div>
+      </div>
+      <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">v-card Title<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
       </div>
     </v-card>
   </div>
@@ -42,7 +49,13 @@ export default {
 <style lang="scss">
 
 .card {
-  min-width: 300px;
+  max-width: 300px;
+  .card-title {
+    font-size: 1.3rem;
+  }
+  .v-card-image img {
+    clip: rect(30px, 30px, 30px, 30px);
+  }
 }
 
 </style>

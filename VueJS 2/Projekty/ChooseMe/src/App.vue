@@ -8,7 +8,7 @@
           <div class="cart" v-if="active" @mouseover="action = true">
             <div class="row">
               <div class="cart-item" v-for="(item, index) in order">
-              {{ order[index].name }}
+              {{ order[index].name }} | Quantity: {{ order[index].quantity }}
               </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@ export default {
   name: 'app',
   data () {
     return {
-      active: false
+      active: true
     }
   },
   computed: {
@@ -97,12 +97,12 @@ body {
 .cart {
   position: absolute;
   top: 0;
-  right: 0px;
+  right: 1px;
   width: 350px;
   min-height: 200px;
   background-color: white;
-  border: 1px solid #bbb;
   padding: 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .icon {
