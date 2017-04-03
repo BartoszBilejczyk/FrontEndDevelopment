@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="col s12 m6 l3">
-    <v-card>
+    <v-card class="hoverable">
       <div class="card-image">
             <img :src="soup.url">
         </div>
@@ -37,7 +37,8 @@ export default {
         type: 'soup',
         name: this.soup.name,
         price: this.soup.price,
-        prepTime: this.soup.prepTime
+        prepTime: this.soup.prepTime,
+        url: this.soup.url
       }
       console.log(soupOrder)
       this.$store.dispatch('soupOrder', soupOrder)

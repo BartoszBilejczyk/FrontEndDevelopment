@@ -27,8 +27,8 @@ export default new Vuex.Store({
             state.order.push(payload)
             state.totalCost += payload.price
             state.totalTime += payload.prepTime
-            break
           }
+          break
         }
       } else {
         state.order.push(payload)

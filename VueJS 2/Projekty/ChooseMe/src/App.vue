@@ -6,15 +6,27 @@
         <div class="icon" @mouseover="active = true" @mouseleave="active = false">Cart</div>
         <transition name="slide-fade">
           <div class="cart" v-if="active" @mouseover="action = true">
-            <div class="row">
-              <div class="cart-item" v-for="(item, index) in order">
-              {{ order[index].name }} | Quantity: {{ order[index].quantity }}
+            <span>ORDER</span>
+            <hr>
+            <div class="cart-items" v-for="(item, index) in order">
+              <div class="row">
+                <div class="col s2 left-align"><img :src="order[index].url" alt=""></div>
+                <div class="col s6 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
+                <div class="col s3 center-align"><span class="grey-text minus">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus">+</span></div>
+                <div class="col s1 right-align"> ${{ order[index].quantity * order[index].price }}</div>
               </div>
+              <hr>
             </div>
             <div class="row">
-              <div class="col s6">{{ totalCost }}</div>
-              <div class="col s6">{{ totalTime}}</div>
+              <span class="left">Subtotal</span><span class="right">$90.00</span>
             </div>
+            <div class="row">
+              <span class="left">Shipping</span><span class="right">$5.00</span>
+            </div>
+            <div class="row">
+              <span class="left"><strong>Total</strong></span><span class="right"><strong>$95.00</strong></span>
+            </div>
+            <v-btn class="right">PLACE ORDER</v-btn>
           </div>
         </transition>
       </div>
@@ -89,7 +101,7 @@ body {
   position: absolute;
   top: 60px;
   right: 0;
-  width: 350px;
+  width: 450px;
   height: auto;
   background-color: #111;
   z-index: 4
@@ -98,11 +110,41 @@ body {
   position: absolute;
   top: 0;
   right: 1px;
-  width: 350px;
+  width: 450px;
   min-height: 200px;
   background-color: white;
-  padding: 20px;
+  padding: 10%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  img {
+    max-width: 100%;
+  }
+  .row {
+    margin: 10px auto;
+  }
+}
+
+.cart-items {
+  .row {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    .col:first-child {
+      padding: 0 1rem 0 0
+    }
+    .col:last-child {
+      padding: 0 0 0 1rem
+    }
+  }
+}
+
+.plus, .minus {
+  font-size: 1.5rem;
+}
+
+.quantity {
+  margin: 0 8px;
+  padding: 3px;
+  border: 1px solid grey
 }
 
 .icon {
