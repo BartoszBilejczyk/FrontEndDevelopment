@@ -4,17 +4,17 @@
     <div class="main">
       <div class="cart-wrapper">
         <div class="disactivate" @mouseover="active = false"></div>
-        <div class="icon" @mouseover="active = true">Cart</div>
+        <div class="icon" @mouseover="active = true" @click="active = !active">Cart</div>
         <transition name="slide-fade">
           <div class="cart" v-if="active" @mouseleave="active = false">
             <span>ORDER</span>
             <hr>
             <div class="cart-items" v-for="(item, index) in order">
               <div class="row">
-                <div class="col s2 left-align"><img :src="order[index].url" alt=""></div>
-                <div class="col s6 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                <div class="col s3 center-align"><span class="grey-text minus">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus">+</span></div>
-                <div class="col s1 right-align"> ${{ order[index].quantity * order[index].price }}</div>
+                <div class="item-image col s2 left-align"><img :src="order[index].url" alt=""></div>
+                <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
+                <div class="item-quantity col s3 center-align"><span class="grey-text minus">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus">+</span></div>
+                <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
               </div>
               <hr>
             </div>
@@ -50,7 +50,7 @@ export default {
   name: 'app',
   data () {
     return {
-      active: true
+      active: false
     }
   },
   computed: {
@@ -111,7 +111,7 @@ body {
   width: 450px;
   height: auto;
   background-color: #111;
-  z-index: 4
+  z-index: 99999
 }
 .cart {
   position: absolute;
@@ -140,6 +140,9 @@ body {
     }
     .col:last-child {
       padding: 0 0 0 1rem
+    }
+    .item-description {
+      font-size: 0.9rem;
     }
   }
 }

@@ -10,8 +10,8 @@
         <p>Preparation time: {{ soup.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <div class="" @click="soupOrder">
-          <v-btn large='true'>ORDER</v-btn>
+        <div class="button-wrapper" @click="soupOrder">
+          <v-btn large='true' @click.native="$dialog(`${soup.name} added to cart.`, 1500)">Add to cart</v-btn>
         </div>
       </div>
       <div class="card-reveal">
@@ -59,6 +59,10 @@ export default {
   .v-card-image img {
     clip: rect(30px, 30px, 30px, 30px);
   }
+}
+
+.toast {
+  background-color: #44A231 !important;
 }
 
 </style>
