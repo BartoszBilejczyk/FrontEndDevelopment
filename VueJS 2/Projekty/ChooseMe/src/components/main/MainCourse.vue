@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="col s6 l4">
-    <v-card>
+    <v-card class="hoverable">
+      <div class="card-image">
+            <img :src="main.url">
+      </div>
       <div class="card-content">
         <span class="card-title">{{ main.name }}</span>
         <p>Price: ${{ main.price }} </p>

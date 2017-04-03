@@ -3,9 +3,9 @@
     <v-card class="hoverable">
       <div class="card-image">
             <img :src="soup.url">
-        </div>
+      </div>
       <div class="card-content">
-        <span class="card-title">{{ soup.name }}</span>
+        <p class="title">{{ soup.name }}</p>
         <p>Price: ${{ soup.price }} </p>
         <p>Preparation time: {{ soup.prepTime }} minutes</p>
       </div>
@@ -51,8 +51,10 @@ export default {
 
 .card {
   max-width: 300px;
-  .card-title {
+  .title {
     font-size: 1.3rem;
+    line-height: 1.6rem;
+    padding-bottom: 10px;
   }
   .v-card-image img {
     clip: rect(30px, 30px, 30px, 30px);
