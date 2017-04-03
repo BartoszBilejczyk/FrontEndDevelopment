@@ -24,10 +24,12 @@ export default {
   methods: {
     drinkDessertOrder () {
       const drinkDessertOrder = {
+        quantity: 1,
         type: 'Drinks and desserts',
         name: this.drinkDessert.name,
         price: this.drinkDessert.price,
-        prepTime: this.drinkDessert.prepTime
+        prepTime: this.drinkDessert.prepTime,
+        url: this.drinkDessert.url
       }
       this.$store.dispatch('drinkDessertOrder', drinkDessertOrder)
     }

@@ -14,8 +14,10 @@ export default new Vuex.Store({
     beverages,
     desserts,
     order: [],
+    subtotal: 0,
+    totalTime: 0,
     totalCost: 0,
-    totalTime: 0
+    shipping: 5
   },
   mutations: {
     soupOrder (state, payload) {
@@ -25,15 +27,17 @@ export default new Vuex.Store({
             state.order[i].quantity++
           } else {
             state.order.push(payload)
-            state.totalCost += payload.price
+            state.subtotal += payload.price
             state.totalTime += payload.prepTime
+            state.totalCost = state.subtotal + state.shipping
           }
           break
         }
       } else {
         state.order.push(payload)
-        state.totalCost += payload.price
+        state.subtotal += payload.price
         state.totalTime += payload.prepTime
+        state.totalCost = state.subtotal + state.shipping
       }
     },
     drinkDessertOrder (state, payload) {

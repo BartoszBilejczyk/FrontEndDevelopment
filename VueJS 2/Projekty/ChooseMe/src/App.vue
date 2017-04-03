@@ -3,9 +3,10 @@
     <app-menu></app-menu>
     <div class="main">
       <div class="cart-wrapper">
-        <div class="icon" @mouseover="active = true" @mouseleave="active = false">Cart</div>
+        <div class="disactivate" @mouseover="active = false"></div>
+        <div class="icon" @mouseover="active = true">Cart</div>
         <transition name="slide-fade">
-          <div class="cart" v-if="active" @mouseover="action = true">
+          <div class="cart" v-if="active" @mouseleave="active = false">
             <span>ORDER</span>
             <hr>
             <div class="cart-items" v-for="(item, index) in order">
@@ -18,13 +19,13 @@
               <hr>
             </div>
             <div class="row">
-              <span class="left">Subtotal</span><span class="right">$90.00</span>
+              <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
             </div>
             <div class="row">
-              <span class="left">Shipping</span><span class="right">$5.00</span>
+              <span class="left">Shipping</span><span class="right">${{ shipping }}</span>
             </div>
             <div class="row">
-              <span class="left"><strong>Total</strong></span><span class="right"><strong>$95.00</strong></span>
+              <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
             </div>
             <v-btn class="right">PLACE ORDER</v-btn>
           </div>
@@ -66,6 +67,12 @@ export default {
     },
     totalCost () {
       return this.$store.state.totalCost
+    },
+    subtotal () {
+      return this.$store.state.subtotal
+    },
+    shipping () {
+      return this.$store.state.shipping
     }
   },
   components: {
@@ -145,6 +152,15 @@ body {
   margin: 0 8px;
   padding: 3px;
   border: 1px solid grey
+}
+
+.disactivate {
+  position: absolute;
+  top: -60px;
+  right: 60px;
+  width: 5px;
+  height: 60px;
+  opacity: 0
 }
 
 .icon {

@@ -24,10 +24,12 @@ export default {
   methods: {
     mainCourseOrder () {
       const mainCourseOrder = {
+        quantity: 1,
         type: 'Main Course',
         name: this.main.name,
         price: this.main.price,
-        prepTime: this.main.prepTime
+        prepTime: this.main.prepTime,
+        url: this.main.url
       }
       this.$store.dispatch('mainCourseOrder', mainCourseOrder)
     }
