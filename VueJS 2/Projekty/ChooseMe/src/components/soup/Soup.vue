@@ -10,7 +10,7 @@
         <p>Preparation time: {{ soup.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <div class="button-wrapper" @click="soupOrder">
+        <div class="button-wrapper" @click="addItem">
           <v-btn large='true' @click.native="$dialog(`${soup.name} added to cart.`, 1500)">Add to cart</v-btn>
         </div>
       </div>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    soupOrder () {
+    addItem () {
       const soupOrder = {
         quantity: 1,
         type: 'soup',
@@ -41,7 +41,7 @@ export default {
         url: this.soup.url
       }
       console.log(soupOrder)
-      this.$store.dispatch('soupOrder', soupOrder)
+      this.$store.dispatch('addItem', soupOrder)
     }
   }
 }

@@ -19,19 +19,49 @@ export default new Vuex.Store({
     totalCost: 0,
     shipping: 5
   },
+  // addItem: function (index) {
+  //           this.total += this.price;
+  //
+  //           var item = this.products[index];
+  //           var found = false;
+  //           console.log(this.cart);
+  //
+  //           for (var i = 0; i < this.cart.length; i++) {
+  //               // check if the product being added is already in the cart, so that it's not shown again
+  //               if (this.cart[i].id === item.id) {
+  //                   found = true;
+  //                   this.cart[i].qty++;
+  //                   break;
+  //               }
+  //           }
+  //           if (!found) {
+  //               // if it's not, add it to the cart
+  //               this.cart.push({
+  //                   id: item.id,
+  //                   title: item.title,
+  //                   qty: 1,
+  //                   image: item.link,
+  //                   price: this.price
+  //               })
+  //           }
+  //       },
   mutations: {
-    soupOrder (state, payload) {
+    addItem (state, payload) {
+      let found = false
+
       if (state.order.length) {
         for (let i = 0; i < state.order.length; i++) {
           if (state.order[i].name === payload.name) {
+            found = true
             state.order[i].quantity++
-          } else {
-            state.order.push(payload)
-            state.subtotal += payload.price
-            state.totalTime += payload.prepTime
-            state.totalCost = state.subtotal + state.shipping
+            break
           }
-          break
+        }
+        if (!found) {
+          state.order.push(payload)
+          state.subtotal += payload.price
+          state.totalTime += payload.prepTime
+          state.totalCost = state.subtotal + state.shipping
         }
       } else {
         state.order.push(payload)
@@ -39,28 +69,12 @@ export default new Vuex.Store({
         state.totalTime += payload.prepTime
         state.totalCost = state.subtotal + state.shipping
       }
-    },
-    drinkDessertOrder (state, payload) {
-      state.order.push(payload)
-      state.totalCost += payload.price
-      state.totalTime += payload.prepTime
-    },
-    mainCourseOrder (state, payload) {
-      state.order.push(payload)
-      state.totalCost += payload.price
-      state.totalTime += payload.prepTime
     }
   },
   actions: {
-    soupOrder ({commit}, payload) {
-      commit('soupOrder', payload)
+    addItem ({commit}, payload) {
+      commit('addItem', payload)
       console.log('Action')
-    },
-    drinkDessertOrder ({commit}, payload) {
-      commit('drinkDessertOrder', payload)
-    },
-    mainCourseOrder ({commit}, payload) {
-      commit('mainCourseOrder', payload)
     }
   }
 })

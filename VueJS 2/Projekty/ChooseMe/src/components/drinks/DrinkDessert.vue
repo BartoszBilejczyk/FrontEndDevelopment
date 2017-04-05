@@ -10,7 +10,7 @@
         <p>Preparation time: {{ drinkDessert.prepTime }} minutes</p>
       </div>
       <div class="card-action">
-        <div class="" @click="drinkDessertOrder">
+        <div class="" @click="addItem">
           <v-btn large='true'>ORDER</v-btn>
         </div>
       </div>
@@ -22,7 +22,7 @@
 export default {
   props: ['drinkDessert'],
   methods: {
-    drinkDessertOrder () {
+    addItem () {
       const drinkDessertOrder = {
         quantity: 1,
         type: 'Drinks and desserts',
@@ -31,7 +31,7 @@ export default {
         prepTime: this.drinkDessert.prepTime,
         url: this.drinkDessert.url
       }
-      this.$store.dispatch('drinkDessertOrder', drinkDessertOrder)
+      this.$store.dispatch('addItem', drinkDessertOrder)
     }
   }
 }

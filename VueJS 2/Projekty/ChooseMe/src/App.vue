@@ -13,7 +13,7 @@
               <div class="row">
                 <div class="item-image col s2 left-align"><img :src="order[index].url" alt=""></div>
                 <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                <div class="item-quantity col s3 center-align"><span class="grey-text minus">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus">+</span></div>
+                <div class="item-quantity col s3 center-align"><span class="grey-text minus">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="addItem(item,index)">+</span></div>
                 <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
               </div>
               <hr>
@@ -73,6 +73,12 @@ export default {
     },
     shipping () {
       return this.$store.state.shipping
+    }
+  },
+  methods: {
+    addItem (item, index) {
+      console.log(this.order[index])
+      this.$store.state.order[index].quantity++
     }
   },
   components: {
@@ -149,6 +155,7 @@ body {
 
 .plus, .minus {
   font-size: 1.5rem;
+  cursor: pointer
 }
 
 .quantity {
@@ -161,7 +168,7 @@ body {
   position: absolute;
   top: -60px;
   right: 60px;
-  width: 5px;
+  width: 50px;
   height: 60px;
   opacity: 0
 }
