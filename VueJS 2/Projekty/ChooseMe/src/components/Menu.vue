@@ -3,30 +3,16 @@
     <div class="logo"><router-link :to="{name: 'home'}">LOGO</router-link></div>
     <div class="nav">
       <ul class="steps">
-        <router-link :to="{name: 'soups'}">
-          <li class="step-wrapper">
-            <div class="step">
-              <img src="../assets/soup.png"></img>
-              <span>Soups</span>
-            </div>
-          </li>
-        </router-link>
-        <router-link :to="{name: 'mains'}">
-          <li class="step-wrapper">
-            <div class="step">
-              <img src="../assets/main.png"></img>
-              <span>Main Courses</span>
-            </div>
-          </li>
-        </router-link>
-        <router-link :to="{name: 'drinks-and-desserts'}">
-          <li class="step-wrapper">
-            <div class="step">
-              <img src="../assets/drink.png"></img>
-              <span>Drinks and Desserts</span>
-            </div>
-          </li>
-        </router-link>
+        <li class="step-wrapper" v-for='mealType in mealTypes'>
+          <router-link :to="{name: 'main-category', params: { category: mealType.query } }">
+            <li class="step-wrapper">
+              <div class="step">
+                <img src='../assets/soup.png'></img>
+                <span>{{ mealType.title }}</span>
+              </div>
+            </li>
+          </router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -34,6 +20,11 @@
 
 <script>
 export default {
+  computed: {
+    mealTypes () {
+      return this.$store.state.mealTypes
+    }
+  }
 }
 </script>
 

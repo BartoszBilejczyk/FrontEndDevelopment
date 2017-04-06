@@ -15,19 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/soups',
-      name: 'soups',
+      path: '/:category',
+      name: 'main-category',
       component: Soups
-    },
-    {
-      path: '/mains',
-      name: 'mains',
-      component: MainCourses
-    },
-    {
-      path: '/drinks-and-desserts',
-      name: 'drinks-and-desserts',
-      component: DrinksDesserts
     }
   ]
 })

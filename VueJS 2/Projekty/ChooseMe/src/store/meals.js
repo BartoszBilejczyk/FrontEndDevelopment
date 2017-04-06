@@ -135,3 +135,5 @@ let mealTypes = [
     ]
   }
 ]
+
+export default mealTypes

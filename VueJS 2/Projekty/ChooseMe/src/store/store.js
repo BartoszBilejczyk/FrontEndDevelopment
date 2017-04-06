@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 import soups from './dishes/soups'
 import mains from './dishes/mains'
 import { beverages, drinks, desserts } from './dishes/drinks-and-desserts.js'
+import mealTypes from './meals'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    mealTypes,
     soups,
     mains,
     drinks,
@@ -47,6 +49,7 @@ export default new Vuex.Store({
   //       },
   mutations: {
     addItem (state, payload) {
+      console.log(state.mealTypes)
       let found = false
 
       if (state.order.length) {
