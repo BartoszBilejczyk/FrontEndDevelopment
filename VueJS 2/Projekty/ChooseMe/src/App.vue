@@ -13,7 +13,7 @@
               <div class="row">
                 <div class="item-image col s2 left-align"><img :src="order[index].url" alt=""></div>
                 <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                <div class="item-quantity col s3 center-align"><span class="grey-text minus">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="addItem(item,index)">+</span></div>
+                <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="dec(item,index)">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="inc(item,index)">+</span></div>
                 <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
               </div>
               <hr>
@@ -76,9 +76,16 @@ export default {
     }
   },
   methods: {
-    addItem (item, index) {
+    inc (item, index) {
       console.log(this.order[index])
       this.$store.state.order[index].quantity++
+    },
+    dec (item, index) {
+      if (this.$store.state.order[index].quantity > 1) {
+        this.$store.state.order[index].quantity--
+      } else {
+        this.$store.state.order.splice(index, 1)
+      }
     }
   },
   components: {
@@ -110,6 +117,11 @@ body {
   overflow-x: hidden;
   z-index: 1
 }
+
+.btn-large {
+    line-height: 20px;
+}
+
 .cart-wrapper {
   position: absolute;
   top: 60px;
@@ -199,7 +211,11 @@ body {
   height: calc(100vh - 50px);
   margin-top: 0;
   overflow-y: scroll;
-  @include flexy(initial, center)
+  @include flexy(initial, center);
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .fade-enter-active {

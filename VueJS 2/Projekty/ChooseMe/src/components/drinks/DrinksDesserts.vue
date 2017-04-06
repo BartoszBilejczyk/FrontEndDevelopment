@@ -1,16 +1,16 @@
 <template lang="html">
   <div class="drinks-and-desserts">
     <div class="small-paddings">
+      <h4>Beverages</h4>
       <div class="row">
-        <h4>Beverages</h4>
         <drink-dessert v-for="beverage in beverages" :drinkDessert="beverage"></drink-dessert>
       </div>
+      <h4>Drinks</h4>
       <div class="row">
-        <h4>Drinks</h4>
         <drink-dessert v-for="drink in drinks" :drinkDessert="drink"></drink-dessert>
       </div>
+      <h4>Desserts</h4>
       <div class="row">
-        <h4>Desserts</h4>
         <drink-dessert v-for="dessert in deserts" :drinkDessert="dessert"></drink-dessert>
       </div>
     </div>
