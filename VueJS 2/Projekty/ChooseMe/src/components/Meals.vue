@@ -1,9 +1,9 @@
 <template lang="html">
   <transition name="fade">
-    <div class="meals">
+    <div class="meals" v-if="isListLoaded">
       <div class="small-paddings">
           <div class="row">
-            <meal v-for="(meal, index) in mealTypes[index].meals" :meal="meal" :index="index"></meal>
+            <meal v-for="(meal, index) in meals" :meal="meal" :index="index"></meal>
           </div>
       </div>
       <router-link :to="{name: 'main-category', params: {category: 'mains', index: 1}}"><v-btn large="true">Next</v-btn></router-link>
@@ -16,6 +16,28 @@ import Meal from './Meal.vue'
 
 export default {
   props: ['category'],
+  data () {
+    return {
+      isListLoaded: false,
+      meals: []
+    }
+  },
+  methods: {
+    fetchData () {
+      this.isListLoaded = false
+      this.meals = []
+      let self = this
+      setTimeout(function () {
+        self.meals = self.$store.state.mealTypes[self.index].meals
+      }, 100)
+      this.isListLoaded = true
+    }
+  },
+  watch: {
+    index () {
+      this.fetchData()
+    }
+  },
   computed: {
     mealTypes () {
       return this.$store.state.mealTypes
@@ -36,7 +58,8 @@ export default {
   components: {
     Meal: Meal
   },
-  mounted () {
+  created () {
+    this.fetchData()
     console.log(this.index)
   }
 }
