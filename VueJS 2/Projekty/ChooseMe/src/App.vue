@@ -36,7 +36,6 @@
           <router-view :category="$route.params.category" :index="$route.params.index"></router-view>
         </transition>
       </div>
-      <app-order-details></app-order-details>
     </div>
   </div>
 </template>
@@ -203,23 +202,24 @@ body {
 
 .main {
   width: calc(100vw - 180px);
-  height: calc(100vh - 50px);
+  height: 100vh;
   background: #eee;
   position: relative
 }
 .choice {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 130px);
   margin-top: 0;
   overflow-y: scroll;
   @include flexy(initial, center);
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 }
 
 .fade-enter-active {
-  transition: all 3s ease;
+  transition: all 0.7s ease;
 }
 .fade-enter, .fade-leave-active, .fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {

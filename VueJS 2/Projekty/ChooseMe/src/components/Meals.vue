@@ -6,7 +6,9 @@
             <meal v-for="(meal, index) in meals" :meal="meal" :index="index"></meal>
           </div>
       </div>
-      <router-link :to="{name: 'main-category', params: {category: 'mains', index: 1}}"><v-btn large="true">Next</v-btn></router-link>
+      <div class="next">
+        <router-link :to="{name: 'main-category', params: {category: 'mains', index: 1}}"><v-btn large="true">Next</v-btn></router-link>
+      </div>
     </div>
   </transition>
 </template>
@@ -29,8 +31,8 @@ export default {
       let self = this
       setTimeout(function () {
         self.meals = self.$store.state.mealTypes[self.index].meals
+        self.isListLoaded = true
       }, 100)
-      this.isListLoaded = true
     }
   },
   watch: {
@@ -72,15 +74,13 @@ export default {
 @import '../styling/responsive.scss';
 
 .meals {
-  @include flexy(center, center)
+  @include flexy(flex-start, center);
+  margin: 30px 1.5%;
 }
 
-.fade-enter-active {
-  transition: all 3s ease;
-}
-.fade-enter, .fade-leave-active, .fade-leave-to
-/* .slide-fade-leave-active for <2.1.8 */ {
-  opacity: 0;
+.next {
+  position: fixed;
+  bottom: 30px;
 }
 
 </style>

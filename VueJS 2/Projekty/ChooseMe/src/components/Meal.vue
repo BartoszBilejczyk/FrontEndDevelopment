@@ -1,6 +1,6 @@
 <template lang="html">
 <transition name="fade">
-  <div class="col s12 m6 l3">
+  <div class="col s12 m6 l3 xl3">
     <v-card class="hoverable">
       <div class="card-image">
             <img :src="meal.url">
