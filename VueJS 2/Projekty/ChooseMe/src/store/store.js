@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import soups from './dishes/soups'
-import mains from './dishes/mains'
-import { beverages, drinks, desserts } from './dishes/drinks-and-desserts.js'
-import mealTypes from './meals'
+import {soups, mains, drinks, mealTypes} from './meals'
 
 Vue.use(Vuex)
 
@@ -13,8 +10,6 @@ export default new Vuex.Store({
     soups,
     mains,
     drinks,
-    beverages,
-    desserts,
     order: [],
     subtotal: 0,
     totalTime: 0,

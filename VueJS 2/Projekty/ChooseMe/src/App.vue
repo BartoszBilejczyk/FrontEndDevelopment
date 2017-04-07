@@ -33,7 +33,7 @@
       </div>
       <div class="choice">
         <transition name="fade">
-          <router-view :category="$route.params.category"></router-view>
+          <router-view :category="$route.params.category" :index="$route.params.index"></router-view>
         </transition>
       </div>
       <app-order-details></app-order-details>
@@ -219,7 +219,7 @@ body {
 }
 
 .fade-enter-active {
-  transition: all 1s ease;
+  transition: all 3s ease;
 }
 .fade-enter, .fade-leave-active, .fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {

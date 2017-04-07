@@ -1,31 +1,43 @@
 <template lang="html">
-  <div class="meals">
-    <div class="small-paddings">
-      <div v-for="mealType in mealTypes">
-        <div class="row">
-          <meal v-for="(meal, index) in mealType.meals" :meal="meal" :index="index"></meal>
-        </div>
+  <transition name="fade">
+    <div class="meals">
+      <div class="small-paddings">
+          <div class="row">
+            <meal v-for="(meal, index) in mealTypes[index].meals" :meal="meal" :index="index"></meal>
+          </div>
       </div>
+      <router-link :to="{name: 'main-category', params: {category: 'mains', index: 1}}"><v-btn large="true">Next</v-btn></router-link>
     </div>
-    <router-link :to="{name: 'main-category', params: {category: 'mains'}}"><v-btn large="true">Next</v-btn></router-link>
-  </div>
+  </transition>
 </template>
 
 <script>
 import Meal from './Meal.vue'
 
 export default {
-  props: ['category', 'indexo'],
+  props: ['category'],
   computed: {
     mealTypes () {
       return this.$store.state.mealTypes
+    },
+    soups () {
+      return this.$store.state.soups
+    },
+    mains () {
+      return this.$store.state.mains
+    },
+    drinks () {
+      return this.$store.state.drinks
+    },
+    index () {
+      return this.$route.params.index
     }
   },
   components: {
     Meal: Meal
   },
   mounted () {
-    console.log(this.mealTypes.soups)
+    console.log(this.index)
   }
 }
 
@@ -39,4 +51,13 @@ export default {
 .meals {
   @include flexy(center, center)
 }
+
+.fade-enter-active {
+  transition: all 3s ease;
+}
+.fade-enter, .fade-leave-active, .fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  opacity: 0;
+}
+
 </style>

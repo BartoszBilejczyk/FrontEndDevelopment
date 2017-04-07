@@ -14,6 +14,7 @@ export default new Router({
     },
     {
       path: '/:category',
+      index: ':index',
       name: 'main-category',
       component: Meals
     }

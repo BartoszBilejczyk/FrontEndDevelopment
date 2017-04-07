@@ -1,4 +1,5 @@
 <template lang="html">
+<transition name="fade">
   <div class="col s12 m6 l3">
     <v-card class="hoverable">
       <div class="card-image">
@@ -20,6 +21,8 @@
       </div>
     </v-card>
   </div>
+</transition>
+
 </template>
 
 <script>
@@ -34,11 +37,11 @@ export default {
     addItem () {
       const soupOrder = {
         quantity: 1,
-        type: 'soup',
-        name: this.soup.name,
-        price: this.soup.price,
-        prepTime: this.soup.prepTime,
-        url: this.soup.url
+        type: 'meal',
+        name: this.meal.name,
+        price: this.meal.price,
+        prepTime: this.meal.prepTime,
+        url: this.meal.url
       }
       console.log(soupOrder)
       this.$store.dispatch('addItem', soupOrder)

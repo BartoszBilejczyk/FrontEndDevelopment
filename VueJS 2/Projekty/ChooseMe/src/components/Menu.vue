@@ -4,7 +4,7 @@
     <div class="nav">
       <ul class="steps">
         <li class="step-wrapper" v-for='mealType in mealTypes'>
-          <router-link :to="{name: 'main-category', params: { category: mealType.query } }">
+          <router-link :to="{name: 'main-category', params: { category: mealType.query, index: mealType.index } }">
             <li class="step-wrapper">
               <div class="step">
                 <img src='../assets/soup.png'></img>
