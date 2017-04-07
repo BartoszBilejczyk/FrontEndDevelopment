@@ -33,7 +33,7 @@
       </div>
       <div class="choice">
         <transition name="fade">
-          <router-view></router-view>
+          <router-view :category="$route.params.category"></router-view>
         </transition>
       </div>
       <app-order-details></app-order-details>
