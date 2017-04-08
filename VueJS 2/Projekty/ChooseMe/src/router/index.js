@@ -3,26 +3,37 @@ import Router from 'vue-router'
 import Home from '../components/Home.vue'
 import Meals from '../components/products/Meals.vue'
 import MealDetails from '../components/products/MealDetails.vue'
+import Checkout from '../components/order/Checkout.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
       name: 'home',
+      path: '/',
       component: Home
     },
     {
+      name: 'main-category',
       path: '/:category',
       index: ':index',
-      name: 'main-category',
-      component: Meals
+      components: {
+        'meals': Meals
+      }
     },
     {
-      path: '/:name',
       name: 'details',
+      path: '/:name',
       component: MealDetails
+    },
+
+    {
+      name: 'checkout',
+      path: '/checkout',
+      components: {
+        'checkout': Checkout
+      }
     }
   ]
 })

@@ -8,7 +8,7 @@
           </div>
       </div>
       <div class="next">
-        <router-link :to="{name: 'main-category', params: {category: nextCategory, index: nextIndex}}"><v-btn large="true">Next</v-btn></router-link>
+        <router-link :to="{name: nextName, params: {category: nextCategory, index: nextIndex}}"><v-btn large="true">Next</v-btn></router-link>
       </div>
     </div>
 </template>
@@ -65,13 +65,11 @@ export default {
       return index
     },
     nextIndex () {
-      let nextIndex = 0
+      let nextIndex = null
       if (this.index === 0) {
         nextIndex = 1
       } else if (this.index === 1) {
         nextIndex = 2
-      } else if (this.index === 2) {
-        nextIndex = 0
       }
       return nextIndex
     },
@@ -82,9 +80,16 @@ export default {
       } else if (this.index === 1) {
         nextCategory = 'drinks'
       } else if (this.index === 2) {
-        nextCategory = 'soups'
+        nextCategory = 'checkout'
       }
       return nextCategory
+    },
+    nextName () {
+      let nextName = ''
+      if (this.nextCategory === 'checkout') {
+        nextName = 'checkout'
+      }
+      return nextName
     }
   },
   components: {

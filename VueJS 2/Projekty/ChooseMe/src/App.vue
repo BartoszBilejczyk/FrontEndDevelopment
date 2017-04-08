@@ -37,7 +37,8 @@
       </div>
       <div class="choice">
         <transition name="fade">
-          <router-view :category="$route.params.category" :index="$route.params.index"></router-view>
+          <router-view name="meals" :category="$route.params.category" :index="$route.params.index"></router-view>
+          <router-view name="checkout"></router-view>
         </transition>
       </div>
     </div>
