@@ -54,7 +54,15 @@ export default {
       return this.$store.state.drinks
     },
     index () {
-      return this.$route.params.index
+      let index = null
+      if (this.category === 'soups') {
+        index = 0
+      } else if (this.category === 'mains') {
+        index = 1
+      } else if (this.category === 'drinks') {
+        index = 2
+      }
+      return index
     },
     nextIndex () {
       let nextIndex = 0
