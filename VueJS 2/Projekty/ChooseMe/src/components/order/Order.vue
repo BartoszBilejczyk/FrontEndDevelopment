@@ -1,5 +1,5 @@
 <template lang="html">
-
+  <h1>ORDER</h1>
 </template>
 
 <script>

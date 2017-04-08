@@ -1,4 +1,5 @@
 <template lang="html">
+  <h1>CHECKOUT</h1>
 
 </template>
 

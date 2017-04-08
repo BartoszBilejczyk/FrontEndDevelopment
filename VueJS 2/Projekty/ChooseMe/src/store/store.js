@@ -14,34 +14,10 @@ export default new Vuex.Store({
     subtotal: 0,
     totalTime: 0,
     totalCost: 0,
-    shipping: 5
+    shipping: 5,
+    popupVisible: false,
+    activeMeal: ''
   },
-  // addItem: function (index) {
-  //           this.total += this.price;
-  //
-  //           var item = this.products[index];
-  //           var found = false;
-  //           console.log(this.cart);
-  //
-  //           for (var i = 0; i < this.cart.length; i++) {
-  //               // check if the product being added is already in the cart, so that it's not shown again
-  //               if (this.cart[i].id === item.id) {
-  //                   found = true;
-  //                   this.cart[i].qty++;
-  //                   break;
-  //               }
-  //           }
-  //           if (!found) {
-  //               // if it's not, add it to the cart
-  //               this.cart.push({
-  //                   id: item.id,
-  //                   title: item.title,
-  //                   qty: 1,
-  //                   image: item.link,
-  //                   price: this.price
-  //               })
-  //           }
-  //       },
   mutations: {
     addItem (state, payload) {
       console.log(state.mealTypes)
@@ -67,12 +43,26 @@ export default new Vuex.Store({
         state.totalTime += payload.prepTime
         state.totalCost = state.subtotal + state.shipping
       }
+    },
+    openPopup (state, payload) {
+      state.popupVisible = true
+      state.activeMeal = payload.activeMeal
+      console.log('passed')
+    },
+    closePopup (state) {
+      state.popupVisible = false
     }
   },
   actions: {
     addItem ({commit}, payload) {
       commit('addItem', payload)
       console.log('Action')
+    },
+    openPopup ({commit}, payload) {
+      commit('openPopup', payload)
+    },
+    closePopup ({commit}) {
+      commit('closePopup')
     }
   }
 })

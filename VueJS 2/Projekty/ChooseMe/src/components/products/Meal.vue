@@ -1,27 +1,27 @@
 <template lang="html">
-<transition name="fade">
-  <div class="col s12 m6 l3 xl3">
-    <v-card class="hoverable">
-      <div class="card-image">
-            <img :src="meal.url">
+      <div class="col s12 m6 l3 xl3">
+        <v-card class="hoverable">
+          <a :href="'/meal/' + meal.name" @click.prevent="openPopup()">
+            <div class="card-image">
+                  <img :src="meal.url">
+            </div>
+          </a>
+          <div class="card-content">
+            <p class="title">{{ meal.name }}</p>
+            <p>Price: ${{ meal.price }} </p>
+            <p>Preparation time: {{ meal.prepTime }} minutes</p>
+          </div>
+          <div class="card-action">
+            <div class="button-wrapper" @click="addItem">
+              <v-btn large='true' @click.native="$dialog(`${meal.name} added to cart.`, 1500)">Add to cart</v-btn>
+            </div>
+          </div>
+          <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">v-card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+        </v-card>
       </div>
-      <div class="card-content">
-        <p class="title">{{ meal.name }}</p>
-        <p>Price: ${{ meal.price }} </p>
-        <p>Preparation time: {{ meal.prepTime }} minutes</p>
-      </div>
-      <div class="card-action">
-        <div class="button-wrapper" @click="addItem">
-          <v-btn large='true' @click.native="$dialog(`${meal.name} added to cart.`, 1500)">Add to cart</v-btn>
-        </div>
-      </div>
-      <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">v-card Title<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-      </div>
-    </v-card>
-  </div>
-</transition>
 
 </template>
 
@@ -31,6 +31,9 @@ export default {
   computed: {
     order () {
       return this.$store.state.order
+    },
+    popupVisible () {
+      return this.$store.state.popupVisible
     }
   },
   methods: {
@@ -45,6 +48,14 @@ export default {
       }
       console.log(soupOrder)
       this.$store.dispatch('addItem', soupOrder)
+    },
+    openPopup () {
+      const mealDetails = {
+        activeMeal: this.meal,
+        openPopup: true
+      }
+      console.log(mealDetails)
+      this.$store.dispatch('openPopup', mealDetails)
     }
   },
   mounted () {

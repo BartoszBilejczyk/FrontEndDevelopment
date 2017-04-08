@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <transition name="fade">
+      <!-- :name="water" :meal="meal" -->
+      <meal-details v-if="popupVisible" :meal="activeMeal"></meal-details>
+    </transition>
     <app-menu></app-menu>
     <div class="main">
       <div class="cart-wrapper">
@@ -43,6 +47,7 @@
 <script>
 
 import Menu from './components/Menu.vue'
+import MealDetails from './components/products/MealDetails.vue'
 
 export default {
   name: 'app',
@@ -71,6 +76,12 @@ export default {
     },
     shipping () {
       return this.$store.state.shipping
+    },
+    popupVisible () {
+      return this.$store.state.popupVisible
+    },
+    activeMeal () {
+      return this.$store.state.activeMeal
     }
   },
   methods: {
@@ -87,7 +98,8 @@ export default {
     }
   },
   components: {
-    appMenu: Menu
+    appMenu: Menu,
+    MealDetails
   }
 }
 </script>

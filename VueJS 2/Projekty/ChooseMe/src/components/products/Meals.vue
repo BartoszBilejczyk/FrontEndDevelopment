@@ -1,16 +1,16 @@
 <template lang="html">
-  <transition name="fade">
     <div class="meals" v-if="isListLoaded">
       <div class="small-paddings">
           <div class="row">
-            <meal v-for="(meal, index) in meals" :meal="meal" :index="index"></meal>
+            <transition-group name="fade">
+              <meal v-for="(meal, index) in meals" :meal="meal" :index="index" :key="meal"></meal>
+            </transition-group>
           </div>
       </div>
       <div class="next">
         <router-link :to="{name: 'main-category', params: {category: nextCategory, index: nextIndex}}"><v-btn large="true">Next</v-btn></router-link>
       </div>
     </div>
-  </transition>
 </template>
 
 <script>
