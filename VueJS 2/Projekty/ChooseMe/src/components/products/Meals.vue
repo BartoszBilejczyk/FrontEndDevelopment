@@ -100,8 +100,8 @@ export default {
 
 <style lang="scss">
 
-@import '../styling/globals.scss';
-@import '../styling/responsive.scss';
+@import '../../styling/globals.scss';
+@import '../../styling/responsive.scss';
 
 .meals {
   @include flexy(flex-start, center);
