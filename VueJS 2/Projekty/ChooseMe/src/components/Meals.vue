@@ -56,23 +56,27 @@ export default {
     index () {
       return this.$route.params.index
     },
-    next () {
-      let nextCategory = ''
-      let nextIndex = null
-      if (this.index === 1) {
-        nextCategory = 'mains'
+    nextIndex () {
+      let nextIndex = 0
+      if (this.index === 0) {
+        nextIndex = 1
+      } else if (this.index === 1) {
         nextIndex = 2
       } else if (this.index === 2) {
+        nextIndex = 0
+      }
+      return nextIndex
+    },
+    nextCategory () {
+      let nextCategory = ''
+      if (this.index === 0) {
+        nextCategory = 'mains'
+      } else if (this.index === 1) {
         nextCategory = 'drinks'
-        nextIndex = 3
-      } else if (this.index === 3) {
+      } else if (this.index === 2) {
         nextCategory = 'soups'
-        nextIndex = 1
       }
-      return {
-        nextCategory,
-        nextIndex
-      }
+      return nextCategory
     }
   },
   components: {
