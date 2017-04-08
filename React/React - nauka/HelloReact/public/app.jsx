@@ -35,7 +35,7 @@ var GreeterForm = React.createClass({
   }
 })
 
-var Greeter= React.createClass({
+var Greeter = React.createClass({
   getDefaultProps () {
     return {
       name: 'React',
