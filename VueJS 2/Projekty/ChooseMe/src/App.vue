@@ -43,7 +43,6 @@
 <script>
 
 import Menu from './components/Menu.vue'
-import OrderDetails from './components/OrderDetails.vue'
 
 export default {
   name: 'app',
@@ -88,8 +87,7 @@ export default {
     }
   },
   components: {
-    appMenu: Menu,
-    appOrderDetails: OrderDetails
+    appMenu: Menu
   }
 }
 </script>
