@@ -1,5 +1,5 @@
 <template lang="html">
-  <h1>PAYMENT</h1>
+  <h1>SHIPPING</h1>
 
 </template>
 
