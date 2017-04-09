@@ -15,10 +15,10 @@
             <hr>
             <div class="cart-items" v-for="(meal, index) in order">
               <div class="row">
-                <div class="item-image col s2 left-align"><img class="responsive-img" :src="order[index].url" alt=""></div>
-                <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
-                <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
+                <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+                <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+                <div class="item-quantity col s3 center-align"><span class="orange-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
+                <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
               </div>
               <hr>
             </div>

@@ -1,13 +1,17 @@
 <template lang="html">
   <div class="container">
-    <div class="order">
+    <div class="emptyOrder" v-if="orderEmpty">
+      <h5>There's nothing in your cart</h5>
+      <router-link to="/soups"><v-btn large>Ready to start?</v-btn></router-link>
+    </div>
+    <div class="order" v-if="!orderEmpty">
       <div class="checkout-cart">
-        <div class="cart-items" v-for="(item, index) in order">
+        <div class="cart-items" v-for="(meal, index) in order">
           <div class="row">
-            <div class="item-image col s2 left-align"><img class="responsive-img" :src="order[index].url" alt=""></div>
-            <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
-            <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="dec(item,index)">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="inc(item,index)">+</span></div>
-            <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
+            <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+            <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+            <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
+            <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
           </div>
           <hr>
         </div>
@@ -39,6 +43,13 @@ export default {
     order () {
       return this.$store.state.order
     },
+    orderEmpty () {
+      if (this.order.length) {
+        return false
+      } else {
+        return true
+      }
+    },
     totalTime () {
       return this.$store.state.totalTime
     },
@@ -53,16 +64,29 @@ export default {
     }
   },
   methods: {
-    inc (item, index) {
-      console.log(this.order[index])
-      this.$store.state.order[index].quantity++
-    },
-    dec (item, index) {
-      if (this.$store.state.order[index].quantity > 1) {
-        this.$store.state.order[index].quantity--
-      } else {
-        this.$store.state.order.splice(index, 1)
+    addItem (meal, index) {
+      const addedItem = {
+        quantity: 1,
+        type: 'meal',
+        name: meal.name,
+        price: meal.price,
+        prepTime: meal.prepTime,
+        url: meal.url
       }
+      console.log(addedItem)
+      this.$store.dispatch('addItem', addedItem)
+    },
+    deleteItem (meal, index) {
+      const deletedItem = {
+        quantity: 1,
+        type: 'meal',
+        name: meal.name,
+        price: meal.price,
+        prepTime: meal.prepTime,
+        url: meal.url
+      }
+      console.log(deletedItem)
+      this.$store.dispatch('deleteItem', deletedItem)
     }
   }
 }
@@ -78,10 +102,16 @@ export default {
   overflow-y: scroll;
 }
 
+.emptyOrder {
+  height: 100%;
+  @include flexy(center, center, wrap, column)
+}
+
 .order {
   min-height: 100%;
   @include flexy(stretch, space-between, wrap, column)
 }
+
 
 
 </style>
