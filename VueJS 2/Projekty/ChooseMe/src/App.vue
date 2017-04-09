@@ -31,7 +31,7 @@
             <div class="row">
               <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
             </div>
-            <v-btn class="right">PLACE ORDER</v-btn>
+            <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
           </div>
         </transition>
       </div>

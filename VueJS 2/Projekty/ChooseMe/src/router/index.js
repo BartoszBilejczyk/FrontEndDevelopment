@@ -33,30 +33,30 @@ export default new Router({
     },
     {
       name: 'checkout',
-      path: '/checkout',
+      path: '/checkout/order',
       components: {
         'checkout': Checkout
       },
       children: [
         {
           name: 'shipping',
-          path: 'shipping',
+          path: '/checkout/shipping',
           component: Shipping
         },
         {
           name: 'payment',
-          path: 'payment',
+          path: '/checkout/payment',
           component: Payment
         },
         {
           name: 'confirmation',
-          path: 'confirmation',
+          path: '/checkout/confirmation',
           component: Confirmation
         },
         {
-          name: 'first',
-          path: 'first',
-          components: Order
+          name: 'order',
+          path: '/checkout/order',
+          component: Order
         }
       ]
     }

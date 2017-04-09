@@ -8,7 +8,7 @@
           </div>
       </div>
       <div class="next">
-        <router-link :to="{name: nextName, params: {category: nextCategory, index: nextIndex}}"><v-btn large="true">Next</v-btn></router-link>
+        <router-link :to="{name: nextName, params: {category: nextCategory, index: nextIndex}}"><v-btn large="true">{{ nextAction}}</v-btn></router-link>
       </div>
     </div>
 </template>
@@ -21,7 +21,8 @@ export default {
   data () {
     return {
       isListLoaded: false,
-      meals: []
+      meals: [],
+      nextAction: 'next'
     }
   },
   methods: {
@@ -38,6 +39,11 @@ export default {
   watch: {
     index () {
       this.fetchData()
+    },
+    category () {
+      if (this.category === 'drinks') {
+        this.nextAction = 'Order'
+      }
     }
   },
   computed: {
