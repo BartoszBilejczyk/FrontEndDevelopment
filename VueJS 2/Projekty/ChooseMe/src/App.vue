@@ -13,11 +13,11 @@
           <div class="cart" v-if="active" @mouseleave="active = false">
             <span>ORDER</span>
             <hr>
-            <div class="cart-items" v-for="(item, index) in order">
+            <div class="cart-items" v-for="(meal, index) in order">
               <div class="row">
                 <div class="item-image col s2 left-align"><img class="responsive-img" :src="order[index].url" alt=""></div>
                 <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="dec(item,index)">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="inc(item,index)">+</span></div>
+                <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
                 <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
               </div>
               <hr>
@@ -84,22 +84,29 @@ export default {
     }
   },
   methods: {
-    inc (item, index) {
-      console.log(this.order[index])
-      this.$store.state.order[index].quantity++
-      this.$store.state.totalTime += this.$store.state.order[index].prepTime
-      this.$store.state.totalCost += this.$store.state.order[index].price
-      this.$store.state.subtotal += this.$store.state.order[index].price
-    },
-    dec (item, index) {
-      if (this.$store.state.order[index].quantity > 1) {
-        this.$store.state.order[index].quantity--
-      } else {
-        this.$store.state.order.splice(index, 1)
+    addItem (meal, index) {
+      const addedItem = {
+        quantity: 1,
+        type: 'meal',
+        name: meal.name,
+        price: meal.price,
+        prepTime: meal.prepTime,
+        url: meal.url
       }
-      this.$store.state.totalTime -= this.$store.state.order[index].prepTime
-      this.$store.state.totalCost -= this.$store.state.order[index].price
-      this.$store.state.subtotal -= this.$store.state.order[index].price
+      console.log(addedItem)
+      this.$store.dispatch('addItem', addedItem)
+    },
+    deleteItem (meal, index) {
+      const deletedItem = {
+        quantity: 1,
+        type: 'meal',
+        name: meal.name,
+        price: meal.price,
+        prepTime: meal.prepTime,
+        url: meal.url
+      }
+      console.log(deletedItem)
+      this.$store.dispatch('deleteItem', deletedItem)
     }
   },
   components: {

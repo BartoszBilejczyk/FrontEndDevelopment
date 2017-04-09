@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     addItem () {
-      const soupOrder = {
+      const addedItem = {
         quantity: 1,
         type: 'meal',
         name: this.meal.name,
@@ -46,8 +46,8 @@ export default {
         prepTime: this.meal.prepTime,
         url: this.meal.url
       }
-      console.log(soupOrder)
-      this.$store.dispatch('addItem', soupOrder)
+      console.log(addedItem)
+      this.$store.dispatch('addItem', addedItem)
     },
     openPopup () {
       const mealDetails = {

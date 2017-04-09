@@ -20,7 +20,6 @@ export default new Vuex.Store({
   },
   mutations: {
     addItem (state, payload) {
-      console.log(state.mealTypes)
       let found = false
 
       if (state.order.length) {
@@ -33,16 +32,28 @@ export default new Vuex.Store({
         }
         if (!found) {
           state.order.push(payload)
-          state.subtotal += payload.price
-          state.totalTime += payload.prepTime
-          state.totalCost = state.subtotal + state.shipping
         }
       } else {
         state.order.push(payload)
-        state.subtotal += payload.price
-        state.totalTime += payload.prepTime
-        state.totalCost = state.subtotal + state.shipping
       }
+      state.subtotal += payload.price
+      state.totalTime += payload.prepTime
+      state.totalCost = state.subtotal + state.shipping
+    },
+    deleteItem (state, payload) {
+      for (let i = 0; i < state.order.length; i++) {
+        if (state.order[i].name === payload.name) {
+          if (state.order[i].quantity > 1) {
+            state.order[i].quantity--
+            break
+          } else {
+            state.order.splice(i, 1)
+          }
+        }
+      }
+      state.subtotal -= payload.price
+      state.totalTime -= payload.prepTime
+      state.totalCost = state.subtotal + state.shipping
     },
     openPopup (state, payload) {
       state.popupVisible = true
@@ -56,7 +67,11 @@ export default new Vuex.Store({
   actions: {
     addItem ({commit}, payload) {
       commit('addItem', payload)
-      console.log('Action')
+      console.log('Added')
+    },
+    deleteItem ({commit}, payload) {
+      commit('deleteItem', payload)
+      console.log('Deleted')
     },
     openPopup ({commit}, payload) {
       commit('openPopup', payload)
