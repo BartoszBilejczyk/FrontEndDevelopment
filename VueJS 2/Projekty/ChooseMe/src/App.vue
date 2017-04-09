@@ -143,6 +143,9 @@ body {
     line-height: 20px;
 }
 
+.container .row {
+  margin: 10px 0
+}
 .cart-wrapper {
   position: absolute;
   top: 60px;
@@ -212,7 +215,7 @@ body {
   right: 0;
   width: 60px;
   height: 60px;
-  background-color: $main-blue;
+  background-color: $main;
   color: white;
 }
 
@@ -224,10 +227,10 @@ body {
 
 .btn, .btn-large {
   background: #1e5799; /* Old browsers */
-  background: -moz-linear-gradient(45deg, $main-blue 0%, $checkout-active-light 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(45deg,$main-blue 0%,$checkout-active-light 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(45deg,$main-blue 0%,$checkout-active-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$main-blue, endColorstr=$checkout-active-light,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: -moz-linear-gradient(45deg, $main 0%, $checkout-active-light 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg,$main 0%,$checkout-active-light 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg,$main 0%,$checkout-active-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$main, endColorstr=$checkout-active-light,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .main {

@@ -39,7 +39,7 @@ export default {
       height: 50px;
       background: white;
       border-bottom: 1px solid #ccc;
-      color: $main-blue;
+      color: $main;
       text-transform: uppercase;
       font-weight: bold;
       .checkout-menu {
@@ -50,13 +50,14 @@ export default {
           display: flex;
           height: 100%;
           align-items: center;
-          border-bottom: 1px solid $main-blue
+          border-bottom: 1px solid $main;
+          color: $main;
         }
       }
     }
     .checkout-body {
       height: calc(70vh - 50px);
-      @include flexy(center, center)
+      padding: 30px 0;
     }
   }
 }
@@ -67,6 +68,14 @@ export default {
 .fade-enter, .fade-leave-active, .fade-leave-to
 /* .slide-fade-leave-active for <2.1.8 */ {
   opacity: 0;
+}
+
+.back {
+  margin-right: 20px;
+  color: $main;
+  &:hover {
+      text-decoration: underline;
+  }
 }
 
 </style>
