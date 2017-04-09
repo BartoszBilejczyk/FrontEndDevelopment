@@ -44,7 +44,7 @@ export default {
   color: white;
   .logo {
     height: 10vh;
-    background: darken($main, 10);
+    background: darken($main, 6);
     @include flexy(center, center);
     a {
       text-decoration: none;

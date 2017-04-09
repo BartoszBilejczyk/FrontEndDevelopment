@@ -8,12 +8,12 @@
           </a>
           <div class="card-content">
             <p class="title">{{ meal.name }}</p>
-            <p>Price: ${{ meal.price }} </p>
-            <p>Preparation time: {{ meal.prepTime }} minutes</p>
+            <div class="left">{{ meal.prepTime }} minutes</div>
+            <div class="right">${{ meal.price }}</div>
           </div>
           <div class="card-action">
-            <div class="button-wrapper" @click="addItem">
-              <v-btn large='true' @click.native="$dialog(`${meal.name} added to cart.`, 1500)">Add to cart</v-btn>
+            <div class="button-wrapper center" @click="addItem">
+              <v-btn @click.native="$dialog(`${meal.name} added to cart.`, 1500)">Add</v-btn>
             </div>
           </div>
           <div class="card-reveal">
@@ -66,17 +66,25 @@ export default {
 
 <style lang="scss">
 
+@import '../../styling/globals.scss';
+@import '../../styling/responsive.scss';
+
 .card {
   max-width: 300px;
+  .card-content {
+    margin-bottom: 15px;
+  }
   .title {
-    font-size: 1.3rem;
-    line-height: 1.6rem;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
     padding-bottom: 10px;
   }
 }
 
 .toast {
-  background-color: #44A231 !important;
+  background-color: white !important;
+  color: $main
 }
+
 
 </style>

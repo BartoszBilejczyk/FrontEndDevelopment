@@ -235,6 +235,7 @@ body {
   height: 60px;
   background-color: $main;
   color: white;
+  @include flexy(center, center)
 }
 
 .reveal {

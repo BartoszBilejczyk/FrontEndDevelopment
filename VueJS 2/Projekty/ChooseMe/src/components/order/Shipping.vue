@@ -61,5 +61,8 @@ export default {
 @import '../../styling/globals.scss';
 @import '../../styling/responsive.scss';
 
-
+.shipping {
+  height: 100%;
+  @include flexy(center, space-around, wrap, column)
+}
 </style>
