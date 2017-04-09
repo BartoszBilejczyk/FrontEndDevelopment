@@ -1,5 +1,6 @@
 <template lang="html">
-    <div class="meals" v-if="isListLoaded">
+  <div class="choice" v-if="isListLoaded">
+    <div class="meals">
       <div class="small-paddings">
           <div class="row">
             <transition-group name="fade">
@@ -11,6 +12,7 @@
         <router-link :to="{name: nextName, params: {category: nextCategory, index: nextIndex}}"><v-btn large="true">{{ nextAction}}</v-btn></router-link>
       </div>
     </div>
+  </div>
 </template>
 
 <script>

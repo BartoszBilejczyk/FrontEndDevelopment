@@ -7,7 +7,7 @@
           <router-link :to="{name: 'main-category', params: { category: mealType.query, index: mealType.index } }">
             <li class="step-wrapper">
               <div class="step">
-                <img src='../assets/soup.png'></img>
+                <img class="responsive-img" src='../assets/soup.png'></img>
                 <span>{{ mealType.title }}</span>
               </div>
             </li>
@@ -36,11 +36,15 @@ export default {
 .menu {
   height: 100vh;
   width: 180px;
-  background: #111;
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(top, $main-blue 0%, $checkout-active-light 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,$main-blue 0%,$checkout-active-light 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(top,$main-blue 0%,$checkout-active-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$main-blue, endColorstr=$checkout-active-light,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   color: white;
   .logo {
     height: 10vh;
-    background: #000;
+    background: darken($main-blue, 10);
     @include flexy(center, center);
     a {
       text-decoration: none;

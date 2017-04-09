@@ -15,7 +15,7 @@
             <hr>
             <div class="cart-items" v-for="(item, index) in order">
               <div class="row">
-                <div class="item-image col s2 left-align"><img :src="order[index].url" alt=""></div>
+                <div class="item-image col s2 left-align"><img class="responsive-img" :src="order[index].url" alt=""></div>
                 <div class="item-description col s5 left-align">{{ order[index].name }}<br><span class="grey-text text-lighten-1">description</span></div>
                 <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="dec(item,index)">-</span><span class="quantity"> {{ order[index].quantity }} </span><span class="green-text plus" @click="inc(item,index)">+</span></div>
                 <div class="item-value col s2 right-align"> ${{ order[index].quantity * order[index].price }}</div>
@@ -35,12 +35,10 @@
           </div>
         </transition>
       </div>
-      <div class="choice">
         <transition name="fade">
           <router-view name="meals" :category="$route.params.category" :index="$route.params.index"></router-view>
           <router-view name="checkout"></router-view>
         </transition>
-      </div>
     </div>
   </div>
 </template>
@@ -89,6 +87,9 @@ export default {
     inc (item, index) {
       console.log(this.order[index])
       this.$store.state.order[index].quantity++
+      this.$store.state.totalTime += this.$store.state.order[index].prepTime
+      this.$store.state.totalCost += this.$store.state.order[index].price
+      this.$store.state.subtotal += this.$store.state.order[index].price
     },
     dec (item, index) {
       if (this.$store.state.order[index].quantity > 1) {
@@ -96,6 +97,9 @@ export default {
       } else {
         this.$store.state.order.splice(index, 1)
       }
+      this.$store.state.totalTime -= this.$store.state.order[index].prepTime
+      this.$store.state.totalCost -= this.$store.state.order[index].price
+      this.$store.state.subtotal -= this.$store.state.order[index].price
     }
   },
   components: {
@@ -201,7 +205,7 @@ body {
   right: 0;
   width: 60px;
   height: 60px;
-  background-color: black;
+  background-color: $main-blue;
   color: white;
 }
 
@@ -211,11 +215,20 @@ body {
   animation: reveal 1s forwards;
 }
 
+.btn, .btn-large {
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(45deg, $main-blue 0%, $checkout-active-light 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg,$main-blue 0%,$checkout-active-light 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg,$main-blue 0%,$checkout-active-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$main-blue, endColorstr=$checkout-active-light,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
 .main {
   width: calc(100vw - 180px);
   height: 100vh;
   background: #eee;
-  position: relative
+  position: relative;
+  display: grid
 }
 .choice {
   height: calc(100vh - 130px);
