@@ -73,9 +73,6 @@ export default {
     line-height: 1.6rem;
     padding-bottom: 10px;
   }
-  .v-card-image img {
-    clip: rect(30px, 30px, 30px, 30px);
-  }
 }
 
 .toast {

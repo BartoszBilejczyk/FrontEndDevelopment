@@ -11,27 +11,33 @@
         <div class="icon" @mouseover="active = true" @click="active = !active">Cart</div>
         <transition name="slide-fade">
           <div class="cart" v-if="active" @mouseleave="active = false">
-            <span>ORDER</span>
-            <hr>
-            <div class="cart-items" v-for="(meal, index) in order">
-              <div class="row">
-                <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
-                <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                <div class="item-quantity col s3 center-align"><span class="orange-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
-                <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
-              </div>
+            <div class="emptyOrder" v-if="orderEmpty">
+              <h5>There's nothing in your cart</h5>
+              <router-link to="/soups"><div @click="active = false"><v-btn large>Ready to start?</v-btn></div></router-link>
+            </div>
+            <div class="cart-items-wrapper" v-if="!orderEmpty">
+              <span>ORDER</span>
               <hr>
+              <div class="cart-items" v-for="(meal, index) in order">
+                <div class="row">
+                  <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+                  <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+                  <div class="item-quantity col s3 center-align"><span class="orange-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
+                  <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
+                </div>
+                <hr>
+              </div>
+              <div class="row">
+                <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
+              </div>
+              <div class="row">
+                <span class="left">Shipping</span><span class="right">${{ shipping }}</span>
+              </div>
+              <div class="row">
+                <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
+              </div>
+              <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
             </div>
-            <div class="row">
-              <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
-            </div>
-            <div class="row">
-              <span class="left">Shipping</span><span class="right">${{ shipping }}</span>
-            </div>
-            <div class="row">
-              <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
-            </div>
-            <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
           </div>
         </transition>
       </div>
@@ -63,6 +69,13 @@ export default {
     },
     order () {
       return this.$store.state.order
+    },
+    orderEmpty () {
+      if (this.order.length) {
+        return false
+      } else {
+        return true
+      }
     },
     totalTime () {
       return this.$store.state.totalTime
@@ -170,6 +183,11 @@ body {
   .row {
     margin: 10px auto;
   }
+}
+
+.emptyOrder {
+  height: 100%;
+  @include flexy(center, center, wrap, column)
 }
 
 .cart-items {

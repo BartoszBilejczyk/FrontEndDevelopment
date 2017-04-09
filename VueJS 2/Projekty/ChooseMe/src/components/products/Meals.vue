@@ -3,9 +3,7 @@
     <div class="meals">
       <div class="small-paddings">
           <div class="row">
-            <transition-group name="fade">
               <meal v-for="(meal, index) in meals" :meal="meal" :index="index" :key="meal"></meal>
-            </transition-group>
           </div>
       </div>
       <div class="next">
@@ -45,6 +43,8 @@ export default {
     category () {
       if (this.category === 'drinks') {
         this.nextAction = 'Order'
+      } else {
+        this.nextAction = 'Next'
       }
     }
   },
