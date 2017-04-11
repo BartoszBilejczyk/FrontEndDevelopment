@@ -128,6 +128,9 @@ export default {
 .next {
   position: fixed;
   bottom: 30px;
+  @include tablet-portrait-and-down {
+    bottom: 80px;
+  }
 }
 
 </style>

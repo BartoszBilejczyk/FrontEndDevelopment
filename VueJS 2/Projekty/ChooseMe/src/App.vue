@@ -20,10 +20,14 @@
               <hr>
               <div class="cart-items" v-for="(meal, index) in order">
                 <div class="row">
-                  <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
-                  <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                  <div class="item-quantity col s3 center-align"><span class="orange-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
-                  <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
+                  <div class="item-image col s4 m2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+                  <div class="item-description col s7 m5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+                  <div class="item-quantity col m3 center-align hide-on-small-only">
+                    <span class="orange-text minus" @click="deleteItem(meal, index)">-</span>
+                    <span class="quantity"> {{ meal.quantity }} </span>
+                    <span class="green-text plus" @click="addItem(meal, index)">+</span>
+                  </div>
+                  <div class="item-value col s m2 right-align"> ${{ meal.quantity * meal.price }}</div>
                 </div>
                 <hr>
               </div>
@@ -160,10 +164,10 @@ body {
   margin: 10px 0
 }
 .cart-wrapper {
-  position: absolute;
+  position: fixed;
   top: 60px;
   right: 0;
-  width: 450px;
+  width: 100%;
   height: auto;
   background-color: #111;
   z-index: 99999
@@ -175,8 +179,11 @@ body {
   width: 450px;
   min-height: 200px;
   background-color: white;
-  padding: 10%;
+  padding: 40px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  @include mobile-only {
+    width: 90%
+  }
   img {
     max-width: 100%;
   }
@@ -256,17 +263,25 @@ body {
 }
 
 .main {
+  z-index: 2;
   width: calc(100vw - 180px);
   height: 100vh;
   background: #eee;
   position: relative;
-  display: grid
+  display: grid;
+  @include tablet-portrait-and-down {
+    height: calc(100% - 150px);
+    width: 100vw
+  }
 }
 .choice {
   height: calc(100vh - 130px);
   margin-top: 0;
   overflow-y: scroll;
   @include flexy(initial, center);
+  @include tablet-portrait-and-down {
+    height: 100%;
+  }
     .row {
       display: flex;
       flex-wrap: wrap;

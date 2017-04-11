@@ -5,12 +5,10 @@
       <ul class="steps">
         <li class="step-wrapper" v-for='mealType in mealTypes'>
           <router-link :to="{name: 'main-category', params: { category: mealType.query, index: mealType.index } }">
-            <li class="step-wrapper">
               <div class="step">
                 <span class="ion-icon" :class="mealType.icon" data-pack="default"></span>
                 <span>{{ mealType.title }}</span>
               </div>
-            </li>
           </router-link>
         </li>
       </ul>
@@ -42,10 +40,20 @@ export default {
   background: linear-gradient(top,$main 0%,$checkout-active-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$main, endColorstr=$checkout-active-light,GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   color: white;
+  z-index: 999;
+  @include tablet-portrait-and-down {
+    height: 70px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+  }
   .logo {
     height: 10vh;
     background: darken($main, 6);
     @include flexy(center, center);
+    @include tablet-portrait-and-down {
+      display: none;
+    }
     a {
       text-decoration: none;
       color: white;
@@ -54,23 +62,37 @@ export default {
   .nav {
     height: 30vh;
     @include flexy(center, center)
+    @include tablet-portrait-and-down {
+      height: 100%;
+    }
     .steps {
       padding: 0;
-      height: 30vh;
+      height: inherit;
+      width: 100%;
       text-decoration: none;
-      a {
-        text-decoration: none;
-        color: white;
+      @include tablet-portrait-and-down {
+        @include flexy(center, center)
       }
       .step-wrapper {
         width: 180px;
         height: 10vh;
         padding: 4px;
         @include flexy(center, center, wrap, column);
-        .step {
-          @include flexy(center, center, wrap, column);
-          &:hover {
-            border-bottom: 1px solid white;
+        @include tablet-portrait-and-down {
+          width: 33%;
+          height: inherit;
+          padding: 0;
+        }
+        a {
+          text-decoration: none;
+          color: white;
+          @include tablet-portrait-and-down {
+            width: 100%;
+            height: inherit;
+          }
+          .step {
+            @include flexy(center, center, wrap, column);
+            height: inherit
           }
         }
       }
@@ -80,6 +102,9 @@ export default {
 
 .ion-icon {
   font-size: 35px;
+  @include tablet-portrait-and-down {
+    font-size: 20px;
+  }
 }
 
 </style>

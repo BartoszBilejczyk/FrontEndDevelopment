@@ -94,7 +94,7 @@ let mealTypes = [
     ]
   },
   {
-    title: 'Drinks and Desserts',
+    title: 'Drinks',
     query: 'drinks',
     icon: 'ion-android-bar',
     index: 2,
