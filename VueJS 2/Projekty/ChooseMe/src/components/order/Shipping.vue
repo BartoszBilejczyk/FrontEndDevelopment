@@ -61,11 +61,15 @@ export default {
   height: 100%;
   padding: 0 3%;
   @include flexy(center, space-around, nowrap, column)
+  @include tablet-portrait-and-down {
+    display: block
+  }
 
 }
 .shipping {
   @include flexy(center, space-around);
   width: 90%;
+  margin: 0 auto;
   .row {
     @include flexy(flex-start, center);
     width: 100%

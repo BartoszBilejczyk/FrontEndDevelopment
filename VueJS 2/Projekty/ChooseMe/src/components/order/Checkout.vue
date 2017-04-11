@@ -48,6 +48,7 @@ export default {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
     @include tablet-landscape-and-down {
       height: auto;
+      max-height: 90%
     }
     .checkout-header {
       height: 50px;
@@ -71,6 +72,10 @@ export default {
     .checkout-body {
       height: calc(100% - 50px);
       padding: 30px 0;
+      @include tablet-portrait-and-down {
+        height: 70vh;
+        overflow-y: scroll;
+      }
       .container {
         height: 100%;
       }

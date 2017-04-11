@@ -1,5 +1,5 @@
 <template lang="html">
-      <div class="col s12 m6 l3 xl3">
+      <div class="col s6 l3 xl3">
         <v-card class="hoverable">
           <a :href="'/meal/' + meal.name" @click.prevent="openPopup()">
             <div class="card-image">

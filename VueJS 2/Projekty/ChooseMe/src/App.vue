@@ -15,22 +15,24 @@
               <h5>There's nothing in your cart</h5>
               <router-link to="/soups"><div @click="active = false"><v-btn class="ready" large>Ready to start?</v-btn></div></router-link>
             </div>
-            <div class="cart-items-wrapper" v-if="!orderEmpty">
+            <div class="cart-items" v-if="!orderEmpty">
               <span>ORDER</span>
               <hr>
-              <div class="cart-items" v-for="(meal, index) in order">
+              <div class="cart-item" v-for="(meal, index) in order">
                 <div class="row">
-                  <div class="item-image col s4 m2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
-                  <div class="item-description col s7 m5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                  <div class="item-quantity col m3 center-align hide-on-small-only">
+                  <div class="item-image col s3 l2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+                  <div class="item-description col s7 l5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+                  <div class="item-quantity col l3 center-align hide-on-med-and-down">
                     <span class="orange-text minus" @click="deleteItem(meal, index)">-</span>
                     <span class="quantity"> {{ meal.quantity }} </span>
                     <span class="green-text plus" @click="addItem(meal, index)">+</span>
                   </div>
-                  <div class="item-value col s m2 right-align"> ${{ meal.quantity * meal.price }}</div>
+                  <div class="item-value col s2 l2 right-align"> ${{ meal.quantity * meal.price }}</div>
                 </div>
                 <hr>
               </div>
+            </div>
+            <div class="totals">
               <div class="row">
                 <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
               </div>
@@ -40,8 +42,8 @@
               <div class="row">
                 <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
               </div>
-              <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
             </div>
+            <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
           </div>
         </transition>
       </div>
@@ -153,6 +155,7 @@ body {
   color: #2c3e50;
   display: flex;
   overflow-x: hidden;
+  overflow-y: hidden;
   z-index: 1
 }
 
@@ -201,6 +204,17 @@ body {
 }
 
 .cart-items {
+  @include tablet-portrait-and-down {
+    max-height: 400px;
+    overflow-y: scroll
+  }
+  @include mobile-only {
+    max-height: 250px;
+    overflow-y: scroll
+  }
+}
+
+.cart-item {
   .row {
     margin: 10px auto;
     display: flex;
@@ -270,7 +284,8 @@ body {
   position: relative;
   display: grid;
   @include tablet-portrait-and-down {
-    height: calc(100% - 150px);
+    height: 100%;
+    min-height: calc(100vh - 70px);
     width: 100vw
   }
 }
@@ -280,7 +295,8 @@ body {
   overflow-y: scroll;
   @include flexy(initial, center);
   @include tablet-portrait-and-down {
-    height: 100%;
+    height: calc(100% - 90px);
+    min-height: calc(100vh - 90px)
   }
     .row {
       display: flex;

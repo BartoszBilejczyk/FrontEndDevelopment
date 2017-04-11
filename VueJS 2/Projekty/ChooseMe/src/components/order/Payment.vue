@@ -2,7 +2,7 @@
   <div class="payment-wrapper">
     <div class="payment">
       <div class="row">
-        <div class="col s12 l6">
+        <div class="col s12 l6 hide-on-med-and-down">
           <div class="credit-card-wrapper">
             <div class="card-base">
               <div class="visa">
@@ -83,10 +83,20 @@ export default {
   height: 100%;
   padding: 0 3%;
   @include flexy(center, space-around, nowrap, column)
+  @include tablet-portrait-and-down {
+    height: 65vh;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
 }
 .payment {
   @include flexy(center,center);
   width: 90%;
+  @include tablet-portrait-and-down {
+    height: 70vh;
+    display: block;
+    margin: 0 auto;
+  }
   .row {
     @include flexy(center,center);
     width: 100%

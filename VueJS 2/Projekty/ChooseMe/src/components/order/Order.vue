@@ -9,10 +9,14 @@
         <div class="cart-items">
           <div class="cart-item" v-for="(meal, index) in order">
             <div class="row">
-              <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
-              <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
-              <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
-              <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
+              <div class="item-image col s4 l3 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+              <div class="item-description col s6 l4 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+              <div class="item-quantity col l3 center-align hide-on-med-and-down">
+                <span class="grey-text minus" @click="deleteItem(meal, index)">-</span>
+                <span class="quantity"> {{ meal.quantity }} </span>
+                <span class="green-text plus" @click="addItem(meal, index)">+</span>
+              </div>
+              <div class="item-value col s2 l2 right-align"> ${{ meal.quantity * meal.price }}</div>
             </div>
             <hr>
           </div>
@@ -108,6 +112,7 @@ export default {
 
 .emptyOrder {
   height: 100%;
+  text-align: center;
   @include flexy(center, center, wrap, column)
 }
 
