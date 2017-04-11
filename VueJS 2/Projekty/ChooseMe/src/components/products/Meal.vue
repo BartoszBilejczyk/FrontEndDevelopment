@@ -8,7 +8,7 @@
           </a>
           <div class="card-content">
             <p class="title">{{ meal.name }}</p>
-            <div class="left">{{ meal.prepTime }} minutes</div>
+            <div class="left">{{ meal.prepTime }} min</div>
             <div class="right">${{ meal.price }}</div>
           </div>
           <div class="card-action">

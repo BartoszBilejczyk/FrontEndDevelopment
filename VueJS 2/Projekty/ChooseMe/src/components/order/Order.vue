@@ -2,33 +2,37 @@
   <div class="container">
     <div class="emptyOrder" v-if="orderEmpty">
       <h5>There's nothing in your cart</h5>
-      <router-link to="/soups"><v-btn large>Ready to start?</v-btn></router-link>
+      <router-link to="/soups"><v-btn class="ready" large>Ready to start?</v-btn></router-link>
     </div>
     <div class="order" v-if="!orderEmpty">
       <div class="checkout-cart">
-        <div class="cart-items" v-for="(meal, index) in order">
-          <div class="row">
-            <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
-            <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
-            <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
-            <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
+        <div class="cart-items">
+          <div class="cart-item" v-for="(meal, index) in order">
+            <div class="row">
+              <div class="item-image col s2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
+              <div class="item-description col s5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
+              <div class="item-quantity col s3 center-align"><span class="grey-text minus" @click="deleteItem(meal, index)">-</span><span class="quantity"> {{ meal.quantity }} </span><span class="green-text plus" @click="addItem(meal, index)">+</span></div>
+              <div class="item-value col s2 right-align"> ${{ meal.quantity * meal.price }}</div>
+            </div>
+            <hr>
           </div>
-          <hr>
         </div>
-        <div class="row">
-          <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
-        </div>
-        <div class="row">
-          <span class="left">Shipping</span><span class="right">${{ shipping }}</span>
-        </div>
-        <div class="row">
-          <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
+        <div class="totals">
+          <div class="row">
+            <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
+          </div>
+          <div class="row">
+            <span class="left">Shipping</span><span class="right">${{ shipping }}</span>
+          </div>
+          <div class="row">
+            <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
+          </div>
         </div>
       </div>
       <div class="checkout-navigation">
         <div class="row">
           <div class="center">
-            <p>Everything good?</p><br>
+            <span>Everything good?</span><br>
             <router-link to="/checkout/shipping"><v-btn>Next</v-btn></router-link>
           </div>
         </div>
@@ -108,10 +112,24 @@ export default {
 }
 
 .order {
-  min-height: 100%;
+  height: 100%;
   @include flexy(stretch, space-between, wrap, column)
+  .cart-items {
+    overflow-y: scroll;
+    max-height: 400px;
+    @include tablet-landscape-and-down {
+      height: auto;
+    }
+  }
 }
 
+.ready {
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 5px;
+}
 
 
 </style>

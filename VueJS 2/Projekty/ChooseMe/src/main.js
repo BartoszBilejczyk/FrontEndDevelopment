@@ -10,6 +10,16 @@ Vue.use(Materials)
 
 Vue.config.productionTip = false
 
+Vue.filter('card', function (value) {
+  value = value.toString().replace(/[^0-9]/g, '').replace(/\W/gi, '').replace(/(.{4})/g, '$1 ')
+  return value
+//   $('#credit-card').on('keypress change', function () {
+//    $(this).val(function (index, value) {
+//        return value.replace(/[^0-9]/g, "").replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
+//    });
+// });
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

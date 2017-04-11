@@ -1,40 +1,36 @@
 <template lang="html">
-  <div class="shipping">
-    <div class="container">
+  <div class="shipping-wrapper">
+    <div class="shipping">
       <div class="row">
-        <form action="">
-          <h4>Shipping details</h4>
-          <div class="row">
-            <div class="col s12">
-              <div class="input-field">
-                <v-text-input name="first" id="first"></v-text-input>
-                <label for="first">First Name</label>
-              </div>
+        <div class="col s12 l6">
+          <form action="">
+            <h5>Shipping details</h5>
+            <div class="input-field">
+              <v-text-input name="first" id="first"></v-text-input>
+              <label for="first">First Name</label>
             </div>
-          </div>
-          <div class="row">
-            <div class="col s12">
-              <div class="input-field">
-                <v-text-input name="first" id="first"></v-text-input>
-                <label for="first">First Name</label>
-              </div>
+            <div class="input-field">
+              <v-text-input name="first" id="first"></v-text-input>
+              <label for="first">Last Name</label>
             </div>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <div class="input-field">
-                <v-text-input name="first" id="first"></v-text-input>
-                <label for="first">First Name</label>
-              </div>
+            <div class="input-field">
+              <v-text-input name="first" id="first"></v-text-input>
+              <label for="first">E-mail</label>
             </div>
-            <div class="col s6">
-              <div class="input-field">
-                <v-text-input name="first" id="first"></v-text-input>
-                <label for="first">First Name</label>
-              </div>
+            <div class="input-field">
+              <v-text-input name="first" id="first"></v-text-input>
+              <label for="first">Address</label>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div class="col s12 l6">
+          <form action="">
+            <h5>Shipping method</h5>
+            <div class="box-placeholder"></div>
+            <div class="box-placeholder"></div>
+            <div class="box-placeholder"></div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="checkout-navigation">
@@ -61,8 +57,25 @@ export default {
 @import '../../styling/globals.scss';
 @import '../../styling/responsive.scss';
 
-.shipping {
+.shipping-wrapper {
   height: 100%;
-  @include flexy(center, space-around, wrap, column)
+  padding: 0 3%;
+  @include flexy(center, space-around, nowrap, column)
+
+}
+.shipping {
+  @include flexy(center, space-around);
+  width: 90%;
+  .row {
+    @include flexy(flex-start, center);
+    width: 100%
+  }
+}
+
+.box-placeholder {
+  width: 100%;
+  height: 80px;
+  border: 2px solid $main;
+  margin: 5px
 }
 </style>

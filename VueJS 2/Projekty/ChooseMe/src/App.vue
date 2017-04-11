@@ -8,12 +8,12 @@
     <div class="main">
       <div class="cart-wrapper">
         <div class="disactivate" @mouseover="active = false"></div>
-        <div class="icon" @mouseover="active = true" @click="active = !active">Cart</div>
+        <div class="icon" @mouseover="active = true" @click="active = !active"><span class="ion-icon ion-android-cart"></span></div>
         <transition name="slide-fade">
           <div class="cart" v-if="active" @mouseleave="active = false">
             <div class="emptyOrder" v-if="orderEmpty">
               <h5>There's nothing in your cart</h5>
-              <router-link to="/soups"><div @click="active = false"><v-btn large>Ready to start?</v-btn></div></router-link>
+              <router-link to="/soups"><div @click="active = false"><v-btn class="ready" large>Ready to start?</v-btn></div></router-link>
             </div>
             <div class="cart-items-wrapper" v-if="!orderEmpty">
               <span>ORDER</span>
@@ -188,6 +188,9 @@ body {
 .emptyOrder {
   height: 100%;
   @include flexy(center, center, wrap, column)
+  .ready {
+    margin-top: 10px;
+  }
 }
 
 .cart-items {

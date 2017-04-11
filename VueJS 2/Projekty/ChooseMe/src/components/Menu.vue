@@ -7,7 +7,7 @@
           <router-link :to="{name: 'main-category', params: { category: mealType.query, index: mealType.index } }">
             <li class="step-wrapper">
               <div class="step">
-                <img class="responsive-img" src='../assets/soup.png'></img>
+                <span class="ion-icon" :class="mealType.icon" data-pack="default"></span>
                 <span>{{ mealType.title }}</span>
               </div>
             </li>
@@ -72,13 +72,14 @@ export default {
           &:hover {
             border-bottom: 1px solid white;
           }
-          img {
-            margin-bottom: 10px;
-          }
         }
       }
     }
   }
+}
+
+.ion-icon {
+  font-size: 35px;
 }
 
 </style>

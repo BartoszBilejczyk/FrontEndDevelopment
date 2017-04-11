@@ -1,15 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {soups, mains, drinks, mealTypes} from './meals'
+import mealTypes from './meals'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     mealTypes,
-    soups,
-    mains,
-    drinks,
     order: [],
     subtotal: 0,
     totalTime: 0,

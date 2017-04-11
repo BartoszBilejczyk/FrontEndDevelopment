@@ -2,10 +2,12 @@
   <div class="confirmation-wrapper">
     <div class="container">
       <div class="confirmation center">
-        <img class="confirmation-icon" src='../../assets/soup.png'></img>
+        <div class="icon-wrapper">
+          <span class="ion-icon ion-android-done"></span>
+        </div>
         <h4>Congratulations!</h4>
         <h5>Your order has been accepted</h5>
-        <p>Estimated time arrival: 30 minutes. We will send you a notification when it will be near your place.</p>
+        <p>Estimated time arrival: {{ totalTime }} minutes. We will send you a notification when it will be near your place.</p>
       </div>
       <div class="checkout-navigation">
         <div class="row">
@@ -20,11 +22,15 @@
 
 <script>
 export default {
-
+  computed: {
+    totalTime () {
+      return this.$store.state.totalTime
+    }
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 @import '../../styling/globals.scss';
 @import '../../styling/responsive.scss';
@@ -42,5 +48,33 @@ export default {
 
 a {
   color: $main
+}
+
+.icon-wrapper {
+  animation: 1s jumpIn;
+  .ion-icon {
+    font-size: 6rem;
+  }
+}
+
+@keyframes jumpIn {
+  0% {
+    transform: scale(0);
+  },
+  40% {
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1.2);
+  },
+  70% {
+    transform: scale(1);
+  },
+  85% {
+    transform: scale(1.05);
+  },
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
