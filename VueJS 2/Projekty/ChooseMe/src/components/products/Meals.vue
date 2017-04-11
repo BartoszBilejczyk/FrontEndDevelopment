@@ -2,8 +2,9 @@
   <div class="choice" v-if="isListLoaded">
     <div class="meals">
       <div class="small-paddings">
+        <h4>{{ mealCategory }}</h4>
           <div class="row">
-              <meal v-for="(meal, index) in meals" :meal="meal" :index="index" :key="meal"></meal>
+            <meal v-for="(meal, index) in meals" :meal="meal" :index="index" :key="meal"></meal>
           </div>
       </div>
       <div class="next">
@@ -51,6 +52,9 @@ export default {
   computed: {
     mealTypes () {
       return this.$store.state.mealTypes
+    },
+    mealCategory () {
+      return this.$store.state.mealTypes[this.index].title
     },
     soups () {
       return this.$store.state.soups

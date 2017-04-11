@@ -20,6 +20,10 @@ Vue.filter('card', function (value) {
 // });
 })
 
+Vue.filter('capitalize', function (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -32,7 +32,7 @@ let mealTypes = [
     ]
   },
   {
-    title: 'Main Dishes',
+    title: 'Main Courses',
     query: 'mains',
     icon: 'ion-fork',
     index: 1,
