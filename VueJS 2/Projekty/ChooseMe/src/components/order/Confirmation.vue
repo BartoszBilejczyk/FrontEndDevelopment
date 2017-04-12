@@ -7,7 +7,7 @@
         </div>
         <h4>Congratulations!</h4>
         <h5>Your order has been accepted</h5>
-        <p>Estimated time arrival: {{ totalTime }} minutes. We will send you a notification when it will be near your place.</p>
+        <p>Estimated time of arrival: {{ totalTime }} minutes. We will send you a notification when it will be near your place.</p>
       </div>
       <div class="checkout-navigation">
         <div class="row">

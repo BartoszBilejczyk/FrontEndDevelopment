@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="menu">
-    <div class="logo"><router-link :to="{name: 'home'}">LOGO</router-link></div>
+    <div class="logo"><router-link :to="{name: 'home'}">ChooseMe</router-link></div>
     <div class="nav">
       <ul class="steps">
         <li class="step-wrapper" v-for='mealType in mealTypes'>

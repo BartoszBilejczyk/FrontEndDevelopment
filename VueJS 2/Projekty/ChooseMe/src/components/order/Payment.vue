@@ -13,14 +13,14 @@
               </div>
               <div class="card-number">{{ cardNumber | card }}</div>
               <div class="card-holder">{{ cardName.toUpperCase() }}</div>
-              <div class="expiration-date">{{ validThrough }}</div>
+              <div class="expiration-date">{{ month }}/{{ year }}</div>
             </div>
           </div>
         </div>
         <div class="col s12 l6">
           <div class="payment-form">
             <form action="">
-              <h4>Payment details</h4>
+              <h5 class="title">Payment details</h5>
                 <div class="input-field">
                   <v-text-input name="name" id="name" v-model="cardName"></v-text-input>
                   <label for="name">Name on Card</label>
@@ -31,25 +31,43 @@
                   <label for="card-number">Card Number</label>
                 </div>
 
-                <div class="input-field">
-                  <v-text-input name="date" id="date" v-model="validThrough"></v-text-input>
-                  <label for="date">Valid Through</label>
+                <div class="card-details">
+                  <div class="input-field">
+                    <v-select name="select"
+                              id="select"
+                              :items="months"
+                              >
+                    </v-select>
+                    <label for="select2">Select</label>
+                  </div>
+                </div>
+                <div class="card-details">
+                  <div class="input-field">
+                    <v-select name="select2"
+                              id="select2"
+                              :items="years"
+                              >
+                    </v-select>
+                    <label for="select2">Select</label>
+                  </div>
                 </div>
 
-                <div class="input-field">
-                  <v-text-input name="cvv" id="cvv" v-model="cvv"></v-text-input>
-                  <label for="cvv">CVV/CVC</label>
+                <div class="card-details">
+                  <div class="input-field">
+                    <v-text-input name="cvv" id="cvv" v-model="cvv"></v-text-input>
+                    <label for="cvv">CVV</label>
+                  </div>
                 </div>
             </form>
           </div>
         </div>
       </div>
-    </div>
-    <div class="checkout-navigation">
-      <div class="row">
-        <div class="center">
-          <router-link to="/checkout/shipping"><a href="#" class="back">Back</a></router-link>
-          <router-link to="/checkout/confirmation"><v-btn>Next</v-btn></router-link>
+      <div class="checkout-navigation">
+        <div class="row">
+          <div class="center">
+            <router-link to="/checkout/shipping"><a href="#" class="back">Back</a></router-link>
+            <router-link to="/checkout/confirmation"><v-btn>Order</v-btn></router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -61,9 +79,12 @@ export default {
   data () {
     return {
       cardName: '',
-      cardNumber: '1234 1234 1234 1324',
-      validThrough: null,
-      cvv: null
+      cardNumber: '',
+      month: null,
+      year: null,
+      cvv: null,
+      months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+      years: ['17', '18', '19', '20', '21', '22']
     }
   },
   methods: {
@@ -94,20 +115,23 @@ export default {
   width: 90%;
   @include tablet-portrait-and-down {
     height: 70vh;
-    display: block;
+    display: grid;
     margin: 0 auto;
   }
   .row {
     @include flexy(center,center);
     width: 100%
   }
+  .title {
+    margin-bottom: 10px;
+  }
 }
 
 .credit-card-wrapper {
   text-align: center;
   margin: 10px;
-  height: 300px;
-  width: 480px;
+  height: 150px;
+  width: 250px;
   color: white;
   position: relative;
   text-shadow: 1px 1px black;
@@ -115,7 +139,7 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
     background: #1e5799; /* Old browsers */
     background: -moz-linear-gradient(45deg, $main 0%, $checkout-active-light 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg,$main 0%,$checkout-active-light 100%); /* Chrome10-25,Safari5.1-6 */
@@ -139,20 +163,33 @@ export default {
       position: absolute;
       top: 50%;
       left: 10%;
-      font-size: 40px;
+      font-size: 20px;
     }
     .card-holder {
       position: absolute;
       top: 80%;
       left: 10%;
-      font-size: 25px;
+      font-size: 12px;
     }
     .expiration-date {
       position: absolute;
       top: 80%;
       right: 10%;
-      font-size: 25px;
+      font-size: 12px;
     }
   }
 }
+
+.card-details {
+  width: 32%;
+  display: inline-block;
+  @include mobile-only {
+    width: 100%;
+  }
+}
+
+select {
+  color: #000
+}
+
 </style>

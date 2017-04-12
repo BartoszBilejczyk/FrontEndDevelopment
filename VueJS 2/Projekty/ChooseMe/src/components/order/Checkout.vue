@@ -3,10 +3,10 @@
     <div class="checkout">
       <div class="checkout-header">
         <ul class="checkout-menu">
-          <router-link to="/checkout/order"><li class="checkout-menu-item" :class="activeOrder">Order</li></router-link>
-          <router-link to="/checkout/shipping"><li class="checkout-menu-item" :class="activeShipping">Shipping</li></router-link>
-          <router-link to="/checkout/payment"><li class="checkout-menu-item" :class="activePayment">Payment</li></router-link>
-          <router-link to="/checkout/confirmation"><li class="checkout-menu-item" :class="activeConfirmation">Confirmation</li></router-link>
+          <li class="checkout-menu-item" :class="activeOrder"><router-link to="/checkout/order">Order</router-link></li>
+          <li class="checkout-menu-item" :class="activeShipping"><router-link to="/checkout/shipping">Shipping</router-link></li>
+          <li class="checkout-menu-item" :class="activePayment"><router-link to="/checkout/payment">Payment</router-link></li>
+          <li class="checkout-menu-item" :class="activeConfirmation"><router-link to="/checkout/confirmation">Confirmation</router-link></li>
         </ul>
       </div>
       <div class="checkout-body">
@@ -53,7 +53,6 @@ export default {
     .checkout-header {
       height: 50px;
       background: white;
-      border-bottom: 1px solid #ccc;
       color: $main;
       text-transform: uppercase;
       font-weight: bold;
@@ -61,12 +60,28 @@ export default {
         margin: 0;
         height: 50px;
         @include flexy (center, space-around)
-        a, li {
-          display: flex;
+        li {
+          @include flexy (center, center)
           height: 100%;
-          align-items: center;
-          color: $main;
+          width: 25%;
+          transition: 0.2s;
+          a {
+            @include flexy (center, center)
+            height: inherit;
+            width: 100%;
+            color: #111;
+            transition: 0.2s;
+            border-bottom: 2px solid #ccc;
+            &:hover {
+              border-bottom: 2px solid $main;
+            }
+            &.router-link-active {
+              color: $main;
+              border-bottom: 2px solid $main
+            }
+          }
         }
+
       }
     }
     .checkout-body {
@@ -110,6 +125,10 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
     color: $main;
+}
+
+.input-field label {
+  left: 0;
 }
 
 </style>

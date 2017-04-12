@@ -26,9 +26,36 @@
         <div class="col s12 l6">
           <form action="">
             <h5>Shipping method</h5>
-            <div class="box-placeholder"></div>
-            <div class="box-placeholder"></div>
-            <div class="box-placeholder"></div>
+            <div class="box-placeholder">
+              <div class="input-field">
+                <v-radio name="radio"
+                       id="radio1"
+                       val="Poczta"
+                       v-model="radio1"
+                       >Poczta Polska - priority
+                </v-radio>
+              </div>
+            </div>
+            <div class="box-placeholder">
+              <div class="input-field">
+                <v-radio name="radio"
+                       id="radio2"
+                       val="Paczkomat"
+                       v-model="radio1"
+                       >Paczkomaty 24/7
+                </v-radio>
+              </div>
+            </div>
+            <div class="box-placeholder">
+              <div class="input-field">
+                <v-radio name="radio"
+                       id="radio3"
+                       val="DHL"
+                       v-model="radio1"
+                       >DHL
+                </v-radio>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -80,6 +107,20 @@ export default {
   width: 100%;
   height: 80px;
   border: 2px solid $main;
-  margin: 5px
+  margin: 5px;
+  .input-field {
+    margin-left: 1em
+  }
 }
+
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: $main;
+    z-index: 0;
+}
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid $main;
+}
+
+
 </style>

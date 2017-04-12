@@ -32,7 +32,7 @@
                 <hr>
               </div>
             </div>
-            <div class="totals">
+            <div class="totals" v-if="!orderEmpty">
               <div class="row">
                 <span class="left">Subtotal</span><span class="right">${{ subtotal }}</span>
               </div>
@@ -42,12 +42,13 @@
               <div class="row">
                 <span class="left"><strong>Total</strong></span><span class="right"><strong>${{ totalCost }}</strong></span>
               </div>
+              <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
             </div>
-            <router-link to="/checkout/order"><div @click="active = !active"><v-btn class="right">PLACE ORDER</v-btn></div></router-link>
           </div>
         </transition>
       </div>
         <transition name="fade">
+          <router-view></router-view>
           <router-view name="meals" :category="$route.params.category" :index="$route.params.index"></router-view>
           <router-view name="checkout"></router-view>
         </transition>
@@ -248,7 +249,11 @@ body {
   right: 60px;
   width: 50px;
   height: 60px;
-  opacity: 0
+  opacity: 0;
+  @include tablet-landscape-and-down {
+    width: 0;
+    height: 0;
+  }
 }
 
 .icon {
