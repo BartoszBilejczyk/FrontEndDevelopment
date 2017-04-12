@@ -73,7 +73,7 @@ export default {
             transition: 0.2s;
             border-bottom: 2px solid #ccc;
             &:hover {
-              border-bottom: 2px solid $main;
+              color: $main;
             }
             &.router-link-active {
               color: $main;
