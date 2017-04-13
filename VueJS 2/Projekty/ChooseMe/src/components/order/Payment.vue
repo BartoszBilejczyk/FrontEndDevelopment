@@ -31,7 +31,7 @@
                   <label for="card-number">Card Number</label>
                 </div>
 
-                <div class="card-details">
+                <!-- <div class="card-details">
                   <div class="input-field">
                     <v-select name="select"
                               id="select"
@@ -50,8 +50,20 @@
                     </v-select>
                     <label for="select2">Select</label>
                   </div>
-                </div>
+                </div> -->
 
+                <div class="card-details">
+                  <div class="input-field">
+                    <v-text-input name="month" id="month" v-model="month"></v-text-input>
+                    <label for="month">Month</label>
+                  </div>
+                </div>
+                <div class="card-details">
+                  <div class="input-field">
+                    <v-text-input name="year" id="year" v-model="year"></v-text-input>
+                    <label for="year">Year</label>
+                  </div>
+                </div>
                 <div class="card-details">
                   <div class="input-field">
                     <v-text-input name="cvv" id="cvv" v-model="cvv"></v-text-input>
@@ -113,6 +125,7 @@ export default {
 .payment {
   @include flexy(center,center);
   width: 90%;
+  height: 100%;
   @include tablet-portrait-and-down {
     height: 70vh;
     display: grid;

@@ -69,15 +69,28 @@ export default {
             @include flexy (center, center)
             height: inherit;
             width: 100%;
-            color: #111;
+            color: rgba(0, 0, 0, 0.6);
             transition: 0.2s;
-            border-bottom: 2px solid #ccc;
-            &:hover {
-              color: $main;
+            position: relative;
+            &::before {
+              position: absolute;
+              -webkit-transition: all 0.35s ease;
+              transition: all 0.35s ease;
             }
-            &.router-link-active {
-              color: $main;
-              border-bottom: 2px solid $main
+            &::before {
+              bottom: 0;
+              display: block;
+              height: 3px;
+              width: 0%;
+              content: "";
+              background-color: orange;
+            }
+            &:hover::before, &.router-link-active:before {
+              opacity: 1;
+              width: 50%;
+            }
+            &:hover, &.router-link-active {
+              color: rgba(0, 0, 0, 0.9);
             }
           }
         }
