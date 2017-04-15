@@ -60,8 +60,8 @@ export default {
     }
   }
   .nav {
-    height: 30vh;
-    @include flexy(center, center)
+    height: 100%;
+    @include flexy(flex-start, center)
     @include tablet-portrait-and-down {
       height: 100%;
     }
@@ -69,6 +69,7 @@ export default {
       padding: 0;
       height: inherit;
       width: 100%;
+      height: 280px;
       text-decoration: none;
       @include tablet-portrait-and-down {
         @include flexy(center, center)

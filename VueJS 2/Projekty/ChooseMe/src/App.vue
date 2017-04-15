@@ -21,8 +21,8 @@
               <div class="cart-item" v-for="(meal, index) in order">
                 <div class="row">
                   <div class="item-image col s3 l2 left-align"><img class="responsive-img" :src="meal.url" alt=""></div>
-                  <div class="item-description col s7 l5 left-align">{{ meal.name }}<br><span class="grey-text text-lighten-1">description</span></div>
-                  <div class="item-quantity col l3 center-align hide-on-med-and-down">
+                  <div class="item-name col s7 l4 left-align">{{ meal.name }}</div>
+                  <div class="item-quantity col l4 center-align hide-on-med-and-down">
                     <span class="orange-text minus" @click="deleteItem(meal, index)">-</span>
                     <span class="quantity"> {{ meal.quantity }} </span>
                     <span class="green-text plus" @click="addItem(meal, index)">+</span>
@@ -157,7 +157,8 @@ body {
   display: flex;
   overflow-x: hidden;
   overflow-y: hidden;
-  z-index: 1
+  z-index: 1;
+  font-weight: 500
 }
 
 .btn-large {
@@ -226,8 +227,8 @@ body {
     .col:last-child {
       padding: 0 0 0 1rem
     }
-    .item-description {
-      font-size: 0.9rem;
+    .item-name {
+      font-size: 1rem;
     }
   }
 }
@@ -240,7 +241,6 @@ body {
 .quantity {
   margin: 0 8px;
   padding: 3px;
-  border: 1px solid grey
 }
 
 .disactivate {
@@ -293,21 +293,6 @@ body {
     min-height: calc(100vh - 70px);
     width: 100vw
   }
-}
-.choice {
-  height: calc(100vh - 130px);
-  margin-top: 0;
-  overflow-y: scroll;
-  @include flexy(initial, center);
-  @include tablet-portrait-and-down {
-    height: calc(100% - 90px);
-    min-height: calc(100vh - 90px)
-  }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
 }
 
 .fade-enter-active {

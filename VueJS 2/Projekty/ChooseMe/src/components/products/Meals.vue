@@ -120,6 +120,23 @@ export default {
 @import '../../styling/globals.scss';
 @import '../../styling/responsive.scss';
 
+.choice {
+  height: calc(100vh - 130px);
+  margin-top: 0;
+  overflow-y: scroll;
+  @include flexy(initial, center);
+  @include tablet-portrait-and-down {
+    height: calc(100% - 90px);
+    min-height: calc(100vh - 90px)
+  }
+  .row {
+    @include flexy(flex-start, initial, wrap)
+    .col {
+      margin-left: initial;
+    }
+  }
+}
+
 .meals {
   @include flexy(flex-start, center);
   margin: 30px 1.5%;

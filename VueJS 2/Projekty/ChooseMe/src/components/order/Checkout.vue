@@ -83,7 +83,7 @@ export default {
               height: 3px;
               width: 0%;
               content: "";
-              background-color: orange;
+              background-color: $main;
             }
             &:hover::before, &.router-link-active:before {
               opacity: 1;

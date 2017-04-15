@@ -2,21 +2,6 @@
   <div class="payment-wrapper">
     <div class="payment">
       <div class="row">
-        <div class="col s12 l6 hide-on-med-and-down">
-          <div class="credit-card-wrapper">
-            <div class="card-base">
-              <div class="visa">
-                <img class="responsive-img" src="../../assets/visa.jpg" alt="">
-              </div>
-              <div class="processor">
-                <img class="responsive-img" src="../../assets/chip.png" alt="">
-              </div>
-              <div class="card-number">{{ cardNumber | card }}</div>
-              <div class="card-holder">{{ cardName.toUpperCase() }}</div>
-              <div class="expiration-date">{{ month }}/{{ year }}</div>
-            </div>
-          </div>
-        </div>
         <div class="col s12 l6">
           <div class="payment-form">
             <form action="">
@@ -71,6 +56,21 @@
                   </div>
                 </div>
             </form>
+          </div>
+        </div>
+        <div class="col s12 l6 hide-on-med-and-down credit-card-row">
+          <div class="credit-card-wrapper">
+            <div class="card-base">
+              <div class="visa">
+                <img class="responsive-img" src="../../assets/visa.jpg" alt="">
+              </div>
+              <div class="processor">
+                <img class="responsive-img" src="../../assets/chip.png" alt="">
+              </div>
+              <div class="card-number">{{ cardNumber | card }}</div>
+              <div class="card-holder">{{ cardName.toUpperCase() }}</div>
+              <div class="expiration-date">{{ month }}/{{ year }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -140,14 +140,23 @@ export default {
   }
 }
 
+.credit-card-row {
+  display: flex;
+  justify-content: center;
+}
+
 .credit-card-wrapper {
   text-align: center;
   margin: 10px;
-  height: 150px;
+  height: 160px;
   width: 250px;
   color: white;
   position: relative;
   text-shadow: 1px 1px black;
+  @include desktop-and-up {
+    height: 192px;
+    width: 300px;
+  }
   .card-base {
     position: relative;
     width: 100%;
@@ -177,18 +186,27 @@ export default {
       top: 50%;
       left: 10%;
       font-size: 20px;
+      @include desktop-and-up {
+        font-size: 24px
+      }
     }
     .card-holder {
       position: absolute;
       top: 80%;
       left: 10%;
-      font-size: 12px;
+      font-size: 10px;
+      @include desktop-and-up {
+        font-size: 12px
+      }
     }
     .expiration-date {
       position: absolute;
       top: 80%;
       right: 10%;
-      font-size: 12px;
+      font-size: 10px;
+      @include desktop-and-up {
+        font-size: 12px
+      }
     }
   }
 }
