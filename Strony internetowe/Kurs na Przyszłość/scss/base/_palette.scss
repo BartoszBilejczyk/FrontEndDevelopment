@@ -1,0 +1,72 @@
+$palette-colors: (
+  black: (
+    light: #1a1a1a,
+    dark: #0B0618,
+    base: #000
+  ),
+  gray: (
+    x-light: #a7a7a7,
+    light: #8b8b98,
+    base: #7a7981,
+    light-dark: #48484c,
+    mid-dark: #2d2b37,
+    dark: #202020,
+    x-dark: #191919
+  ),
+  white: (
+    x-light: #f6f6f6,
+    light: #e4e4e4,
+    light-dark: #ddd,
+    base: #fff,
+    mid-dark: #c1c1d0,
+    dark: #9494a4,
+    x-dark: #e2e4ee,
+    logos: #f1f1f4
+  ),
+  blue: (
+    x-light: #1786b3,
+    light: #1979ab,
+    light-dark: #1b6ca4,
+    base: #22629e,
+    mid-dark: #1e5094,
+    dark: #24478f,
+    x-dark: #263b8a
+  ),
+  navy: (
+    light: #081351,
+    base: #060a34,
+    dark: #040629
+  ),
+  purple: (
+    light: #5d2675,
+    light-dark: #351e59,
+    base: #392c70,
+    mid-dark: #1e1849
+  ),
+  green: (
+    light: #7ed321,
+    base: #80c32a,
+  ),
+  red: (
+    base: #ce000e
+  ),
+  brand: (
+    pink: #fd5c63,
+    pinkLight: #ff7e82,
+    pinkDark: #dd041a,
+    orange: #feb32b,
+    orangeLight: #fec245,
+    green: #42a951,
+    cyan: #118488,
+    copy: #484848,
+    copyInactive: #767676,
+  )
+);
+
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get($palette-colors, $palette), $tone);
+}
+
+@function pal($palette, $tone: 'base') {
+  @return palette($palette, $tone);
+}
