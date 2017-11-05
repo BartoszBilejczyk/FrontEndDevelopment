@@ -1,6 +1,15 @@
-@import "base/common";
 @import "base/fonts";
 @import "base/media-queries";
 @import "base/palette";
 @import "base/typography";
+
+@import "partials/common";
+@import "partials/faq";
+@import "partials/footer";
 @import "partials/header";
+@import "partials/overview";
+@import "partials/partners";
+@import "partials/sign-up";
+@import "partials/stats";
+@import "partials/team";
+@import "partials/testimonials";
