@@ -109,7 +109,10 @@ html, body {
 .kurs-box {
   background: #fff;
   box-shadow: 0 42px 64px 0 #e7e7ec;
-  padding: 50px 25px 15px; }
+  padding: 50px 25px 15px;
+  border-radius: 2px; }
+  .kurs-box--dark {
+    box-shadow: 2px 6px 20px 0 #777; }
 
 .btn {
   background: transparent;
@@ -225,13 +228,34 @@ html, body {
   .kurs-sign-up-student {
     display: none; }
 
-.kurs-stats__item {
-  text-align: center;
-  width: 33%; }
-  .kurs-stats__item-number {
-    font-size: 40px;
-    font-size: 4rem;
-    font-weight: 400;
-    color: #B92C59; }
-  .kurs-stats__item.kurs-stats__item-heading {
-    margin-bottom: 200px; }
+.kurs-stats {
+  margin: 150px 0; }
+  .kurs-stats__item {
+    text-align: center;
+    width: 33%; }
+    .kurs-stats__item-number {
+      font-size: 40px;
+      font-size: 4rem;
+      font-weight: 400;
+      color: #B92C59; }
+    .kurs-stats__item.kurs-stats__item-heading {
+      margin-bottom: 200px; }
+
+.kurs-testimonials {
+  padding: 200px 0;
+  background: linear-gradient(90deg, transparent 30%, #3386B8 30%);
+  position: relative; }
+  .kurs-testimonials-quote {
+    background: linear-gradient(rgba(240, 239, 244, 0) 0%, #f0eff4 100%), url("../img/quotation-mark.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px; }
+  .kurs-testimonials__item {
+    margin: 0 20px; }
+    .kurs-testimonials__item:first-of-type {
+      margin-left: 50px; }

@@ -86,6 +86,11 @@ html, body {
 	background: #fff;
 	box-shadow: 0 42px 64px 0 #e7e7ec;
 	padding: 50px 25px 15px;
+	border-radius: 2px;
+
+	&--dark {
+		box-shadow: 2px 6px 20px 0 #777;
+	}
 }
 
 .btn {
