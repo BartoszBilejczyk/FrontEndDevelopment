@@ -1,0 +1,10 @@
+.kurs-faq {
+
+	&__item {
+		flex-basis: 100%;
+
+		@include sm-up {
+			flex-basis: 50%;
+		}
+	}
+}

@@ -1,5 +1,88 @@
-$primary: #000111;
+html, body {
+	font-family: 'Open Sans', sans-serif;
+}
 
-.black {
-    color: $primary;
+.flex {
+	display: flex;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-start {
+	align-items: flex-start;
+}
+
+.align-end {
+	align-items: flex-end;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-around {
+	justify-content: space-around;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-start {
+	justify-content: flex-start;
+}
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.row {
+	flex-direction: row;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.wrap {
+	flex-wrap: wrap;
+}
+
+.nowrap {
+	flex-direction: nowrap;
+}
+
+.container {
+	padding: 0 15px;
+
+	@include sm-up {
+		padding: 0 30px;
+	}
+	@include md-up {
+		padding: 0 100px;
+	}
+	@include lg-up {
+		padding: 0;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	@include xlg-up {
+		max-width: 1400px;
+	}
+
+	&-fluid {
+		padding: 0 30px;
+	}
+}
+
+.kurs-box {
+	background: #fff;
+	box-shadow: 0 42px 64px 0 #e7e7ec;
+	padding: 50px 25px 15px;
 }
