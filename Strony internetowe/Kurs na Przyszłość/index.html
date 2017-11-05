@@ -129,12 +129,17 @@
 					<section class="kurs-sign-up">
 						<div class="container">
 							<div class="kurs-sign-up__box">
+								<div class="flex row align-center justify-center">
+									<button id="teacher" class="btn btn--light active">Nauczyciel</button>
+									<button id="student" class="btn btn--light">Uczeń</button>
+								</div>
+
 								<div class="kurs-sign-up-school">
-									<h4 class="kurs-heading kurs-heading--subsection">Szkoła</h4>
+									<h4 class="kurs-heading kurs-heading--subsection">Nauczyciel</h4>
 									<p class="kurs-copy"></p>
 									<input type="text" class="kurs-input">
 								</div>
-								<div class="kurs-sign-up-person">
+								<div class="kurs-sign-up-student">
 									<h4 class="kurs-heading kurs-heading--subsection">Uczeń</h4>
 									<p class="kurs-copy"></p>
 									<input type="text" class="kurs-input">
@@ -148,24 +153,24 @@
 
 				<!-- stats -->
 					<section class="kurs-stats">
-						<div class="container flex row align-center justify-center">
+						<div class="container flex row wrap align-center justify-center">
 							<div class="kurs-stats__item">
-								<span>21%</span>
+								<span class="kurs-stats__item-number">21%</span>
+								<p class="kurs-copy">dsakjhsadj kjs adklj dsakjl dsaj ljk lkj sda</p>
+							</div>
+							<div class="kurs-stats__item kurs-stats__item-heading">
+								<span class="kurs-heading kurs-heading--section">Statystyki poprzedniej edycji</span>
+							</div>
+							<div class="kurs-stats__item">
+								<span class="kurs-stats__item-number">123</span>
 								<p class="kurs-copy">dsakjhsadj kjs adklj dsakjl dsaj ljk lkj sda</p>
 							</div>
 							<div class="kurs-stats__item">
-								<span>123</span>
+								<span class="kurs-stats__item-number">12121</span>
 								<p class="kurs-copy">dsakjhsadj kjs adklj dsakjl dsaj ljk lkj sda</p>
 							</div>
 							<div class="kurs-stats__item">
-								Statystyki poprzedniej edycji
-							</div>
-							<div class="kurs-stats__item">
-								<span>12121</span>
-								<p class="kurs-copy">dsakjhsadj kjs adklj dsakjl dsaj ljk lkj sda</p>
-							</div>
-							<div class="kurs-stats__item">
-								<span>213%</span>
+								<span class="kurs-stats__item-number">213%</span>
 								<p class="kurs-copy">dsakjhsadj kjs adklj dsakjl dsaj ljk lkj sda</p>
 							</div>
 						</div>
@@ -177,7 +182,7 @@
 				<!-- testimonials -->
 					<section class="kurs-testimonials">
 						<div class="container">
-							<img src="" alt="quote">
+							<div class="kurs-testimonials-quote">
 							<div class="kurs-testimonials-wrapper">
 								<h3 class="kurs-heading
 													 kurs-heading--section">Opinie</h3>

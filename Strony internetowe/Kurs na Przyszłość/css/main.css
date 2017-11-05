@@ -42,7 +42,8 @@
     color: #a7a7a7; }
 
 html, body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  background: #fbfbfc; }
 
 .flex {
   display: flex; }
@@ -109,6 +110,19 @@ html, body {
   background: #fff;
   box-shadow: 0 42px 64px 0 #e7e7ec;
   padding: 50px 25px 15px; }
+
+.btn {
+  background: transparent;
+  margin: 5px;
+  outline: none; }
+  .btn--light {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    border-radius: 10px; }
+    .btn--light.active, .btn--light:hover {
+      background: #fff;
+      color: #3386B8; }
 
 .kurs-faq__item {
   flex-basis: 100%; }
@@ -201,3 +215,23 @@ html, body {
     @media only screen and (min-width: 1200px) {
       .kurs-overview__item-description-wrapper {
         flex-basis: calc(100% - 600px); } }
+
+.kurs-sign-up {
+  margin: 200px 0; }
+  .kurs-sign-up__box {
+    box-shadow: 0 42px 64px 0 #e7e7ec;
+    background: #3386B8;
+    padding: 80px 100px; }
+  .kurs-sign-up-student {
+    display: none; }
+
+.kurs-stats__item {
+  text-align: center;
+  width: 33%; }
+  .kurs-stats__item-number {
+    font-size: 40px;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #B92C59; }
+  .kurs-stats__item.kurs-stats__item-heading {
+    margin-bottom: 200px; }

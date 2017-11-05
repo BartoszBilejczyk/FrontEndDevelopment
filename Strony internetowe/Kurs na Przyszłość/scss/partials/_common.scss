@@ -1,5 +1,6 @@
 html, body {
 	font-family: 'Open Sans', sans-serif;
+	background: lighten(#F0EFF4, 4);
 }
 
 .flex {
@@ -85,4 +86,23 @@ html, body {
 	background: #fff;
 	box-shadow: 0 42px 64px 0 #e7e7ec;
 	padding: 50px 25px 15px;
+}
+
+.btn {
+	background: transparent;
+	margin: 5px;
+	outline: none;
+
+	&--light {
+		color: $white;
+		border: 1px solid $white;
+		padding: 10px 15px;
+		border-radius: 10px;
+
+		&.active,
+		&:hover {
+			background: $white;
+			color: $brand-blue
+		}
+	}
 }

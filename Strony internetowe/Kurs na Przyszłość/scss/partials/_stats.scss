@@ -1,0 +1,15 @@
+.kurs-stats {
+	&__item {
+		text-align: center;
+		width: 33%;
+
+		&-number {
+			@include font(40, 400);
+			color: $brand-pink
+		}
+
+		&.kurs-stats__item-heading {
+			margin-bottom: 200px;
+		}
+	}
+}

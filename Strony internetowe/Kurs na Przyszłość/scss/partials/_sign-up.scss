@@ -1,0 +1,13 @@
+.kurs-sign-up {
+	margin: 200px 0;
+
+	&__box {
+		box-shadow: 0 42px 64px 0 #e7e7ec;
+		background: $brand-blue;
+		padding: 80px 100px;
+	}
+
+	&-student {
+		display: none;
+	}
+}
