@@ -205,7 +205,8 @@ html, body {
   text-align: center; }
 
 .kurs-goals {
-  margin: 150px auto; }
+  margin: 150px auto;
+  position: relative; }
   @media only screen and (min-width: 1024px) {
     .kurs-goals {
       max-width: 700px; } }
@@ -447,6 +448,13 @@ html, body {
   position: absolute;
   bottom: 0;
   left: -20vw; }
+
+.kurs-goals-polygon {
+  width: 40vw;
+  position: absolute;
+  bottom: -100px;
+  left: -55vw;
+  transform: rotate(90deg); }
 
 .kurs-partners-polygon {
   width: 30vw;
