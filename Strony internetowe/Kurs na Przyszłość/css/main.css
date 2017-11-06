@@ -19,18 +19,16 @@
   .kurs-heading--section {
     font-size: 20px;
     font-size: 2rem;
-    font-weight: 400;
-    text-align: center; }
+    font-weight: 400; }
   .kurs-heading--subsection {
     font-size: 16px;
     font-size: 1.6rem;
-    font-weight: 400;
-    text-align: center; }
+    font-weight: 400; }
   .kurs-heading--white {
     color: #fff; }
 
 .kurs-copy {
-  color: #7a7981;
+  color: #48484c;
   font-size: 10px;
   font-size: 1rem;
   font-weight: 300; }
@@ -43,13 +41,15 @@
     font-size: 0.8rem;
     font-weight: 300; }
   .kurs-copy--dark {
-    color: #48484c; }
+    color: #202020; }
   .kurs-copy--light {
-    color: #a7a7a7; }
+    color: #7a7981; }
   .kurs-copy--dark-blue {
     color: #286990; }
   .kurs-copy--white {
     color: #fff; }
+  .kurs-copy--semi {
+    font-weight: 500; }
 
 html, body {
   font-family: 'Open Sans', sans-serif;
@@ -120,8 +120,11 @@ html, body {
 .kurs-box {
   background: #fff;
   box-shadow: 0 42px 64px 0 #e7e7ec;
-  padding: 30px 40px;
+  padding: 15px 20px;
   border-radius: 2px; }
+  @media only screen and (min-width: 1366px) {
+    .kurs-box {
+      padding: 30px 40px; } }
   .kurs-box--dark {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .kurs-box--no-shadow {
@@ -137,16 +140,25 @@ html, body {
 
 .btn {
   background: transparent;
-  margin: 5px;
-  outline: none; }
+  outline: none;
+  padding: 10px 15px;
+  border: none; }
   .btn--light {
     color: #fff;
     border: 1px solid #fff;
-    padding: 10px 15px;
     border-radius: 10px; }
     .btn--light.active, .btn--light:hover {
       background: #fff;
       color: #3386B8; }
+  .btn--blue {
+    background: #3386B8;
+    border-radius: 2px;
+    color: #fff; }
+  .btn--block {
+    width: 100%; }
+
+.text-center {
+  text-align: center; }
 
 .kurs-faq {
   padding: 50px 0;
@@ -177,35 +189,43 @@ html, body {
       border-radius: 50%;
       top: -15px;
       left: 15px; }
-
-.chevron {
-  position: relative;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 20px; }
-  .chevron:before {
-    position: absolute;
-    display: block;
-    width: 15px;
-    height: 15px;
-    content: '';
-    transition: .5s ease;
-    transform: rotate(135deg);
-    border-width: 2px 2px 0 0;
-    border-style: solid;
-    border-color: #000; }
-  .chevron-up {
-    top: 5px;
-    transform: rotate(315deg); }
+      .kurs-faq__item-magnet:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        position: absolute;
+        top: 7px;
+        left: 7px; }
 
 .kurs-footer {
-  position: relative;
-  height: 25vw; }
-  .kurs-footer-content {
-    position: absolute;
-    bottom: 100px;
-    z-index: 10; }
+  margin-top: 50px;
+  text-align: center; }
+
+.kurs-goals {
+  margin: 150px auto; }
+  @media only screen and (min-width: 1024px) {
+    .kurs-goals {
+      max-width: 700px; } }
+  @media only screen and (min-width: 1366px) {
+    .kurs-goals {
+      max-width: 800px; } }
+  .kurs-goals__item-number {
+    font-size: 22px;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+    background: #3386B8;
+    color: #fff;
+    margin-right: 20px; }
+    .kurs-goals__item-number span {
+      display: inline-block;
+      height: 40px;
+      width: 40px; }
 
 .kurs-navigation {
   list-style: none; }
@@ -254,8 +274,8 @@ html, body {
   width: 50px;
   margin: 20px; }
   .kurs-header-content-number-wrapper:nth-of-type(1) {
-    height: 80vw;
-    width: 80vw; }
+    height: 60vw;
+    width: 60vw; }
     @media only screen and (min-width: 768px) {
       .kurs-header-content-number-wrapper:nth-of-type(1) {
         height: 35vw;
@@ -271,8 +291,8 @@ html, body {
         width: 450px;
         height: 450px; } }
   .kurs-header-content-number-wrapper:nth-of-type(2) {
-    height: 80vw;
-    width: 80vw; }
+    height: 60vw;
+    width: 60vw; }
     @media only screen and (min-width: 768px) {
       .kurs-header-content-number-wrapper:nth-of-type(2) {
         height: 35vw;
@@ -287,8 +307,8 @@ html, body {
         width: 350px;
         height: 350px; } }
   .kurs-header-content-number-wrapper:nth-of-type(3) {
-    height: 80vw;
-    width: 80vw; }
+    height: 60vw;
+    width: 60vw; }
     @media only screen and (min-width: 768px) {
       .kurs-header-content-number-wrapper:nth-of-type(3) {
         height: 35vw;
@@ -304,8 +324,8 @@ html, body {
         width: 300px;
         height: 300px; } }
   .kurs-header-content-number-wrapper:nth-of-type(4) {
-    height: 80vw;
-    width: 80vw; }
+    height: 60vw;
+    width: 60vw; }
     @media only screen and (min-width: 768px) {
       .kurs-header-content-number-wrapper:nth-of-type(4) {
         height: 35vw;
@@ -413,13 +433,14 @@ html, body {
 
 .kurs-partners {
   text-align: center;
-  margin: 250px 0;
+  margin: 200px 0;
   position: relative; }
   .kurs-partners-wrapper {
     margin: 60px 0; }
   .kurs-partners__item {
     max-width: 150px;
-    margin: 0 10px; }
+    margin: 0 10px;
+    padding: 15px; }
 
 .kurs-overview-polygon {
   width: 30vw;
@@ -453,7 +474,14 @@ html, body {
   right: -5vw; }
 
 .kurs-sign-up {
-  margin: 200px 0; }
+  margin: 200px 0;
+  /* LABEL ======================================= */
+  /* active state */
+  /* BOTTOM BARS ================================= */
+  /* active state */
+  /* HIGHLIGHTER ================================== */
+  /* active state */
+  /* ANIMATIONS ================ */ }
   .kurs-sign-up__box {
     box-shadow: 0 42px 64px 0 #e7e7ec;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url("../img/chalk-background.jpg");
@@ -466,37 +494,148 @@ html, body {
     @media only screen and (min-width: 1024px) {
       .kurs-sign-up__box {
         padding: 100px 25%; } }
+  .kurs-sign-up form {
+    width: 300px;
+    margin: 50px auto 0; }
+  .kurs-sign-up .group {
+    position: relative;
+    margin-bottom: 45px; }
   .kurs-sign-up input {
-    margin: 20px 0;
-    padding: 10px 20px;
-    background: #fff;
-    box-shadow: 0 4px 10px 0 #555;
-    cursor: pointer;
-    color: #000;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 285px;
     border: none;
-    border-radius: 20px;
-    width: 100%;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 10px;
+    font-size: 1rem;
+    font-weight: 400; }
+  .kurs-sign-up input:focus {
     outline: none; }
-    @media only screen and (min-width: 768px) {
-      .kurs-sign-up input {
-        width: 400px; } }
+  .kurs-sign-up label {
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all; }
+  .kurs-sign-up input:focus ~ label, .kurs-sign-up input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #3386B8; }
+  .kurs-sign-up .bar {
+    position: relative;
+    display: block;
+    width: 300px; }
+  .kurs-sign-up .bar:before, .kurs-sign-up .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #3386B8;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all; }
+  .kurs-sign-up .bar:before {
+    left: 50%; }
+  .kurs-sign-up .bar:after {
+    right: 50%; }
+  .kurs-sign-up input:focus ~ .bar:before, .kurs-sign-up input:focus ~ .bar:after {
+    width: 50%; }
+  .kurs-sign-up .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5; }
+  .kurs-sign-up input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease; }
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #3386B8; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #3386B8; }
+  to {
+    width: 0;
+    background: transparent; } }
+
+@keyframes inputHighlighter {
+  from {
+    background: #3386B8; }
+  to {
+    width: 0;
+    background: transparent; } }
 
 .kurs-stats {
-  margin: 250px 0; }
+  margin: 200px 0; }
+  .kurs-stats-wrapper {
+    margin-top: 70px; }
   .kurs-stats__item {
+    margin: 20px 0;
     text-align: center;
-    width: 33%; }
+    width: 100%; }
+    @media only screen and (min-width: 768px) {
+      .kurs-stats__item {
+        margin: 0 40px;
+        width: calc(33% - 80px); } }
+    .kurs-stats__item-icon {
+      max-width: 150px; }
     .kurs-stats__item-number {
       font-size: 40px;
       font-size: 4rem;
       font-weight: 400;
+      margin: 20px 0 0;
       color: #B92C59; }
     .kurs-stats__item.kurs-stats__item-heading {
       margin-bottom: 200px; }
 
+.kurs-structure {
+  margin: 150px 0; }
+  .kurs-structure h3 {
+    text-align: center; }
+  .kurs-structure__step-number {
+    font-size: 22px;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid #3386B8;
+    margin-right: 10px; }
+  .kurs-structure .kurs-box {
+    width: 100%;
+    margin: 20px 0; }
+    @media only screen and (min-width: 1024px) {
+      .kurs-structure .kurs-box {
+        min-height: 250px;
+        width: calc(33% - 120px); }
+        .kurs-structure .kurs-box:not(:first-of-type):not(:last-of-type) {
+          margin: 0 40px; } }
+
 .kurs-team {
   margin: 150px 0;
   position: relative; }
+  .kurs-team-logos {
+    margin: 50px 0; }
   .kurs-team__person {
     width: 100%;
     margin: 30px 0; }
@@ -514,9 +653,12 @@ html, body {
       width: 30px; }
 
 .kurs-testimonials {
-  padding: 200px 0;
-  background: linear-gradient(90deg, transparent 30%, #3386B8 30%);
+  padding: 100px 0 50px;
   position: relative; }
+  @media only screen and (min-width: 1024px) {
+    .kurs-testimonials {
+      background: linear-gradient(90deg, #fbfbfc 30%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.4) 100%), url("../img/chalk-background.jpg");
+      padding: 200px 0; } }
   .kurs-testimonials-quote {
     background: linear-gradient(rgba(240, 239, 244, 0) 0%, #f0eff4 100%), url("../img/quotation-mark.svg");
     background-repeat: no-repeat;
@@ -527,10 +669,24 @@ html, body {
     left: 0;
     width: 400px;
     height: 400px; }
+  .kurs-testimonials-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    @media only screen and (min-width: 768px) {
+      .kurs-testimonials-wrapper {
+        max-width: 500px;
+        margin: 0 auto; } }
+    @media only screen and (min-width: 1024px) {
+      .kurs-testimonials-wrapper {
+        max-width: none;
+        flex-direction: row; } }
   .kurs-testimonials__item {
-    margin: 0 20px;
+    margin: 20px 0;
     min-height: 160px;
-    position: relative; }
+    position: relative;
+    min-width: 170px; }
     .kurs-testimonials__item-quote {
       background: linear-gradient(rgba(240, 239, 244, 0) 0%, #f0eff4 100%), url("../img/quotation-mark.svg");
       background-repeat: no-repeat;
@@ -541,5 +697,9 @@ html, body {
       left: 20px;
       width: 40px;
       height: 40px; }
-    .kurs-testimonials__item:first-of-type {
-      margin-left: 50px; }
+    @media only screen and (min-width: 1024px) {
+      .kurs-testimonials__item {
+        margin: 0 20px; } }
+    @media only screen and (min-width: 1024px) {
+      .kurs-testimonials__item:first-of-type {
+        margin-left: 50px; } }

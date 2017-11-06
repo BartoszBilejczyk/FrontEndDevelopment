@@ -1,13 +1,28 @@
 .kurs-stats {
-	margin: 250px 0;
+	margin: 200px 0;
+
+	&-wrapper {
+		margin-top: 70px;
+	}
 
 	&__item {
+		margin: 20px 0;
 		text-align: center;
-		width: 33%;
+		width: 100%;
+
+		@include sm-up {
+			margin: 0 40px;
+			width: calc(33% - 80px);
+		}
+
+		&-icon {
+			max-width: 150px;
+		}
 
 		&-number {
 			@include font(40, 400);
-			color: $brand-pink
+			margin: 20px 0 0;
+			color: $brand-pink;
 		}
 
 		&.kurs-stats__item-heading {

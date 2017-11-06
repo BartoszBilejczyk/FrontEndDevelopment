@@ -1,0 +1,30 @@
+.kurs-goals {
+	margin: 150px auto;
+
+	@include md-up {
+		max-width: 700px;
+	}
+
+	@include lg-up {
+		max-width: 800px;
+	}
+
+	&__item {
+
+		&-number {
+			@include font(22, 500);
+			text-align: center;
+			padding: 10px;
+			border-radius: 50%;
+			background: $brand-blue;
+			color: $white;
+			margin-right: 20px;
+
+			span {
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+			}
+		}
+	}
+}

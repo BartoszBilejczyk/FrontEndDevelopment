@@ -36,32 +36,18 @@
 			border-radius: 50%;
 			top: -15px;
 			left: 15px;
+
+			&:before {
+				content: '';
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: white;
+				box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+				position: absolute;
+				top: 7px;
+				left: 7px;
+			}
 		}
-	}
-}
-
-.chevron {
-	position: relative;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 20px;
-
-	&:before {
-		position: absolute;
-		display: block;
-		width: 15px;
-		height: 15px;
-		content: '';
-		transition: .5s ease;
-		transform: rotate(135deg);
-		border-width: 2px 2px 0 0;
-		border-style: solid;
-		border-color: #000;
-	}
-
-	&-up {
-		top: 5px;
-    transform: rotate(315deg);
 	}
 }

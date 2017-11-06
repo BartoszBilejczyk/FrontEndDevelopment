@@ -19,12 +19,10 @@
 
 	&--section {
 		@include font(20, 400);
-		text-align: center;
 	}
 
 	&--subsection {
 		@include font(16, 400);
-		text-align: center;
 	}
 
 	&--white {
@@ -33,7 +31,7 @@
 }
 
 .kurs-copy {
-	color: $gray;
+	color: $gray-light-dark;
 	@include font(10, 300);
 
 	&--large {
@@ -45,11 +43,11 @@
 	}
 
 	&--dark {
-		color: $gray-light-dark;
+		color: $gray-dark;
 	}
 
 	&--light {
-		color: $gray-x-light;
+		color: $gray;
 	}
 
 	&--dark-blue {
@@ -58,5 +56,9 @@
 
 	&--white {
 		color: $white;
+	}
+
+	&--semi {
+		font-weight: 500;
 	}
 }
