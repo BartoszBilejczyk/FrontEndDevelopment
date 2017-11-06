@@ -1,0 +1,13 @@
+.kurs-partners {
+	text-align: center;
+	margin: 250px 0;
+	position: relative;
+
+	&-wrapper {
+		margin: 60px 0;
+	}
+
+	&__item:not(:first-of-type):not(:last-of-type) {
+		margin: 0 10px;
+	}
+}

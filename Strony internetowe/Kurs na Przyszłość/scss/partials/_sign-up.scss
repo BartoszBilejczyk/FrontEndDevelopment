@@ -5,9 +5,32 @@
 		box-shadow: 0 42px 64px 0 #e7e7ec;
 		background: $brand-blue;
 		padding: 80px 100px;
+		text-align: center;
+		border-radius: 10px;
+
+		@include sm-up {
+			padding: 80px 15%;
+		}
+
+		@include md-up {
+			padding: 100px 25%;
+		}
 	}
 
-	&-student {
-		display: none;
+	input {
+		margin: 20px 0;
+		padding: 10px 20px;
+		background: $white;
+		box-shadow: 0 4px 10px 0 #555;
+		cursor: pointer;
+		color: $black;
+		border: none;
+		border-radius: 20px;
+		width: 100%;
+		outline: none;
+
+		@include sm-up {
+			width: 400px;
+		}
 	}
 }

@@ -1,6 +1,7 @@
 html, body {
 	font-family: 'Open Sans', sans-serif;
 	background: lighten(#F0EFF4, 4);
+	max-width: 100vw;
 }
 
 .flex {
@@ -85,7 +86,7 @@ html, body {
 .kurs-box {
 	background: #fff;
 	box-shadow: 0 42px 64px 0 #e7e7ec;
-	padding: 50px 25px 15px;
+	padding: 30px 40px;
 	border-radius: 2px;
 
 	&--dark {

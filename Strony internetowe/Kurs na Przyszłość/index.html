@@ -24,23 +24,23 @@
 
         <!-- Header -->
 					<header class="kurs-header-wrapper">
-						<nav class="kurs-navigation-wrapper container-fluid flex row justify-between">
+						<nav class="kurs-navigation-wrapper container flex row justify-between">
 							<img src="img/logofb.png" alt="logo">
 							<ul class="kurs-navigation flex row justify-center">
 								<a href="">
 									<li class="kurs-navigation__item">O projekcie</li>
 								</a>
 								<a href="">
-									<li class="kurs-navigation__item">Zapisz szkołę</li>
-								</a>
-								<a href="">
-									<li class="kurs-navigation__item">Partnerzy</li>
+									<li class="kurs-navigation__item">Zgłoś szkołę</li>
 								</a>
 								<a href="">
 									<li class="kurs-navigation__item">Poprzednia edycja</li>
 								</a>
 								<a href="">
 									<li class="kurs-navigation__item">Opinie</li>
+								</a>
+								<a href="">
+									<li class="kurs-navigation__item">Partnerzy</li>
 								</a>
 								<a href="">
 									<li class="kurs-navigation__item">Zespół</li>
@@ -50,18 +50,14 @@
 								</a>
 							</ul>
 						</nav>
-						<div class="container">
+						<div class="container flex row justify-between">
 							<div class="kurs-header-content">
-								<h1 class="kurs-heading
-													 kurs-heading--primary
-													 kurs-heading--white">Lekcja</h1>
 								<h2 class="kurs-heading
-													 kurs-heading--secondary
-													 kurs-heading--white">Temat: Wybieramy świadomie swoją przyszłość!</h2>
+													 kurs-heading--primary">Wybierz świadomie swoją przyszłość!</h2>
 								<h3 class="kurs-heading
-													 kurs-heading--tertiary
-													 kurs-heading--white">Pomagamy uczniom odkryć swoje predyspozycje, poznać możliwości oraz wymagania rynku pracy i obrać swój Kurs na Przyszłość!</h3>
+													 kurs-heading--tertiary">Pomagamy uczniom odkryć swoje predyspozycje, poznać możliwości oraz wymagania rynku pracy i obrać swój Kurs na Przyszłość!</h3>
 							</div>
+							<img class="kurs-header-content-background" src="img/polygon-5-blue.png" alt="">
 						</div>
 					</header>
 				<!-- End of Header -->
@@ -120,6 +116,7 @@
 								</div>
 							</div>
 						</div>
+						<img class="kurs-overview-polygon" src="img/polygon-3-pink.png" alt="">
 					</section>
 				<!-- End of Overview -->
 
@@ -129,21 +126,10 @@
 					<section class="kurs-sign-up">
 						<div class="container">
 							<div class="kurs-sign-up__box">
-								<div class="flex row align-center justify-center">
-									<button id="teacher" class="btn btn--light active">Nauczyciel</button>
-									<button id="student" class="btn btn--light">Uczeń</button>
-								</div>
+								<h3 class="kurs-heading kurs-heading--section kurs-heading--white">Zgłoś swoją szkołę</h3>
+								<p class="kurs-copy kurs-copy kurs-copy--white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus beatae ex laborum id quibusdam asperiores eaque ipsum velit ullam, dolores in quas nemo. Autem mollitia, praesentium odit. Quisquam, accusantium, incidunt.</p>
 
-								<div class="kurs-sign-up-school">
-									<h4 class="kurs-heading kurs-heading--subsection">Nauczyciel</h4>
-									<p class="kurs-copy"></p>
-									<input type="text" class="kurs-input">
-								</div>
-								<div class="kurs-sign-up-student">
-									<h4 class="kurs-heading kurs-heading--subsection">Uczeń</h4>
-									<p class="kurs-copy"></p>
-									<input type="text" class="kurs-input">
-								</div>
+								<input type="text" class="kurs-input">
 							</div>
 						</div>
 					</section>
@@ -159,7 +145,7 @@
 								<p class="kurs-copy">dsakjhsadj kjs adklj dsakjl dsaj ljk lkj sda</p>
 							</div>
 							<div class="kurs-stats__item kurs-stats__item-heading">
-								<span class="kurs-heading kurs-heading--section">Statystyki poprzedniej edycji</span>
+								<span class="kurs-heading kurs-heading--section">W poprzedniej edycji</span>
 							</div>
 							<div class="kurs-stats__item">
 								<span class="kurs-stats__item-number">123</span>
@@ -189,7 +175,6 @@
 														 kurs-heading--secondary">Uczniowie o kursie</h3>
 									<div class="kurs-box kurs-box--dark kurs-testimonials__item">
 										<div class="kurs-testimonials__item-main">
-											<img src="" alt="">
 											<div>
 												<p class="kurs-copy">Jan Kowalski</p>
 												<p class="kurs-copy">Uczeń</p>
@@ -199,7 +184,6 @@
 									</div>
 									<div class="kurs-box kurs-box--dark kurs-testimonials__item">
 										<div class="kurs-testimonials__item-main">
-											<img src="" alt="">
 											<div>
 												<p class="kurs-copy">Jan Kowalski</p>
 												<p class="kurs-copy">Uczeń</p>
@@ -209,7 +193,6 @@
 									</div>
 									<div class="kurs-box kurs-box--dark kurs-testimonials__item">
 										<div class="kurs-testimonials__item-main">
-											<img src="" alt="">
 											<div>
 												<p class="kurs-copy">Jan Kowalski</p>
 												<p class="kurs-copy">Uczeń</p>
@@ -231,14 +214,15 @@
 							<h3 class="kurs-heading
 												 kurs-heading--section">Partnerzy</h3>
 							<div class="kurs-partners-wrapper flex row align-center justify-center">
-								<img src="" alt="" class="kurs-partners__item">
-								<img src="" alt="" class="kurs-partners__item">
-								<img src="" alt="" class="kurs-partners__item">
-								<img src="" alt="" class="kurs-partners__item">
-								<img src="" alt="" class="kurs-partners__item">
-								<img src="" alt="" class="kurs-partners__item">
+								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
+								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
+								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
+								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
+								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
+								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
 							</div>
 						</div>
+						<img class="kurs-partners-polygon" src="img/polygon-5-yellow.png" alt="">
 					</section>
 				<!-- End of partners -->
 
@@ -252,34 +236,35 @@
 							<p class="kurs-copy"></p>
 							<div class="kurs-team-wrapper flex row align-center justify-center">
 								<div class="kurs-team__person kurs-box">
-									<div class="kurs-team__person-main">
-										<img src="" alt="">
-										<img src="img/linkedin.png" alt="">
+									<div class="kurs-team__person-main flex row justify-between">
+										<img class="kurs-team__person-main-person-image" src="img/czech.jpg" alt="">
+										<img class="kurs-team__person-main-sm" src="img/linkedin.png" alt="">
 									</div>
-									<h4 class="kurs-copy kurs-copy--large"></h4>
-									<p class="kurs-copy"></p>
+									<h4 class="kurs-copy kurs-copy--large">Project Manager</h4>
+									<p class="kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae excepturi cumque voluptatibus, fugiat itaque ea reprehenderit sed nemo reiciendis sunt consequuntur autem voluptatum fugit ducimus libero et quibusdam adipisci tempore.</p>
 									<p class="kurs-copy"></p>
 								</div>
 								<div class="kurs-team__person kurs-box">
-									<div class="kurs-team__person-main">
-										<img src="" alt="">
-										<img src="img/linkedin.png" alt="">
+									<div class="kurs-team__person-main flex row justify-between">
+										<img class="kurs-team__person-main-person-image" src="img/czech.jpg" alt="">
+										<img class="kurs-team__person-main-sm" src="img/linkedin.png" alt="">
 									</div>
-									<h4 class="kurs-copy kurs-copy--large"></h4>
-									<p class="kurs-copy"></p>
+									<h4 class="kurs-copy kurs-copy--large">Project Manager</h4>
+									<p class="kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel totam veritatis aspernatur molestias distinctio voluptatibus qui odit alias error, eos ipsa id expedita velit eaque quisquam nostrum aperiam, voluptate dolore.</p>
 									<p class="kurs-copy"></p>
 								</div>
 								<div class="kurs-team__person kurs-box">
-									<div class="kurs-team__person-main">
-										<img src="" alt="">
-										<img src="img/linkedin.png" alt="">
+									<div class="kurs-team__person-main flex row justify-between">
+										<img class="kurs-team__person-main-person-image" src="img/czech.jpg" alt="">
+										<img class="kurs-team__person-main-sm" src="img/linkedin.png" alt="">
 									</div>
-									<h4 class="kurs-copy kurs-copy--large"></h4>
-									<p class="kurs-copy"></p>
+									<h4 class="kurs-copy kurs-copy--large">Project Manager</h4>
+									<p class="kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero adipisci obcaecati excepturi, eveniet consectetur ab id dolore aliquid. Dolores velit quos cupiditate ratione itaque voluptate dignissimos molestias accusamus expedita commodi.</p>
 									<p class="kurs-copy"></p>
 								</div>
 							</div>
 						</div>
+						<img class="kurs-team-polygon" src="img/polygon-3-blue.png" alt="">
 					</section>
 				<!-- End of team -->
 
@@ -291,36 +276,28 @@
 												 kurs-heading--section">FAQ</h4>
 							<div class="kurs-faq-wrapper flex row align-center justify-center">
 								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper">
-										<h5 class="kurs-faq__item-question"></h5>
+									<div class="kurs-faq__item-question-wrapper flex row nowrap justify-between">
+										<h5 class="kurs-faq__item-question kurs-copy kurs-copy--large">Jakie są obecne problemy uczniów?</h5>
 										<span class="chevron"></span>
 									</div>
 									<p class="kurs-faq__item-answer
-														kurs-copy"></p>
+														kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur facilis veniam commodi numquam quisquam, aperiam dicta beatae nulla. Quaerat labore, aliquam in sunt neque vel reprehenderit, ipsum optio error.</p>
 								</div>
 								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper">
-										<h5 class="kurs-faq__item-question"></h5>
+									<div class="kurs-faq__item-question-wrapper flex row nowrap justify-between">
+										<h5 class="kurs-faq__item-question kurs-copy kurs-copy--large">Jak zgłosić się do udziału w projekcie?</h5>
 										<span class="chevron"></span>
 									</div>
 									<p class="kurs-faq__item-answer
-														kurs-copy"></p>
+														kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium impedit iure aut quisquam eaque magni ipsum fugiat eius nisi, voluptate. Ex repudiandae sunt fugiat, ipsam. Dolorem molestias, modi distinctio velit!</p>
 								</div>
 								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper">
-										<h5 class="kurs-faq__item-question"></h5>
+									<div class="kurs-faq__item-question-wrapper flex row nowrap justify-between">
+										<h5 class="kurs-faq__item-question kurs-copy kurs-copy--large">Jakie umiejętności zdobędą uczniowie?</h5>
 										<span class="chevron"></span>
 									</div>
 									<p class="kurs-faq__item-answer
-														kurs-copy"></p>
-								</div>
-								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper">
-										<h5 class="kurs-faq__item-question"></h5>
-										<span class="chevron"></span>
-									</div>
-									<p class="kurs-faq__item-answer
-														kurs-copy"></p>
+														kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati hic sit, perferendis consequuntur cum ratione neque, omnis porro architecto facere nostrum non ea vero libero, reiciendis est velit ab optio!</p>
 								</div>
 							</div>
 						</div>
@@ -330,12 +307,17 @@
 
 
 				<!-- Footer -->
-					<footer>
-						<div></div>
-						<div></div>
+					<footer class="kurs-footer">
 						<img src="img/logo--white.png" alt="">
-						<p class="kurs-copy">Kurs na Przyszłość</p>
-						<p class="kurs-copy">Wszystkie prawa zastrzeżone &copy;, 2017</p>
+						<div class="container-fluid">
+							<div class="kurs-footer-content">
+								<p class="kurs-copy kurs-copy--white">Kurs na Przyszłość</p>
+								<p class="kurs-copy kurs-copy--white">Wszystkie prawa zastrzeżone &copy;, 2017</p>
+							</div>
+						</div>
+
+						<img class="kurs-footer-polygon1" src="img/polygon-5-blue-small.png" alt="">
+						<img class="kurs-footer-polygon2" src="img/polygon-3-pink-small.png" alt="">
 					</footer>
 				<!-- End of footer -->
 

@@ -1,0 +1,10 @@
+.kurs-footer {
+	position: relative;
+	height: 25vw;
+
+	&-content {
+		position: absolute;
+		bottom: 100px;
+		z-index: 10;
+	}
+}

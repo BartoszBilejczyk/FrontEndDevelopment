@@ -2,7 +2,7 @@
 		list-style: none;
 
 		a {
-			color: $white;
+			color: $brand-dark;
 			text-decoration: none;
 		}
 
@@ -19,19 +19,15 @@
 	}
 
 	&__item {
-		margin: 10px;
+		margin: 10px 20px;
 	}
 }
 
 .kurs-header {
 
 	&-wrapper {
-		background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.0) 100%), url('../img/chalk-background.jpg');
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-
 		height: 100%;
+		position: relative;
 
 		@include sm-up {
 			height: 90vh;
@@ -44,11 +40,17 @@
 		transform: translateY(-70%);
 
 		@include md-up {
-			width: 50vw;
+			width: 40vw;
 		}
 
 		h3 {
-			margin-top: 100px;
+			margin-top: 50px;
+		}
+
+		&-background {
+			position: absolute;
+			right: -400px;
+			max-width: 70vw;
 		}
 	}
 }
