@@ -4,54 +4,6 @@
 	&__item {
 		margin: 150px 0;
 
-		&-number-wrapper {
-			position: relative;
-	    border: 1px dashed $brand-blue;
-	    height: 50px;
-	    border-radius: 50%;
-	    width: 50px;
-
-			@include sm-up {
-				width: 200px;
-				height: 200px;
-			}
-
-			@include lg-up {
-				width: 350px;
-				height: 350px;
-			}
-		}
-
-		&-number {
-			position: absolute;
-			color: $white;
-			background: $brand-blue;
-			padding: 20px;
-			height: 40px;
-			width: 40px;
-			text-align: center;
-			border-radius: 50%;
-
-			@include font(20, 400);
-
-			&--left {
-				left: 80%;
-				top: 5%;
-			}
-
-			&--right {
-				left: 10%;
-			}
-
-			&--large {
-				position: absolute;
-				@include font(180, 500);
-				color: $brand-blue;
-				opacity: 0.05;
-				left: 25%;
-			}
-		}
-
 		&-description-wrapper {
 			@include sm-up {
 				flex-basis: calc(100% - 400px);

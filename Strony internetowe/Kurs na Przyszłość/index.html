@@ -50,14 +50,40 @@
 								</a>
 							</ul>
 						</nav>
-						<div class="container flex row justify-between">
+						<div class="container flex column">
 							<div class="kurs-header-content">
 								<h2 class="kurs-heading
-													 kurs-heading--primary">Wybierz świadomie swoją przyszłość!</h2>
-								<h3 class="kurs-heading
-													 kurs-heading--tertiary">Pomagamy uczniom odkryć swoje predyspozycje, poznać możliwości oraz wymagania rynku pracy i obrać swój Kurs na Przyszłość!</h3>
+													 kurs-heading--primary
+													 kurs-heading--white">Wybierz świadomie swoją przyszłość!</h2>
+								<h3 class="kurs-header-content-subtitle
+													 kurs-heading
+													 kurs-heading--tertiary
+													 kurs-heading--white">Pomagamy uczniom odkryć swoje predyspozycje, poznać możliwości oraz wymagania rynku pracy i obrać swój Kurs na Przyszłość!</h3>
 							</div>
-							<img class="kurs-header-content-background" src="img/polygon-5-blue.png" alt="">
+							<div class="kurs-header-content-numbers flex row wrap justify-center">
+								<div class="kurs-header-content-number-wrapper">
+									<span class="kurs-header-content-number
+															 kurs-header-content-number-1">1</span>
+									<span class="kurs-header-content-number-text">Program skierowany jest do uczniów szkół ponadgimnazjalnych</span>
+								</div>
+								<div class="kurs-header-content-number-wrapper">
+									<span class="kurs-header-content-number
+															 kurs-header-content-number-2">2</span>
+									<span class="kurs-header-content-number-text">Projekt ma formę warsztatów odbywających się w szkołach.</span>
+								</div>
+								<div class="kurs-header-content-number-wrapper">
+									<span class="kurs-header-content-number
+															 kurs-header-content-number-3">3</span>
+									<span class="kurs-header-content-number-text
+															 kurs-header-content-number-text--small">Projekt organizuje grupa studentów i absolwentów wiodących uczelni oraz doświadczeni psychologowie.</span>
+								</div>
+								<div class="kurs-header-content-number-wrapper">
+									<span class="kurs-header-content-number
+															 kurs-header-content-number-4">4</span>
+									<span class="kurs-header-content-number-text
+															 kurs-header-content-number-text--small">Udział w warsztatach jest całkowicie bezpłatny.</span>
+								</div>
+							</div>
 						</div>
 					</header>
 				<!-- End of Header -->
@@ -116,7 +142,7 @@
 								</div>
 							</div>
 						</div>
-						<img class="kurs-overview-polygon" src="img/polygon-3-pink.png" alt="">
+						<!-- <img class="kurs-overview-polygon" src="img/polygon-3-pink.png" alt=""> -->
 					</section>
 				<!-- End of Overview -->
 
@@ -173,32 +199,21 @@
 								<div class="flex row align-center justify-center">
 									<h3 class="kurs-heading
 														 kurs-heading--secondary">Uczniowie o kursie</h3>
-									<div class="kurs-box kurs-box--dark kurs-testimonials__item">
-										<div class="kurs-testimonials__item-main">
-											<div>
-												<p class="kurs-copy">Jan Kowalski</p>
-												<p class="kurs-copy">Uczeń</p>
-											</div>
-										</div>
-										<p class="kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ad mollitia modi corporis, ex hic. Quam ea totam, delectus quos enim, numquam voluptate rerum sequi error sunt quas beatae officiis.</p>
+									<div class="kurs-box kurs-box--dark kurs-testimonials__item flex column justify-between">
+										<div class="kurs-testimonials__item-quote"></div>
+										<p class="kurs-copy">Te warsztaty otworzyły mi oczy na bardzo wiele rzeczy, o których do tej pory nawet nie myślałem.</p>
+										<p class="kurs-copy">Tomek, 18 lat</p>
+
 									</div>
-									<div class="kurs-box kurs-box--dark kurs-testimonials__item">
-										<div class="kurs-testimonials__item-main">
-											<div>
-												<p class="kurs-copy">Jan Kowalski</p>
-												<p class="kurs-copy">Uczeń</p>
-											</div>
-										</div>
-										<p class="kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ad mollitia modi corporis, ex hic. Quam ea totam, delectus quos enim, numquam voluptate rerum sequi error sunt quas beatae officiis.</p>
+									<div class="kurs-box kurs-box--dark kurs-testimonials__item flex column justify-between">
+										<div class="kurs-testimonials__item-quote"></div>
+										<p class="kurs-copy">To naprawdę super, że tacy młodzi ludzie jak Wy mają takie super doświadczenia i chcą się nim z nami dzielić!</p>
+										<p class="kurs-copy">Ola, 17 lat</p>
 									</div>
-									<div class="kurs-box kurs-box--dark kurs-testimonials__item">
-										<div class="kurs-testimonials__item-main">
-											<div>
-												<p class="kurs-copy">Jan Kowalski</p>
-												<p class="kurs-copy">Uczeń</p>
-											</div>
-										</div>
-										<p class="kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ad mollitia modi corporis, ex hic. Quam ea totam, delectus quos enim, numquam voluptate rerum sequi error sunt quas beatae officiis.</p>
+									<div class="kurs-box kurs-box--dark kurs-testimonials__item flex column justify-between">
+										<div class="kurs-testimonials__item-quote"></div>
+										<p class="kurs-copy">Fajnie, że zrobiliście coś takiego, bo niestety w szkole nikt nie uważa, że warto nas o tym wszystkim poinformować</p>
+										<p class="kurs-copy">Karolina, 17 lat</p>
 									</div>
 								</div>
 							</div>
@@ -212,17 +227,35 @@
 					<section class="kurs-partners">
 						<div class="container">
 							<h3 class="kurs-heading
-												 kurs-heading--section">Partnerzy</h3>
+												 kurs-heading--section">Partnerzy merytoryczni</h3>
+							<div class="kurs-partners-wrapper flex row wrap align-center justify-around">
+								<img class="kurs-partners__item" src="img/logo/MinisterEdukacjiNarodowej.png" alt="">
+								<img class="kurs-partners__item" src="img/logo/MKO.jpg" alt="">
+								<img class="kurs-partners__item" src="img/logo/FRSE.png" alt="">
+								<img class="kurs-partners__item" src="img/logo/FundacjaPagi.jpg" alt="">
+								<img class="kurs-partners__item" src="img/logo/PSRP.png" alt="">
+							</div>
+
+							<h3 class="kurs-heading
+												 kurs-heading--section">Partnerzy akademiccy</h3>
 							<div class="kurs-partners-wrapper flex row align-center justify-center">
-								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
-								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
-								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
-								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
-								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
-								<img class="kurs-partners__item" src="http://via.placeholder.com/170x50" alt="" class="kurs-partners__item">
+
+								<img class="kurs-partners__item" src="img/logo/SGH.png" alt="">
+								<img class="kurs-partners__item" src="img/logo/WUM.png" alt="">
+							</div>
+
+							<h3 class="kurs-heading
+												 kurs-heading--section">Patroni medialni</h3>
+							<div class="kurs-partners-wrapper flex row wrap align-center justify-around">
+								<img class="kurs-partners__item" src="img/logo/Rzeczpospolita.jpg" alt="">
+								<img class="kurs-partners__item" src="img/logo/ESKA.png" alt="">
+								<img class="kurs-partners__item" src="img/logo/Pomaturze.jpg" alt="">
+								<img class="kurs-partners__item" src="img/logo/Perspektywy.png" alt="">
+								<img class="kurs-partners__item" src="img/logo/Cogito.png" alt="">
+								<img class="kurs-partners__item" src="img/logo/Edulandia.jpg" alt="">
 							</div>
 						</div>
-						<img class="kurs-partners-polygon" src="img/polygon-5-yellow.png" alt="">
+						<!-- <img class="kurs-partners-polygon" src="img/polygon-5-yellow.png" alt=""> -->
 					</section>
 				<!-- End of partners -->
 
@@ -234,7 +267,7 @@
 							<h3 class="kurs-heading
 												 kurs-heading--section">Zespół</h3>
 							<p class="kurs-copy"></p>
-							<div class="kurs-team-wrapper flex row align-center justify-center">
+							<div class="kurs-team-wrapper flex row wrap align-center justify-center">
 								<div class="kurs-team__person kurs-box">
 									<div class="kurs-team__person-main flex row justify-between">
 										<img class="kurs-team__person-main-person-image" src="img/czech.jpg" alt="">
@@ -264,7 +297,7 @@
 								</div>
 							</div>
 						</div>
-						<img class="kurs-team-polygon" src="img/polygon-3-blue.png" alt="">
+						<!-- <img class="kurs-team-polygon" src="img/polygon-3-blue.png" alt=""> -->
 					</section>
 				<!-- End of team -->
 
@@ -273,37 +306,40 @@
 					<section class="kurs-faq">
 						<div class="container">
 							<h4 class="kurs-heading
-												 kurs-heading--section">FAQ</h4>
-							<div class="kurs-faq-wrapper flex row align-center justify-center">
-								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper flex row nowrap justify-between">
-										<h5 class="kurs-faq__item-question kurs-copy kurs-copy--large">Jakie są obecne problemy uczniów?</h5>
-										<span class="chevron"></span>
-									</div>
-									<p class="kurs-faq__item-answer
-														kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur pariatur facilis veniam commodi numquam quisquam, aperiam dicta beatae nulla. Quaerat labore, aliquam in sunt neque vel reprehenderit, ipsum optio error.</p>
+												 kurs-heading--section
+												 kurs-heading--white">FAQ</h4>
+							<div class="kurs-faq-wrapper flex row wrap align-center justify-center">
+								<div class="kurs-faq__item
+														kurs-box
+														kurs-box--dark
+														kurs-box--no-radius
+														kurs-box--blue">
+									<p class="kurs-copy kurs-copy--large kurs-copy--white">Jakie są obecne problemy uczniów?</p>
+									<p class="kurs-copy kurs-copy--white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo vitae hic molestias, repudiandae porro pariatur animi, doloribus ad, ullam facere, dolorum tempora! Consequuntur quas, eius unde perspiciatis. Mollitia, velit, dignissimos!</p>
+									<div class="kurs-faq__item-magnet"></div>
 								</div>
-								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper flex row nowrap justify-between">
-										<h5 class="kurs-faq__item-question kurs-copy kurs-copy--large">Jak zgłosić się do udziału w projekcie?</h5>
-										<span class="chevron"></span>
-									</div>
-									<p class="kurs-faq__item-answer
-														kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium impedit iure aut quisquam eaque magni ipsum fugiat eius nisi, voluptate. Ex repudiandae sunt fugiat, ipsam. Dolorem molestias, modi distinctio velit!</p>
+								<div class="kurs-faq__item
+														kurs-box
+														kurs-box--dark
+														kurs-box--no-radius
+														kurs-box--pink">
+									<p class="kurs-copy kurs-copy--large kurs-copy--white">Jak zgłosić się do udziału w projekcie?</p>
+									<p class="kurs-copy kurs-copy--white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ipsa itaque quos asperiores, autem totam perspiciatis vero. Harum doloremque veniam nihil dolores dicta praesentium rem nisi corrupti aspernatur consequatur, nostrum.</p>
+									<div class="kurs-faq__item-magnet"></div>
 								</div>
-								<div class="kurs-faq__item kurs-box">
-									<div class="kurs-faq__item-question-wrapper flex row nowrap justify-between">
-										<h5 class="kurs-faq__item-question kurs-copy kurs-copy--large">Jakie umiejętności zdobędą uczniowie?</h5>
-										<span class="chevron"></span>
-									</div>
-									<p class="kurs-faq__item-answer
-														kurs-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati hic sit, perferendis consequuntur cum ratione neque, omnis porro architecto facere nostrum non ea vero libero, reiciendis est velit ab optio!</p>
+								<div class="kurs-faq__item
+														kurs-box
+														kurs-box--dark
+														kurs-box--no-radius
+														kurs-box--yellow">
+									<p class="kurs-copy kurs-copy--large kurs-copy--white">Jakie umiejętności zdobędą uczniowie?</p>
+									<p class="kurs-copy kurs-copy--white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo eos provident quam incidunt error magnam tempora libero nulla ipsum architecto sint recusandae rem itaque, quos est enim inventore adipisci nostrum!</p>
+									<div class="kurs-faq__item-magnet"></div>
 								</div>
 							</div>
 						</div>
 					</section>
 				<!-- End of FAQ -->
-
 
 
 				<!-- Footer -->
@@ -316,13 +352,10 @@
 							</div>
 						</div>
 
-						<img class="kurs-footer-polygon1" src="img/polygon-5-blue-small.png" alt="">
-						<img class="kurs-footer-polygon2" src="img/polygon-3-pink-small.png" alt="">
+						<!-- <img class="kurs-footer-polygon1" src="img/polygon-5-blue-small.png" alt="">
+						<img class="kurs-footer-polygon2" src="img/polygon-3-pink-small.png" alt=""> -->
 					</footer>
 				<!-- End of footer -->
-
-
-
 
 
 

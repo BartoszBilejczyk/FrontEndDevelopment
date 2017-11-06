@@ -1,9 +1,9 @@
 // -------------------------------------------------
 // Simpler media queries
 // -------------------------------------------------
-$sm-breakpoint: 600px;
-$md-breakpoint: 960px;
-$lg-breakpoint: 1200px;
+$sm-breakpoint: 768px;
+$md-breakpoint: 1024px;
+$lg-breakpoint: 1366px;
 $xlg-breakpoint: 1900px;
 $screen: "only screen";
 $landscape: "#{$screen} and (orientation: landscape)";

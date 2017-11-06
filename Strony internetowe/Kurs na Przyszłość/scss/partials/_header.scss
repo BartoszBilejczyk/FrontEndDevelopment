@@ -2,7 +2,7 @@
 		list-style: none;
 
 		a {
-			color: $brand-dark;
+			color: $white;
 			text-decoration: none;
 		}
 
@@ -28,19 +28,18 @@
 	&-wrapper {
 		height: 100%;
 		position: relative;
-
-		@include sm-up {
-			height: 90vh;
-		}
+		background: linear-gradient(to right, rgba(0,0,0,0.8) , rgba(0,0,0,0.4)), url('../img/chalk-background.jpg');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 
 	&-content {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-70%);
 
-		@include md-up {
-			width: 40vw;
+		&-subtitle {
+			@include md-up {
+				width: 40vw;
+			}
 		}
 
 		h3 {
@@ -51,6 +50,187 @@
 			position: absolute;
 			right: -400px;
 			max-width: 70vw;
+		}
+
+		&-numbers {
+			padding: 80px 0;
+		}
+
+		&-number-wrapper {
+			position: relative;
+	    border: 2px dashed $white;
+	    height: 50px;
+	    border-radius: 50%;
+	    width: 50px;
+			margin: 20px;
+
+			&:nth-of-type(1) {
+				height: 80vw;
+				width: 80vw;
+
+				@include sm-up {
+					height: 35vw;
+					width: 35vw;
+				}
+
+				@include lg-up {
+					margin: 0;
+					margin-top: 150px;
+					width: 350px;
+					height: 350px;
+				}
+
+				@include xlg-up {
+					width: 450px;
+					height: 450px;
+				}
+			}
+
+			&:nth-of-type(2) {
+				height: 80vw;
+				width: 80vw;
+
+				@include sm-up {
+					height: 35vw;
+					width: 35vw;
+				}
+
+				@include lg-up {
+					margin: 0;
+					width: 300px;
+					height: 300px;
+				}
+
+				@include xlg-up {
+					width: 350px;
+					height: 350px;
+				}
+			}
+
+			&:nth-of-type(3) {
+				height: 80vw;
+				width: 80vw;
+
+				@include sm-up {
+					height: 35vw;
+					width: 35vw;
+				}
+
+				@include lg-up {
+					margin: 0;
+					margin-top: 130px;
+					width: 270px;
+					height: 270px;
+				}
+
+				@include xlg-up {
+					width: 300px;
+					height: 300px;
+				}
+			}
+
+			&:nth-of-type(4) {
+				height: 80vw;
+				width: 80vw;
+
+				@include sm-up {
+					height: 35vw;
+					width: 35vw;
+				}
+
+				@include lg-up {
+					margin: 0;
+					width: 180px;
+					height: 180px;
+				}
+
+				@include xlg-up {
+					width: 220px;
+					height: 220px;
+				}
+			}
+		}
+
+		&-number {
+			position: absolute;
+			color: $white;
+			background: $brand-blue;
+			padding: 20px;
+			height: 40px;
+			width: 40px;
+			text-align: center;
+			border-radius: 50%;
+
+			@include font(20, 400);
+
+			&-1 {
+				top: -20px;
+				left: 20%;
+			}
+
+			&-2 {
+				top: 20%;
+				left: -30px;
+			}
+
+			&-3 {
+				top: 60%;
+				left: -30px;
+			}
+
+			&-4 {
+				top: 20px;
+				right: 20px;
+
+				@include sm-up {
+					top: -20px;
+					right: -20px;
+				}
+
+				@include lg-up {
+					top: -30px;
+					right: -30px;
+				}
+			}
+
+			&-text {
+				color: $white;
+				@include font(15, 400);
+				text-align: center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 60%;
+				transform: translate(-50%, -50%);
+
+				@include sm-up {
+					@include font(11, 400);
+				}
+
+				@include md-up {
+					@include font(17, 400);
+				}
+
+				@include lg-up {
+					@include font(15, 400);
+				}
+
+				&--small {
+					@include font(15, 400);
+
+					@include sm-up {
+						@include font(11, 400);
+					}
+
+					@include md-up {
+						@include font(12, 400);
+					}
+
+					@include xlg-up {
+						@include font(12, 400);
+					}
+				}
+			}
 		}
 	}
 }

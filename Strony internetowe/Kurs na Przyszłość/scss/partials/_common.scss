@@ -90,7 +90,31 @@ html, body {
 	border-radius: 2px;
 
 	&--dark {
-		box-shadow: 2px 6px 20px 0 #777;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+
+	// &--very-dark {
+	// 	box-shadow: 0 3px 6px rgba(0,0,0,0.88), 0 3px 6px rgba(0,0,0,0.77);
+	// }
+
+	&--no-shadow {
+		box-shadow: none;
+	}
+
+	&--no-radius {
+		border-radius: 0;
+	}
+
+	&--blue {
+		background: $brand-blue;
+	}
+
+	&--pink {
+		background: $brand-pink;
+	}
+
+	&--yellow {
+		background: $brand-yellow;
 	}
 }
 

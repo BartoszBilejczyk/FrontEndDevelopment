@@ -2,22 +2,19 @@
 	color: $gray-dark;
 
 	&--primary {
-		@include font(35, 600);
+		@include font(35, 500);
 		text-transform: uppercase;
 		line-height: 1.4em;
-		color: darken($brand-blue, 16);
 	}
 
 	&--secondary {
 		@include font(26, 500);
 		line-height: 1.4em;
-		color: darken($brand-blue, 16);
 	}
 
 	&--tertiary {
 		@include font(15, 400);
 		line-height: 1.4em;
-		color: darken($brand-blue, 16);
 	}
 
 	&--section {
@@ -53,6 +50,10 @@
 
 	&--light {
 		color: $gray-x-light;
+	}
+
+	&--dark-blue {
+		color: darken($brand-blue, 10);
 	}
 
 	&--white {
