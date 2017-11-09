@@ -1,0 +1,64 @@
+.kurs-heading {
+	color: $gray-dark;
+
+	&--primary {
+		@include font(35, 500);
+		text-transform: uppercase;
+		line-height: 1.4em;
+	}
+
+	&--secondary {
+		@include font(26, 500);
+		line-height: 1.4em;
+	}
+
+	&--tertiary {
+		@include font(15, 400);
+		line-height: 1.4em;
+	}
+
+	&--section {
+		@include font(20, 400);
+	}
+
+	&--subsection {
+		@include font(16, 400);
+	}
+
+	&--white {
+		color: $white;
+	}
+}
+
+.kurs-copy {
+	color: $gray-light-dark;
+	@include font(10, 300);
+
+	&--large {
+		@include font(12, 400);
+	}
+
+	&--small {
+		@include font(8, 300);
+	}
+
+	&--dark {
+		color: $gray-dark;
+	}
+
+	&--light {
+		color: $gray;
+	}
+
+	&--dark-blue {
+		color: darken($brand-blue, 10);
+	}
+
+	&--white {
+		color: $white;
+	}
+
+	&--semi {
+		font-weight: 500;
+	}
+}

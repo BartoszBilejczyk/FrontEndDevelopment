@@ -1,0 +1,9 @@
+@mixin font-size($value: 16) {
+  font-size: $value + px;
+  font-size: ($value / 10) + rem;
+}
+
+@mixin font($font-size: 16, $font-weight: normal) {
+  @include font-size($font-size);
+  font-weight: $font-weight;
+}

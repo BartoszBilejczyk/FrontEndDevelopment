@@ -1,0 +1,53 @@
+.kurs-faq {
+	padding: 50px 0;
+	background: linear-gradient(to right, rgba(0,0,0,0.8) , rgba(0,0,0,0.4)), url('../img/chalk-background.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 500px;
+
+	&__item {
+		width: 100%;
+		position: relative;
+		margin: 20px 0;
+
+		@include lg-up {
+			width: calc(33% - 150px);
+
+			&:not(:first-of-type):not(:last-of-type) {
+				margin: 0 50px;
+			}
+		}
+
+		&-question {
+			margin: 20px 5px;
+		}
+
+		&-answer {
+			display: none;
+		}
+
+		&-magnet {
+			position: absolute;
+			background: $white;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+			height: 30px;
+			width: 30px;
+			border-radius: 50%;
+			top: -15px;
+			left: 15px;
+
+			&:before {
+				content: '';
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: white;
+				box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+				position: absolute;
+				top: 7px;
+				left: 7px;
+			}
+		}
+	}
+}

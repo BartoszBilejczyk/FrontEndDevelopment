@@ -1,0 +1,19 @@
+{
+  "name": "kurs-na-przyszlosc",
+  "version": "1.0.0",
+  "description": "Kurs na Przyszłość",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "node-sass": "^4.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/main.scss css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "author": "Bartosz Bilejczyk",
+  "license": "ISC"
+}

@@ -1,0 +1,156 @@
+html, body {
+	font-family: 'Open Sans', sans-serif;
+	background: $brand-background;
+	max-width: 100vw;
+}
+
+.flex {
+	display: flex;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-start {
+	align-items: flex-start;
+}
+
+.align-end {
+	align-items: flex-end;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-around {
+	justify-content: space-around;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-start {
+	justify-content: flex-start;
+}
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.row {
+	flex-direction: row;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.wrap {
+	flex-wrap: wrap;
+}
+
+.nowrap {
+	flex-direction: nowrap;
+}
+
+.container {
+	padding: 0 15px;
+
+	@include sm-up {
+		padding: 0 30px;
+	}
+	@include md-up {
+		padding: 0 100px;
+	}
+	@include lg-up {
+		padding: 0;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	@include xlg-up {
+		max-width: 1400px;
+	}
+
+	&-fluid {
+		padding: 0 30px;
+	}
+}
+
+.kurs-box {
+	background: #fff;
+	box-shadow: 0 42px 64px 0 #e7e7ec;
+	padding: 15px 20px;
+	border-radius: 2px;
+
+	@include lg-up {
+		padding: 30px 40px;
+	}
+
+	&--dark {
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+
+	// &--very-dark {
+	// 	box-shadow: 0 3px 6px rgba(0,0,0,0.88), 0 3px 6px rgba(0,0,0,0.77);
+	// }
+
+	&--no-shadow {
+		box-shadow: none;
+	}
+
+	&--no-radius {
+		border-radius: 0;
+	}
+
+	&--blue {
+		background: $brand-blue;
+	}
+
+	&--pink {
+		background: $brand-pink;
+	}
+
+	&--yellow {
+		background: $brand-yellow;
+	}
+}
+
+.btn {
+	background: transparent;
+	outline: none;
+	padding: 10px 15px;
+	border: none;
+
+	&--light {
+		color: $white;
+		border: 1px solid $white;
+		border-radius: 10px;
+
+		&.active,
+		&:hover {
+			background: $white;
+			color: $brand-blue
+		}
+	}
+
+	&--blue {
+		background: $brand-blue;
+		border-radius: 2px;
+		color: $white;
+	}
+
+	&--block {
+		width: 100%;
+	}
+}
+
+.text-center {
+	text-align: center;
+}

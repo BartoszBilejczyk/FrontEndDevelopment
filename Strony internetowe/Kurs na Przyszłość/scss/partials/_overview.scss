@@ -1,0 +1,19 @@
+.kurs-overview {
+	position: relative;
+
+	&__item {
+		margin: 150px 0;
+
+		&-description-wrapper {
+			@include sm-up {
+				flex-basis: calc(100% - 400px);
+
+			}
+			@include lg-up {
+				flex-basis: calc(100% - 600px);
+
+			}
+			margin: 0 100px;
+		}
+	}
+}

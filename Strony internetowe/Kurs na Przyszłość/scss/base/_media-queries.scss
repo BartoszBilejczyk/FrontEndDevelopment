@@ -1,0 +1,61 @@
+// -------------------------------------------------
+// Simpler media queries
+// -------------------------------------------------
+$sm-breakpoint: 768px;
+$md-breakpoint: 1024px;
+$lg-breakpoint: 1366px;
+$xlg-breakpoint: 1900px;
+$screen: "only screen";
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+$retina: (
+  "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+  "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+  "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+  "#{$screen} and (min-device-pixel-ratio: 2)",
+  "#{$screen} and (min-resolution: 192dpi)",
+  "#{$screen} and (min-resolution: 2dppx)"
+);
+
+// Retina
+@mixin retina {
+  @media #{$retina} {@content}
+}
+
+// Up - mobile fist approach
+$sm-up: "#{$screen} and (min-width: #{$sm-breakpoint})";
+$md-up: "#{$screen} and (min-width: #{$md-breakpoint})";
+$lg-up: "#{$screen} and (min-width: #{$lg-breakpoint})";
+$xlg-up: "#{$screen} and (min-width: #{$xlg-breakpoint})";
+
+@mixin sm-up {
+  @media #{$sm-up} {@content}
+}
+@mixin md-up {
+  @media #{$md-up} {@content}
+}
+@mixin lg-up {
+  @media #{$lg-up} {@content}
+}
+@mixin xlg-up {
+  @media #{$xlg-up} {@content}
+}
+
+// Down - try not to use these
+$sm-down: "#{$screen} and (max-width: #{$sm-breakpoint})";
+$md-down: "#{$screen} and (max-width: #{$md-breakpoint})";
+$lg-down: "#{$screen} and (max-width: #{$lg-breakpoint})";
+$xlg-down: "#{$screen} and (max-width: #{$xlg-breakpoint})";
+
+@mixin sm-down {
+  @media #{$sm-down} {@content}
+}
+@mixin md-down {
+  @media #{$md-down} {@content}
+}
+@mixin lg-down {
+  @media #{$lg-down} {@content}
+}
+@mixin xlg-down {
+  @media #{$xlg-down} {@content}
+}
