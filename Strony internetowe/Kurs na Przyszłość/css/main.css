@@ -85,6 +85,9 @@ html, body {
 .align-start {
   align-items: flex-start; }
 
+.align-stretch {
+  align-items: stretch; }
+
 .align-end {
   align-items: flex-end; }
 
@@ -195,7 +198,7 @@ html, body {
       .kurs-faq__item {
         width: calc(33% - 150px); }
         .kurs-faq__item:not(:first-of-type):not(:last-of-type) {
-          margin: 0 50px; } }
+          margin: 20px 50px; } }
     .kurs-faq__item-question {
       margin: 20px 5px; }
     .kurs-faq__item-answer {
@@ -671,7 +674,7 @@ html, body {
         min-height: 250px;
         width: calc(33% - 80px); }
         .kurs-structure .kurs-box:not(:first-of-type):not(:last-of-type) {
-          margin: 0 40px; } }
+          margin: 20px 40px; } }
     @media only screen and (min-width: 1366px) {
       .kurs-structure .kurs-box {
         width: calc(33% - 120px); } }
