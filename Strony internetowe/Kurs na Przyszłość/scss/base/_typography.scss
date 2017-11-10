@@ -2,19 +2,35 @@
 	color: $gray-dark;
 
 	&--primary {
-		@include font(35, 500);
+		@include font(22, 500);
 		text-transform: uppercase;
 		line-height: 1.4em;
+
+		@include sm-up {
+			@include font(27, 500);
+		}
+
+		@include md-up {
+			@include font(35, 500);
+		}
 	}
 
 	&--secondary {
-		@include font(26, 500);
+		@include font(22, 500);
 		line-height: 1.4em;
+
+		@include md-up {
+			@include font(26, 500);
+		}
 	}
 
 	&--tertiary {
-		@include font(15, 400);
+		@include font(12, 400);
 		line-height: 1.4em;
+
+		@include sm-up {
+			@include font(15, 400);
+		}
 	}
 
 	&--section {

@@ -38,9 +38,18 @@
 
 	&__item {
 		margin: 20px 0;
-		min-height: 160px;
+		min-height: 200px;
 		position: relative;
-		min-width: 170px;
+		min-width: 240px;
+
+		&:last-of-type {
+			@include md-up {
+				display: none;
+			}
+			@include lg-up {
+				display: block;
+			}
+		}
 
 		&-quote {
 			background: linear-gradient(rgba(240,239,244,0) 0%, rgba(240,239,244,1) 100%), url('../img/quotation-mark.svg');

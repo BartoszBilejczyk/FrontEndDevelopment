@@ -4,8 +4,8 @@
 	&__box {
 		box-shadow: 0 42px 64px 0 #e7e7ec;
 		background: linear-gradient(to right, rgba(0,0,0,0.8) , rgba(0,0,0,0.4)), url('../img/chalk-background.jpg');
-		padding: 80px 100px;
 		text-align: center;
+		padding: 20px 30px;
 		border-radius: 10px;
 
 		@include sm-up {

@@ -28,6 +28,10 @@
 				margin: 0 40px;
 			}
 			min-height: 250px;
+			width: calc(33% - 80px);
+		}
+
+		@include lg-up {
 			width: calc(33% - 120px);
 		}
 	}
