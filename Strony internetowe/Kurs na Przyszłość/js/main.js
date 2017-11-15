@@ -1,6 +1,6 @@
 $(window).on('load', function(){
 
-	$('.kurs-navigation-link').on('click',function () {
+	$('.kurs-navigation-link').on('click', function() {
 
     var target = this.hash;
 		console.log(target)

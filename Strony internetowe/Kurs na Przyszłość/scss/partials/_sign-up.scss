@@ -11,10 +11,6 @@
 		@include sm-up {
 			padding: 80px 15%;
 		}
-
-		@include md-up {
-			padding: 100px 25%;
-		}
 	}
 
 	form {
@@ -57,7 +53,7 @@
 	input:focus ~ label, input:valid ~ label 		{
 	  top:-20px;
 	  font-size:14px;
-	  color:$brand-blue;
+	  color: $white;
 	}
 
 	/* BOTTOM BARS ================================= */

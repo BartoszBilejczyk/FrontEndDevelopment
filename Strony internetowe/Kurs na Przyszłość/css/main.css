@@ -536,9 +536,6 @@ html, body {
     @media only screen and (min-width: 768px) {
       .kurs-sign-up__box {
         padding: 80px 15%; } }
-    @media only screen and (min-width: 1024px) {
-      .kurs-sign-up__box {
-        padding: 100px 25%; } }
   .kurs-sign-up form {
     width: 300px;
     margin: 50px auto 0; }
@@ -573,7 +570,7 @@ html, body {
   .kurs-sign-up input:focus ~ label, .kurs-sign-up input:valid ~ label {
     top: -20px;
     font-size: 14px;
-    color: #3386B8; }
+    color: #fff; }
   .kurs-sign-up .bar {
     position: relative;
     display: block;
